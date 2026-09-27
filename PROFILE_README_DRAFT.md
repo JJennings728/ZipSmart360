@@ -6,13 +6,17 @@ I build practical systems at the intersection of **data engineering, applied AI,
 
 My background is in insurance, claims, risk analysis, and business operations. My technical work focuses on translating that domain knowledge into inspectable software and analytical systems: validated data pipelines, SQL models, APIs, agent workflows, evaluation frameworks, underwriting analytics, and governed decision-support tools.
 
+[Portfolio index](https://github.com/JJennings728/ZipSmart360/blob/main/PORTFOLIO.md) · [LinkedIn](https://www.linkedin.com/in/james-jennings-2053b4a8)
+
 ## Featured work
 
 ### [ZIPSmart360](https://github.com/JJennings728/ZipSmart360)
 
 **Reproducible ZIP-level analytics pipeline built with Python, SQLite, SQL, a local JSON API, automated tests, and an interactive dashboard.**
 
-Demonstrates data validation, relational modeling, parameterized querying, repeatable outputs, API behavior, and technical documentation.
+Demonstrates data validation, relational modeling, parameterized querying, repeatable outputs, API behavior, and technical documentation. GitHub Actions runs the test suite and demonstration build on Python 3.10, 3.12, and 3.14.
+
+[![ZIPSmart360 tests](https://github.com/JJennings728/ZipSmart360/actions/workflows/tests.yml/badge.svg)](https://github.com/JJennings728/ZipSmart360/actions/workflows/tests.yml)
 
 `Python` · `SQL` · `SQLite` · `APIs` · `Testing` · `Data Engineering`
 
@@ -20,9 +24,9 @@ Demonstrates data validation, relational modeling, parameterized querying, repea
 
 ### [Insurance AI Workflow Design](https://github.com/JJennings728/ZipSmart360/blob/main/INSURANCE_ANALYTICS_PORTFOLIO.md)
 
-**Structured AI-agent workflow architecture for insurance operations.**
+**Workflow specifications, synthetic scenario design, and evaluation criteria for insurance AI.**
 
-Translates domain workflows into defined inputs, expected outputs, prompt specifications, evaluation criteria, missing-information conditions, human-review requirements, and operational controls.
+Translates domain workflows into defined inputs, expected outputs, prompt specifications, evaluation criteria, missing-information conditions, human-review requirements, and operational controls. Includes synthetic world-building: consistent organizations, roles, records, constraints, and decision scenarios for AI tasks. This work is a design and evaluation portfolio; it does not claim a deployed agent service.
 
 `Applied AI` · `Agent Design` · `Prompt Engineering` · `Evaluations` · `Insurance`
 
@@ -61,21 +65,7 @@ Focus areas include validation, normalized storage, transformation, lineage, API
 
 ## What I work on
 
-```text
-Data
-  ↓
-Validation
-  ↓
-Analytics
-  ↓
-Decision Logic
-  ↓
-AI / Agents
-  ↓
-Evaluation
-  ↓
-Business Action
-```
+**Data → Validation → Analytics → Decision Logic → AI / Agents → Evaluation → Business Action**
 
 Across projects, I focus on four engineering principles:
 
@@ -95,7 +85,7 @@ Across projects, I focus on four engineering principles:
 
 Start here: **[Applied AI, Risk Analytics & Data Engineering Portfolio](https://github.com/JJennings728/ZipSmart360/blob/main/PORTFOLIO.md)**
 
-The public artifacts use synthetic or explicitly disclosed demonstration data where appropriate. They are portfolio implementations, not production carrier systems, actuarial opinions, insurance quotations, or deployed client solutions.
+ZIPSmart360 was developed with AI assistance. The public artifacts use synthetic or explicitly disclosed demonstration data where appropriate. They are portfolio implementations, not production carrier systems, actuarial opinions, insurance quotations, or deployed client solutions.
 
 ## Connect
 
