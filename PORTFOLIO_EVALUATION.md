@@ -11,7 +11,7 @@ ZIPSmart360 is a working portfolio demonstration that converts a small ZIP-level
 
 The strongest signal is not that the project is large. It is that the project is **inspectable and reproducible**. A reviewer can read the validation rules, inspect the schema, run the pipeline, query the database, start the API, open the dashboard, and examine the tests. That makes the repository useful evidence of engineering judgment rather than merely a description of skills.
 
-The repository currently contains 15 tracked project files. Its test module contains seven automated test methods covering pipeline correctness, repeatability, invalid-input handling, data-domain validation, malformed inputs, parameterized querying, and HTTP behavior.
+The repository includes executable source, synthetic fixtures, reference outputs, technical documentation, portfolio case studies, and a GitHub Actions workflow. Its test module contains seven automated test methods covering pipeline correctness, repeatability, invalid-input handling, data-domain validation, malformed inputs, parameterized querying, and HTTP behavior.
 
 ## What ZIPSmart360 demonstrates
 
@@ -19,7 +19,7 @@ The repository currently contains 15 tracked project files. Its test module cont
 
 The core pipeline in `zipsmart.py` reads CSV input, validates the complete dataset, writes a SQLite database, executes analysis queries, and generates CSV, JSON, quality-report, and HTML outputs.
 
-The validation logic is especially important. The project does not quietly accept malformed data. It checks required fields, ZIP formatting, duplicate identifiers, state codes, numeric domains, finite values, household/population relationships, the expected data year, and the synthetic-data designation.
+The validation logic is especially important. The project does not quietly accept malformed data. It checks required fields, ZIP formatting, duplicate identifiers, state codes, numeric domains, finite values, household/population relationships, year ranges and consistency, and the synthetic-data designation.
 
 That is a practical engineering habit: reject invalid inputs before they contaminate downstream analysis.
 
@@ -69,7 +69,7 @@ ZIPSmart360 should be evaluated as a **working engineering demonstration**, not 
 
 The current repository uses only 12 synthetic records. It does not yet ingest authoritative Census, postal, insurance, economic, or hazard data. There is no cloud deployment, authentication, billing, rate limiting, production observability, distributed storage, or production security model. The local server intentionally binds to `127.0.0.1`.
 
-There is also no GitHub Actions workflow in the current repository, so the seven tests are present and runnable but are not yet enforced by repository-hosted continuous integration.
+GitHub Actions now runs all seven tests and a demonstration build on every push and pull request across Python 3.10, 3.12, and 3.14. The [first CI run](https://github.com/JJennings728/ZipSmart360/actions/runs/36307054950) passed on all three versions. This verifies the demonstration's test suite; it does not establish production readiness or require passing checks before every merge.
 
 Those limitations do not undermine the project. They define the boundary between what the repository presently proves and what would need to be built next.
 
@@ -79,7 +79,6 @@ The highest-value next step is not to make ZIPSmart360 look larger than it is. I
 
 A sensible roadmap would be:
 
-- add GitHub Actions so every push automatically runs the test suite;
 - add a second-stage real-data ingestion pipeline with documented provenance and licensing;
 - distinguish postal ZIP codes from Census ZCTAs where geographic analysis requires it;
 - add structured logging, configuration management, and API-level observability;
@@ -104,7 +103,7 @@ ZIPSmart360 has crossed the line from an idea or résumé bullet into a reviewab
 
 A reviewer can now inspect the implementation rather than relying on a claim that Python, SQL, APIs, dashboards, or testing were used. The project has a defined architecture, explicit limitations, reproducible inputs and outputs, and a test suite that exercises both successful operation and failure conditions.
 
-The next objective should be to preserve that transparency while increasing the depth of the engineering: continuous integration, authoritative data, deployment, observability, and more realistic scale.
+The next objective should be to preserve that transparency while increasing the depth of the engineering: authoritative data, deployment, observability, and more realistic scale, supported by the continuous integration now in place.
 
 **Repository:** https://github.com/JJennings728/ZipSmart360
 
