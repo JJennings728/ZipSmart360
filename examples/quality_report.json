@@ -1,0 +1,15 @@
+{
+  "data_type": "synthetic",
+  "data_year": 2025,
+  "record_count": 12,
+  "duplicate_zip_count": 0,
+  "checks": [
+    "required fields",
+    "ZIP format and uniqueness",
+    "state codes",
+    "finite numeric ranges",
+    "consistent year",
+    "synthetic label"
+  ],
+  "limitations": "Format validation does not verify actual ZIP geography or real-world accuracy."
+}

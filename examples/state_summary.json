@@ -1,0 +1,65 @@
+[
+  {
+    "state": "CA",
+    "sample_zip_count": 1,
+    "sample_population": 21000,
+    "sample_households": 8100,
+    "mean_of_zip_income_medians": 142000.0
+  },
+  {
+    "state": "CO",
+    "sample_zip_count": 1,
+    "sample_population": 13000,
+    "sample_households": 7400,
+    "mean_of_zip_income_medians": 103000.0
+  },
+  {
+    "state": "GA",
+    "sample_zip_count": 1,
+    "sample_population": 18000,
+    "sample_households": 7500,
+    "mean_of_zip_income_medians": 64000.0
+  },
+  {
+    "state": "IA",
+    "sample_zip_count": 3,
+    "sample_population": 35700,
+    "sample_households": 15620,
+    "mean_of_zip_income_medians": 60000.0
+  },
+  {
+    "state": "IL",
+    "sample_zip_count": 1,
+    "sample_population": 17000,
+    "sample_households": 8900,
+    "mean_of_zip_income_medians": 106000.0
+  },
+  {
+    "state": "MA",
+    "sample_zip_count": 1,
+    "sample_population": 5400,
+    "sample_households": 2600,
+    "mean_of_zip_income_medians": 112000.0
+  },
+  {
+    "state": "NY",
+    "sample_zip_count": 2,
+    "sample_population": 25200,
+    "sample_households": 12480,
+    "mean_of_zip_income_medians": 83000.0
+  },
+  {
+    "state": "TX",
+    "sample_zip_count": 1,
+    "sample_population": 15000,
+    "sample_households": 6200,
+    "mean_of_zip_income_medians": 79000.0
+  },
+  {
+    "state": "WA",
+    "sample_zip_count": 1,
+    "sample_population": 16000,
+    "sample_households": 9300,
+    "mean_of_zip_income_medians": 96000.0
+  }
+]
