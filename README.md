@@ -6,6 +6,8 @@ A runnable portfolio project showing how to validate a CSV, load it into SQLite,
 
 **Portfolio review:** [Read the project evaluation memo](PORTFOLIO_EVALUATION.md).
 
+**Additional domain portfolio:** [Insurance analytics, AI workflow design, facultative pricing, and aviation underwriting case studies](INSURANCE_ANALYTICS_PORTFOLIO.md).
+
 **Status:** working local demonstration. **Data:** 12 explicitly synthetic records. **Dependencies:** Python 3.10+ standard library only. No API keys, paid services, or database account required.
 
 ## Start here
