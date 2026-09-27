@@ -4,6 +4,8 @@
 
 A runnable portfolio project showing how to validate a CSV, load it into SQLite, query geographic records, and communicate results through an interactive dashboard and a local JSON API.
 
+**Portfolio review:** [Read the project evaluation memo](PORTFOLIO_EVALUATION.md).
+
 **Status:** working local demonstration. **Data:** 12 explicitly synthetic records. **Dependencies:** Python 3.10+ standard library only. No API keys, paid services, or database account required.
 
 ## Start here
