@@ -1,85 +1,109 @@
-# ZIPSmart · ZIP-level data analytics demonstration
+# ZIPSmart360
 
-**James Jennings | Applied AI, risk analytics, data engineering, and insurance**
+**ZIP-level analytics pipeline for reproducible data validation, SQL analysis, API access, and decision-support reporting.**
 
-**Portfolio hub:** [Applied AI, Risk Analytics & Data Engineering](PORTFOLIO.md)
+[Portfolio](PORTFOLIO.md) · [Evaluation Memo](PORTFOLIO_EVALUATION.md) · [Architecture](docs/architecture.md) · [Data Dictionary](docs/data-dictionary.md)
 
-A runnable portfolio project showing how to validate a CSV, load it into SQLite, query geographic records, and communicate results through an interactive dashboard and a local JSON API.
+## Overview
 
-**Portfolio review:** [Read the project evaluation memo](PORTFOLIO_EVALUATION.md).
+ZIPSmart360 is a runnable data-engineering portfolio project that turns structured geographic records into validated, queryable analytical outputs.
 
-**Additional domain portfolio:** [Insurance analytics, AI workflow design, facultative pricing, and aviation underwriting case studies](INSURANCE_ANALYTICS_PORTFOLIO.md).
+The project demonstrates an end-to-end workflow:
 
-**Commercial CAT exposure data engineering:** [Synthetic SOV cleansing, TIV reconciliation, data-quality controls, and model-readiness case study](COMMERCIAL_CAT_EXPOSURE_PORTFOLIO.md).
+**CSV input → validation → SQLite → SQL analysis → JSON/CSV exports → local API → interactive dashboard**
 
-**Status:** working local demonstration. **Data:** 12 explicitly synthetic records. **Dependencies:** Python 3.10+ standard library only. No API keys, paid services, or database account required.
+The implementation is intentionally lightweight and reproducible. It uses Python 3.10+ and the standard library, requires no API keys or paid services, and can be run locally by a reviewer.
 
-## Start here
+## Capabilities
+
+| Area | Implementation |
+| --- | --- |
+| Data ingestion | CSV parsing with explicit schema expectations |
+| Validation | Required fields, identifier integrity, duplicate detection, numeric-domain checks, finite-value checks, year consistency |
+| Relational storage | SQLite schema with primary key, CHECK constraints, and state index |
+| SQL analytics | Explicit grouped aggregations in versioned SQL files |
+| API | Local JSON endpoints with parameter validation and HTTP error handling |
+| Reporting | CSV, JSON, quality report, and interactive HTML dashboard |
+| Verification | Seven automated test methods covering calculations, repeatability, invalid input, SQL parameterization, and HTTP behavior |
+| Documentation | Architecture notes, data dictionary, setup instructions, and example outputs |
+
+## Run locally
 
 ```bash
 git clone https://github.com/JJennings728/ZipSmart360.git
 cd ZipSmart360
+
+python -m unittest discover -s tests -v
 python zipsmart.py
 python server.py
 ```
 
-On Windows, use `py` in place of `python` if needed. Open **http://127.0.0.1:8000**. Stop the server with Ctrl+C. You can also open `build/dashboard.html` directly after the build; its filters work offline.
+On Windows, `py` can be used instead of `python`.
 
-![ZIPSmart dashboard preview](docs/dashboard-preview.svg)
+Open:
 
-The illustration above summarizes the generated dashboard; it is not a browser screenshot. [View a saved example report](examples/dashboard.html) by downloading the HTML and opening it in a browser. GitHub's file viewer shows its source rather than running the page.
-
-## Why this project
-
-Risk and business analysts need to turn inconsistent geographic data into understandable, traceable outputs. This project focuses on that workflow: preserving identifiers, rejecting bad input, writing explicit SQL, and explaining the limits of the result.
-
-| Capability | Evidence |
-| --- | --- |
-| Python data processing | `zipsmart.py`: CSV validation, SQLite ingestion, JSON/CSV/HTML exports |
-| SQL analysis | `sql/schema.sql` and `sql/state_summary.sql`: constraints, index, grouped summaries |
-| Data quality | Required fields, ZIP uniqueness, leading zeros, finite numbers, valid ranges, consistent year |
-| API implementation | `server.py`: parameterized queries, input checks, JSON responses, clear error codes |
-| Reporting | State and ZIP filters, responsive HTML, accessible table, explicit synthetic-data labels |
-| Verification | `tests/test_pipeline.py`: aggregation, bad input, repeatability, database preservation, HTTP behavior |
-
-## Reproduce and test
-
-```bash
-python -m unittest discover -s tests -v
-python zipsmart.py --input data/sample_zip_data.csv --output build
+```text
+http://127.0.0.1:8000
 ```
 
-The build creates `zipsmart.sqlite`, `zip_metrics.csv`, `zip_metrics.json`, `state_summary.json`, `quality_report.json`, and `dashboard.html` under `build/`. Builds from the same input produce identical text exports. Invalid CSV data is rejected before replacing an existing database. Generated files in `examples/` are checked-in reference outputs.
+The generated dashboard can also be opened directly from `build/dashboard.html`.
 
-## API examples
+## API surface
 
-With `python server.py` running, visit:
-
-| URL | Result |
+| Endpoint | Purpose |
 | --- | --- |
-| `/api/health` | Status, synthetic-data label, and record count |
-| `/api/zips` | All sample records |
-| `/api/zips?state=IA` | Three Iowa-labeled sample records |
-| `/api/zip?zip=00501` | One sample record with its leading-zero ZIP preserved |
+| `/api/health` | Service status and record count |
+| `/api/zips` | Retrieve all demonstration records |
+| `/api/zips?state=IA` | Filter records by state |
+| `/api/zip?zip=00501` | Retrieve one ZIP while preserving leading zeros |
 
-Invalid parameters return 400. An absent ZIP returns 404. An unavailable database returns 503. These endpoints are implemented for this demo; the separate `ZipSmart360-App` repository contains earlier product concepts and is not the API contract for this code.
+The API validates inputs and returns explicit 400, 404, and 503 responses for supported error conditions.
 
-## Data and interpretation
+## Data-quality design
 
-All numeric values are invented. ZIP-like identifiers are illustrative, and some may represent special-purpose postal codes. They are **not verified geographic observations**, Census estimates, or production customer data. `data_year=2025` is an illustrative label, not a collection date. No ZIP-to-state geographic validation is performed.
+ZIPSmart360 treats identifiers and analytical semantics deliberately.
 
-State totals describe only rows in this small sample. `mean_of_zip_income_medians` is an unweighted arithmetic mean of the sample ZIP income medians; it is **not** a state median household income. No OpportunityScore, GrowthScore, StabilityScore, actuarial pricing model, or validated risk prediction is implemented. See [the data dictionary](docs/data-dictionary.md) and [architecture](docs/architecture.md).
+ZIP codes are stored as text so values such as `00501` are not corrupted. Invalid datasets are rejected before replacing the existing SQLite database. Repeated builds from the same input generate identical text outputs.
 
-## Power BI handoff
+The project also distinguishes between technically valid calculations and valid interpretation. For example, the arithmetic mean of ZIP-level household-income medians is not represented as a state median household income.
 
-Import `build/zip_metrics.csv` with **Get data → Text/CSV**. Set `zip_code` to **Text** before loading so leading zeros survive. Use state as a slicer and a table for ZIP, population, households, income, and unemployment. Keep the synthetic-data label visible. This repository provides the input export; it does not contain a completed `.pbix` report.
+## Repository structure
 
-## Scope and authorship
+```text
+ZipSmart360/
+├── data/                  # Synthetic input fixture
+├── docs/                  # Architecture, data dictionary, dashboard preview
+├── examples/              # Checked-in reference outputs
+├── sql/                   # Schema and analytical SQL
+├── tests/                 # Automated verification
+├── web/                   # Dashboard template
+├── server.py              # Local JSON API
+└── zipsmart.py            # Validation, build, analysis, and export pipeline
+```
 
-This is an AI-assisted portfolio implementation prepared for James Jennings. It demonstrates an executable workflow, not a claim of independent authorship, paid client delivery, or production deployment. The code and tests are available for review and explanation.
+## Portfolio context
 
-The server binds only to `127.0.0.1`. It has no authentication, billing, rate limiting, or production hosting configuration. Do not expose it as a public service. The next stage would be a separately reviewed real-data pipeline with provenance, licensing, geography checks, uncertainty handling, and operational controls.
+ZIPSmart360 is the executable software-engineering anchor for a broader portfolio spanning:
 
-## Contact
+- applied AI and agent workflow design;
+- commercial insurance exposure-data engineering;
+- facultative reinsurance pricing;
+- aviation underwriting analytics; and
+- data architecture.
 
-[James Jennings on LinkedIn](https://www.linkedin.com/in/james-jennings-2053b4a8) · [GitHub](https://github.com/JJennings728)
+See the [full portfolio](PORTFOLIO.md).
+
+## Scope and limitations
+
+This repository uses 12 explicitly synthetic records. It is a portfolio demonstration, not a production geographic-risk platform, actuarial model, carrier system, or commercial API.
+
+The local server binds to `127.0.0.1` and does not implement production authentication, billing, rate limiting, observability, or cloud deployment.
+
+AI assistance was used in development. The repository is published so the implementation, tests, assumptions, and design decisions can be inspected directly.
+
+## Author
+
+**James Jennings**  
+Applied AI · Risk Analytics · Data Engineering · Insurance
+
+[LinkedIn](https://www.linkedin.com/in/james-jennings-2053b4a8) · [GitHub](https://github.com/JJennings728)
