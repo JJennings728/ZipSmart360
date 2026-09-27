@@ -1,12 +1,16 @@
 # ZIPSmart · ZIP-level data analytics demonstration
 
-**James Jennings | Insurance, risk management, and data analysis**
+**James Jennings | Applied AI, risk analytics, data engineering, and insurance**
+
+**Portfolio hub:** [Applied AI, Risk Analytics & Data Engineering](PORTFOLIO.md)
 
 A runnable portfolio project showing how to validate a CSV, load it into SQLite, query geographic records, and communicate results through an interactive dashboard and a local JSON API.
 
 **Portfolio review:** [Read the project evaluation memo](PORTFOLIO_EVALUATION.md).
 
 **Additional domain portfolio:** [Insurance analytics, AI workflow design, facultative pricing, and aviation underwriting case studies](INSURANCE_ANALYTICS_PORTFOLIO.md).
+
+**Commercial CAT exposure data engineering:** [Synthetic SOV cleansing, TIV reconciliation, data-quality controls, and model-readiness case study](COMMERCIAL_CAT_EXPOSURE_PORTFOLIO.md).
 
 **Status:** working local demonstration. **Data:** 12 explicitly synthetic records. **Dependencies:** Python 3.10+ standard library only. No API keys, paid services, or database account required.
 
