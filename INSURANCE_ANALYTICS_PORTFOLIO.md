@@ -2,7 +2,7 @@
 
 **James Jennings | Insurance, risk management, data analysis, and AI workflow design**
 
-This page documents three workbook-based portfolio case studies that complement the executable [ZIPSmart360](https://github.com/JJennings728/ZipSmart360) project. These artifacts demonstrate insurance-domain modeling, spreadsheet engineering, prompt/workflow design, underwriting reasoning, and technical communication.
+This page documents four workbook-based portfolio case studies that complement the executable [ZIPSmart360](https://github.com/JJennings728/ZipSmart360) project. These artifacts demonstrate insurance-domain modeling, spreadsheet engineering, prompt/workflow design, underwriting reasoning, and technical communication.
 
 They are **portfolio demonstrations**, not production carrier systems, actuarial opinions, live client work, binders, quotations, or representations of available insurance terms.
 
@@ -156,6 +156,45 @@ The case study includes:
 - communicating model limitations.
 
 ---
+
+---
+
+## 4. Commercial CAT Exposure Data Engineering
+
+### Purpose
+
+A clean-room synthetic reconstruction of a historical large-commercial-account catastrophe exposure-data workflow. The public version preserves the methodology while removing historical client, employer, broker, vendor, location, and contact information.
+
+### Scope
+
+The portfolio workbook uses **60 synthetic locations** to demonstrate:
+
+- schedule-of-values normalization;
+- building, contents, inventory, and business-interruption value separation;
+- total insured value reconciliation;
+- geocode-quality review;
+- construction and occupancy normalization;
+- generalized earthquake, wind, and flood hazard segmentation;
+- country-level TIV concentration analysis;
+- model-readiness PASS/REVIEW controls; and
+- modeling-request governance.
+
+The public artifact is intentionally a reconstruction rather than a renamed copy of the historical macro-enabled workbook.
+
+### Skills demonstrated
+
+- commercial property exposure analysis;
+- CAT-model data preparation concepts;
+- SOV cleansing and normalization;
+- TIV reconciliation;
+- data-quality control design;
+- concentration analysis;
+- spreadsheet engineering;
+- risk-data governance; and
+- confidentiality-aware portfolio abstraction.
+
+[Read the full case study](COMMERCIAL_CAT_EXPOSURE_PORTFOLIO.md)
+
 
 ## How these projects fit together
 
