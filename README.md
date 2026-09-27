@@ -1,5 +1,7 @@
 # ZIPSmart360
 
+[![Tests](https://github.com/JJennings728/ZipSmart360/actions/workflows/tests.yml/badge.svg)](https://github.com/JJennings728/ZipSmart360/actions/workflows/tests.yml)
+
 **ZIP-level analytics pipeline for reproducible data validation, SQL analysis, API access, and decision-support reporting.**
 
 [Portfolio](PORTFOLIO.md) · [Evaluation Memo](PORTFOLIO_EVALUATION.md) · [Architecture](docs/architecture.md) · [Data Dictionary](docs/data-dictionary.md)
@@ -47,6 +49,10 @@ http://127.0.0.1:8000
 ```
 
 The generated dashboard can also be opened directly from `build/dashboard.html`.
+
+## Continuous integration
+
+[GitHub Actions](https://github.com/JJennings728/ZipSmart360/actions/workflows/tests.yml) runs all seven pipeline and HTTP/API tests and builds the demonstration on every push and pull request using Python 3.10, 3.12, and 3.14. The workflow can also be started manually.
 
 ## API surface
 
