@@ -69,7 +69,7 @@ Demonstrates fleet exposure analysis, premium architecture, participation struct
 
 **Aviation Risk · Underwriting · Exposure Modeling · Insurance Analytics**
 
-[Read the insurance portfolio case studies](INSURANCE_ANALYTICS_PORTFOLIO.md)
+[Open the dedicated aviation underwriting project](aviation-underwriting/README.md) · [Read the broader insurance portfolio](INSURANCE_ANALYTICS_PORTFOLIO.md)
 
 ### Data Architecture Project
 
