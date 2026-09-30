@@ -31,6 +31,10 @@ The model organizes risk information for professional review; it does not replac
     ├── sql/underwriting_model.sql
     ├── powerbi/measures.dax
     ├── powerbi/BUILD_GUIDE.md
+    ├── powerbi-project/
+    │   ├── ES-Commercial-Property-Underwriting.pbip
+    │   ├── ES-Commercial-Property-Underwriting.Report/
+    │   └── ES-Commercial-Property-Underwriting.SemanticModel/
     └── docs/*.svg
 
 ## Underwriting KPIs
@@ -47,15 +51,30 @@ The model organizes risk information for professional review; it does not replac
 | Average Deductible | Insured risk retention |
 | Rate Change % | Requested versus demonstrated quoted pricing |
 
-## PBIX status
+## Power BI project
 
-A proprietary .pbix binary is not fabricated here. The repository contains the dataset, SQL, DAX, visual specification, and exact build instructions needed to create the report in Power BI Desktop. After opening the project in Desktop, save the finished report as powerbi/ES-Commercial-Property-Underwriting.pbix.
+This repository now includes a **source-controlled Power BI Project (PBIP)** at:
+
+`powerbi-project/ES-Commercial-Property-Underwriting.pbip`
+
+The PBIP contains:
+
+- a TMDL semantic model with the underwriting dataset schema and DAX measures;
+- a local report-to-model `byPath` binding;
+- three report pages;
+- 16 PBIR visual definitions;
+- Executive Underwriting, Referral & Appetite, and Pricing & Portfolio views; and
+- a Power Query import that refreshes from the public synthetic CSV in this repository.
+
+Open the `.pbip` file in a current Power BI Desktop build. Power BI Desktop can then save the same project as a proprietary `.pbix` if a binary deliverable is needed.
+
+A `.pbix` binary is intentionally not fabricated outside Power BI Desktop.
 
 ## Dashboard previews
 
 ![Referral analysis preview](docs/referral-analysis.svg)
 
-The SVGs are design previews generated from the synthetic portfolio, not screenshots falsely represented as Power BI Desktop output. After the PBIX is created, they can be supplemented with exported Power BI screenshots.
+The SVGs are design previews generated from the same synthetic portfolio and are not falsely represented as Power BI Desktop captures. The PBIR/TMDL project source is separately included and inspectable. A true Power BI Desktop screenshot should only be added after the PBIP is opened and rendered in Power BI Desktop.
 
 ## Scope and limitations
 
@@ -64,3 +83,7 @@ All entities, brokers, submissions, rates, losses, hazard grades, CAT scores, va
 ## Portfolio value
 
 This artifact makes the claim **SQL & Power BI Analytics** independently reviewable: raw data, definitions, SQL transformations, DAX measures, KPI design, and the underlying business decision are visible and explainable.
+
+## Source-control validation
+
+The committed project has a valid PBIP-to-report pointer, a report-to-semantic-model relative binding, three registered pages, and 16 committed visual definitions. The project uses Microsoft's public PBIP/PBIR/TMDL file structure so the model and report logic can be reviewed in Git rather than hidden only inside a binary file.
