@@ -1,5 +1,8 @@
 # Loss Scenarios
 
+> **Worked example:** [Northstar Air Group — complete synthetic case study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+
 ## Purpose
 
 Stress the underwriting decision against plausible severity scenarios.
