@@ -27,6 +27,21 @@ The portfolio demonstrates:
 - explicit model limitations.
 
 
+## Worked underwriting case
+
+### [Northstar Air Group — Complete Synthetic Case Study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+A full airline underwriting example that carries the portfolio framework through a 14-aircraft fleet schedule, exposure analysis, five-year loss history, rating-factor assessment, transparent pricing calculation, capacity review, stress-loss scenarios, synthetic reinsurance assumptions, Hull War / AVN52 considerations, binding subjectivities, and a final underwriting decision.
+
+**Final synthetic outcome:** Quote with subjectivities · 7.5% following line · $4.62m 100% premium.
+
+Supporting artifacts:
+
+- [Underwriting decision memo](case-study/UNDERWRITING_MEMO.md)
+- [Fleet schedule](data/northstar_fleet.csv)
+- [Five-year loss history](data/northstar_loss_history.csv)
+- [Pricing model](data/northstar_pricing.csv)
+
 ## Full portfolio structure
 
 1. [Executive Summary](EXECUTIVE_SUMMARY.md)
