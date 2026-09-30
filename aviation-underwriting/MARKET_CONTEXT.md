@@ -1,5 +1,8 @@
 # Market Context
 
+> **Worked example:** [Northstar Air Group — complete synthetic case study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+
 ## Reference period
 
 **Q4 2024 aviation insurance market context**  
