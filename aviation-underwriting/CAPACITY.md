@@ -1,5 +1,8 @@
 # Capacity
 
+> **Worked example:** [Northstar Air Group — complete synthetic case study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+
 ## Purpose
 
 Show how underwriting decisions depend not only on price, but also on how much limit or line size an insurer is willing to deploy.
