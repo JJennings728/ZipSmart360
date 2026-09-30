@@ -1,0 +1,14 @@
+{
+  "flightNumber": "NSG482",
+  "aircraftType": "Boeing 737-800",
+  "origin": "KDSM",
+  "destination": "KDEN",
+  "altitudeFeet": 36000,
+  "groundSpeedKnots": 452,
+  "headingDegrees": 267,
+  "nextWaypoint": "OBH",
+  "distanceToDestinationNM": 318,
+  "fuelRemainingLbs": 16840,
+  "estimatedArrivalLocal": "14:42",
+  "destinationWeatherStatus": "VFR demonstration status; winds 240 at 12 knots; visibility greater than 10 statute miles"
+}
