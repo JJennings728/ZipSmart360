@@ -1,5 +1,8 @@
 # Executive Summary
 
+> **Worked example:** [Northstar Air Group — complete synthetic case study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+
 ## Portfolio purpose
 
 This portfolio demonstrates a structured aviation hull-and-liability underwriting workflow using synthetic data and explicit assumptions.
