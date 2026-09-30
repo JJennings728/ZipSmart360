@@ -1,0 +1,189 @@
+table Submissions
+
+	measure 'Submission Count' = COUNTROWS(Submissions)
+		formatString: #,##0
+
+	measure 'Total TIV' = SUM(Submissions[TIV])
+		formatString: $#,##0
+
+	measure 'Total Limit' = SUM(Submissions[Limit])
+		formatString: $#,##0
+
+	measure 'Quoted Premium' = SUMX(Submissions, Submissions[TIV] * Submissions[QuotedRatePer100] / 100)
+		formatString: $#,##0
+
+	measure 'Average Quoted Rate / 100' = AVERAGE(Submissions[QuotedRatePer100])
+		formatString: 0.00
+
+	measure 'Average Requested Rate / 100' = AVERAGE(Submissions[RequestedRatePer100])
+		formatString: 0.00
+
+	measure 'Rate Change %' = DIVIDE([Average Quoted Rate / 100] - [Average Requested Rate / 100], [Average Requested Rate / 100])
+		formatString: 0.0%
+
+	measure 'Quote Count' = CALCULATE([Submission Count], Submissions[Decision] = "Quote")
+		formatString: #,##0
+
+	measure 'Refer Count' = CALCULATE([Submission Count], Submissions[Decision] = "Refer")
+		formatString: #,##0
+
+	measure 'Decline Count' = CALCULATE([Submission Count], Submissions[Decision] = "Decline")
+		formatString: #,##0
+
+	measure 'Quote Rate' = DIVIDE([Quote Count], [Submission Count])
+		formatString: 0.0%
+
+	measure 'Referral Rate' = DIVIDE([Refer Count], [Submission Count])
+		formatString: 0.0%
+
+	measure 'Decline Rate' = DIVIDE([Decline Count], [Submission Count])
+		formatString: 0.0%
+
+	measure 'Average CAT Score' = AVERAGE(Submissions[CATScore])
+		formatString: 0.0
+
+	measure 'Weighted CAT Score' = DIVIDE(SUMX(Submissions, Submissions[TIV] * Submissions[CATScore]), [Total TIV])
+		formatString: 0.0
+
+	measure 'Average 3-Year Loss Ratio' = AVERAGE(Submissions[LossRatio3Yr])
+		formatString: 0.0%
+
+	measure 'Average Deductible' = AVERAGE(Submissions[Deductible])
+		formatString: $#,##0
+
+	measure 'High CAT TIV' = CALCULATE([Total TIV], Submissions[CATScore] >= 8)
+		formatString: $#,##0
+
+	measure 'High CAT TIV %' = DIVIDE([High CAT TIV], [Total TIV])
+		formatString: 0.0%
+
+	measure 'Referral TIV' = CALCULATE([Total TIV], Submissions[Decision] = "Refer")
+		formatString: $#,##0
+
+	column SubmissionID
+		dataType: string
+		sourceColumn: SubmissionID
+		summarizeBy: none
+
+	column Broker
+		dataType: string
+		sourceColumn: Broker
+		summarizeBy: none
+
+	column State
+		dataType: string
+		sourceColumn: State
+		summarizeBy: none
+
+	column Industry
+		dataType: string
+		sourceColumn: Industry
+		summarizeBy: none
+
+	column Occupancy
+		dataType: string
+		sourceColumn: Occupancy
+		summarizeBy: none
+
+	column Construction
+		dataType: string
+		sourceColumn: Construction
+		summarizeBy: none
+
+	column YearBuilt
+		dataType: int64
+		sourceColumn: YearBuilt
+		summarizeBy: none
+
+	column SprinklerPct
+		dataType: int64
+		sourceColumn: SprinklerPct
+		summarizeBy: none
+
+	column TIV
+		dataType: int64
+		sourceColumn: TIV
+		summarizeBy: sum
+		formatString: $#,##0
+
+	column Limit
+		dataType: int64
+		sourceColumn: Limit
+		summarizeBy: sum
+		formatString: $#,##0
+
+	column Deductible
+		dataType: int64
+		sourceColumn: Deductible
+		summarizeBy: average
+		formatString: $#,##0
+
+	column CATScore
+		dataType: int64
+		sourceColumn: CATScore
+		summarizeBy: average
+
+	column LossRatio3Yr
+		dataType: double
+		sourceColumn: LossRatio3Yr
+		summarizeBy: average
+		formatString: 0.0%
+
+	column HazardGrade
+		dataType: string
+		sourceColumn: HazardGrade
+		summarizeBy: none
+
+	column RequestedRatePer100
+		dataType: double
+		sourceColumn: RequestedRatePer100
+		summarizeBy: average
+		formatString: 0.00
+
+	column QuotedRatePer100
+		dataType: double
+		sourceColumn: QuotedRatePer100
+		summarizeBy: average
+		formatString: 0.00
+
+	column Decision
+		dataType: string
+		sourceColumn: Decision
+		summarizeBy: none
+
+	column ReferralReason
+		dataType: string
+		sourceColumn: ReferralReason
+		summarizeBy: none
+
+	partition Submissions = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					Web.Contents("https://raw.githubusercontent.com/JJennings728/ZipSmart360/main/powerbi-underwriting/data/submissions.csv"),
+					[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+				),
+				PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(PromotedHeaders, {
+					{"SubmissionID", type text},
+					{"Broker", type text},
+					{"State", type text},
+					{"Industry", type text},
+					{"Occupancy", type text},
+					{"Construction", type text},
+					{"YearBuilt", Int64.Type},
+					{"SprinklerPct", Int64.Type},
+					{"TIV", Int64.Type},
+					{"Limit", Int64.Type},
+					{"Deductible", Int64.Type},
+					{"CATScore", Int64.Type},
+					{"LossRatio3Yr", type number},
+					{"HazardGrade", type text},
+					{"RequestedRatePer100", type number},
+					{"QuotedRatePer100", type number},
+					{"Decision", type text},
+					{"ReferralReason", type text}
+				})
+			in
+				Typed
