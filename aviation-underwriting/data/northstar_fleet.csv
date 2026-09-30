@@ -1,0 +1,15 @@
+TailNumber,AircraftType,YearBuilt,HullValue,Status,PrimaryOperatingArea
+N810NS,B737-800,2014,32000000,In service,US/Canada/Mexico
+N811NS,B737-800,2014,32000000,In service,US/Canada/Mexico
+N812NS,B737-800,2015,33000000,In service,US/Canada/Caribbean
+N813NS,B737-800,2015,33000000,In service,US/Canada/Caribbean
+N814NS,B737-800,2016,34000000,In service,US/Mexico/Caribbean
+N815NS,B737-800,2016,34000000,In service,US/Mexico/Caribbean
+N816NS,B737-800,2017,35000000,In service,US/Canada
+N817NS,B737-800,2017,35000000,In service,US/Canada
+N818NS,B737-800,2018,36000000,In service,US/Mexico
+N819NS,B737-800,2018,36000000,In service,US/Mexico
+N820NS,B737 MAX 8,2022,54000000,In service,US/Canada/Mexico
+N821NS,B737 MAX 8,2022,54000000,In service,US/Canada/Mexico
+N822NS,B737 MAX 8,2023,56000000,In service,US/Caribbean
+N823NS,B737 MAX 8,2023,56000000,In service,US/Caribbean
