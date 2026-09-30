@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>Avionics VoiceOps</string>
+
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Avionics VoiceOps uses the microphone only when you press Push to Talk to query the synthetic flight-status demonstration.</string>
+
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Avionics VoiceOps uses speech recognition only to convert your push-to-talk aviation query into text for the synthetic flight-status demonstration.</string>
+
+    <key>UILaunchScreen</key>
+    <dict/>
+</dict>
+</plist>
