@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "10000000000000000002",
+  "position": {
+    "x": 20,
+    "y": 70,
+    "height": 110,
+    "width": 1240,
+    "z": 2000,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Submission Count"
+                }
+              },
+              "queryRef": "Submissions.Submission Count",
+              "nativeQueryRef": "Submission Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Total TIV"
+                }
+              },
+              "queryRef": "Submissions.Total TIV",
+              "nativeQueryRef": "Total TIV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Quoted Premium"
+                }
+              },
+              "queryRef": "Submissions.Quoted Premium",
+              "nativeQueryRef": "Quoted Premium"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Quote Rate"
+                }
+              },
+              "queryRef": "Submissions.Quote Rate",
+              "nativeQueryRef": "Quote Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Weighted CAT Score"
+                }
+              },
+              "queryRef": "Submissions.Weighted CAT Score",
+              "nativeQueryRef": "Weighted CAT Score"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
