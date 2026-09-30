@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "10000000000000000005",
+  "position": {
+    "x": 20,
+    "y": 460,
+    "height": 220,
+    "width": 400,
+    "z": 3000,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Decision"
+                }
+              },
+              "queryRef": "Submissions.Decision",
+              "nativeQueryRef": "Decision",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Submission Count"
+                }
+              },
+              "queryRef": "Submissions.Submission Count",
+              "nativeQueryRef": "Submission Count"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
