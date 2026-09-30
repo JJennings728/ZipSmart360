@@ -1,0 +1,31 @@
+SubmissionID,Broker,State,Industry,Occupancy,Construction,YearBuilt,SprinklerPct,TIV,Limit,Deductible,CATScore,LossRatio3Yr,HazardGrade,RequestedRatePer100,QuotedRatePer100,Decision,ReferralReason
+ES-26001,Atlas Wholesale,IA,Wholesale,Warehouse,Masonry Noncombustible,1998,100,8200000,5000000,25000,4,0.32,B,0.42,0.48,Quote,
+ES-26002,Prairie Specialty,TX,Manufacturing,Plastics Manufacturing,Metal Frame,2007,72,18400000,10000000,50000,8,0.81,C,0.74,0.96,Refer,CAT score / manufacturing
+ES-26003,Summit Risk,FL,Hospitality,Hotel,Reinforced Concrete,2016,100,32750000,15000000,100000,9,0.44,B,0.88,1.18,Refer,CAT score / TIV
+ES-26004,Gateway Brokerage,MO,Retail,Shopping Center,Masonry Noncombustible,1987,82,12900000,7500000,50000,5,0.57,B,0.51,0.62,Quote,
+ES-26005,Harbor Surplus,LA,Energy,Light Industrial,Metal Frame,1994,35,22100000,10000000,100000,9,1.31,D,1.05,1.45,Decline,Loss ratio / CAT / protection
+ES-26006,Northstar Markets,MN,Habitational,Apartment,Joisted Masonry,1978,68,9600000,5000000,25000,4,0.63,C,0.59,0.72,Quote,
+ES-26007,Frontier E&S,CO,Construction,Contractor Yard,Metal Frame,2011,45,6100000,4000000,50000,6,0.71,C,0.68,0.83,Refer,Protection / outdoor exposure
+ES-26008,Blue River Risk,IA,Food,Food Processing,Masonry Noncombustible,2003,100,14750000,10000000,50000,5,0.39,B,0.46,0.55,Quote,
+ES-26009,Keystone Specialty,PA,Manufacturing,Metal Fabrication,Protected Steel,2018,100,26300000,15000000,100000,6,0.48,B,0.61,0.69,Refer,TIV authority
+ES-26010,Atlantic Wholesale,NJ,Habitational,Mixed-Use Apartments,Joisted Masonry,1965,55,11850000,7500000,50000,7,0.92,C,0.81,0.98,Refer,CAT / age / loss ratio
+ES-26011,Midwest Access,NE,Agribusiness,Grain Storage,Metal Frame,1990,28,7300000,5000000,100000,6,0.77,D,0.92,1.08,Refer,Combustibility / protection
+ES-26012,Gulf Specialty,TX,Energy,Equipment Distribution,Masonry Noncombustible,2014,95,15600000,10000000,50000,7,0.42,B,0.64,0.75,Quote,
+ES-26013,Coastal Access,SC,Hospitality,Resort,Reinforced Concrete,2020,100,28800000,15000000,100000,8,0.36,B,0.86,1.03,Refer,CAT / TIV
+ES-26014,Heartland Wholesale,IA,Retail,Home Improvement,Masonry Noncombustible,2009,100,10400000,7500000,50000,3,0.29,A,0.37,0.44,Quote,
+ES-26015,Metro Specialty,IL,Habitational,Senior Living,Protected Steel,2012,100,19600000,10000000,50000,4,0.41,B,0.49,0.58,Quote,
+ES-26016,Pioneer Surplus,OK,Manufacturing,Wood Products,Frame,1982,22,8900000,5000000,100000,8,1.18,D,1.08,1.39,Decline,Combustibility / loss / CAT
+ES-26017,Summit Risk,AZ,Retail,Distribution Center,Tilt-Up Concrete,2019,100,24100000,15000000,100000,4,0.26,A,0.39,0.46,Quote,
+ES-26018,Harbor Surplus,FL,Habitational,Condominium,Reinforced Concrete,2005,88,35400000,15000000,250000,10,0.68,C,1.14,1.42,Refer,CAT / coastal / TIV
+ES-26019,Gateway Brokerage,KS,Manufacturing,Machinery,Protected Steel,2010,100,17300000,10000000,50000,5,0.52,B,0.55,0.64,Quote,
+ES-26020,Blue River Risk,WI,Food,Cold Storage,Masonry Noncombustible,2017,100,20100000,10000000,100000,3,0.31,A,0.41,0.47,Quote,
+ES-26021,Frontier E&S,CA,Hospitality,Boutique Hotel,Reinforced Concrete,1999,92,16900000,10000000,100000,8,0.73,C,0.94,1.12,Refer,CAT / quake / loss
+ES-26022,Prairie Specialty,AR,Agribusiness,Poultry Processing,Masonry Noncombustible,2001,85,13200000,7500000,50000,6,0.66,C,0.72,0.84,Refer,Occupancy / loss
+ES-26023,Northstar Markets,IA,Habitational,Apartment,Masonry Noncombustible,2015,100,11200000,7500000,50000,3,0.22,A,0.36,0.42,Quote,
+ES-26024,Atlantic Wholesale,NY,Retail,Mixed-Use Retail,Joisted Masonry,1948,60,14300000,7500000,100000,6,0.88,C,0.78,0.93,Refer,Age / protection / loss
+ES-26025,Keystone Specialty,OH,Manufacturing,Auto Parts,Protected Steel,2013,100,27900000,15000000,100000,5,0.47,B,0.57,0.66,Refer,TIV authority
+ES-26026,Heartland Wholesale,IA,Wholesale,Distribution,Tilt-Up Concrete,2021,100,15800000,10000000,50000,2,0.18,A,0.31,0.36,Quote,
+ES-26027,Coastal Access,GA,Hospitality,Hotel,Masonry Noncombustible,2008,100,21900000,10000000,100000,7,0.54,B,0.73,0.87,Refer,CAT score
+ES-26028,Metro Specialty,MI,Manufacturing,Industrial Components,Protected Steel,2016,100,16400000,10000000,50000,3,0.35,A,0.43,0.5,Quote,
+ES-26029,Gulf Specialty,TX,Habitational,Apartment,Joisted Masonry,1989,50,12600000,7500000,50000,8,1.24,D,0.99,1.28,Decline,Loss ratio / CAT
+ES-26030,Midwest Access,IA,Agribusiness,Farm Supply,Masonry Noncombustible,2006,75,7800000,5000000,50000,4,0.46,B,0.48,0.57,Quote,
