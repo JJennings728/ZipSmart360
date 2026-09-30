@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "20000000000000000002",
+  "position": {
+    "x": 20,
+    "y": 70,
+    "height": 110,
+    "width": 1240,
+    "z": 2000,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Refer Count"
+                }
+              },
+              "queryRef": "Submissions.Refer Count",
+              "nativeQueryRef": "Refer Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Decline Count"
+                }
+              },
+              "queryRef": "Submissions.Decline Count",
+              "nativeQueryRef": "Decline Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "High CAT TIV %"
+                }
+              },
+              "queryRef": "Submissions.High CAT TIV %",
+              "nativeQueryRef": "High CAT TIV %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Average CAT Score"
+                }
+              },
+              "queryRef": "Submissions.Average CAT Score",
+              "nativeQueryRef": "Average CAT Score"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Average 3-Year Loss Ratio"
+                }
+              },
+              "queryRef": "Submissions.Average 3-Year Loss Ratio",
+              "nativeQueryRef": "Average 3-Year Loss Ratio"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
