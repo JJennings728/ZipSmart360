@@ -18,6 +18,17 @@ Python-based ingestion, validation, SQLite storage, SQL analytics, JSON API acce
 
 [Open ZIPSmart360](README.md) · [Read the evaluation memo](PORTFOLIO_EVALUATION.md)
 
+### E&S Commercial Property — SQL + Power BI Underwriting
+
+**Synthetic commercial-property underwriting decision-support project combining SQL, Power BI-ready modeling, DAX measures, exposure analysis, and transparent referral logic.**
+
+Includes 30 synthetic submissions, a field-level data dictionary, SQL transformation layer, underwriting KPI definitions, requested-versus-quoted rate analysis, CAT and loss-quality screening, referral-queue logic, and dashboard design previews.
+
+**E&S Property · SQL · Power BI · DAX · Underwriting Analytics · CAT Exposure**
+
+[Open the SQL + Power BI underwriting project](powerbi-underwriting/README.md)
+
+---
 ### Insurance AI Workflow Design
 
 **Reference architecture and evaluation catalog for AI-assisted insurance operations.**
