@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "30000000000000000002",
+  "position": {
+    "x": 20,
+    "y": 70,
+    "height": 110,
+    "width": 1240,
+    "z": 2000,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Average Requested Rate / 100"
+                }
+              },
+              "queryRef": "Submissions.Average Requested Rate / 100",
+              "nativeQueryRef": "Average Requested Rate / 100"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Average Quoted Rate / 100"
+                }
+              },
+              "queryRef": "Submissions.Average Quoted Rate / 100",
+              "nativeQueryRef": "Average Quoted Rate / 100"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Rate Change %"
+                }
+              },
+              "queryRef": "Submissions.Rate Change %",
+              "nativeQueryRef": "Rate Change %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Quoted Premium"
+                }
+              },
+              "queryRef": "Submissions.Quoted Premium",
+              "nativeQueryRef": "Quoted Premium"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
