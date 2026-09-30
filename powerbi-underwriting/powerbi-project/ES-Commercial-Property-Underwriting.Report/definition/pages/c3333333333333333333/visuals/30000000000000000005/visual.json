@@ -1,0 +1,171 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "30000000000000000005",
+  "position": {
+    "x": 20,
+    "y": 460,
+    "height": 220,
+    "width": 1240,
+    "z": 4000,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "SubmissionID"
+                }
+              },
+              "queryRef": "Submissions.SubmissionID",
+              "nativeQueryRef": "SubmissionID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Broker"
+                }
+              },
+              "queryRef": "Submissions.Broker",
+              "nativeQueryRef": "Broker"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "State"
+                }
+              },
+              "queryRef": "Submissions.State",
+              "nativeQueryRef": "State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Occupancy"
+                }
+              },
+              "queryRef": "Submissions.Occupancy",
+              "nativeQueryRef": "Occupancy"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "TIV"
+                }
+              },
+              "queryRef": "Submissions.TIV",
+              "nativeQueryRef": "TIV"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Deductible"
+                }
+              },
+              "queryRef": "Submissions.Deductible",
+              "nativeQueryRef": "Deductible"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "RequestedRatePer100"
+                }
+              },
+              "queryRef": "Submissions.RequestedRatePer100",
+              "nativeQueryRef": "RequestedRatePer100"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "QuotedRatePer100"
+                }
+              },
+              "queryRef": "Submissions.QuotedRatePer100",
+              "nativeQueryRef": "QuotedRatePer100"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Decision"
+                }
+              },
+              "queryRef": "Submissions.Decision",
+              "nativeQueryRef": "Decision"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
