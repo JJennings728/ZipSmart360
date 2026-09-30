@@ -26,6 +26,22 @@ The portfolio demonstrates:
 - human-review controls; and
 - explicit model limitations.
 
+
+## Full portfolio structure
+
+1. [Executive Summary](EXECUTIVE_SUMMARY.md)
+2. [Market Context](MARKET_CONTEXT.md)
+3. [Exposure Profile](EXPOSURE_PROFILE.md)
+4. [Rating Factors](RATING_FACTORS.md)
+5. [Pricing](PRICING.md)
+6. [Capacity](CAPACITY.md)
+7. [Loss Scenarios](LOSS_SCENARIOS.md)
+8. [Reinsurance and War Risk](REINSURANCE_AND_WAR_RISK.md)
+9. [Underwriting Decision](UNDERWRITING_DECISION.md)
+10. [Limitations](LIMITATIONS.md)
+
+The market-context section is explicitly labeled as historical Q4 2024 / February 2025 source material. The underwriting case remains synthetic and separates public market context from portfolio assumptions and modeled outputs.
+
 ## Core analytical themes
 
 ### Fleet exposure
