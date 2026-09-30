@@ -1,5 +1,8 @@
 # Pricing
 
+> **Worked example:** [Northstar Air Group — complete synthetic case study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+
 ## Purpose
 
 Demonstrate transparent premium-component architecture rather than present a black-box price.
