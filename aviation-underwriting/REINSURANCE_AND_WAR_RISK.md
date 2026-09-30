@@ -1,5 +1,8 @@
 # Reinsurance and War Risk
 
+> **Worked example:** [Northstar Air Group — complete synthetic case study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
+
+
 ## Purpose
 
 Demonstrate awareness that direct aviation underwriting operates within a broader insurance and reinsurance environment.
