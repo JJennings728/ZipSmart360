@@ -1,0 +1,34 @@
+-- Core Power BI measures for table 'Submissions'
+
+Submission Count = COUNTROWS(Submissions)
+
+Total TIV = SUM(Submissions[TIV])
+
+Total Limit = SUM(Submissions[Limit])
+
+Quoted Premium = SUMX(Submissions, Submissions[TIV] * Submissions[QuotedRatePer100] / 100)
+
+Average Quoted Rate / 100 = AVERAGE(Submissions[QuotedRatePer100])
+
+Average Requested Rate / 100 = AVERAGE(Submissions[RequestedRatePer100])
+
+Rate Change % = DIVIDE([Average Quoted Rate / 100] - [Average Requested Rate / 100], [Average Requested Rate / 100])
+
+Quote Count = CALCULATE([Submission Count], Submissions[Decision] = "Quote")
+Refer Count = CALCULATE([Submission Count], Submissions[Decision] = "Refer")
+Decline Count = CALCULATE([Submission Count], Submissions[Decision] = "Decline")
+
+Quote Rate = DIVIDE([Quote Count], [Submission Count])
+Referral Rate = DIVIDE([Refer Count], [Submission Count])
+Decline Rate = DIVIDE([Decline Count], [Submission Count])
+
+Average CAT Score = AVERAGE(Submissions[CATScore])
+Average 3-Year Loss Ratio = AVERAGE(Submissions[LossRatio3Yr])
+Average Deductible = AVERAGE(Submissions[Deductible])
+
+High CAT TIV = CALCULATE([Total TIV], Submissions[CATScore] >= 8)
+High CAT TIV % = DIVIDE([High CAT TIV], [Total TIV])
+
+Large Account TIV = CALCULATE([Total TIV], Submissions[TIV] >= 25000000)
+
+Weighted CAT Score = DIVIDE(SUMX(Submissions, Submissions[TIV] * Submissions[CATScore]), [Total TIV])
