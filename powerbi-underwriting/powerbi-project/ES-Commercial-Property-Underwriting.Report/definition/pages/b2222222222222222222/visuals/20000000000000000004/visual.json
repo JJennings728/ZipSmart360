@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "20000000000000000004",
+  "position": {
+    "x": 640,
+    "y": 200,
+    "height": 240,
+    "width": 620,
+    "z": 3000,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "HazardGrade"
+                }
+              },
+              "queryRef": "Submissions.HazardGrade",
+              "nativeQueryRef": "HazardGrade",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Submissions"
+                    }
+                  },
+                  "Property": "Total TIV"
+                }
+              },
+              "queryRef": "Submissions.Total TIV",
+              "nativeQueryRef": "Total TIV"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
