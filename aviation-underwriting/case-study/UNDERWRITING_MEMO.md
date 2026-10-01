@@ -1,63 +1,49 @@
-# Northstar Air Group — Underwriting Decision Memo
+# Northstar Air Group — Major Airline Underwriting Decision Memo
 
 **Decision:** Quote with subjectivities  
-**Line offered:** 7.5% following  
-**Requested line:** 10%  
-**100% quoted premium:** $4,620,000  
-**Insurer premium share:** $346,500  
-**CSL:** $1,000,000,000  
-**Hull TIV:** $560,000,000  
-**Spares:** $25,000,000
+**Fleet:** 1,050 mainline aircraft  
+**Hull TIV:** $51.683bn  
+**Annual passengers:** 178m  
+**Annual RPM:** 267bn  
+**CSL:** $2.0bn  
+**Requested line:** 5.0%  
+**Offered line:** 4.0% following  
+**Technical annual placement estimate:** $92.745m  
+**Final synthetic quote:** $91.8m  
+**Modeled annual aggregate self-insurance:** $258.4m
 
 ## Recommendation
 
-Support a 7.5% following participation subject to completion of the binding items in the master case study.
+Support a 4.0% following line subject to completion of the binding items in the full case study.
 
-The account presents a generally favorable risk profile: modern narrowbody fleet, formal safety controls, a simplified five-year loss ratio of 31.6%, and no modeled operations in active war zones.
+The account is a major-network-carrier exposure with substantial U.S. liability severity, global operations, $51.7bn of hull TIV, 212 widebody aircraft, and meaningful hub aggregation. It is also modeled with formal safety governance, diversified fleet exposure, and a supportable five-year loss record.
 
-The primary constraints are:
+The requested 5.0% line should be referred because it generates:
 
-- $256m peak hub aggregation;
-- $1bn liability severity;
-- repair-cost sensitivity;
-- Caribbean weather exposure;
-- separate Hull War / AVN52 considerations; and
-- the requested 10% line exceeding synthetic non-referral authority.
+- $100m liability participation;
+- $7.25m largest single-hull line; and
+- $105m peak-hub aggregation.
 
-## Pricing
+At 4.0%, those reduce to:
 
-Technical indication: **$4,735,720**
+- $80m liability line;
+- $5.8m largest single hull; and
+- $84m peak-hub aggregation.
 
-Final quote: **$4,620,000**
+## Premium calibration
 
-This produces:
+Central annual aviation placement estimate: **$92.745m**
 
-- **-3.75%** vs expiring;
-- **+5.00%** vs insured request; and
-- **-2.44%** vs technical indication.
+Modeled confidence band: **$82m–$105m**
 
-## Capacity
+The estimate is reverse-engineered from public fleet exposure, SEC-described insurance allocation methods, and industry premium-pool benchmarks. It is not a representation of United Airlines' actual insurance premium.
 
-At 7.5%:
+## SIR calibration
 
-- liability line = $75m;
-- largest single hull share = $4.2m;
-- peak hub aggregation share = $19.2m.
+Public United financing documents support a fleet-wide self-insurance formula tied to aggregate insurable value. Northstar's central retained-layer estimate is deliberately set at **0.50% of hull TIV**, or **$258.4m**, below the public 1% formula reference of **$516.83m**.
 
-These fit the modeled non-referral thresholds.
-
-At 10%:
-
-- liability line = $100m;
-- largest single hull share = $5.6m;
-- peak hub aggregation share = $25.6m.
-
-These require senior referral.
-
-## Binding conditions
-
-See the full [Northstar Air Group Case Study](NORTHSTAR_AIR_GROUP_CASE_STUDY.md).
+Neither figure should be represented as United's actual current SIR.
 
 ## Portfolio disclosure
 
-All account facts, pricing, authority, capacity, and outcomes are synthetic and are not a quotation or representation of live market terms.
+All Northstar underwriting terms and outcomes remain synthetic.
