@@ -1,6 +1,6 @@
 Year,Event,GrossIncurred,Category,Status
-2020,Bird-strike engine damage,450000,Hull attritional,Closed
-2021,Ground-handling collision,800000,Hull attritional,Closed
-2022,Hub hail event,4200000,Hull major partial,Closed
-2023,Passenger injury liability,650000,Liability attritional,Closed
-2024,Landing-gear / runway incident,1100000,Hull attritional,Closed
+2021,Ground equipment collision involving widebody aircraft,12500000,Hull attritional,Closed
+2022,In-flight engine event and associated aircraft damage,18200000,Hull major partial,Closed
+2023,Hub hail aggregation affecting multiple narrowbody aircraft,74000000,Hull catastrophe aggregation,Closed
+2024,Passenger liability settlement and defense costs,26000000,Liability,Closed
+2025,Runway excursion with major partial hull damage,53300000,Hull major partial,Closed
