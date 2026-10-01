@@ -1,9 +1,8 @@
-Component,ExposureBasis,BaseRateOrUnit,BasePremium,Adjustment,IndicatedPremium
-Hull all risks,560000000,0.340%,1904000,"-7% safety +4% repair cost",1846880
-Liability passengers,3800000 passengers,0.40 per passenger,1520000,"Combined with departures; -5% safety +2% severity",1474400
-Liability departures,26000 departures,32 per departure,832000,"Combined with passengers; -5% safety +2% severity",807040
-Spares,25000000,0.240%,60000,None,60000
-Hull War,560000000,0.060%,336000,-10% geography/mitigation,302400
-XS AVN52,350000000 limit,0.070%,245000,None,245000
-TOTAL,,,,,4735720
-FINAL QUOTE,,,,,4620000
+Component,ExposureBasis,RateOrUnit,IndicatedPremium
+Hull all risks,$51.683bn hull TIV,0.065% composite,33593950
+Airline liability,267bn RPM,$0.14 per 1000 RPM,37380000
+Spares / engines,$2.5bn,0.120%,3000000
+Hull War,$51.683bn hull TIV,0.025%,12920750
+XS AVN52,$650m limit xs $1.35bn,0.90% ROL,5850000
+TOTAL TECHNICAL,,,92744700
+FINAL SYNTHETIC QUOTE,,,91800000
