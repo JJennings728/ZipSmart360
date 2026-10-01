@@ -31,9 +31,9 @@ The portfolio demonstrates:
 
 ### [Northstar Air Group — Complete Synthetic Case Study](case-study/NORTHSTAR_AIR_GROUP_CASE_STUDY.md)
 
-A full airline underwriting example that carries the portfolio framework through a 14-aircraft fleet schedule, exposure analysis, five-year loss history, rating-factor assessment, transparent pricing calculation, capacity review, stress-loss scenarios, synthetic reinsurance assumptions, Hull War / AVN52 considerations, binding subjectivities, and a final underwriting decision.
+A full major-network-airline underwriting example built around a 1,050-aircraft synthetic fleet scaled from publicly reported United Airlines fleet proportions for selected aircraft families. It carries the portfolio framework through fleet exposure, five-year loss history, rating-factor assessment, reverse-engineered premium/SIR calibration, pricing, capacity, stress-loss scenarios, synthetic reinsurance assumptions, Hull War / AVN52 considerations, binding subjectivities, and a final underwriting decision.
 
-**Final synthetic outcome:** Quote with subjectivities · 7.5% following line · $4.62m 100% premium.
+**Final synthetic outcome:** Quote with subjectivities · 4.0% following line · $91.8m modeled annual aviation placement.
 
 Supporting artifacts:
 
@@ -41,6 +41,7 @@ Supporting artifacts:
 - [Fleet schedule](data/northstar_fleet.csv)
 - [Five-year loss history](data/northstar_loss_history.csv)
 - [Pricing model](data/northstar_pricing.csv)
+- [Calibration methodology](case-study/CALIBRATION_METHODOLOGY.md)
 
 ## Full portfolio structure
 
