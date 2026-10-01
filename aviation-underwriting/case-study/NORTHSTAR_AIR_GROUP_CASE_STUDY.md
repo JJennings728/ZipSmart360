@@ -1,669 +1,463 @@
-# Northstar Air Group — Synthetic Aviation Underwriting Case Study
+# Northstar Air Group — Major Global Airline Synthetic Underwriting Case Study
 
-> **Portfolio demonstration only.** All insured identities, fleet values, losses, pricing, limits, capacity, reinsurance terms, and underwriting outcomes are synthetic. Historical market context is separately identified and is based on Marsh's *Aviation insurance market overview — Q4 2024* (published February 2025).
-
----
+> **Portfolio demonstration only.** Northstar Air Group is fictional. Fleet counts are scaled from publicly reported United Airlines fleet proportions for selected aircraft families, but all Northstar aircraft values, losses, premiums, self-insurance assumptions, capacity, and underwriting outcomes are synthetic estimates.
 
 # 1. Executive Summary
 
-## Account
+## Account profile
 
 **Insured:** Northstar Air Group, Inc.  
-**Business:** U.S.-domiciled scheduled passenger airline  
-**Operations:** United States, Canada, Mexico, and selected Caribbean destinations  
-**Fleet:** 14 Boeing 737-family aircraft  
-**Annual passengers:** 3.8 million  
-**Annual departures:** 26,000  
-**Total hull TIV:** **$560,000,000**  
-**Spares / equipment TIV:** **$25,000,000**  
-**Requested combined single liability limit:** **$1,000,000,000**  
-**Requested insurer participation:** **10%**  
-**Expiring 100% premium:** **$4,800,000**  
-**Insured requested 100% renewal premium:** **$4,400,000**  
-**Modeled technical indication:** **$4,735,720**
+**Business:** U.S.-domiciled global network passenger airline  
+**Mainline fleet:** **1,050 aircraft**  
+**Annual passengers:** **178 million**  
+**Annual departures:** **1.55 million**  
+**Annual RPM:** **267 billion**  
+**Total modeled hull TIV:** **$51.683 billion**  
+**Spares / engines / equipment TIV:** **$2.5 billion**  
+**Requested CSL:** **$2.0 billion**  
+**Requested insurer participation:** **5.0%**  
+**Modeled offered participation:** **4.0% following line**
 
-## Underwriting conclusion
+## Synthetic annual placement estimate
 
-**Decision: QUOTE WITH SUBJECTIVITIES — 7.5% FOLLOWING LINE**
-
-Northstar is modeled as an above-average aviation risk with favorable safety governance, a manageable five-year loss ratio, modern narrowbody equipment, and diversified North American operations. The account is not modeled as loss-free: a $4.2 million hail loss and several attritional events create a meaningful but supportable loss burden.
-
-The requested **10% line is referred** because it exceeds the portfolio's synthetic liability-line authority. A **7.5% following line** is offered without further capacity escalation, subject to the conditions listed in the Underwriting Decision section.
-
-### Final quoted terms — synthetic
-
-| Item | Synthetic offer |
+| Component | Modeled annual premium |
 |---|---:|
-| 100% annual premium | **$4,620,000** |
-| Change vs. expiring premium | **-3.75%** |
-| Change vs. insured request | **+5.00%** |
-| Change vs. modeled technical indication | **-2.44%** |
-| Insurer participation | **7.5%** |
-| Insurer premium share | **$346,500** |
-| Hull deductible | **$1,000,000 each occurrence** |
-| CSL liability limit | **$1,000,000,000** |
-| Modeled insurer liability line | **$75,000,000** |
-| Hull War | Separate modeled component |
-| XS AVN52 | Modeled as $350m xs $650m |
-| Binding | Subject to listed conditions |
+| Hull all risks | $33.594m |
+| Airline liability | $37.380m |
+| Spares / equipment | $3.000m |
+| Hull War | $12.921m |
+| XS AVN52 | $5.850m |
+| **Technical annual placement estimate** | **$92.745m** |
 
-The pricing concession below technical indication is intentional and reflects the historical competitive / capacity context used for this portfolio. It is not a statement of current 2026 market pricing.
+**Expiring modeled premium:** $95.0m  
+**Insured renewal target:** $88.0m  
+**Final synthetic quote:** **$91.8m**
 
----
+## Underwriting decision
 
-# 2. Market Context
+**QUOTE WITH SUBJECTIVITIES — 4.0% FOLLOWING LINE**
 
-## Historical reference frame
+Northstar is modeled as a major U.S. global-network airline with diversified aircraft, broad geographic operations, substantial passenger and departure exposure, and significant hull concentration at major hubs.
 
-The case is positioned against **Q4 2024** market conditions described by Marsh in its February 2025 aviation market overview.
+The account is supportable, but a 5.0% line is referred because of the $2bn CSL, widebody severity, hub aggregation, and modeled internal net-line guidelines.
 
-The report described robust capacity, increasing competition, pressure on rates, and continued differentiation by account-specific characteristics. It also emphasized rising attritional hull repair costs, liability-cost pressure, supply-chain disruption, Hull War and AVN52 dynamics, reinsurance considerations, and continuing Russia-Ukraine leasing uncertainty.
+# 2. Fleet Mix
 
-### Rating factors carried into this case
+The fleet is scaled to 1,050 aircraft from the relative proportions of selected aircraft families publicly reported by United Airlines at year-end 2025.
 
-The synthetic underwriting model deliberately evaluates the same categories emphasized in the market report:
+| Family / type | Count | Modeled avg hull value | Modeled hull TIV |
+|---|---:|---:|---:|
+| B787-8 | 14 | $115m | $1.610bn |
+| B787-9 | 58 | $135m | $7.830bn |
+| B787-10 | 25 | $145m | $3.625bn |
+| B777-300ER | 26 | $110m | $2.860bn |
+| B777-200ER | 66 | $55m | $3.630bn |
+| B777-200 | 23 | $45m | $1.035bn |
+| B737 MAX 9 | 144 | $58m | $8.352bn |
+| B737 MAX 8 | 147 | $55m | $8.085bn |
+| B737-900ER | 163 | $24m | $3.912bn |
+| B737-900 | 14 | $18m | $0.252bn |
+| B737-800 | 169 | $22m | $3.718bn |
+| B737-700 | 49 | $17m | $0.833bn |
+| A321neo | 71 | $62m | $4.402bn |
+| A320-200 | 81 | $19m | $1.539bn |
+| **Total** | **1,050** |  | **$51.683bn** |
 
-- safety record and loss history;
-- geographic risk;
-- aircraft exposure;
-- passenger exposure;
-- departure exposure;
-- liability limits;
-- fleet value and size;
-- hull aggregation;
-- business operation;
-- operating model; and
-- risk mitigation.
-
-## Market-context assumption used in pricing
-
-For this case only:
-
-- strong capacity creates **downward renewal pressure**;
-- well-performing accounts may receive reductions;
-- underwriters still protect rate adequacy where loss cost or aggregation is adverse;
-- line size remains a separate underwriting decision from price.
-
-Accordingly, the final offered premium is allowed to sit modestly below the modeled technical indication but not at the insured's requested level.
-
----
+The public reference fleet is used only to create a realistic synthetic distribution; Northstar is not intended to reproduce United's actual insured values or insurance program.
 
 # 3. Exposure Profile
 
-## Fleet summary
+## Operating scale
 
-Northstar operates 14 narrowbody aircraft:
-
-- 10 Boeing 737-800 aircraft;
-- 4 Boeing 737 MAX 8 aircraft;
-- all aircraft in service;
-- no widebody exposure;
-- no dedicated freighter exposure;
-- no operations modeled in active war zones.
-
-### Fleet values
-
-| Metric | Value |
+| Exposure | Synthetic Northstar value |
 |---|---:|
-| Total hull TIV | **$560.0m** |
-| Average hull value | **$40.0m** |
-| Largest single hull | **$56.0m** |
-| MAX 8 hull TIV | **$220.0m** |
-| 737-800 hull TIV | **$340.0m** |
-| Spares / equipment TIV | **$25.0m** |
+| Annual passengers | 178m |
+| Annual RPM | 267bn |
+| Annual departures | 1.55m |
+| Mainline aircraft | 1,050 |
+| Widebody aircraft | 212 |
+| Narrowbody aircraft | 838 |
+| Hull TIV | $51.683bn |
+| Spares / engines / equipment | $2.5bn |
+| CSL | $2.0bn |
 
-### Operating exposure
+## Network
 
-| Exposure | Synthetic value |
-|---|---:|
-| Annual passengers | **3,800,000** |
-| Annual departures | **26,000** |
-| Principal hub | Minneapolis–St. Paul |
-| Secondary focus cities | Des Moines, Denver |
-| International exposure | Canada, Mexico, Caribbean |
-| Long-haul / widebody | None |
-| Cargo-only operations | None |
+Northstar is modeled as a U.S. global network carrier operating:
 
-## Aggregation
+- domestic U.S.;
+- Canada and Mexico;
+- Latin America and Caribbean;
+- transatlantic;
+- transpacific; and
+- selected long-haul markets.
 
-The largest modeled hub accumulation is five aircraft on the ground during peak overnight scheduling:
+No active-war-zone scheduled operations are assumed in the base case.
 
-- 2 × B737 MAX 8 at $56m each = $112m
-- 2 × B737 MAX 8 at $54m each = $108m
-- 1 × B737-800 at $36m = $36m
+## Peak hub aggregation
 
-**Peak hull aggregation: $256m**
+Synthetic peak overnight / irregular-operations aggregation:
 
-At a 7.5% insurer share, gross modeled hull accumulation is **$19.2m** before policy terms, deductibles, or reinsurance.
+**Chicago hub: $2.10bn hull TIV**
 
-## Exposure assessment
-
-**Favorable**
-- homogeneous narrowbody fleet;
-- manageable fleet size;
-- modern MAX subfleet;
-- no widebody severity concentration;
-- primarily North American operations.
-
-**Adverse / watch**
-- $256m peak hub aggregation;
-- Caribbean catastrophe / weather exposure;
-- repair-cost inflation sensitivity;
-- concentrated Boeing 737-family fleet.
-
----
-
-# 4. Rating Factors
-
-## Rating-factor matrix
-
-| Factor | Assessment | Underwriting rationale |
-|---|---|---|
-| Safety governance | Favorable | Formal SMS, recurrent training, documented internal audit program |
-| Five-year loss history | Neutral/Favorable | $7.2m incurred against $22.8m modeled earned premium; 31.6% simplified loss ratio |
-| Major-loss history | Neutral | One $4.2m hail event; no modeled total hull loss or major passenger liability loss |
-| Aircraft type | Favorable | Narrowbody commercial fleet; no unusual experimental / specialty type |
-| Fleet age | Favorable | 2014–2023 vintages |
-| Fleet TIV | Neutral | $560m requires disciplined line and accumulation management |
-| Hub aggregation | Adverse | $256m modeled peak concentration |
-| Geography | Neutral | North America / Caribbean; no active war-zone operation modeled |
-| Passenger exposure | Neutral | 3.8m annual passengers |
-| Departure exposure | Neutral | 26,000 annual departures |
-| Liability limit | Referral | $1bn CSL creates severity exposure and drives line-size control |
-| Maintenance / MRO | Favorable | Synthetic approved vendor program and scheduled heavy-check compliance |
-| Data quality | Favorable with conditions | Submission substantially complete; three binding items remain |
-| Hull War | Neutral / referral-sensitive | Low direct war-zone exposure but separate placement and geopolitical monitoring required |
-| AVN52 | Referral-sensitive | Excess structure requires confirmation of terms / underlying limits |
-| Management quality | Favorable | Modeled stable management team and formal safety review structure |
-
-## Simplified risk score — presentation only
-
-This portfolio intentionally avoids treating a score as the decision itself. For visualization only:
-
-- Favorable = +1
-- Neutral = 0
-- Adverse = -1
-- Referral-sensitive = flagged, not scored
-
-Scored factors produce a modestly favorable profile, but the final decision remains driven by **capacity, aggregation, terms, and subjectivities**, not the numeric score.
-
----
-
-# 5. Pricing
-
-## 5.1 Hull all-risks component
-
-**Hull TIV:** $560,000,000  
-**Base synthetic hull rate:** 0.340%
-
-Base hull premium:
+At a 4.0% insurer share:
 
 ```text
-$560,000,000 × 0.340% = $1,904,000
+$2.10bn × 4.0% = $84.0m gross hull aggregation
 ```
 
-Adjustments:
-
-- safety / maintenance credit: **-7%**
-- repair-cost / supply-chain debit: **+4%**
-
-Net multiplier:
+At a 5.0% requested share:
 
 ```text
-1.00 - 0.07 + 0.04 = 0.97
+$2.10bn × 5.0% = $105.0m gross hull aggregation
 ```
 
-Indicated hull premium:
+This is a material capacity driver.
+
+# 4. Self-Insurance / SIR Calibration
+
+## Public calibration point
+
+Public United aircraft-financing documents permit fleet-wide self-insurance subject to a formula tied to aggregate fleet insurable value, plus industry-standard per-aircraft deductibles.
+
+For portfolio calibration, Northstar uses a conservative central estimate below the public 1% formula ceiling.
+
+## Maximum formula reference
 
 ```text
-$1,904,000 × 0.97 = $1,846,880
+$51.683bn × 1.00% = $516.83m
 ```
 
-## 5.2 Liability component
+This **$516.83m is not Northstar's assumed actual SIR**. It is the modeled maximum reference point derived from the public indenture-style formula.
 
-Synthetic liability basis:
+## Central Northstar self-insurance estimate
 
-- 3,800,000 passengers × **$0.40** = **$1,520,000**
-- 26,000 departures × **$32** = **$832,000**
-
-Base liability premium:
+Modeled annual aggregate retained / self-insured layer:
 
 ```text
-$1,520,000 + $832,000 = $2,352,000
+$51.683bn × 0.50% = $258.415m
 ```
 
-Adjustments:
+**Modeled annual aggregate self-insurance: $258.4m**
 
-- safety / loss-quality credit: **-5%**
-- liability severity / social-inflation debit: **+2%**
+This is a reverse-engineered portfolio assumption, not a disclosed United figure.
 
-Net multiplier:
+## Per-aircraft partial-loss deductibles
+
+For the central case:
+
+- widebody hull partial loss: **$1.0m each aircraft / occurrence**
+- narrowbody hull partial loss: **$1.0m each aircraft / occurrence**
+- total loss: modeled without a hull deductible for portfolio simplicity
+- spares: modeled **$50,000 each occurrence**
+- catastrophic aircraft liability: no separate per-occurrence SIR is asserted because public evidence is insufficient
+
+These are explicit modeling assumptions and should not be represented as United's actual deductibles.
+
+# 5. Annual Premium Reverse Engineering
+
+## Methodology
+
+Public United combined-placement agreements indicate that airline insurance costs can be allocated using:
+
+- hull / hull-war composite rate × average fleet value;
+- liability composite rate × RPM; and
+- liability-war exposure using RPM / passengers.
+
+The Northstar model follows that architecture.
+
+## Hull all risks
+
+Hull TIV:
+
+**$51.683bn**
+
+Modeled composite hull rate:
+
+**0.065%**
 
 ```text
-1.00 - 0.05 + 0.02 = 0.97
+$51.683bn × 0.065% = $33.594m
 ```
 
-Indicated liability premium:
+## Airline liability
+
+Annual RPM:
+
+**267bn**
+
+Modeled composite liability cost:
+
+**$0.14 per 1,000 RPM**
 
 ```text
-$2,352,000 × 0.97 = $2,281,440
+267,000,000 × $0.14 = $37.380m
 ```
 
-## 5.3 Spares component
-
-**Spares TIV:** $25,000,000  
-**Synthetic rate:** 0.240%
+## Spares
 
 ```text
-$25,000,000 × 0.240% = $60,000
+$2.5bn × 0.120% = $3.000m
 ```
 
-## 5.4 Hull War component
-
-**Hull TIV:** $560,000,000  
-**Base synthetic war rate:** 0.060%  
-**Geographic / mitigation credit:** 10%
+## Hull War
 
 ```text
-$560,000,000 × 0.060% = $336,000
-$336,000 × 0.90 = $302,400
+$51.683bn × 0.025% = $12.921m
 ```
 
-## 5.5 Excess AVN52 component
+## XS AVN52
 
-Synthetic structure:
+Synthetic layer:
 
-**$350m excess $650m**
+**$650m limit excess $1.35bn**
 
-Synthetic rate on limit:
+Modeled ROL:
 
-**0.070%**
+**0.90%**
 
 ```text
-$350,000,000 × 0.070% = $245,000
+$650m × 0.90% = $5.850m
 ```
 
-## 5.6 Technical indication
-
-| Component | Indicated premium |
-|---|---:|
-| Hull all risks | $1,846,880 |
-| Liability | $2,281,440 |
-| Spares | $60,000 |
-| Hull War | $302,400 |
-| XS AVN52 | $245,000 |
-| **Total technical indication** | **$4,735,720** |
-
-## 5.7 Negotiated quote
-
-**Expiring premium:** $4,800,000  
-**Insured request:** $4,400,000  
-**Technical indication:** $4,735,720  
-**Final quoted premium:** **$4,620,000**
-
-Calculations:
+## Technical annual placement estimate
 
 ```text
-Change vs expiring:
-($4,620,000 - $4,800,000) / $4,800,000 = -3.75%
-
-Change vs insured request:
-($4,620,000 - $4,400,000) / $4,400,000 = +5.00%
-
-Quote vs technical indication:
-($4,620,000 - $4,735,720) / $4,735,720 = -2.44%
+$33.594m
++ $37.380m
++ $3.000m
++ $12.921m
++ $5.850m
+= $92.745m
 ```
 
-The synthetic pricing decision therefore gives the insured a renewal reduction but does not fully concede the requested reduction.
+**Central estimate: $92.745m**
 
----
+## Confidence band
 
-# 6. Capacity
+Because actual United placement terms are confidential, the portfolio presents a range:
 
-## Requested participation
+- lower estimate: **$82m**
+- central estimate: **$92.7m**
+- upper estimate: **$105m**
 
-Northstar requests a **10%** participation.
+The central figure is intended to be realistic enough for analytical demonstration, not a claim about United's actual premium.
 
-At $1bn CSL, this represents:
+# 6. Market Cross-Check
+
+Cirium estimated approximately **$1.62bn** of global airline all-risk hull-and-liability net written premium in 2024.
+
+Northstar's modeled hull + liability premium is:
 
 ```text
-$1,000,000,000 × 10% = $100,000,000
+$33.594m + $37.380m = $70.974m
 ```
 
-## Synthetic internal authority
+That is approximately **4.38%** of the estimated 2024 global airline all-risk premium pool.
 
-For this portfolio:
+A United-scale U.S. global carrier can reasonably occupy an outsized share of premium because of:
 
-| Exposure | Modeled authority |
-|---|---:|
-| Liability line without referral | **$75m** |
-| Liability line with senior referral | **$100m** |
-| Single-hull net line guideline | **$5m** |
-| Peak hub hull aggregation guideline | **$20m** |
+- U.S. liability severity;
+- widebody exposure;
+- passenger volume;
+- international operations;
+- high fleet values; and
+- large-limit requirements.
 
-## 7.5% offered line
+This is a reasonableness check, not proof of actual premium.
+
+# 7. Five-Year Synthetic Loss History
+
+| Year | Event | Gross incurred |
+|---|---|---:|
+| 2021 | Ground equipment collision involving widebody | $12.5m |
+| 2022 | In-flight engine event / aircraft damage | $18.2m |
+| 2023 | Hub hail aggregation | $74.0m |
+| 2024 | Passenger liability settlement / defense | $26.0m |
+| 2025 | Runway excursion / major partial hull | $53.3m |
+| **Total** |  | **$184.0m** |
+
+Synthetic five-year earned aviation premium:
+
+**$470m**
+
+Simplified gross loss ratio:
+
+```text
+$184m / $470m = 39.15%
+```
+
+# 8. Rating Factors
+
+| Factor | Assessment |
+|---|---|
+| Safety-management system | Favorable |
+| Fleet diversification | Favorable |
+| Widebody severity | Adverse / monitored |
+| Passenger exposure | High but expected for class |
+| U.S. liability exposure | Adverse / pricing-sensitive |
+| Global geography | Neutral / monitored |
+| Loss history | Supportable |
+| Hub aggregation | Material referral factor |
+| Fleet age mix | Neutral / favorable |
+| Maintenance / MRO | Favorable subject to evidence |
+| Hull War | Separate placement / referral-sensitive |
+| AVN52 | Capacity-sensitive |
+| Submission quality | Favorable with subjectivities |
+
+# 9. Capacity
+
+## Requested line
+
+**5.0%**
 
 Liability:
 
 ```text
-$1,000,000,000 × 7.5% = $75,000,000
+$2.0bn × 5.0% = $100m
 ```
 
 Largest single hull:
 
 ```text
-$56,000,000 × 7.5% = $4,200,000
+$145m × 5.0% = $7.25m
 ```
 
-Peak hub hull aggregation:
+Peak hub accumulation:
 
 ```text
-$256,000,000 × 7.5% = $19,200,000
+$2.10bn × 5.0% = $105m
 ```
 
-All three fit the modeled non-referral limits.
+## Offered line
 
-## 10% requested line
+**4.0%**
+
+Liability:
+
+```text
+$2.0bn × 4.0% = $80m
+```
 
 Largest single hull:
 
 ```text
-$56,000,000 × 10% = $5,600,000
+$145m × 4.0% = $5.80m
 ```
 
-Peak hub aggregation:
+Peak hub accumulation:
 
 ```text
-$256,000,000 × 10% = $25,600,000
+$2.10bn × 4.0% = $84m
 ```
 
-Liability line:
+## Modeled authority
+
+- non-referral liability line: **$80m**
+- single-hull line guideline: **$6m**
+- major-hub aggregation guideline: **$85m**
+
+**Conclusion: 4.0% fits modeled authority; 5.0% requires senior referral.**
+
+# 10. Loss Scenarios
+
+## Widebody total loss
+
+Largest modeled hull: $145m
+
+At 4%:
 
 ```text
-$1,000,000,000 × 10% = $100,000,000
+$145m × 4% = $5.8m
 ```
 
-The requested participation exceeds the non-referral thresholds for liability, single-hull line, and hub aggregation.
+## Major widebody partial loss
 
-**Capacity conclusion: Offer 7.5%; refer 10%.**
-
----
-
-# 7. Loss Scenarios
-
-These are stress scenarios, not loss forecasts.
-
-## Scenario A — Largest single-hull total loss
-
-Largest hull: **$56m**  
-Hull deductible: **$1m**
-
-Net covered amount before participation:
+Gross repair loss: $50m  
+Less $1m deductible:
 
 ```text
-$56m - $1m = $55m
+($50m - $1m) × 4% = $1.96m
 ```
 
-7.5% insurer share:
+## $1bn passenger / third-party liability event
 
 ```text
-$55m × 7.5% = $4.125m
+$1bn × 4% = $40m gross insurer share
 ```
 
-**Modeled insurer loss: $4.125m**
+## Peak hub catastrophe
 
-## Scenario B — Major partial hull loss
-
-Synthetic repair loss: **$12m**  
-Deductible: **$1m**
+Gross damage assumption: 35% of $2.10bn
 
 ```text
-($12m - $1m) × 7.5% = $825,000
+$735m gross damage × 4% = $29.4m
 ```
 
-**Modeled insurer loss: $825,000**
+before aircraft-level deductibles and reinsurance.
 
-## Scenario C — Passenger liability event
+# 11. Reinsurance and War Risk
 
-Synthetic covered liability event: **$250m**
+The direct portfolio is modeled with a synthetic major-airline XoL structure solely for stress testing.
 
-```text
-$250m × 7.5% = $18.75m
-```
+**Synthetic XoL:** $250m xs $50m
 
-**Modeled insurer gross share: $18.75m**
+This is not intended to reproduce United's actual treaty.
 
-This illustrates why liability line size matters even where hull experience is favorable.
+Hull War and AVN52 are modeled separately because their:
 
-## Scenario D — Hub hail aggregation
+- capacity;
+- pricing;
+- territorial restrictions;
+- aggregation;
+- reinstatement; and
+- geopolitical sensitivity
 
-Five aircraft at peak hub aggregation: **$256m TIV**
+can differ materially from core all-risks placement.
 
-Assume 40% average physical damage:
-
-```text
-$256m × 40% = $102.4m gross damage
-```
-
-Assume five $1m hull deductibles:
-
-```text
-$102.4m - $5m = $97.4m
-```
-
-7.5% participation:
-
-```text
-$97.4m × 7.5% = $7.305m
-```
-
-**Modeled insurer loss: $7.305m**
-
-## Scenario E — War-risk two-aircraft loss
-
-Assume two $54m aircraft affected:
-
-```text
-$108m × 7.5% = $8.10m
-```
-
-**Modeled gross war-risk share: $8.10m**
-
-Coverage response, exclusions, territorial restrictions, aggregate terms, and reinsurance treatment are intentionally not assumed beyond the synthetic scenario.
-
----
-
-# 8. Reinsurance and War Risk
-
-## Historical context
-
-The referenced Q4 2024 market report described adequate capacity across much of the aviation reinsurance market, while also noting repair-cost pressure, liability severity concerns, and continued uncertainty surrounding Russia-Ukraine leasing losses.
-
-This portfolio uses that only as context.
-
-## Synthetic direct-carrier reinsurance program
-
-For stress-testing only, assume the carrier has:
-
-**$170m excess $30m aviation XoL protection**
-
-This is not sourced from Marsh and is purely a portfolio assumption.
-
-### Example: $600m covered liability event
-
-Gross 7.5% share:
-
-```text
-$600m × 7.5% = $45m
-```
-
-Synthetic net retention before recovery:
-
-```text
-$30m
-```
-
-Synthetic XoL recovery:
-
-```text
-$45m - $30m = $15m
-```
-
-This demonstrates why the direct underwriting decision should consider the carrier's net position, but it does not attempt to model an actual treaty.
-
-## Hull War
-
-Northstar has no modeled operations in active war zones, but Hull War remains a separate underwriting consideration because:
-
-- aircraft can move geographically;
-- geopolitical conditions can change;
-- confiscation / detention scenarios are distinct from ordinary hull all-risks;
-- fleet aggregation matters;
-- capacity and wording can change independently from the core hull placement.
-
-## AVN52
-
-Synthetic portfolio structure:
-
-**$350m excess $650m**
-
-Required confirmations before binding:
-
-- final underlying liability structure;
-- excess attachment;
-- reinstatement terms;
-- territorial treatment;
-- insurer participation;
-- separate pricing acceptance.
-
----
-
-# 9. Underwriting Decision
+# 12. Final Underwriting Decision
 
 ## Decision
 
 **QUOTE WITH SUBJECTIVITIES**
 
-**Participation offered:** **7.5% following line**
+**Offered line:** 4.0% following  
+**Requested line:** 5.0%  
+**100% technical annual placement:** $92.745m  
+**Final quote:** **$91.8m**
 
-**100% quoted premium:** **$4,620,000**
-
-**Insurer premium share:**
+4% premium participation:
 
 ```text
-$4,620,000 × 7.5% = $346,500
+$91.8m × 4.0% = $3.672m
 ```
-
-## Principal favorable factors
-
-1. Formal safety-management program.
-2. Modern, relatively homogeneous narrowbody fleet.
-3. Five-year simplified loss ratio of **31.6%**.
-4. No modeled major passenger liability event in the experience period.
-5. No modeled operations in active war zones.
-6. Strong maintenance / MRO controls.
-7. Substantially complete submission data.
-8. Competitive historical market context allows a measured renewal reduction.
-
-## Principal adverse factors
-
-1. $256m peak hub hull aggregation.
-2. Repair-cost / parts-inflation sensitivity.
-3. $1bn CSL severity exposure.
-4. Caribbean catastrophe exposure.
-5. One $4.2m hail loss within the five-year period.
-6. Hull War and AVN52 require separate confirmation.
-7. Requested 10% participation exceeds modeled non-referral authority.
 
 ## Binding subjectivities
 
-Before binding, obtain:
+Before binding:
 
-1. valued fleet schedule dated within 30 days of inception;
-2. currently valued five-year ground-up loss runs with open-claim status;
-3. confirmation of 2026 operating territories and no scheduled operations into excluded / prohibited territories;
-4. confirmation of maintenance / MRO contracts and no overdue heavy-check exceptions;
-5. updated safety-management summary including corrective actions from material incidents;
-6. final passenger and departure estimates;
-7. confirmation of underlying liability and XS AVN52 structure;
-8. war-risk territorial and aggregation review;
-9. confirmation that no material fleet acquisition, disposal, or lease change has occurred since submission.
+1. final fleet schedule and agreed values;
+2. five-year ground-up loss runs;
+3. passenger / RPM / departure estimates;
+4. safety-management report;
+5. MRO / maintenance program confirmation;
+6. hub aggregation schedule;
+7. operating-territory schedule;
+8. Hull War territorial review;
+9. final AVN52 attachment and wording;
+10. confirmation of no material fleet / route change;
+11. insurer and reinsurer capacity confirmation.
 
-## Referral condition
+# 13. Limitations
 
-A **10% line may be considered only after senior capacity referral** because:
+Exact United annual aviation premium, deductibles, SIRs, treaty retentions, market shares, and policy terms are not publicly disclosed.
 
-- $100m liability line exceeds the $75m modeled non-referral authority;
-- $5.6m largest-single-hull share exceeds the $5m guideline; and
-- $25.6m hub accumulation exceeds the $20m guideline.
+This portfolio therefore uses:
 
-## Final rationale
+- public fleet data;
+- public SEC self-insurance constraints;
+- public historical allocation methodology;
+- public industry premium-pool benchmarks; and
+- explicit synthetic assumptions.
 
-Northstar is modeled as a supportable account, but not one that warrants maximum line deployment automatically.
-
-The 7.5% line keeps the synthetic liability, single-hull, and peak-hub accumulations within modeled authority while providing a competitive renewal outcome.
-
----
-
-# 10. Limitations
-
-## Synthetic data
-
-The account, losses, values, rates, pricing, capacity, reinsurance, and decision are fictional.
-
-## Historical market context
-
-The external market context used in this case is specifically **Q4 2024** and was published in February 2025.
-
-It must not be represented as a verified description of the 2026 aviation market.
-
-## No carrier authority
-
-The case does not establish that James Jennings or StrategicRisk Partners holds airline underwriting authority.
-
-## No actuarial opinion
-
-The pricing model is a transparent portfolio calculation, not an actuarial indication.
-
-## No policy interpretation
-
-War-risk and AVN52 discussions are conceptual. This project does not reproduce or interpret a specific policy wording as legal advice or a coverage determination.
-
-## No live capacity representation
-
-The modeled 7.5% / 10% line decisions are invented for the case study and do not represent any insurer's actual appetite or capacity.
-
----
-
-# Appendix A — Five-Year Loss History
-
-| Year | Event | Gross incurred | Category | Status |
-|---|---|---:|---|---|
-| 2020 | Bird-strike engine damage | $450,000 | Hull attritional | Closed |
-| 2021 | Ground-handling collision | $800,000 | Hull attritional | Closed |
-| 2022 | Hub hail event | $4,200,000 | Hull major partial | Closed |
-| 2023 | Passenger injury liability | $650,000 | Liability attritional | Closed |
-| 2024 | Landing-gear / runway incident | $1,100,000 | Hull attritional | Closed |
-| **Total** |  | **$7,200,000** |  |  |
-
-Synthetic five-year earned premium: **$22,800,000**
-
-```text
-$7,200,000 / $22,800,000 = 31.58%
-```
-
-Rounded simplified five-year loss ratio: **31.6%**
-
----
-
-# Appendix B — Fleet Schedule
-
-See [northstar_fleet.csv](../data/northstar_fleet.csv).
-
-# Appendix C — Pricing Model
-
-See [northstar_pricing.csv](../data/northstar_pricing.csv).
-
-# Appendix D — Loss Data
-
-See [northstar_loss_history.csv](../data/northstar_loss_history.csv).
+The distinction between **observed fact**, **derived estimate**, and **synthetic assumption** is intentional.
