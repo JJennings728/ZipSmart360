@@ -1,15 +1,1051 @@
-TailNumber,AircraftType,YearBuilt,HullValue,Status,PrimaryOperatingArea
-N810NS,B737-800,2014,32000000,In service,US/Canada/Mexico
-N811NS,B737-800,2014,32000000,In service,US/Canada/Mexico
-N812NS,B737-800,2015,33000000,In service,US/Canada/Caribbean
-N813NS,B737-800,2015,33000000,In service,US/Canada/Caribbean
-N814NS,B737-800,2016,34000000,In service,US/Mexico/Caribbean
-N815NS,B737-800,2016,34000000,In service,US/Mexico/Caribbean
-N816NS,B737-800,2017,35000000,In service,US/Canada
-N817NS,B737-800,2017,35000000,In service,US/Canada
-N818NS,B737-800,2018,36000000,In service,US/Mexico
-N819NS,B737-800,2018,36000000,In service,US/Mexico
-N820NS,B737 MAX 8,2022,54000000,In service,US/Canada/Mexico
-N821NS,B737 MAX 8,2022,54000000,In service,US/Canada/Mexico
-N822NS,B737 MAX 8,2023,56000000,In service,US/Caribbean
-N823NS,B737 MAX 8,2023,56000000,In service,US/Caribbean
+AircraftID,AircraftType,YearBuilt,HullValue,Status,PrimaryOperatingArea
+NSA0001,B787-8,2012,115000000,In service,Global long-haul
+NSA0002,B787-8,2013,115000000,In service,Global long-haul
+NSA0003,B787-8,2014,115000000,In service,Global long-haul
+NSA0004,B787-8,2015,115000000,In service,Global long-haul
+NSA0005,B787-8,2016,115000000,In service,Global long-haul
+NSA0006,B787-8,2017,115000000,In service,Global long-haul
+NSA0007,B787-8,2018,115000000,In service,Global long-haul
+NSA0008,B787-8,2019,115000000,In service,Global long-haul
+NSA0009,B787-8,2012,115000000,In service,Global long-haul
+NSA0010,B787-8,2013,115000000,In service,Global long-haul
+NSA0011,B787-8,2014,115000000,In service,Global long-haul
+NSA0012,B787-8,2015,115000000,In service,Global long-haul
+NSA0013,B787-8,2016,115000000,In service,Global long-haul
+NSA0014,B787-8,2017,115000000,In service,Global long-haul
+NSA0015,B787-9,2015,135000000,In service,Global long-haul
+NSA0016,B787-9,2016,135000000,In service,Global long-haul
+NSA0017,B787-9,2017,135000000,In service,Global long-haul
+NSA0018,B787-9,2018,135000000,In service,Global long-haul
+NSA0019,B787-9,2019,135000000,In service,Global long-haul
+NSA0020,B787-9,2020,135000000,In service,Global long-haul
+NSA0021,B787-9,2021,135000000,In service,Global long-haul
+NSA0022,B787-9,2022,135000000,In service,Global long-haul
+NSA0023,B787-9,2023,135000000,In service,Global long-haul
+NSA0024,B787-9,2024,135000000,In service,Global long-haul
+NSA0025,B787-9,2015,135000000,In service,Global long-haul
+NSA0026,B787-9,2016,135000000,In service,Global long-haul
+NSA0027,B787-9,2017,135000000,In service,Global long-haul
+NSA0028,B787-9,2018,135000000,In service,Global long-haul
+NSA0029,B787-9,2019,135000000,In service,Global long-haul
+NSA0030,B787-9,2020,135000000,In service,Global long-haul
+NSA0031,B787-9,2021,135000000,In service,Global long-haul
+NSA0032,B787-9,2022,135000000,In service,Global long-haul
+NSA0033,B787-9,2023,135000000,In service,Global long-haul
+NSA0034,B787-9,2024,135000000,In service,Global long-haul
+NSA0035,B787-9,2015,135000000,In service,Global long-haul
+NSA0036,B787-9,2016,135000000,In service,Global long-haul
+NSA0037,B787-9,2017,135000000,In service,Global long-haul
+NSA0038,B787-9,2018,135000000,In service,Global long-haul
+NSA0039,B787-9,2019,135000000,In service,Global long-haul
+NSA0040,B787-9,2020,135000000,In service,Global long-haul
+NSA0041,B787-9,2021,135000000,In service,Global long-haul
+NSA0042,B787-9,2022,135000000,In service,Global long-haul
+NSA0043,B787-9,2023,135000000,In service,Global long-haul
+NSA0044,B787-9,2024,135000000,In service,Global long-haul
+NSA0045,B787-9,2015,135000000,In service,Global long-haul
+NSA0046,B787-9,2016,135000000,In service,Global long-haul
+NSA0047,B787-9,2017,135000000,In service,Global long-haul
+NSA0048,B787-9,2018,135000000,In service,Global long-haul
+NSA0049,B787-9,2019,135000000,In service,Global long-haul
+NSA0050,B787-9,2020,135000000,In service,Global long-haul
+NSA0051,B787-9,2021,135000000,In service,Global long-haul
+NSA0052,B787-9,2022,135000000,In service,Global long-haul
+NSA0053,B787-9,2023,135000000,In service,Global long-haul
+NSA0054,B787-9,2024,135000000,In service,Global long-haul
+NSA0055,B787-9,2015,135000000,In service,Global long-haul
+NSA0056,B787-9,2016,135000000,In service,Global long-haul
+NSA0057,B787-9,2017,135000000,In service,Global long-haul
+NSA0058,B787-9,2018,135000000,In service,Global long-haul
+NSA0059,B787-9,2019,135000000,In service,Global long-haul
+NSA0060,B787-9,2020,135000000,In service,Global long-haul
+NSA0061,B787-9,2021,135000000,In service,Global long-haul
+NSA0062,B787-9,2022,135000000,In service,Global long-haul
+NSA0063,B787-9,2023,135000000,In service,Global long-haul
+NSA0064,B787-9,2024,135000000,In service,Global long-haul
+NSA0065,B787-9,2015,135000000,In service,Global long-haul
+NSA0066,B787-9,2016,135000000,In service,Global long-haul
+NSA0067,B787-9,2017,135000000,In service,Global long-haul
+NSA0068,B787-9,2018,135000000,In service,Global long-haul
+NSA0069,B787-9,2019,135000000,In service,Global long-haul
+NSA0070,B787-9,2020,135000000,In service,Global long-haul
+NSA0071,B787-9,2021,135000000,In service,Global long-haul
+NSA0072,B787-9,2022,135000000,In service,Global long-haul
+NSA0073,B787-10,2019,145000000,In service,Atlantic/Pacific long-haul
+NSA0074,B787-10,2020,145000000,In service,Atlantic/Pacific long-haul
+NSA0075,B787-10,2021,145000000,In service,Atlantic/Pacific long-haul
+NSA0076,B787-10,2022,145000000,In service,Atlantic/Pacific long-haul
+NSA0077,B787-10,2023,145000000,In service,Atlantic/Pacific long-haul
+NSA0078,B787-10,2024,145000000,In service,Atlantic/Pacific long-haul
+NSA0079,B787-10,2025,145000000,In service,Atlantic/Pacific long-haul
+NSA0080,B787-10,2019,145000000,In service,Atlantic/Pacific long-haul
+NSA0081,B787-10,2020,145000000,In service,Atlantic/Pacific long-haul
+NSA0082,B787-10,2021,145000000,In service,Atlantic/Pacific long-haul
+NSA0083,B787-10,2022,145000000,In service,Atlantic/Pacific long-haul
+NSA0084,B787-10,2023,145000000,In service,Atlantic/Pacific long-haul
+NSA0085,B787-10,2024,145000000,In service,Atlantic/Pacific long-haul
+NSA0086,B787-10,2025,145000000,In service,Atlantic/Pacific long-haul
+NSA0087,B787-10,2019,145000000,In service,Atlantic/Pacific long-haul
+NSA0088,B787-10,2020,145000000,In service,Atlantic/Pacific long-haul
+NSA0089,B787-10,2021,145000000,In service,Atlantic/Pacific long-haul
+NSA0090,B787-10,2022,145000000,In service,Atlantic/Pacific long-haul
+NSA0091,B787-10,2023,145000000,In service,Atlantic/Pacific long-haul
+NSA0092,B787-10,2024,145000000,In service,Atlantic/Pacific long-haul
+NSA0093,B787-10,2025,145000000,In service,Atlantic/Pacific long-haul
+NSA0094,B787-10,2019,145000000,In service,Atlantic/Pacific long-haul
+NSA0095,B787-10,2020,145000000,In service,Atlantic/Pacific long-haul
+NSA0096,B787-10,2021,145000000,In service,Atlantic/Pacific long-haul
+NSA0097,B787-10,2022,145000000,In service,Atlantic/Pacific long-haul
+NSA0098,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0099,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0100,B777-300ER,2019,110000000,In service,Global long-haul
+NSA0101,B777-300ER,2020,110000000,In service,Global long-haul
+NSA0102,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0103,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0104,B777-300ER,2019,110000000,In service,Global long-haul
+NSA0105,B777-300ER,2020,110000000,In service,Global long-haul
+NSA0106,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0107,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0108,B777-300ER,2019,110000000,In service,Global long-haul
+NSA0109,B777-300ER,2020,110000000,In service,Global long-haul
+NSA0110,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0111,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0112,B777-300ER,2019,110000000,In service,Global long-haul
+NSA0113,B777-300ER,2020,110000000,In service,Global long-haul
+NSA0114,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0115,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0116,B777-300ER,2019,110000000,In service,Global long-haul
+NSA0117,B777-300ER,2020,110000000,In service,Global long-haul
+NSA0118,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0119,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0120,B777-300ER,2019,110000000,In service,Global long-haul
+NSA0121,B777-300ER,2020,110000000,In service,Global long-haul
+NSA0122,B777-300ER,2017,110000000,In service,Global long-haul
+NSA0123,B777-300ER,2018,110000000,In service,Global long-haul
+NSA0124,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0125,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0126,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0127,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0128,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0129,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0130,B777-200ER,2004,55000000,In service,Atlantic/Pacific long-haul
+NSA0131,B777-200ER,2005,55000000,In service,Atlantic/Pacific long-haul
+NSA0132,B777-200ER,2006,55000000,In service,Atlantic/Pacific long-haul
+NSA0133,B777-200ER,2007,55000000,In service,Atlantic/Pacific long-haul
+NSA0134,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0135,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0136,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0137,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0138,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0139,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0140,B777-200ER,2004,55000000,In service,Atlantic/Pacific long-haul
+NSA0141,B777-200ER,2005,55000000,In service,Atlantic/Pacific long-haul
+NSA0142,B777-200ER,2006,55000000,In service,Atlantic/Pacific long-haul
+NSA0143,B777-200ER,2007,55000000,In service,Atlantic/Pacific long-haul
+NSA0144,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0145,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0146,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0147,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0148,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0149,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0150,B777-200ER,2004,55000000,In service,Atlantic/Pacific long-haul
+NSA0151,B777-200ER,2005,55000000,In service,Atlantic/Pacific long-haul
+NSA0152,B777-200ER,2006,55000000,In service,Atlantic/Pacific long-haul
+NSA0153,B777-200ER,2007,55000000,In service,Atlantic/Pacific long-haul
+NSA0154,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0155,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0156,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0157,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0158,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0159,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0160,B777-200ER,2004,55000000,In service,Atlantic/Pacific long-haul
+NSA0161,B777-200ER,2005,55000000,In service,Atlantic/Pacific long-haul
+NSA0162,B777-200ER,2006,55000000,In service,Atlantic/Pacific long-haul
+NSA0163,B777-200ER,2007,55000000,In service,Atlantic/Pacific long-haul
+NSA0164,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0165,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0166,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0167,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0168,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0169,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0170,B777-200ER,2004,55000000,In service,Atlantic/Pacific long-haul
+NSA0171,B777-200ER,2005,55000000,In service,Atlantic/Pacific long-haul
+NSA0172,B777-200ER,2006,55000000,In service,Atlantic/Pacific long-haul
+NSA0173,B777-200ER,2007,55000000,In service,Atlantic/Pacific long-haul
+NSA0174,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0175,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0176,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0177,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0178,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0179,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0180,B777-200ER,2004,55000000,In service,Atlantic/Pacific long-haul
+NSA0181,B777-200ER,2005,55000000,In service,Atlantic/Pacific long-haul
+NSA0182,B777-200ER,2006,55000000,In service,Atlantic/Pacific long-haul
+NSA0183,B777-200ER,2007,55000000,In service,Atlantic/Pacific long-haul
+NSA0184,B777-200ER,1998,55000000,In service,Atlantic/Pacific long-haul
+NSA0185,B777-200ER,1999,55000000,In service,Atlantic/Pacific long-haul
+NSA0186,B777-200ER,2000,55000000,In service,Atlantic/Pacific long-haul
+NSA0187,B777-200ER,2001,55000000,In service,Atlantic/Pacific long-haul
+NSA0188,B777-200ER,2002,55000000,In service,Atlantic/Pacific long-haul
+NSA0189,B777-200ER,2003,55000000,In service,Atlantic/Pacific long-haul
+NSA0190,B777-200,1995,45000000,In service,Domestic/long-haul
+NSA0191,B777-200,1996,45000000,In service,Domestic/long-haul
+NSA0192,B777-200,1997,45000000,In service,Domestic/long-haul
+NSA0193,B777-200,1998,45000000,In service,Domestic/long-haul
+NSA0194,B777-200,1999,45000000,In service,Domestic/long-haul
+NSA0195,B777-200,2000,45000000,In service,Domestic/long-haul
+NSA0196,B777-200,2001,45000000,In service,Domestic/long-haul
+NSA0197,B777-200,2002,45000000,In service,Domestic/long-haul
+NSA0198,B777-200,1995,45000000,In service,Domestic/long-haul
+NSA0199,B777-200,1996,45000000,In service,Domestic/long-haul
+NSA0200,B777-200,1997,45000000,In service,Domestic/long-haul
+NSA0201,B777-200,1998,45000000,In service,Domestic/long-haul
+NSA0202,B777-200,1999,45000000,In service,Domestic/long-haul
+NSA0203,B777-200,2000,45000000,In service,Domestic/long-haul
+NSA0204,B777-200,2001,45000000,In service,Domestic/long-haul
+NSA0205,B777-200,2002,45000000,In service,Domestic/long-haul
+NSA0206,B777-200,1995,45000000,In service,Domestic/long-haul
+NSA0207,B777-200,1996,45000000,In service,Domestic/long-haul
+NSA0208,B777-200,1997,45000000,In service,Domestic/long-haul
+NSA0209,B777-200,1998,45000000,In service,Domestic/long-haul
+NSA0210,B777-200,1999,45000000,In service,Domestic/long-haul
+NSA0211,B777-200,2000,45000000,In service,Domestic/long-haul
+NSA0212,B777-200,2001,45000000,In service,Domestic/long-haul
+NSA0213,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0214,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0215,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0216,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0217,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0218,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0219,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0220,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0221,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0222,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0223,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0224,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0225,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0226,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0227,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0228,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0229,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0230,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0231,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0232,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0233,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0234,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0235,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0236,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0237,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0238,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0239,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0240,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0241,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0242,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0243,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0244,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0245,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0246,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0247,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0248,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0249,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0250,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0251,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0252,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0253,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0254,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0255,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0256,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0257,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0258,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0259,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0260,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0261,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0262,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0263,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0264,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0265,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0266,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0267,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0268,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0269,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0270,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0271,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0272,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0273,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0274,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0275,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0276,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0277,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0278,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0279,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0280,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0281,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0282,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0283,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0284,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0285,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0286,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0287,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0288,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0289,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0290,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0291,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0292,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0293,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0294,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0295,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0296,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0297,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0298,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0299,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0300,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0301,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0302,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0303,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0304,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0305,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0306,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0307,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0308,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0309,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0310,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0311,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0312,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0313,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0314,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0315,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0316,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0317,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0318,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0319,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0320,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0321,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0322,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0323,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0324,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0325,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0326,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0327,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0328,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0329,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0330,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0331,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0332,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0333,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0334,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0335,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0336,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0337,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0338,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0339,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0340,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0341,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0342,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0343,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0344,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0345,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0346,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0347,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0348,B737 MAX 9,2018,58000000,In service,US/Canada/Latin America
+NSA0349,B737 MAX 9,2019,58000000,In service,US/Canada/Latin America
+NSA0350,B737 MAX 9,2020,58000000,In service,US/Canada/Latin America
+NSA0351,B737 MAX 9,2021,58000000,In service,US/Canada/Latin America
+NSA0352,B737 MAX 9,2022,58000000,In service,US/Canada/Latin America
+NSA0353,B737 MAX 9,2023,58000000,In service,US/Canada/Latin America
+NSA0354,B737 MAX 9,2024,58000000,In service,US/Canada/Latin America
+NSA0355,B737 MAX 9,2025,58000000,In service,US/Canada/Latin America
+NSA0356,B737 MAX 9,2026,58000000,In service,US/Canada/Latin America
+NSA0357,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0358,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0359,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0360,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0361,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0362,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0363,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0364,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0365,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0366,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0367,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0368,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0369,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0370,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0371,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0372,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0373,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0374,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0375,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0376,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0377,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0378,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0379,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0380,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0381,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0382,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0383,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0384,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0385,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0386,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0387,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0388,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0389,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0390,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0391,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0392,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0393,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0394,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0395,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0396,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0397,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0398,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0399,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0400,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0401,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0402,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0403,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0404,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0405,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0406,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0407,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0408,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0409,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0410,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0411,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0412,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0413,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0414,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0415,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0416,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0417,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0418,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0419,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0420,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0421,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0422,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0423,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0424,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0425,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0426,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0427,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0428,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0429,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0430,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0431,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0432,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0433,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0434,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0435,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0436,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0437,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0438,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0439,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0440,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0441,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0442,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0443,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0444,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0445,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0446,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0447,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0448,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0449,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0450,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0451,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0452,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0453,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0454,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0455,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0456,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0457,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0458,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0459,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0460,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0461,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0462,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0463,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0464,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0465,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0466,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0467,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0468,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0469,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0470,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0471,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0472,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0473,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0474,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0475,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0476,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0477,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0478,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0479,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0480,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0481,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0482,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0483,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0484,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0485,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0486,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0487,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0488,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0489,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0490,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0491,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0492,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0493,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0494,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0495,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0496,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0497,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0498,B737 MAX 8,2024,55000000,In service,US/Canada/Latin America
+NSA0499,B737 MAX 8,2025,55000000,In service,US/Canada/Latin America
+NSA0500,B737 MAX 8,2026,55000000,In service,US/Canada/Latin America
+NSA0501,B737 MAX 8,2021,55000000,In service,US/Canada/Latin America
+NSA0502,B737 MAX 8,2022,55000000,In service,US/Canada/Latin America
+NSA0503,B737 MAX 8,2023,55000000,In service,US/Canada/Latin America
+NSA0504,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0505,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0506,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0507,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0508,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0509,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0510,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0511,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0512,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0513,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0514,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0515,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0516,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0517,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0518,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0519,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0520,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0521,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0522,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0523,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0524,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0525,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0526,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0527,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0528,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0529,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0530,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0531,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0532,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0533,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0534,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0535,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0536,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0537,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0538,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0539,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0540,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0541,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0542,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0543,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0544,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0545,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0546,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0547,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0548,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0549,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0550,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0551,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0552,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0553,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0554,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0555,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0556,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0557,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0558,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0559,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0560,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0561,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0562,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0563,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0564,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0565,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0566,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0567,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0568,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0569,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0570,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0571,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0572,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0573,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0574,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0575,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0576,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0577,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0578,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0579,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0580,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0581,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0582,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0583,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0584,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0585,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0586,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0587,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0588,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0589,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0590,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0591,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0592,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0593,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0594,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0595,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0596,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0597,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0598,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0599,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0600,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0601,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0602,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0603,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0604,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0605,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0606,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0607,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0608,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0609,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0610,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0611,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0612,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0613,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0614,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0615,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0616,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0617,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0618,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0619,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0620,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0621,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0622,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0623,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0624,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0625,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0626,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0627,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0628,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0629,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0630,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0631,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0632,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0633,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0634,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0635,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0636,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0637,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0638,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0639,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0640,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0641,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0642,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0643,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0644,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0645,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0646,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0647,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0648,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0649,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0650,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0651,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0652,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0653,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0654,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0655,B737-900ER,2015,24000000,In service,US/Canada/Latin America
+NSA0656,B737-900ER,2016,24000000,In service,US/Canada/Latin America
+NSA0657,B737-900ER,2017,24000000,In service,US/Canada/Latin America
+NSA0658,B737-900ER,2018,24000000,In service,US/Canada/Latin America
+NSA0659,B737-900ER,2019,24000000,In service,US/Canada/Latin America
+NSA0660,B737-900ER,2008,24000000,In service,US/Canada/Latin America
+NSA0661,B737-900ER,2009,24000000,In service,US/Canada/Latin America
+NSA0662,B737-900ER,2010,24000000,In service,US/Canada/Latin America
+NSA0663,B737-900ER,2011,24000000,In service,US/Canada/Latin America
+NSA0664,B737-900ER,2012,24000000,In service,US/Canada/Latin America
+NSA0665,B737-900ER,2013,24000000,In service,US/Canada/Latin America
+NSA0666,B737-900ER,2014,24000000,In service,US/Canada/Latin America
+NSA0667,B737-900,2001,18000000,In service,US domestic
+NSA0668,B737-900,2002,18000000,In service,US domestic
+NSA0669,B737-900,2003,18000000,In service,US domestic
+NSA0670,B737-900,2001,18000000,In service,US domestic
+NSA0671,B737-900,2002,18000000,In service,US domestic
+NSA0672,B737-900,2003,18000000,In service,US domestic
+NSA0673,B737-900,2001,18000000,In service,US domestic
+NSA0674,B737-900,2002,18000000,In service,US domestic
+NSA0675,B737-900,2003,18000000,In service,US domestic
+NSA0676,B737-900,2001,18000000,In service,US domestic
+NSA0677,B737-900,2002,18000000,In service,US domestic
+NSA0678,B737-900,2003,18000000,In service,US domestic
+NSA0679,B737-900,2001,18000000,In service,US domestic
+NSA0680,B737-900,2002,18000000,In service,US domestic
+NSA0681,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0682,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0683,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0684,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0685,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0686,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0687,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0688,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0689,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0690,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0691,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0692,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0693,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0694,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0695,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0696,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0697,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0698,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0699,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0700,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0701,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0702,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0703,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0704,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0705,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0706,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0707,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0708,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0709,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0710,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0711,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0712,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0713,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0714,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0715,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0716,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0717,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0718,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0719,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0720,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0721,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0722,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0723,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0724,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0725,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0726,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0727,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0728,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0729,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0730,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0731,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0732,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0733,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0734,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0735,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0736,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0737,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0738,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0739,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0740,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0741,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0742,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0743,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0744,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0745,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0746,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0747,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0748,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0749,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0750,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0751,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0752,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0753,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0754,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0755,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0756,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0757,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0758,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0759,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0760,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0761,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0762,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0763,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0764,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0765,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0766,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0767,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0768,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0769,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0770,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0771,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0772,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0773,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0774,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0775,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0776,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0777,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0778,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0779,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0780,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0781,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0782,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0783,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0784,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0785,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0786,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0787,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0788,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0789,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0790,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0791,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0792,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0793,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0794,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0795,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0796,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0797,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0798,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0799,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0800,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0801,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0802,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0803,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0804,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0805,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0806,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0807,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0808,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0809,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0810,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0811,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0812,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0813,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0814,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0815,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0816,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0817,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0818,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0819,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0820,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0821,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0822,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0823,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0824,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0825,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0826,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0827,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0828,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0829,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0830,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0831,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0832,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0833,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0834,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0835,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0836,B737-800,1999,22000000,In service,US/Canada/Latin America
+NSA0837,B737-800,2000,22000000,In service,US/Canada/Latin America
+NSA0838,B737-800,2001,22000000,In service,US/Canada/Latin America
+NSA0839,B737-800,2002,22000000,In service,US/Canada/Latin America
+NSA0840,B737-800,2003,22000000,In service,US/Canada/Latin America
+NSA0841,B737-800,2004,22000000,In service,US/Canada/Latin America
+NSA0842,B737-800,2005,22000000,In service,US/Canada/Latin America
+NSA0843,B737-800,2006,22000000,In service,US/Canada/Latin America
+NSA0844,B737-800,2007,22000000,In service,US/Canada/Latin America
+NSA0845,B737-800,2008,22000000,In service,US/Canada/Latin America
+NSA0846,B737-800,2009,22000000,In service,US/Canada/Latin America
+NSA0847,B737-800,2010,22000000,In service,US/Canada/Latin America
+NSA0848,B737-800,2011,22000000,In service,US/Canada/Latin America
+NSA0849,B737-800,1998,22000000,In service,US/Canada/Latin America
+NSA0850,B737-700,1998,17000000,In service,US/Canada
+NSA0851,B737-700,1999,17000000,In service,US/Canada
+NSA0852,B737-700,2000,17000000,In service,US/Canada
+NSA0853,B737-700,2001,17000000,In service,US/Canada
+NSA0854,B737-700,2002,17000000,In service,US/Canada
+NSA0855,B737-700,2003,17000000,In service,US/Canada
+NSA0856,B737-700,2004,17000000,In service,US/Canada
+NSA0857,B737-700,2005,17000000,In service,US/Canada
+NSA0858,B737-700,2006,17000000,In service,US/Canada
+NSA0859,B737-700,2007,17000000,In service,US/Canada
+NSA0860,B737-700,1998,17000000,In service,US/Canada
+NSA0861,B737-700,1999,17000000,In service,US/Canada
+NSA0862,B737-700,2000,17000000,In service,US/Canada
+NSA0863,B737-700,2001,17000000,In service,US/Canada
+NSA0864,B737-700,2002,17000000,In service,US/Canada
+NSA0865,B737-700,2003,17000000,In service,US/Canada
+NSA0866,B737-700,2004,17000000,In service,US/Canada
+NSA0867,B737-700,2005,17000000,In service,US/Canada
+NSA0868,B737-700,2006,17000000,In service,US/Canada
+NSA0869,B737-700,2007,17000000,In service,US/Canada
+NSA0870,B737-700,1998,17000000,In service,US/Canada
+NSA0871,B737-700,1999,17000000,In service,US/Canada
+NSA0872,B737-700,2000,17000000,In service,US/Canada
+NSA0873,B737-700,2001,17000000,In service,US/Canada
+NSA0874,B737-700,2002,17000000,In service,US/Canada
+NSA0875,B737-700,2003,17000000,In service,US/Canada
+NSA0876,B737-700,2004,17000000,In service,US/Canada
+NSA0877,B737-700,2005,17000000,In service,US/Canada
+NSA0878,B737-700,2006,17000000,In service,US/Canada
+NSA0879,B737-700,2007,17000000,In service,US/Canada
+NSA0880,B737-700,1998,17000000,In service,US/Canada
+NSA0881,B737-700,1999,17000000,In service,US/Canada
+NSA0882,B737-700,2000,17000000,In service,US/Canada
+NSA0883,B737-700,2001,17000000,In service,US/Canada
+NSA0884,B737-700,2002,17000000,In service,US/Canada
+NSA0885,B737-700,2003,17000000,In service,US/Canada
+NSA0886,B737-700,2004,17000000,In service,US/Canada
+NSA0887,B737-700,2005,17000000,In service,US/Canada
+NSA0888,B737-700,2006,17000000,In service,US/Canada
+NSA0889,B737-700,2007,17000000,In service,US/Canada
+NSA0890,B737-700,1998,17000000,In service,US/Canada
+NSA0891,B737-700,1999,17000000,In service,US/Canada
+NSA0892,B737-700,2000,17000000,In service,US/Canada
+NSA0893,B737-700,2001,17000000,In service,US/Canada
+NSA0894,B737-700,2002,17000000,In service,US/Canada
+NSA0895,B737-700,2003,17000000,In service,US/Canada
+NSA0896,B737-700,2004,17000000,In service,US/Canada
+NSA0897,B737-700,2005,17000000,In service,US/Canada
+NSA0898,B737-700,2006,17000000,In service,US/Canada
+NSA0899,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0900,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0901,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0902,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0903,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0904,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0905,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0906,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0907,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0908,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0909,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0910,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0911,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0912,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0913,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0914,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0915,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0916,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0917,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0918,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0919,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0920,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0921,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0922,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0923,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0924,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0925,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0926,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0927,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0928,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0929,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0930,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0931,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0932,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0933,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0934,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0935,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0936,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0937,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0938,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0939,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0940,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0941,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0942,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0943,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0944,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0945,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0946,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0947,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0948,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0949,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0950,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0951,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0952,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0953,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0954,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0955,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0956,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0957,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0958,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0959,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0960,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0961,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0962,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0963,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0964,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0965,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0966,A321neo,2026,62000000,In service,US/Atlantic/Latin America
+NSA0967,A321neo,2023,62000000,In service,US/Atlantic/Latin America
+NSA0968,A321neo,2024,62000000,In service,US/Atlantic/Latin America
+NSA0969,A321neo,2025,62000000,In service,US/Atlantic/Latin America
+NSA0970,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA0971,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA0972,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA0973,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA0974,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA0975,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA0976,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA0977,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA0978,A320-200,2002,19000000,In service,US/Canada/Mexico
+NSA0979,A320-200,2003,19000000,In service,US/Canada/Mexico
+NSA0980,A320-200,2004,19000000,In service,US/Canada/Mexico
+NSA0981,A320-200,2005,19000000,In service,US/Canada/Mexico
+NSA0982,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA0983,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA0984,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA0985,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA0986,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA0987,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA0988,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA0989,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA0990,A320-200,2002,19000000,In service,US/Canada/Mexico
+NSA0991,A320-200,2003,19000000,In service,US/Canada/Mexico
+NSA0992,A320-200,2004,19000000,In service,US/Canada/Mexico
+NSA0993,A320-200,2005,19000000,In service,US/Canada/Mexico
+NSA0994,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA0995,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA0996,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA0997,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA0998,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA0999,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA1000,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA1001,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA1002,A320-200,2002,19000000,In service,US/Canada/Mexico
+NSA1003,A320-200,2003,19000000,In service,US/Canada/Mexico
+NSA1004,A320-200,2004,19000000,In service,US/Canada/Mexico
+NSA1005,A320-200,2005,19000000,In service,US/Canada/Mexico
+NSA1006,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA1007,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA1008,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA1009,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA1010,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA1011,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA1012,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA1013,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA1014,A320-200,2002,19000000,In service,US/Canada/Mexico
+NSA1015,A320-200,2003,19000000,In service,US/Canada/Mexico
+NSA1016,A320-200,2004,19000000,In service,US/Canada/Mexico
+NSA1017,A320-200,2005,19000000,In service,US/Canada/Mexico
+NSA1018,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA1019,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA1020,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA1021,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA1022,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA1023,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA1024,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA1025,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA1026,A320-200,2002,19000000,In service,US/Canada/Mexico
+NSA1027,A320-200,2003,19000000,In service,US/Canada/Mexico
+NSA1028,A320-200,2004,19000000,In service,US/Canada/Mexico
+NSA1029,A320-200,2005,19000000,In service,US/Canada/Mexico
+NSA1030,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA1031,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA1032,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA1033,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA1034,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA1035,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA1036,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA1037,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA1038,A320-200,2002,19000000,In service,US/Canada/Mexico
+NSA1039,A320-200,2003,19000000,In service,US/Canada/Mexico
+NSA1040,A320-200,2004,19000000,In service,US/Canada/Mexico
+NSA1041,A320-200,2005,19000000,In service,US/Canada/Mexico
+NSA1042,A320-200,1994,19000000,In service,US/Canada/Mexico
+NSA1043,A320-200,1995,19000000,In service,US/Canada/Mexico
+NSA1044,A320-200,1996,19000000,In service,US/Canada/Mexico
+NSA1045,A320-200,1997,19000000,In service,US/Canada/Mexico
+NSA1046,A320-200,1998,19000000,In service,US/Canada/Mexico
+NSA1047,A320-200,1999,19000000,In service,US/Canada/Mexico
+NSA1048,A320-200,2000,19000000,In service,US/Canada/Mexico
+NSA1049,A320-200,2001,19000000,In service,US/Canada/Mexico
+NSA1050,A320-200,2002,19000000,In service,US/Canada/Mexico
