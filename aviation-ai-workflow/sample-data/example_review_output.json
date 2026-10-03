@@ -1,0 +1,36 @@
+{
+  "submission_readiness": {
+    "status": "additional_information_required",
+    "summary": "The synthetic submission contains core exposure, loss, CAT and facultative information, but the engineering report is missing and facultative expense treatment is unclear."
+  },
+  "missing_information": [
+    "Current engineering report or equivalent risk-control information",
+    "Clarification of expense treatment in the facultative terms"
+  ],
+  "risk_flags": [
+    {
+      "category": "business_interruption",
+      "fact": "The synthetic submission reports a single-source tooling dependency with an estimated 14-month restore period.",
+      "why_review": "A qualified reviewer should assess the dependency and its effect on BI assumptions and program structure."
+    },
+    {
+      "category": "catastrophe",
+      "fact": "The synthetic CAT data reports a largest PML of USD 240,000,000.",
+      "why_review": "A qualified reviewer should validate model assumptions, version, peril contribution and relevance to the proposed layer."
+    }
+  ],
+  "fac_review": {
+    "summary": "The synthetic FAC section includes a target layer and requested share, but expense treatment is not clearly stated.",
+    "issues": [
+      "Expense treatment requires clarification.",
+      "Underlying-policy and FAC wording should be reconciled by an authorized reviewer."
+    ]
+  },
+  "recommended_next_action": "Request the missing engineering information and FAC expense clarification, then route the file to an authorized underwriting/reinsurance reviewer.",
+  "human_review_required": true,
+  "limitations": [
+    "Synthetic demonstration data only.",
+    "No pricing, binding, capacity, coverage, legal, sanctions or regulatory determination is made.",
+    "CAT and BI observations require qualified specialist review."
+  ]
+}
