@@ -1,0 +1,66 @@
+{
+  "account": {
+    "name": "Northstar Aero Manufacturing (Synthetic)",
+    "industry": "Aerospace manufacturing",
+    "submission_type": "Facultative reinsurance review",
+    "policy_period": "2027-01-01/2028-01-01"
+  },
+  "submission": {
+    "broker_slip_received": true,
+    "statement_of_values_received": true,
+    "engineering_report_received": false,
+    "cat_output_received": true,
+    "five_year_loss_runs_received": true,
+    "underlying_policy_wording_received": true
+  },
+  "exposures": {
+    "total_insured_value_usd": 1850000000,
+    "largest_location_tiv_usd": 610000000,
+    "operations": [
+      "aircraft component manufacturing",
+      "composites",
+      "paint operations",
+      "high-value tooling"
+    ],
+    "business_interruption": {
+      "single_source_tooling_dependency": true,
+      "estimated_restore_months": 14
+    },
+    "cat": {
+      "perils_modeled": [
+        "earthquake",
+        "wind",
+        "severe convective storm"
+      ],
+      "model_version": "synthetic-2026.1",
+      "largest_pml_usd": 240000000
+    }
+  },
+  "loss_history": [
+    {
+      "year": 2022,
+      "type": "property",
+      "cause": "equipment electrical failure",
+      "incurred_usd": 850000
+    },
+    {
+      "year": 2024,
+      "type": "business_interruption",
+      "cause": "supplier tooling outage",
+      "incurred_usd": 4200000
+    }
+  ],
+  "facultative": {
+    "target_layer": "USD 100m xs USD 100m",
+    "requested_share_percent": 10,
+    "underlying_limit": "USD 500m",
+    "claims_notice_clause": "present",
+    "expense_treatment": "not clearly stated",
+    "sanctions_clause": "present",
+    "follow_form": true
+  },
+  "notes": [
+    "All values and facts in this file are synthetic.",
+    "No real insured, broker, carrier, reinsurer, or customer is represented."
+  ]
+}
