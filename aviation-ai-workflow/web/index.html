@@ -134,7 +134,13 @@
               <p class="section-kicker">2 · Review package</p>
               <h2>Analysis results</h2>
             </div>
-            <span id="resultState" class="result-state">Waiting for analysis</span>
+            <div class="results-controls">
+              <span id="resultState" class="result-state">Waiting for analysis</span>
+              <div class="report-actions" id="reportActions" hidden>
+                <button class="report-button" id="downloadReportButton" type="button">Download HTML report</button>
+                <button class="report-button report-button-primary" id="printReportButton" type="button">Print / Save PDF</button>
+              </div>
+            </div>
           </div>
 
           <div class="result-grid">
@@ -184,6 +190,7 @@
     </section>
   </main>
 
+  <script src="/report.js" defer></script>
   <script src="/app.js" defer></script>
 </body>
 </html>
