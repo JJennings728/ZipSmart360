@@ -19,7 +19,12 @@ def test_synthetic_submission_has_required_sections():
 
     assert result["schema_complete"] is True
     assert result["missing_sections"] == []
-    assert "engineering report" in result["known_missing_documents"]
+    assert "updated aircraft valuation support" in result["known_missing_documents"]
+    assert "pilot 27 recurrent training record" in result["known_missing_documents"]
+    assert "detailed caribbean operations breakdown" in result["known_missing_documents"]
+
+    assert data["exposures"]["operator_profile"]["aircraft_count"] == 28
+    assert data["exposures"]["hull"]["total_hull_value_usd"] == 436000000
 
 
 def test_precheck_detects_missing_section():
@@ -29,14 +34,35 @@ def test_precheck_detects_missing_section():
     assert result["schema_complete"] is False
     assert "exposures" in result["missing_sections"]
     assert "loss_history" in result["missing_sections"]
+    assert "delegated_authority" in result["missing_sections"]
     assert "facultative" in result["missing_sections"]
 
 
 def test_parse_json_output_requires_human_review():
     payload = {
         "submission_readiness": {"status": "review", "summary": "Synthetic test"},
+        "exposure_summary": {
+            "aircraft_count": 28,
+            "total_hull_value_usd": 436000000,
+            "largest_single_aircraft_hull_usd": 55000000,
+            "requested_liability_limit_usd": 500000000,
+            "projected_flight_hours": 11500,
+            "utilization_change_percent": 29.2,
+            "summary": "Synthetic test",
+        },
+        "hull_asset_analysis": {
+            "status": "review_required",
+            "summary": "Synthetic test",
+            "issues": [],
+        },
         "missing_information": [],
         "risk_flags": [],
+        "delegated_authority_review": {
+            "status": "carrier_referral_indicated",
+            "summary": "Synthetic test",
+            "reasons": [],
+            "disclaimer": "Illustrative only.",
+        },
         "fac_review": {"summary": "Synthetic test", "issues": []},
         "recommended_next_action": "Route to human reviewer.",
         "human_review_required": True,
