@@ -450,6 +450,42 @@ button { -webkit-tap-highlight-color: transparent; }
 .muted, .placeholder { color: var(--muted); }
 .muted { line-height: 1.55; margin: 0; }
 .placeholder { margin: 0; font-style: italic; }
+
+.metric-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.metric {
+  border: 1px solid var(--line);
+  background: #fafcfd;
+  padding: 14px;
+  min-height: 82px;
+  display: grid;
+  align-content: space-between;
+  gap: 8px;
+}
+.metric span {
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 760;
+}
+.metric strong {
+  color: var(--navy);
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+.microcopy {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
 .status-pill, .count, .label {
   font-size: 11px;
   font-weight: 800;
@@ -495,6 +531,7 @@ button { -webkit-tap-highlight-color: transparent; }
   .landing-trust { line-height: 1.5; }
   .preview-panel { padding: 18px; }
   .preview-grid { grid-template-columns: 1fr 1fr; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
   .demo-shell { padding: 44px 16px; }
   .result-grid { grid-template-columns: 1fr; }
   .span-two { grid-column: span 1; }
