@@ -53,7 +53,12 @@ It does **not** quote or bind insurance, set rates or authorize capacity, make f
     │   ├── synthetic_submission.json
     │   └── example_review_output.json
     ├── src/
-    │   └── review_submission.py
+    │   ├── review_submission.py
+    │   └── server.py
+    ├── web/
+    │   ├── index.html
+    │   ├── styles.css
+    │   └── app.js
     └── tests/
         └── test_review_submission.py
 
@@ -77,6 +82,35 @@ Run the AI-assisted review:
     python src/review_submission.py sample-data/synthetic_submission.json
 
 The code uses the OpenAI **Responses API**. The default model can be changed with `OPENAI_MODEL`.
+
+
+## Browser demo
+
+The repository now includes a lightweight browser interface for live demonstrations. The API key remains on the server; it is never requested or stored by the browser.
+
+After installing requirements and configuring `.env`, start the local demo server:
+
+    python src/server.py
+
+Then open:
+
+    http://127.0.0.1:8080
+
+The browser workflow provides:
+
+- JSON upload and drag-and-drop;
+- a one-click synthetic sample;
+- Analyze submission;
+- Submission Readiness;
+- Missing Information;
+- Risk Flags;
+- FAC Review;
+- Recommended Next Action; and
+- a prominent Human Review Required control.
+
+The UI posts the uploaded JSON to `/api/analyze`. The Flask server performs the deterministic precheck and then calls the same reviewed OpenAI Responses API workflow used by the CLI.
+
+**Security note:** the demo is intended for local proof-of-value use with synthetic or explicitly customer-approved data. Do not expose the development server publicly or place API credentials in browser code.
 
 ## Validation approach
 
