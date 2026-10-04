@@ -56,7 +56,7 @@
     `).join("");
   };
 
-  const buildReportHtml = ({ payload, submission, sourceName }) => {
+  const buildReportHtml = ({ payload, submission, sourceName, preview = false }) => {
     const review = payload?.review || {};
     const readiness = review.submission_readiness || {};
     const exposure = review.exposure_summary || {};
@@ -293,6 +293,7 @@
       background: white;
       color: var(--navy);
     }
+    ${preview ? ".screen-actions { display: none !important; }" : ""}
     @media (max-width: 700px) {
       header, main, footer { padding-left: 22px; padding-right: 22px; }
       .meta { grid-template-columns: 1fr 1fr; }
