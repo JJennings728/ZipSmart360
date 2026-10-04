@@ -14,6 +14,25 @@
       .replaceAll("_", " ")
       .replace(/\b\w/g, (letter) => letter.toUpperCase());
 
+  const formatUsd = (value) => {
+    const amount = Number(value);
+    if (!Number.isFinite(amount)) return "—";
+    if (Math.abs(amount) >= 1_000_000_000) return "$" + (amount / 1_000_000_000).toFixed(2).replace(/\.00$/, "") + "B";
+    if (Math.abs(amount) >= 1_000_000) return "$" + (amount / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
+    if (Math.abs(amount) >= 1_000) return "$" + (amount / 1_000).toFixed(1).replace(/\.0$/, "") + "K";
+    return "$" + amount.toLocaleString();
+  };
+
+  const formatNumber = (value) => {
+    const number = Number(value);
+    return Number.isFinite(number) ? number.toLocaleString() : "—";
+  };
+
+  const formatPercent = (value) => {
+    const number = Number(value);
+    return Number.isFinite(number) ? number.toFixed(1).replace(/\.0$/, "") + "%" : "—";
+  };
+
   const listHtml = (items, emptyText) => {
     const values = Array.isArray(items) ? items : [];
     if (!values.length) {
@@ -40,6 +59,9 @@
   const buildReportHtml = ({ payload, submission, sourceName }) => {
     const review = payload?.review || {};
     const readiness = review.submission_readiness || {};
+    const exposure = review.exposure_summary || {};
+    const hull = review.hull_asset_analysis || {};
+    const authority = review.delegated_authority_review || {};
     const fac = review.fac_review || {};
     const humanRequired = review.human_review_required === true;
     const generatedAt = new Date().toLocaleString();
@@ -193,6 +215,36 @@
       display: block;
       margin-bottom: 5px;
     }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: #fafcfd;
+      padding: 12px;
+    }
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 5px;
+    }
+    .metric strong {
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .disclaimer {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
     .risk-list {
       display: grid;
       gap: 10px;
@@ -298,26 +350,61 @@
       </section>
 
       <section>
-        <div class="section-label">02 · Missing information</div>
+        <div class="section-label">02 · Exposure summary</div>
+        <h2>Commercial aviation exposure</h2>
+        <p>${escapeHtml(exposure.summary || "No exposure summary returned.")}</p>
+        <div class="metric-grid">
+          <div class="metric"><span>Aircraft</span><strong>${escapeHtml(formatNumber(exposure.aircraft_count))}</strong></div>
+          <div class="metric"><span>Hull TIV</span><strong>${escapeHtml(formatUsd(exposure.total_hull_value_usd))}</strong></div>
+          <div class="metric"><span>Largest hull</span><strong>${escapeHtml(formatUsd(exposure.largest_single_aircraft_hull_usd))}</strong></div>
+          <div class="metric"><span>Liability request</span><strong>${escapeHtml(formatUsd(exposure.requested_liability_limit_usd))}</strong></div>
+          <div class="metric"><span>Projected hours</span><strong>${escapeHtml(formatNumber(exposure.projected_flight_hours))}</strong></div>
+          <div class="metric"><span>Utilization change</span><strong>${escapeHtml(formatPercent(exposure.utilization_change_percent))}</strong></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">03 · Hull and asset analysis</div>
+        <div class="status-row">
+          <h2>Hull &amp; asset analysis</h2>
+          <span class="status">${escapeHtml(normalizeStatus(hull.status))}</span>
+        </div>
+        <p>${escapeHtml(hull.summary || "No hull analysis returned.")}</p>
+        ${listHtml(hull.issues, "No hull or asset issues returned.")}
+      </section>
+
+      <section>
+        <div class="section-label">04 · Missing information</div>
         <h2>Missing information</h2>
         ${listHtml(review.missing_information, "No missing information returned.")}
       </section>
 
       <section>
-        <div class="section-label">03 · Risk flags</div>
+        <div class="section-label">05 · Risk flags</div>
         <h2>Risk flags</h2>
         <div class="risk-list">${riskFlagsHtml(review.risk_flags)}</div>
       </section>
 
       <section>
-        <div class="section-label">04 · Facultative review</div>
+        <div class="section-label">06 · Delegated authority and referral</div>
+        <div class="status-row">
+          <h2>Authority &amp; referral review</h2>
+          <span class="status">${escapeHtml(normalizeStatus(authority.status))}</span>
+        </div>
+        <p>${escapeHtml(authority.summary || "No authority review returned.")}</p>
+        ${listHtml(authority.reasons, "No referral reasons returned.")}
+        <p class="disclaimer">${escapeHtml(authority.disclaimer || "")}</p>
+      </section>
+
+      <section>
+        <div class="section-label">07 · Facultative review</div>
         <h2>FAC review</h2>
         <p>${escapeHtml(fac.summary || "No FAC review summary returned.")}</p>
         ${listHtml(fac.issues, "No FAC issues returned.")}
       </section>
 
       <section>
-        <div class="section-label">05 · Human control</div>
+        <div class="section-label">08 · Human control</div>
         <h2>Human review required</h2>
         <div class="human">
           <strong>${humanRequired ? "Required" : "Expected control not confirmed"}</strong>
@@ -328,7 +415,7 @@
       </section>
 
       <section>
-        <div class="section-label">06 · Next action</div>
+        <div class="section-label">09 · Next action</div>
         <h2>Recommended next action</h2>
         <div class="next-action">${escapeHtml(review.recommended_next_action || "No next action returned.")}</div>
       </section>

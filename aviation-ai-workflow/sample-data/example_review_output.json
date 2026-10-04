@@ -1,36 +1,82 @@
 {
   "submission_readiness": {
     "status": "additional_information_required",
-    "summary": "The synthetic submission contains core exposure, loss, CAT and facultative information, but the engineering report is missing and facultative expense treatment is unclear."
+    "summary": "The synthetic Part 135 submission contains core fleet, pilot, loss, operations, safety, and maintenance information, but valuation support, one recurrent-training record, and a detailed Caribbean-operations breakdown are missing."
+  },
+  "exposure_summary": {
+    "aircraft_count": 28,
+    "total_hull_value_usd": 436000000,
+    "largest_single_aircraft_hull_usd": 55000000,
+    "requested_liability_limit_usd": 500000000,
+    "projected_flight_hours": 11500,
+    "utilization_change_percent": 29.2,
+    "summary": "The synthetic fleet comprises 28 aircraft with USD 436 million of stated hull value, a USD 55 million largest single-aircraft value, and projected utilization of 11,500 hours."
+  },
+  "hull_asset_analysis": {
+    "status": "review_required",
+    "summary": "Hull concentration and valuation changes warrant authorized review before program structure or capacity decisions.",
+    "issues": [
+      "N650PJ is represented at USD 55 million versus USD 47.5 million in the prior year, but supporting valuation evidence is not included.",
+      "Two Gulfstream G650ER aircraft represent USD 110 million of the USD 436 million total stated hull value.",
+      "Repair-cost, parts-availability, downtime, and replacement-cost assumptions are not independently validated by this demonstration."
+    ]
   },
   "missing_information": [
-    "Current engineering report or equivalent risk-control information",
-    "Clarification of expense treatment in the facultative terms"
+    "Updated supporting valuation documentation for N650PJ and any other materially revalued aircraft.",
+    "Pilot 27 recurrent-training documentation.",
+    "Detailed Caribbean operations breakdown, including airports, frequency, seasonality, and overnight exposure."
   ],
   "risk_flags": [
     {
-      "category": "business_interruption",
-      "fact": "The synthetic submission reports a single-source tooling dependency with an estimated 14-month restore period.",
-      "why_review": "A qualified reviewer should assess the dependency and its effect on BI assumptions and program structure."
+      "category": "hull_concentration",
+      "fact": "The synthetic submission reports USD 436 million in total hull value, including two Gulfstream G650ER aircraft with USD 110 million of combined stated value.",
+      "why_review": "An authorized reviewer should assess single-aircraft and fleet concentration relative to appetite, capacity, repair severity, and program structure."
     },
     {
-      "category": "catastrophe",
-      "fact": "The synthetic CAT data reports a largest PML of USD 240,000,000.",
-      "why_review": "A qualified reviewer should validate model assumptions, version, peril contribution and relevance to the proposed layer."
+      "category": "utilization_change",
+      "fact": "Projected policy-year flight hours are 11,500 versus 8,900 in the prior year, a 29.2% increase.",
+      "why_review": "The operational change should be validated and assessed for its effect on frequency exposure, pricing assumptions, and authority."
+    },
+    {
+      "category": "geography",
+      "fact": "Caribbean operations represent 14% of synthetic flight activity.",
+      "why_review": "Airport mix, weather, catastrophe, security, and jurisdictional factors require qualified review."
+    },
+    {
+      "category": "pilot_documentation",
+      "fact": "Training records are represented as complete for 46 of 47 named pilots; Pilot 27 recurrent-training documentation is missing.",
+      "why_review": "Pilot qualification and recurrent-training evidence should be completed before any consequential underwriting action."
+    },
+    {
+      "category": "loss_severity",
+      "fact": "The synthetic five-year loss history includes a USD 4.8 million runway-excursion hull loss in 2025.",
+      "why_review": "A qualified reviewer should assess cause, corrective action, recurrence potential, and relevance to current operations."
     }
   ],
+  "delegated_authority_review": {
+    "status": "carrier_referral_indicated",
+    "summary": "The submission exceeds multiple illustrative delegated-authority thresholds and should be routed to an authorized carrier or senior underwriting reviewer.",
+    "reasons": [
+      "USD 55 million largest single-aircraft hull exceeds the synthetic USD 50 million threshold.",
+      "USD 500 million requested liability limit exceeds the synthetic USD 300 million threshold.",
+      "14% Caribbean flight share exceeds the synthetic 10% threshold.",
+      "29.2% projected utilization increase exceeds the synthetic 25% threshold."
+    ],
+    "disclaimer": "Illustrative referral logic only; this is not actual carrier authority or appetite."
+  },
   "fac_review": {
-    "summary": "The synthetic FAC section includes a target layer and requested share, but expense treatment is not clearly stated.",
+    "summary": "Potential facultative or additional-capacity review is indicated by the synthetic fleet concentration and requested liability limit, but no placement or capacity decision can be made from this demonstration.",
     "issues": [
-      "Expense treatment requires clarification.",
-      "Underlying-policy and FAC wording should be reconciled by an authorized reviewer."
+      "Primary/program structure and target facultative layer are not finalized.",
+      "Capacity need should be assessed by an authorized underwriting or reinsurance professional after missing information is resolved.",
+      "Any FAC terms must be reconciled with the underlying policy wording and actual carrier/reinsurer authority."
     ]
   },
-  "recommended_next_action": "Request the missing engineering information and FAC expense clarification, then route the file to an authorized underwriting/reinsurance reviewer.",
+  "recommended_next_action": "Obtain the missing valuation, training, and Caribbean-operations information, validate the material utilization change, and route the file to an authorized senior underwriting/capacity reviewer for appetite, authority, program-structure, and any facultative assessment.",
   "human_review_required": true,
   "limitations": [
     "Synthetic demonstration data only.",
-    "No pricing, binding, capacity, coverage, legal, sanctions or regulatory determination is made.",
-    "CAT and BI observations require qualified specialist review."
+    "No pricing, binding, declining, capacity, coverage, legal, sanctions, regulatory, actuarial, claims, or engineering determination is made.",
+    "Hull values, repair-cost assumptions, pilot qualifications, operational representations, and delegated-authority thresholds require independent validation."
   ]
 }

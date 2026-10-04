@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StrategicRisk Partners | Aviation AI Workflow Demo</title>
-  <meta name="description" content="A StrategicRisk Partners proof-of-value demonstration for AI-assisted aviation and specialty-insurance submission review.">
+  <title>StrategicRisk Partners | Commercial Aviation Underwriting Intelligence</title>
+  <meta name="description" content="A StrategicRisk Partners proof-of-value demonstration for AI-assisted commercial aviation submission, hull, authority, and facultative review.">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
       <div class="brand-mark" aria-hidden="true">SR</div>
       <div>
         <div class="brand-name">StrategicRisk Partners</div>
-        <div class="brand-subtitle">Aviation &amp; Specialty Insurance</div>
+        <div class="brand-subtitle">Commercial Aviation Underwriting Intelligence</div>
       </div>
     </a>
     <span class="demo-badge">AI workflow demonstration</span>
@@ -26,9 +26,9 @@
 
       <div class="landing-inner">
         <div class="landing-copy">
-          <p class="landing-eyebrow">Aviation + Specialty Insurance · Proof of Value</p>
-          <h1 id="landingTitle">Turn complex submissions into structured underwriting review packages.</h1>
-          <p class="landing-value">StrategicRisk Partners demonstrates how AI-assisted triage can surface missing information, risk signals, and facultative-reinsurance issues while keeping authorized human reviewers in control.</p>
+          <p class="landing-eyebrow">Commercial Aviation Insurance · Proof of Value</p>
+          <h1 id="landingTitle">Turn complex commercial aviation submissions into structured underwriting intelligence.</h1>
+          <p class="landing-value">StrategicRisk Partners demonstrates how brokers, MGAs, and specialist aviation underwriters can structure fleet, pilot, utilization, hull, authority, and capacity information before the human underwriting decision.</p>
 
           <div class="landing-actions">
             <button class="landing-primary" id="landingSampleButton" type="button">
@@ -41,9 +41,9 @@
           <div class="landing-trust">
             <span><strong>Synthetic-first</strong> demonstration</span>
             <span aria-hidden="true">•</span>
-            <span><strong>Human review</strong> required</span>
+            <span><strong>Authority-aware</strong> referral logic</span>
             <span aria-hidden="true">•</span>
-            <span><strong>No autonomous</strong> underwriting decisions</span>
+            <span><strong>Human review</strong> required</span>
           </div>
         </div>
 
@@ -66,25 +66,25 @@
 
           <div class="preview-grid">
             <div class="preview-tile">
-              <span class="preview-number">02</span>
+              <span class="preview-number">28</span>
+              <span>Aircraft in fleet</span>
+            </div>
+            <div class="preview-tile">
+              <span class="preview-number">$436M</span>
+              <span>Stated hull value</span>
+            </div>
+            <div class="preview-tile">
+              <span class="preview-number">03</span>
               <span>Missing information</span>
             </div>
-            <div class="preview-tile">
-              <span class="preview-number">02</span>
-              <span>Risk flags</span>
-            </div>
-            <div class="preview-tile">
-              <span class="preview-icon">FAC</span>
-              <span>Wording review</span>
-            </div>
             <div class="preview-tile preview-human">
-              <span class="preview-icon">H</span>
-              <span>Human review required</span>
+              <span class="preview-icon">REF</span>
+              <span>Authority referral indicated</span>
             </div>
           </div>
 
           <div class="preview-footer">
-            <span>Decision support</span>
+            <span>Broker / MGA / carrier workflow</span>
             <span>→</span>
             <span>Authorized reviewer</span>
           </div>
@@ -101,9 +101,9 @@
       <div class="demo-intro">
         <div>
           <p class="eyebrow">Interactive demonstration</p>
-          <h2>Review a synthetic aviation submission.</h2>
+          <h2>Review a synthetic Part 135 charter submission.</h2>
         </div>
-        <p>Load the included sample or provide a JSON file to see the controlled submission-review workflow in action.</p>
+        <p>Load the included 28-aircraft synthetic commercial GA account to see submission triage, exposure analysis, hull review, authority referral, and FAC decision support in one controlled workflow.</p>
       </div>
 
       <section class="workspace">
@@ -161,6 +161,19 @@
             </article>
 
             <article class="card result-card span-two">
+              <div class="card-heading"><span>Exposure summary</span><span class="label">Commercial GA</span></div>
+              <p id="exposureSummary" class="muted">Fleet and utilization metrics will appear here.</p>
+              <div class="metric-grid">
+                <div class="metric"><span>Aircraft</span><strong id="metricAircraft">—</strong></div>
+                <div class="metric"><span>Hull TIV</span><strong id="metricHullTiv">—</strong></div>
+                <div class="metric"><span>Largest hull</span><strong id="metricLargestHull">—</strong></div>
+                <div class="metric"><span>Liability request</span><strong id="metricLiability">—</strong></div>
+                <div class="metric"><span>Projected hours</span><strong id="metricHours">—</strong></div>
+                <div class="metric"><span>Utilization change</span><strong id="metricUtilization">—</strong></div>
+              </div>
+            </article>
+
+            <article class="card result-card span-two">
               <div class="card-heading"><span>Missing information</span><span class="count" id="missingCount">0</span></div>
               <ul class="result-list" id="missingList"><li class="placeholder">No analysis yet.</li></ul>
             </article>
@@ -168,6 +181,19 @@
             <article class="card result-card span-two">
               <div class="card-heading"><span>Risk flags</span><span class="count" id="riskCount">0</span></div>
               <div class="risk-list" id="riskList"><p class="placeholder">No analysis yet.</p></div>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Hull &amp; asset analysis</span><span class="status-pill neutral" id="hullStatus">Not analyzed</span></div>
+              <p id="hullSummary" class="muted">Hull concentration and valuation observations will appear here.</p>
+              <ul class="result-list compact" id="hullIssues"><li class="placeholder">No analysis yet.</li></ul>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Delegated authority &amp; referral</span><span class="status-pill neutral" id="authorityStatus">Not analyzed</span></div>
+              <p id="authoritySummary" class="muted">Illustrative authority and referral review will appear here.</p>
+              <ul class="result-list compact" id="authorityReasons"><li class="placeholder">No analysis yet.</li></ul>
+              <p id="authorityDisclaimer" class="microcopy"></p>
             </article>
 
             <article class="card result-card span-two">

@@ -134,6 +134,25 @@ function statusTone(value) {
   return 'neutral';
 }
 
+function formatUsd(value) {
+  const amount = Number(value);
+  if (!Number.isFinite(amount)) return '—';
+  if (Math.abs(amount) >= 1_000_000_000) return '$' + (amount / 1_000_000_000).toFixed(2).replace(/\.00$/, '') + 'B';
+  if (Math.abs(amount) >= 1_000_000) return '$' + (amount / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+  if (Math.abs(amount) >= 1_000) return '$' + (amount / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+  return '$' + amount.toLocaleString();
+}
+
+function formatNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toLocaleString() : '—';
+}
+
+function formatPercent(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toFixed(1).replace(/\.0$/, '') + '%' : '—';
+}
+
 function setList(elementId, items, emptyMessage) {
   const target = document.getElementById(elementId);
   target.innerHTML = '';
@@ -192,11 +211,35 @@ function renderReview(payload) {
   readinessStatus.className = `status-pill ${statusTone(readiness.status)}`;
   document.getElementById('readinessSummary').textContent = readiness.summary || 'No readiness summary returned.';
 
+  const exposure = review.exposure_summary || {};
+  document.getElementById('exposureSummary').textContent = exposure.summary || 'No exposure summary returned.';
+  document.getElementById('metricAircraft').textContent = formatNumber(exposure.aircraft_count);
+  document.getElementById('metricHullTiv').textContent = formatUsd(exposure.total_hull_value_usd);
+  document.getElementById('metricLargestHull').textContent = formatUsd(exposure.largest_single_aircraft_hull_usd);
+  document.getElementById('metricLiability').textContent = formatUsd(exposure.requested_liability_limit_usd);
+  document.getElementById('metricHours').textContent = formatNumber(exposure.projected_flight_hours);
+  document.getElementById('metricUtilization').textContent = formatPercent(exposure.utilization_change_percent);
+
   const missing = Array.isArray(review.missing_information) ? review.missing_information : [];
   document.getElementById('missingCount').textContent = missing.length;
   setList('missingList', missing, 'No missing information returned.');
 
   renderRiskFlags(review.risk_flags);
+
+  const hull = review.hull_asset_analysis || {};
+  const hullStatus = document.getElementById('hullStatus');
+  hullStatus.textContent = normalizeStatus(hull.status);
+  hullStatus.className = 'status-pill ' + statusTone(hull.status);
+  document.getElementById('hullSummary').textContent = hull.summary || 'No hull analysis returned.';
+  setList('hullIssues', hull.issues, 'No hull or asset issues returned.');
+
+  const authority = review.delegated_authority_review || {};
+  const authorityStatus = document.getElementById('authorityStatus');
+  authorityStatus.textContent = normalizeStatus(authority.status);
+  authorityStatus.className = 'status-pill ' + statusTone(authority.status);
+  document.getElementById('authoritySummary').textContent = authority.summary || 'No authority review returned.';
+  setList('authorityReasons', authority.reasons, 'No referral reasons returned.');
+  document.getElementById('authorityDisclaimer').textContent = authority.disclaimer || '';
 
   const fac = review.fac_review || {};
   document.getElementById('facSummary').textContent = fac.summary || 'No FAC summary returned.';
