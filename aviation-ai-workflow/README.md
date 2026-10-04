@@ -115,12 +115,13 @@ The browser workflow provides:
 - FAC / Capacity Review;
 - Recommended Next Action;
 - a prominent Human Review Required control;
+- a polished in-app preview of the generated review report;
 - a self-contained downloadable HTML review report; and
 - a print-optimized report view for browser **Print / Save as PDF**.
 
 The UI posts the uploaded JSON to `/api/analyze`. The Flask server performs the deterministic precheck and then calls the same reviewed OpenAI Responses API workflow used by the CLI.
 
-After a successful analysis, **Download HTML report** creates a self-contained branded report in the browser. **Print / Save PDF** opens the same report in a print-optimized window and invokes the browser print dialog so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes exposure metrics, hull analysis, missing information, risk flags, delegated-authority referral logic, FAC review, Human Review Required, and Recommended Next Action.
+After a successful analysis, **Preview review report** opens a full in-app report preview generated from the current analysis. From that preview, **Download HTML** creates a self-contained branded report and **Print / Save PDF** opens the same report in a print-optimized window so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes exposure metrics, hull analysis, missing information, risk flags, delegated-authority referral logic, FAC review, Human Review Required, and Recommended Next Action.
 
 **Security note:** the demo is intended for local proof-of-value use with synthetic or explicitly customer-approved data. Do not expose the development server publicly or place API credentials in browser code.
 
