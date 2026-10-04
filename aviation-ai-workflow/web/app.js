@@ -7,6 +7,8 @@ const fileName = document.getElementById('fileName');
 const fileMeta = document.getElementById('fileMeta');
 const clearButton = document.getElementById('clearButton');
 const loadSampleButton = document.getElementById('loadSampleButton');
+const landingSampleButton = document.getElementById('landingSampleButton');
+const landingUploadButton = document.getElementById('landingUploadButton');
 const analyzeButton = document.getElementById('analyzeButton');
 const statusBox = document.getElementById('statusBox');
 const resultState = document.getElementById('resultState');
@@ -74,15 +76,37 @@ dropZone.addEventListener('drop', event => {
   readJsonFile(file);
 });
 
-loadSampleButton.addEventListener('click', async () => {
+async function loadSyntheticSample({ scrollToDemo = false } = {}) {
+  const triggerButtons = [loadSampleButton, landingSampleButton].filter(Boolean);
+  triggerButtons.forEach(button => {
+    button.disabled = true;
+  });
+
   try {
     const response = await fetch('/sample-data/synthetic_submission.json');
     if (!response.ok) throw new Error('Unable to load the synthetic sample.');
     const data = await response.json();
     setSubmission(data, 'synthetic_submission.json', 'Repository sample');
+
+    if (scrollToDemo) {
+      document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.setTimeout(() => analyzeButton.focus({ preventScroll: true }), 550);
+    }
   } catch (error) {
     setStatus(error.message, 'error');
+  } finally {
+    triggerButtons.forEach(button => {
+      button.disabled = false;
+    });
   }
+}
+
+loadSampleButton.addEventListener('click', () => loadSyntheticSample());
+landingSampleButton?.addEventListener('click', () => loadSyntheticSample({ scrollToDemo: true }));
+
+landingUploadButton?.addEventListener('click', () => {
+  document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.setTimeout(() => fileInput.click(), 500);
 });
 
 function normalizeStatus(value) {
