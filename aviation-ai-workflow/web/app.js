@@ -1,4 +1,6 @@
 let submissionData = null;
+let latestAnalysisPayload = null;
+let submissionSourceName = "Uploaded submission";
 
 const fileInput = document.getElementById('fileInput');
 const dropZone = document.getElementById('dropZone');
@@ -12,6 +14,9 @@ const landingUploadButton = document.getElementById('landingUploadButton');
 const analyzeButton = document.getElementById('analyzeButton');
 const statusBox = document.getElementById('statusBox');
 const resultState = document.getElementById('resultState');
+const reportActions = document.getElementById('reportActions');
+const downloadReportButton = document.getElementById('downloadReportButton');
+const printReportButton = document.getElementById('printReportButton');
 
 function setStatus(message, tone = 'neutral') {
   statusBox.textContent = message;
@@ -20,18 +25,26 @@ function setStatus(message, tone = 'neutral') {
 
 function setSubmission(data, name, sizeText = '') {
   submissionData = data;
+  submissionSourceName = name || 'Uploaded submission';
+  latestAnalysisPayload = null;
+  reportActions.hidden = true;
   fileName.textContent = name;
   fileMeta.textContent = sizeText;
   fileRow.hidden = false;
   analyzeButton.disabled = false;
+  resultState.textContent = 'Waiting for analysis';
   setStatus('Submission loaded. Ready to analyze.');
 }
 
 function clearSubmission() {
   submissionData = null;
+  latestAnalysisPayload = null;
+  submissionSourceName = 'Uploaded submission';
   fileInput.value = '';
   fileRow.hidden = true;
   analyzeButton.disabled = true;
+  reportActions.hidden = true;
+  resultState.textContent = 'Waiting for analysis';
   setStatus('Choose a JSON submission to begin.');
 }
 
@@ -169,6 +182,8 @@ function renderRiskFlags(flags) {
 }
 
 function renderReview(payload) {
+  latestAnalysisPayload = payload;
+  reportActions.hidden = false;
   const review = payload.review || {};
   const readiness = review.submission_readiness || {};
   const readinessStatus = document.getElementById('readinessStatus');
@@ -198,6 +213,35 @@ function renderReview(payload) {
   document.getElementById('nextAction').textContent = review.recommended_next_action || 'No next action returned.';
   resultState.textContent = 'Analysis complete';
 }
+
+
+function reportContext() {
+  if (!latestAnalysisPayload || !submissionData) {
+    throw new Error('Run an analysis before creating a report.');
+  }
+
+  return {
+    payload: latestAnalysisPayload,
+    submission: submissionData,
+    sourceName: submissionSourceName,
+  };
+}
+
+downloadReportButton.addEventListener('click', () => {
+  try {
+    window.SRiskReport.downloadHtml(reportContext());
+  } catch (error) {
+    setStatus(error.message || 'Unable to create the HTML report.', 'error');
+  }
+});
+
+printReportButton.addEventListener('click', () => {
+  try {
+    window.SRiskReport.printPdf(reportContext());
+  } catch (error) {
+    setStatus(error.message || 'Unable to open the printable report.', 'error');
+  }
+});
 
 analyzeButton.addEventListener('click', async () => {
   if (!submissionData) return;
