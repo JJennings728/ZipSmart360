@@ -15,13 +15,17 @@ REQUIRED_SECTIONS = (
     "submission",
     "exposures",
     "loss_history",
+    "delegated_authority",
     "facultative",
 )
 
 REQUIRED_REVIEW_KEYS = (
     "submission_readiness",
+    "exposure_summary",
+    "hull_asset_analysis",
     "missing_information",
     "risk_flags",
+    "delegated_authority_review",
     "fac_review",
     "recommended_next_action",
     "human_review_required",
@@ -60,7 +64,9 @@ def build_prompt(data: dict[str, Any], precheck: dict[str, Any]) -> str:
     """Build a conservative underwriting-preparation prompt."""
     return f"""
 You are reviewing a SYNTHETIC aviation / specialty-insurance submission for a
-proof-of-value demonstration.
+proof-of-value demonstration, with particular emphasis on commercial general
+aviation, broker/MGA submission quality, delegated-authority referral controls,
+hull concentration, and potential facultative-capacity review.
 
 You are a decision-support component only. You do not have underwriting,
 pricing, capacity, claims, legal, regulatory, or sanctions authority.
@@ -73,14 +79,25 @@ Rules:
 4. Do not recommend binding, quoting, declining, setting price, deploying
    capacity, or making a final coverage/claims decision.
 5. Flag issues for an authorized human reviewer.
-6. Treat missing engineering information, unclear facultative wording, and
-   material exposure/BI/CAT questions as review items rather than conclusions.
-7. Return VALID JSON ONLY. Do not wrap it in Markdown.
+6. Treat hull values, pilot qualifications, utilization changes, delegated-
+   authority thresholds, facultative-capacity questions, and other material
+   exposures as review items rather than final conclusions.
+7. When delegated-authority rules are supplied, compare the submission facts
+   only to those supplied synthetic rules. Do not invent carrier appetite.
+8. If a requested field is not applicable or cannot be supported by the
+   submission, state that explicitly instead of inventing information.
+9. Return VALID JSON ONLY. Do not wrap it in Markdown.
 
 Return exactly these top-level keys:
 - submission_readiness: object with "status" and "summary"
+- exposure_summary: object with "aircraft_count", "total_hull_value_usd",
+  "largest_single_aircraft_hull_usd", "requested_liability_limit_usd",
+  "projected_flight_hours", "utilization_change_percent", and "summary"
+- hull_asset_analysis: object with "status", "summary", and "issues"
 - missing_information: array of strings
 - risk_flags: array of objects with "category", "fact", "why_review"
+- delegated_authority_review: object with "status", "summary", "reasons",
+  and "disclaimer"
 - fac_review: object with "summary" and "issues"
 - recommended_next_action: string
 - human_review_required: boolean (must be true)
