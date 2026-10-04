@@ -1,0 +1,398 @@
+(() => {
+  const escapeHtml = (value) => String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+  const normalizeStatus = (value) =>
+    String(value || "review").replaceAll("_", " ");
+
+  const titleCase = (value) =>
+    String(value || "review item")
+      .replaceAll("_", " ")
+      .replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+  const listHtml = (items, emptyText) => {
+    const values = Array.isArray(items) ? items : [];
+    if (!values.length) {
+      return `<p class="empty">${escapeHtml(emptyText)}</p>`;
+    }
+    return `<ul>${values.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  };
+
+  const riskFlagsHtml = (flags) => {
+    const values = Array.isArray(flags) ? flags : [];
+    if (!values.length) {
+      return '<p class="empty">No risk flags returned.</p>';
+    }
+
+    return values.map((flag) => `
+      <article class="risk-item">
+        <h3>${escapeHtml(titleCase(flag?.category))}</h3>
+        <p><strong>Fact:</strong> ${escapeHtml(flag?.fact || "No fact supplied.")}</p>
+        <p><strong>Why review:</strong> ${escapeHtml(flag?.why_review || "No rationale supplied.")}</p>
+      </article>
+    `).join("");
+  };
+
+  const buildReportHtml = ({ payload, submission, sourceName }) => {
+    const review = payload?.review || {};
+    const readiness = review.submission_readiness || {};
+    const fac = review.fac_review || {};
+    const humanRequired = review.human_review_required === true;
+    const generatedAt = new Date().toLocaleString();
+    const accountName = submission?.account?.name || "Submission";
+    const submissionType = submission?.account?.submission_type || "Aviation / Specialty Insurance";
+    const policyPeriod = submission?.account?.policy_period || "Not supplied";
+
+    return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StrategicRisk Partners Review Report - ${escapeHtml(accountName)}</title>
+  <style>
+    :root {
+      --navy: #0b2538;
+      --navy-2: #153c55;
+      --ink: #12222f;
+      --muted: #64727e;
+      --line: #dce3e8;
+      --surface: #ffffff;
+      --bg: #f4f6f8;
+      --accent: #2f789a;
+      --warn-bg: #fff4dc;
+      --warn-ink: #76500c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--surface);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 34px 42px 30px;
+      border-bottom: 4px solid #5eb6d8;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: .02em;
+      font-size: 15px;
+    }
+    .brand-sub {
+      color: rgba(255,255,255,.66);
+      font-size: 11px;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    h1 {
+      margin: 34px 0 8px;
+      font-size: 32px;
+      line-height: 1.08;
+      letter-spacing: -.025em;
+    }
+    .subtitle {
+      color: rgba(255,255,255,.72);
+      max-width: 700px;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .meta div {
+      border-top: 1px solid rgba(255,255,255,.22);
+      padding-top: 10px;
+    }
+    .meta span {
+      display: block;
+      color: rgba(255,255,255,.55);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 3px;
+    }
+    .meta strong {
+      font-size: 12px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+    main { padding: 34px 42px 48px; }
+    .notice {
+      border-left: 4px solid #c48a22;
+      background: var(--warn-bg);
+      color: var(--warn-ink);
+      padding: 14px 16px;
+      margin-bottom: 26px;
+      font-size: 13px;
+    }
+    section {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      break-inside: avoid;
+    }
+    section:first-of-type { border-top: 0; padding-top: 0; }
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 800;
+      font-size: 10px;
+      margin-bottom: 7px;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: -.015em;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 14px;
+    }
+    p { margin: 0; }
+    p + p { margin-top: 8px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li + li { margin-top: 6px; }
+    .status-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .status {
+      border-radius: 999px;
+      background: #eef3f6;
+      color: var(--navy-2);
+      padding: 5px 9px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: capitalize;
+    }
+    .human {
+      border: 1px solid #e1c27c;
+      background: #fff9e9;
+      padding: 16px;
+    }
+    .human strong {
+      color: #6e4a0b;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .risk-list {
+      display: grid;
+      gap: 10px;
+    }
+    .risk-item {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-left: 3px solid #7897a9;
+      background: #fafcfd;
+      break-inside: avoid;
+    }
+    .risk-item p {
+      color: #425563;
+      font-size: 13px;
+    }
+    .empty { color: var(--muted); font-style: italic; }
+    .next-action {
+      background: #f4f9fb;
+      border: 1px solid #c9dce6;
+      padding: 16px;
+      font-weight: 650;
+    }
+    footer {
+      padding: 20px 42px 30px;
+      color: var(--muted);
+      font-size: 10px;
+      border-top: 1px solid var(--line);
+    }
+    .screen-actions {
+      max-width: 960px;
+      margin: 18px auto;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .screen-actions button {
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: white;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .screen-actions button.secondary {
+      background: white;
+      color: var(--navy);
+    }
+    @media (max-width: 700px) {
+      header, main, footer { padding-left: 22px; padding-right: 22px; }
+      .meta { grid-template-columns: 1fr 1fr; }
+      .screen-actions { padding: 0 16px; }
+    }
+    @media print {
+      @page { size: Letter; margin: .55in; }
+      body { background: white; }
+      .page { max-width: none; min-height: auto; }
+      .screen-actions { display: none !important; }
+      header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .notice, .human, .next-action, .risk-item {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-actions">
+    <button class="secondary" onclick="window.close()">Close</button>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="page">
+    <header>
+      <div class="brand">StrategicRisk Partners</div>
+      <div class="brand-sub">Aviation &amp; Specialty Insurance</div>
+      <h1>AI-Assisted Submission Review Report</h1>
+      <p class="subtitle">Structured decision-support output for authorized human review.</p>
+
+      <div class="meta">
+        <div><span>Account</span><strong>${escapeHtml(accountName)}</strong></div>
+        <div><span>Submission type</span><strong>${escapeHtml(submissionType)}</strong></div>
+        <div><span>Policy period</span><strong>${escapeHtml(policyPeriod)}</strong></div>
+        <div><span>Generated</span><strong>${escapeHtml(generatedAt)}</strong></div>
+      </div>
+    </header>
+
+    <main>
+      <div class="notice">
+        <strong>Decision-support only.</strong> This report does not quote, bind, price, deploy capacity, make coverage or claims determinations, or replace qualified underwriting, reinsurance, legal, sanctions, regulatory, engineering, actuarial, or catastrophe-model review.
+      </div>
+
+      <section>
+        <div class="section-label">01 · Submission readiness</div>
+        <div class="status-row">
+          <h2>Submission readiness</h2>
+          <span class="status">${escapeHtml(normalizeStatus(readiness.status))}</span>
+        </div>
+        <p>${escapeHtml(readiness.summary || "No readiness summary returned.")}</p>
+      </section>
+
+      <section>
+        <div class="section-label">02 · Missing information</div>
+        <h2>Missing information</h2>
+        ${listHtml(review.missing_information, "No missing information returned.")}
+      </section>
+
+      <section>
+        <div class="section-label">03 · Risk flags</div>
+        <h2>Risk flags</h2>
+        <div class="risk-list">${riskFlagsHtml(review.risk_flags)}</div>
+      </section>
+
+      <section>
+        <div class="section-label">04 · Facultative review</div>
+        <h2>FAC review</h2>
+        <p>${escapeHtml(fac.summary || "No FAC review summary returned.")}</p>
+        ${listHtml(fac.issues, "No FAC issues returned.")}
+      </section>
+
+      <section>
+        <div class="section-label">05 · Human control</div>
+        <h2>Human review required</h2>
+        <div class="human">
+          <strong>${humanRequired ? "Required" : "Expected control not confirmed"}</strong>
+          <p>${humanRequired
+            ? "An authorized human reviewer is required before any consequential underwriting or reinsurance action."
+            : "The expected human-review control was not returned. Treat this review package as invalid until the control is restored."}</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">06 · Next action</div>
+        <h2>Recommended next action</h2>
+        <div class="next-action">${escapeHtml(review.recommended_next_action || "No next action returned.")}</div>
+      </section>
+    </main>
+
+    <footer>
+      Source: ${escapeHtml(sourceName || "Uploaded submission")} · Generated by the StrategicRisk Partners aviation AI workflow reference implementation. Synthetic or customer-approved data only.
+    </footer>
+  </div>
+</body>
+</html>`;
+  };
+
+  const safeFilenamePart = (value) =>
+    String(value || "submission")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 60) || "submission";
+
+  const reportFilename = (submission) => {
+    const account = safeFilenamePart(submission?.account?.name);
+    const date = new Date().toISOString().slice(0, 10);
+    return `srisk-review-${account}-${date}.html`;
+  };
+
+  const downloadHtml = (context) => {
+    const html = buildReportHtml(context);
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = reportFilename(context?.submission);
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  };
+
+  const printPdf = (context) => {
+    const html = buildReportHtml(context);
+    const reportWindow = window.open("", "_blank", "noopener,noreferrer");
+
+    if (!reportWindow) {
+      throw new Error("The browser blocked the report window. Allow pop-ups for this demo and try again.");
+    }
+
+    reportWindow.document.open();
+    reportWindow.document.write(html);
+    reportWindow.document.close();
+    reportWindow.focus();
+
+    window.setTimeout(() => {
+      try {
+        reportWindow.print();
+      } catch (_) {
+        // The report remains open so the user can print manually.
+      }
+    }, 350);
+  };
+
+  window.SRiskReport = {
+    buildReportHtml,
+    downloadHtml,
+    printPdf,
+  };
+})();
