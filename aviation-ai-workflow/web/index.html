@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StrategicRisk Partners | Aviation AI Workflow Demo</title>
+  <meta name="description" content="Synthetic aviation and specialty insurance AI workflow proof of value.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">SR</div>
+      <div>
+        <div class="brand-name">StrategicRisk Partners</div>
+        <div class="brand-subtitle">Aviation &amp; Specialty Insurance AI Workflow</div>
+      </div>
+    </div>
+    <span class="demo-badge">Synthetic-data demo</span>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Proof of Value</p>
+        <h1>Submission review, structured for human underwriting.</h1>
+        <p class="hero-copy">Upload a synthetic aviation or specialty-insurance submission, run the controlled analysis workflow, and review the resulting readiness, missing-information, risk, and facultative-reinsurance signals.</p>
+      </div>
+      <div class="hero-note">
+        <strong>Human authority is mandatory.</strong>
+        <span>This demo does not quote, bind, price, deploy capacity, make coverage decisions, or replace qualified specialist review.</span>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="upload-panel card">
+        <p class="section-kicker">1 · Input</p>
+        <h2>Submission</h2>
+        <label class="drop-zone" id="dropZone" for="fileInput">
+          <input id="fileInput" type="file" accept="application/json,.json" hidden>
+          <span class="drop-icon">↑</span>
+          <strong>Upload submission JSON</strong>
+          <span>or drag a .json file here</span>
+        </label>
+        <div class="file-row" id="fileRow" hidden>
+          <div>
+            <strong id="fileName">No file selected</strong>
+            <span id="fileMeta"></span>
+          </div>
+          <button class="text-button" id="clearButton" type="button">Clear</button>
+        </div>
+        <button class="secondary-button" id="loadSampleButton" type="button">Load synthetic sample</button>
+        <button class="primary-button" id="analyzeButton" type="button" disabled>Analyze submission</button>
+        <div class="status-box" id="statusBox" role="status" aria-live="polite">Choose a JSON submission to begin.</div>
+      </aside>
+
+      <section class="results" aria-live="polite">
+        <div class="results-header">
+          <div>
+            <p class="section-kicker">2 · Review package</p>
+            <h2>Analysis results</h2>
+          </div>
+          <span id="resultState" class="result-state">Waiting for analysis</span>
+        </div>
+
+        <div class="result-grid">
+          <article class="card result-card readiness-card">
+            <div class="card-heading">
+              <span>Submission readiness</span>
+              <span class="status-pill neutral" id="readinessStatus">Not analyzed</span>
+            </div>
+            <p id="readinessSummary" class="muted">Readiness status and summary will appear here.</p>
+          </article>
+
+          <article class="card result-card human-card">
+            <div class="card-heading">
+              <span>Human review required</span>
+              <span class="status-pill neutral" id="humanStatus">Pending</span>
+            </div>
+            <p class="muted" id="humanCopy">The workflow requires an authorized human reviewer before any consequential action.</p>
+          </article>
+
+          <article class="card result-card span-two">
+            <div class="card-heading"><span>Missing information</span><span class="count" id="missingCount">0</span></div>
+            <ul class="result-list" id="missingList"><li class="placeholder">No analysis yet.</li></ul>
+          </article>
+
+          <article class="card result-card span-two">
+            <div class="card-heading"><span>Risk flags</span><span class="count" id="riskCount">0</span></div>
+            <div class="risk-list" id="riskList"><p class="placeholder">No analysis yet.</p></div>
+          </article>
+
+          <article class="card result-card span-two">
+            <div class="card-heading"><span>FAC review</span><span class="label">Facultative</span></div>
+            <p id="facSummary" class="muted">FAC review summary will appear here.</p>
+            <ul class="result-list compact" id="facIssues"><li class="placeholder">No analysis yet.</li></ul>
+          </article>
+
+          <article class="card result-card span-two next-action-card">
+            <div class="card-heading"><span>Recommended next action</span></div>
+            <p id="nextAction" class="next-action">No recommendation until analysis is complete.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="footnote">
+      <strong>Reference implementation.</strong> Use synthetic or customer-approved data only. Production use requires customer-specific security, privacy, governance, validation, and deployment review.
+    </section>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
