@@ -1,12 +1,12 @@
-# StrategicRisk Partners — Aviation & Specialty Insurance AI Workflow Proof of Value
+# StrategicRisk Partners — Commercial Aviation Underwriting Intelligence Proof of Value
 
-A reference implementation for evaluating an **AI-assisted aviation / specialty-insurance submission review workflow** using synthetic data and the OpenAI Responses API.
+A reference implementation for evaluating an **AI-assisted commercial aviation underwriting-intelligence workflow** using synthetic data and the OpenAI Responses API. The demonstration is designed around broker, MGA, delegated-authority, specialist-carrier, and facultative-review workflows.
 
 > **Demonstration only.** This project uses synthetic information. It does not contain customer, carrier, broker, prior-employer, or personally identifiable information. It is not represented as a customer deployment, production underwriting system, or authority to quote, bind, deny, settle, or otherwise make consequential insurance decisions.
 
 ## Business problem
 
-Aviation and specialty-insurance teams may receive submissions spread across slips, schedules, loss runs, engineering reports, policy wording, CAT outputs, and facultative reinsurance documents. Before a senior underwriter can make a decision, analysts and underwriters may need to:
+Commercial aviation teams may receive submissions spread across applications, aircraft schedules, pilot schedules, loss runs, operating specifications, safety and maintenance documentation, policy wording, and facultative or excess-capacity materials. Before a senior underwriter can make a decision, analysts and underwriters may need to:
 
 - identify missing submission items;
 - normalize key exposure information;
@@ -33,7 +33,11 @@ This proof of value demonstrates a controlled workflow that assists with **compl
             v
     Mandatory human underwriting review
 
-The model is instructed to produce a review package containing submission readiness, missing-information requests, exposure and loss-history observations, FAC / wording issues, risk flags, a recommended next action, and explicit limitations.
+The model is instructed to produce a review package containing submission readiness, a commercial-aviation exposure summary, hull and asset observations, missing-information requests, risk flags, illustrative delegated-authority referral analysis, FAC / capacity review, a recommended next action, and explicit limitations.
+
+## Synthetic commercial GA scenario
+
+The included sample represents **PrairieJet Charter Group (Synthetic)**, a fictional Part 135 / Part 91 operator with 28 aircraft, USD 436 million of stated hull value, a USD 500 million requested liability limit, a 29.2% projected utilization increase, incomplete supporting information, and intentionally exceeded **synthetic** delegated-authority thresholds. The scenario is designed to demonstrate referral logic and underwriting preparation—not actual carrier appetite or authority.
 
 ## What the demo does not do
 
@@ -100,20 +104,23 @@ Then open:
 The browser workflow provides:
 
 - JSON upload and drag-and-drop;
-- a one-click synthetic sample;
+- a one-click **28-aircraft synthetic Part 135 charter sample**;
 - Analyze submission;
 - Submission Readiness;
+- Commercial GA Exposure Summary;
+- Hull & Asset Analysis;
 - Missing Information;
 - Risk Flags;
-- FAC Review;
-- Recommended Next Action; and
+- Delegated Authority & Referral Review;
+- FAC / Capacity Review;
+- Recommended Next Action;
 - a prominent Human Review Required control;
 - a self-contained downloadable HTML review report; and
 - a print-optimized report view for browser **Print / Save as PDF**.
 
 The UI posts the uploaded JSON to `/api/analyze`. The Flask server performs the deterministic precheck and then calls the same reviewed OpenAI Responses API workflow used by the CLI.
 
-After a successful analysis, **Download HTML report** creates a self-contained branded report in the browser. **Print / Save PDF** opens the same report in a print-optimized window and invokes the browser print dialog so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes Submission Readiness, Missing Information, Risk Flags, FAC Review, Human Review Required, and Recommended Next Action.
+After a successful analysis, **Download HTML report** creates a self-contained branded report in the browser. **Print / Save PDF** opens the same report in a print-optimized window and invokes the browser print dialog so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes exposure metrics, hull analysis, missing information, risk flags, delegated-authority referral logic, FAC review, Human Review Required, and Recommended Next Action.
 
 **Security note:** the demo is intended for local proof-of-value use with synthetic or explicitly customer-approved data. Do not expose the development server publicly or place API credentials in browser code.
 
@@ -136,7 +143,7 @@ See `docs/security-governance.md` for the production-readiness checklist.
 
 ## Intended commercial use
 
-StrategicRisk Partners can use this repository as a **technical demonstration and discovery asset** when discussing an Aviation & Specialty Insurance AI Workflow Assessment + Proof of Value.
+StrategicRisk Partners can use this repository as a **technical demonstration and discovery asset** when discussing commercial aviation submission intelligence, delegated-authority controls, underwriting workflow modernization, and facultative/capacity review.
 
 A real customer engagement should begin with the customer's workflow, business problem, evidence of pain, success measures, security/governance requirements, and agreed next validation step. Production implementation should be separately scoped and approved.
 
