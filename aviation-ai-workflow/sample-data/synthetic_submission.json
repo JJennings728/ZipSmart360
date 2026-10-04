@@ -1,66 +1,181 @@
 {
   "account": {
-    "name": "Northstar Aero Manufacturing (Synthetic)",
-    "industry": "Aerospace manufacturing",
-    "submission_type": "Facultative reinsurance review",
-    "policy_period": "2027-01-01/2028-01-01"
+    "name": "PrairieJet Charter Group (Synthetic)",
+    "industry": "Commercial general aviation / Part 135 charter",
+    "submission_type": "Commercial GA underwriting review",
+    "policy_period": "2027-01-01/2028-01-01",
+    "distribution_channel": "Broker-mediated open market"
   },
   "submission": {
-    "broker_slip_received": true,
-    "statement_of_values_received": true,
-    "engineering_report_received": false,
-    "cat_output_received": true,
+    "application_received": true,
+    "fleet_schedule_received": true,
+    "pilot_schedule_received": true,
     "five_year_loss_runs_received": true,
-    "underlying_policy_wording_received": true
+    "faa_operations_specifications_received": true,
+    "safety_management_summary_received": true,
+    "maintenance_program_summary_received": true,
+    "updated_aircraft_valuation_support_received": false,
+    "pilot_27_recurrent_training_record_received": false,
+    "detailed_caribbean_operations_breakdown_received": false
   },
   "exposures": {
-    "total_insured_value_usd": 1850000000,
-    "largest_location_tiv_usd": 610000000,
-    "operations": [
-      "aircraft component manufacturing",
-      "composites",
-      "paint operations",
-      "high-value tooling"
-    ],
-    "business_interruption": {
-      "single_source_tooling_dependency": true,
-      "estimated_restore_months": 14
-    },
-    "cat": {
-      "perils_modeled": [
-        "earthquake",
-        "wind",
-        "severe convective storm"
+    "operator_profile": {
+      "operations": [
+        "FAA Part 135 on-demand charter",
+        "Part 91 managed aircraft"
       ],
-      "model_version": "synthetic-2026.1",
-      "largest_pml_usd": 240000000
+      "aircraft_count": 28,
+      "primary_bases": [
+        "Chicago, IL",
+        "Dallas, TX",
+        "Miami, FL"
+      ],
+      "destinations": [
+        "Continental United States",
+        "Canada",
+        "Mexico",
+        "Caribbean"
+      ]
+    },
+    "hull": {
+      "total_hull_value_usd": 436000000,
+      "largest_single_aircraft_hull_usd": 55000000,
+      "fleet_groups": [
+        {
+          "aircraft": "Gulfstream G650ER",
+          "count": 2,
+          "average_hull_value_usd": 55000000,
+          "total_hull_value_usd": 110000000
+        },
+        {
+          "aircraft": "Gulfstream G550",
+          "count": 3,
+          "average_hull_value_usd": 28000000,
+          "total_hull_value_usd": 84000000
+        },
+        {
+          "aircraft": "Bombardier Challenger 350",
+          "count": 4,
+          "average_hull_value_usd": 18000000,
+          "total_hull_value_usd": 72000000
+        },
+        {
+          "aircraft": "Cessna Citation Latitude",
+          "count": 5,
+          "average_hull_value_usd": 16000000,
+          "total_hull_value_usd": 80000000
+        },
+        {
+          "aircraft": "Beechcraft King Air 350i",
+          "count": 6,
+          "average_hull_value_usd": 7000000,
+          "total_hull_value_usd": 42000000
+        },
+        {
+          "aircraft": "Cessna Citation CJ3+/CJ4",
+          "count": 8,
+          "average_hull_value_usd": 6000000,
+          "total_hull_value_usd": 48000000
+        }
+      ],
+      "valuation_watch_items": [
+        {
+          "aircraft_id": "N650PJ",
+          "aircraft": "Gulfstream G650ER",
+          "current_hull_value_usd": 55000000,
+          "prior_year_hull_value_usd": 47500000,
+          "note": "Synthetic 15.8% year-over-year increase; supporting valuation not included."
+        }
+      ]
+    },
+    "liability": {
+      "requested_combined_single_limit_usd": 500000000,
+      "passenger_liability_sublimit": "No separate passenger sublimit stated in synthetic submission"
+    },
+    "utilization": {
+      "prior_year_flight_hours": 8900,
+      "projected_policy_year_flight_hours": 11500,
+      "change_percent": 29.2,
+      "caribbean_flight_share_percent": 14,
+      "international_flight_share_percent": 22
+    },
+    "pilots": {
+      "total_named_pilots": 47,
+      "complete_training_records": 46,
+      "incomplete_training_records": 1,
+      "average_total_time_hours": 7100,
+      "average_time_in_type_hours": 1450,
+      "note": "Synthetic Pilot 27 recurrent-training documentation is not included."
+    },
+    "safety_controls": {
+      "sms": "Documented synthetic safety-management program",
+      "recurrent_training": "Annual simulator-based recurrent training represented for named pilots except Pilot 27 documentation",
+      "maintenance": "Manufacturer-recommended and approved inspection programs represented"
     }
   },
   "loss_history": [
     {
       "year": 2022,
-      "type": "property",
-      "cause": "equipment electrical failure",
-      "incurred_usd": 850000
+      "type": "hull physical damage",
+      "cause": "bird strike",
+      "incurred_usd": 1200000,
+      "status": "closed"
     },
     {
       "year": 2024,
-      "type": "business_interruption",
-      "cause": "supplier tooling outage",
-      "incurred_usd": 4200000
+      "type": "liability",
+      "cause": "passenger ground injury",
+      "incurred_usd": 425000,
+      "status": "closed"
+    },
+    {
+      "year": 2025,
+      "type": "hull physical damage",
+      "cause": "runway excursion",
+      "incurred_usd": 4800000,
+      "status": "closed"
     }
   ],
+  "delegated_authority": {
+    "ruleset_name": "Synthetic Commercial GA Delegated Authority Example",
+    "disclaimer": "Illustrative rules only; not carrier appetite or actual binding authority.",
+    "rules": [
+      {
+        "rule": "Maximum single-aircraft hull value",
+        "threshold": "USD 50,000,000",
+        "submission_value": "USD 55,000,000"
+      },
+      {
+        "rule": "Maximum requested liability limit",
+        "threshold": "USD 300,000,000",
+        "submission_value": "USD 500,000,000"
+      },
+      {
+        "rule": "Maximum Caribbean flight share",
+        "threshold": "10%",
+        "submission_value": "14%"
+      },
+      {
+        "rule": "Maximum year-over-year utilization increase without referral",
+        "threshold": "25%",
+        "submission_value": "29.2%"
+      }
+    ]
+  },
   "facultative": {
-    "target_layer": "USD 100m xs USD 100m",
-    "requested_share_percent": 10,
-    "underlying_limit": "USD 500m",
-    "claims_notice_clause": "present",
-    "expense_treatment": "not clearly stated",
-    "sanctions_clause": "present",
-    "follow_form": true
+    "review_context": "Potential excess capacity / facultative referral review",
+    "requested_primary_or_program_structure": "Not finalized in synthetic submission",
+    "target_layer": "Not yet specified",
+    "requested_share_percent": null,
+    "referral_triggers": [
+      "Largest single-aircraft hull exceeds the synthetic delegated-authority example threshold.",
+      "Requested liability limit exceeds the synthetic delegated-authority example threshold.",
+      "Aggregate fleet hull value is material and requires authorized capacity review."
+    ]
   },
   "notes": [
-    "All values and facts in this file are synthetic.",
-    "No real insured, broker, carrier, reinsurer, or customer is represented."
+    "All values, entities, aircraft identifiers, authority rules, and facts in this file are synthetic.",
+    "No real insured, broker, carrier, reinsurer, or customer is represented.",
+    "The demonstration is decision support only and does not quote, bind, price, decline, or deploy capacity."
   ]
 }
