@@ -137,8 +137,7 @@
             <div class="results-controls">
               <span id="resultState" class="result-state">Waiting for analysis</span>
               <div class="report-actions" id="reportActions" hidden>
-                <button class="report-button" id="downloadReportButton" type="button">Download HTML report</button>
-                <button class="report-button report-button-primary" id="printReportButton" type="button">Print / Save PDF</button>
+                <button class="report-button report-button-primary" id="previewReportButton" type="button">Preview review report</button>
               </div>
             </div>
           </div>
@@ -215,6 +214,43 @@
       </section>
     </section>
   </main>
+
+
+  <div class="report-modal" id="reportModal" hidden>
+    <div class="report-modal-backdrop" id="reportModalBackdrop"></div>
+    <section class="report-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle">
+      <header class="report-modal-header">
+        <div>
+          <p class="report-modal-kicker">StrategicRisk Partners</p>
+          <h2 id="reportModalTitle">Review report preview</h2>
+          <p>Review the generated underwriting-intelligence report before downloading or saving it as a PDF.</p>
+        </div>
+        <button class="report-modal-close" id="closeReportPreviewButton" type="button" aria-label="Close report preview">×</button>
+      </header>
+
+      <div class="report-modal-body">
+        <div class="report-preview-toolbar">
+          <div class="report-preview-status">
+            <span class="report-preview-dot" aria-hidden="true"></span>
+            <span>Preview generated from the current analysis</span>
+          </div>
+          <div class="report-preview-actions">
+            <button class="report-button" id="previewDownloadReportButton" type="button">Download HTML</button>
+            <button class="report-button report-button-primary" id="previewPrintReportButton" type="button">Print / Save PDF</button>
+          </div>
+        </div>
+
+        <div class="report-preview-frame-shell">
+          <iframe
+            id="reportPreviewFrame"
+            class="report-preview-frame"
+            title="StrategicRisk Partners review report preview"
+            sandbox=""
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <script src="/report.js" defer></script>
   <script src="/app.js" defer></script>
