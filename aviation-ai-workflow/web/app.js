@@ -15,8 +15,14 @@ const analyzeButton = document.getElementById('analyzeButton');
 const statusBox = document.getElementById('statusBox');
 const resultState = document.getElementById('resultState');
 const reportActions = document.getElementById('reportActions');
-const downloadReportButton = document.getElementById('downloadReportButton');
-const printReportButton = document.getElementById('printReportButton');
+const previewReportButton = document.getElementById('previewReportButton');
+const reportModal = document.getElementById('reportModal');
+const reportModalBackdrop = document.getElementById('reportModalBackdrop');
+const closeReportPreviewButton = document.getElementById('closeReportPreviewButton');
+const reportPreviewFrame = document.getElementById('reportPreviewFrame');
+const previewDownloadReportButton = document.getElementById('previewDownloadReportButton');
+const previewPrintReportButton = document.getElementById('previewPrintReportButton');
+let reportPreviewReturnFocus = null;
 
 function setStatus(message, tone = 'neutral') {
   statusBox.textContent = message;
@@ -270,7 +276,43 @@ function reportContext() {
   };
 }
 
-downloadReportButton.addEventListener('click', () => {
+function openReportPreview() {
+  try {
+    const context = reportContext();
+    reportPreviewReturnFocus = document.activeElement;
+    reportPreviewFrame.srcdoc = window.SRiskReport.buildReportHtml({
+      ...context,
+      preview: true,
+    });
+    reportModal.hidden = false;
+    document.body.classList.add('report-preview-open');
+    closeReportPreviewButton.focus();
+  } catch (error) {
+    setStatus(error.message || 'Unable to create the report preview.', 'error');
+  }
+}
+
+function closeReportPreview() {
+  if (reportModal.hidden) return;
+  reportModal.hidden = true;
+  reportPreviewFrame.srcdoc = '';
+  document.body.classList.remove('report-preview-open');
+  if (reportPreviewReturnFocus && typeof reportPreviewReturnFocus.focus === 'function') {
+    reportPreviewReturnFocus.focus();
+  }
+}
+
+previewReportButton.addEventListener('click', openReportPreview);
+closeReportPreviewButton.addEventListener('click', closeReportPreview);
+reportModalBackdrop.addEventListener('click', closeReportPreview);
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !reportModal.hidden) {
+    closeReportPreview();
+  }
+});
+
+previewDownloadReportButton.addEventListener('click', () => {
   try {
     window.SRiskReport.downloadHtml(reportContext());
   } catch (error) {
@@ -278,7 +320,7 @@ downloadReportButton.addEventListener('click', () => {
   }
 });
 
-printReportButton.addEventListener('click', () => {
+previewPrintReportButton.addEventListener('click', () => {
   try {
     window.SRiskReport.printPdf(reportContext());
   } catch (error) {
