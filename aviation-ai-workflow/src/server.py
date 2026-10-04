@@ -32,6 +32,11 @@ def health():
     return jsonify({"status": "ok"})
 
 
+@app.get("/sample-data/<path:filename>")
+def sample_data(filename: str):
+    return send_from_directory(BASE_DIR / "sample-data", filename)
+
+
 @app.post("/api/analyze")
 def analyze():
     payload: Any = request.get_json(silent=True)
