@@ -4,108 +4,183 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StrategicRisk Partners | Aviation AI Workflow Demo</title>
-  <meta name="description" content="Synthetic aviation and specialty insurance AI workflow proof of value.">
+  <meta name="description" content="A StrategicRisk Partners proof-of-value demonstration for AI-assisted aviation and specialty-insurance submission review.">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="brand">
+    <a class="brand brand-link" href="#top" aria-label="StrategicRisk Partners home">
       <div class="brand-mark" aria-hidden="true">SR</div>
       <div>
         <div class="brand-name">StrategicRisk Partners</div>
-        <div class="brand-subtitle">Aviation &amp; Specialty Insurance AI Workflow</div>
+        <div class="brand-subtitle">Aviation &amp; Specialty Insurance</div>
       </div>
-    </div>
-    <span class="demo-badge">Synthetic-data demo</span>
+    </a>
+    <span class="demo-badge">AI workflow demonstration</span>
   </header>
 
-  <main class="shell">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">Proof of Value</p>
-        <h1>Submission review, structured for human underwriting.</h1>
-        <p class="hero-copy">Upload a synthetic aviation or specialty-insurance submission, run the controlled analysis workflow, and review the resulting readiness, missing-information, risk, and facultative-reinsurance signals.</p>
-      </div>
-      <div class="hero-note">
-        <strong>Human authority is mandatory.</strong>
-        <span>This demo does not quote, bind, price, deploy capacity, make coverage decisions, or replace qualified specialist review.</span>
-      </div>
-    </section>
+  <main id="top">
+    <section class="landing-screen" aria-labelledby="landingTitle">
+      <div class="landing-glow landing-glow-one" aria-hidden="true"></div>
+      <div class="landing-glow landing-glow-two" aria-hidden="true"></div>
 
-    <section class="workspace">
-      <aside class="upload-panel card">
-        <p class="section-kicker">1 · Input</p>
-        <h2>Submission</h2>
-        <label class="drop-zone" id="dropZone" for="fileInput">
-          <input id="fileInput" type="file" accept="application/json,.json" hidden>
-          <span class="drop-icon">↑</span>
-          <strong>Upload submission JSON</strong>
-          <span>or drag a .json file here</span>
-        </label>
-        <div class="file-row" id="fileRow" hidden>
-          <div>
-            <strong id="fileName">No file selected</strong>
-            <span id="fileMeta"></span>
-          </div>
-          <button class="text-button" id="clearButton" type="button">Clear</button>
-        </div>
-        <button class="secondary-button" id="loadSampleButton" type="button">Load synthetic sample</button>
-        <button class="primary-button" id="analyzeButton" type="button" disabled>Analyze submission</button>
-        <div class="status-box" id="statusBox" role="status" aria-live="polite">Choose a JSON submission to begin.</div>
-      </aside>
+      <div class="landing-inner">
+        <div class="landing-copy">
+          <p class="landing-eyebrow">Aviation + Specialty Insurance · Proof of Value</p>
+          <h1 id="landingTitle">Turn complex submissions into structured underwriting review packages.</h1>
+          <p class="landing-value">StrategicRisk Partners demonstrates how AI-assisted triage can surface missing information, risk signals, and facultative-reinsurance issues while keeping authorized human reviewers in control.</p>
 
-      <section class="results" aria-live="polite">
-        <div class="results-header">
-          <div>
-            <p class="section-kicker">2 · Review package</p>
-            <h2>Analysis results</h2>
+          <div class="landing-actions">
+            <button class="landing-primary" id="landingSampleButton" type="button">
+              <span>Load synthetic sample</span>
+              <span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="landing-secondary" id="landingUploadButton" type="button">Upload your own JSON</button>
           </div>
-          <span id="resultState" class="result-state">Waiting for analysis</span>
+
+          <div class="landing-trust">
+            <span><strong>Synthetic-first</strong> demonstration</span>
+            <span aria-hidden="true">•</span>
+            <span><strong>Human review</strong> required</span>
+            <span aria-hidden="true">•</span>
+            <span><strong>No autonomous</strong> underwriting decisions</span>
+          </div>
         </div>
 
-        <div class="result-grid">
-          <article class="card result-card readiness-card">
-            <div class="card-heading">
+        <div class="preview-panel" aria-label="Preview of workflow outputs">
+          <div class="preview-topline">
+            <div>
+              <span class="preview-kicker">Review package</span>
+              <strong>Submission intelligence</strong>
+            </div>
+            <span class="preview-live"><span class="preview-dot"></span>Synthetic</span>
+          </div>
+
+          <div class="preview-readiness">
+            <div>
               <span>Submission readiness</span>
-              <span class="status-pill neutral" id="readinessStatus">Not analyzed</span>
+              <strong>Additional information required</strong>
             </div>
-            <p id="readinessSummary" class="muted">Readiness status and summary will appear here.</p>
-          </article>
+            <span class="preview-chip">Review</span>
+          </div>
 
-          <article class="card result-card human-card">
-            <div class="card-heading">
+          <div class="preview-grid">
+            <div class="preview-tile">
+              <span class="preview-number">02</span>
+              <span>Missing information</span>
+            </div>
+            <div class="preview-tile">
+              <span class="preview-number">02</span>
+              <span>Risk flags</span>
+            </div>
+            <div class="preview-tile">
+              <span class="preview-icon">FAC</span>
+              <span>Wording review</span>
+            </div>
+            <div class="preview-tile preview-human">
+              <span class="preview-icon">H</span>
               <span>Human review required</span>
-              <span class="status-pill neutral" id="humanStatus">Pending</span>
             </div>
-            <p class="muted" id="humanCopy">The workflow requires an authorized human reviewer before any consequential action.</p>
-          </article>
+          </div>
 
-          <article class="card result-card span-two">
-            <div class="card-heading"><span>Missing information</span><span class="count" id="missingCount">0</span></div>
-            <ul class="result-list" id="missingList"><li class="placeholder">No analysis yet.</li></ul>
-          </article>
-
-          <article class="card result-card span-two">
-            <div class="card-heading"><span>Risk flags</span><span class="count" id="riskCount">0</span></div>
-            <div class="risk-list" id="riskList"><p class="placeholder">No analysis yet.</p></div>
-          </article>
-
-          <article class="card result-card span-two">
-            <div class="card-heading"><span>FAC review</span><span class="label">Facultative</span></div>
-            <p id="facSummary" class="muted">FAC review summary will appear here.</p>
-            <ul class="result-list compact" id="facIssues"><li class="placeholder">No analysis yet.</li></ul>
-          </article>
-
-          <article class="card result-card span-two next-action-card">
-            <div class="card-heading"><span>Recommended next action</span></div>
-            <p id="nextAction" class="next-action">No recommendation until analysis is complete.</p>
-          </article>
+          <div class="preview-footer">
+            <span>Decision support</span>
+            <span>→</span>
+            <span>Authorized reviewer</span>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <a class="scroll-cue" href="#demo" aria-label="Go to interactive demo">
+        <span>Explore the workflow</span>
+        <span aria-hidden="true">↓</span>
+      </a>
     </section>
 
-    <section class="footnote">
-      <strong>Reference implementation.</strong> Use synthetic or customer-approved data only. Production use requires customer-specific security, privacy, governance, validation, and deployment review.
+    <section class="demo-shell" id="demo">
+      <div class="demo-intro">
+        <div>
+          <p class="eyebrow">Interactive demonstration</p>
+          <h2>Review a synthetic aviation submission.</h2>
+        </div>
+        <p>Load the included sample or provide a JSON file to see the controlled submission-review workflow in action.</p>
+      </div>
+
+      <section class="workspace">
+        <aside class="upload-panel card">
+          <p class="section-kicker">1 · Input</p>
+          <h2>Submission</h2>
+          <label class="drop-zone" id="dropZone" for="fileInput">
+            <input id="fileInput" type="file" accept="application/json,.json" hidden>
+            <span class="drop-icon">↑</span>
+            <strong>Upload submission JSON</strong>
+            <span>or drag a .json file here</span>
+          </label>
+          <div class="file-row" id="fileRow" hidden>
+            <div>
+              <strong id="fileName">No file selected</strong>
+              <span id="fileMeta"></span>
+            </div>
+            <button class="text-button" id="clearButton" type="button">Clear</button>
+          </div>
+          <button class="secondary-button" id="loadSampleButton" type="button">Load synthetic sample</button>
+          <button class="primary-button" id="analyzeButton" type="button" disabled>Analyze submission</button>
+          <div class="status-box" id="statusBox" role="status" aria-live="polite">Choose a JSON submission to begin.</div>
+        </aside>
+
+        <section class="results" aria-live="polite">
+          <div class="results-header">
+            <div>
+              <p class="section-kicker">2 · Review package</p>
+              <h2>Analysis results</h2>
+            </div>
+            <span id="resultState" class="result-state">Waiting for analysis</span>
+          </div>
+
+          <div class="result-grid">
+            <article class="card result-card readiness-card">
+              <div class="card-heading">
+                <span>Submission readiness</span>
+                <span class="status-pill neutral" id="readinessStatus">Not analyzed</span>
+              </div>
+              <p id="readinessSummary" class="muted">Readiness status and summary will appear here.</p>
+            </article>
+
+            <article class="card result-card human-card">
+              <div class="card-heading">
+                <span>Human review required</span>
+                <span class="status-pill neutral" id="humanStatus">Pending</span>
+              </div>
+              <p class="muted" id="humanCopy">The workflow requires an authorized human reviewer before any consequential action.</p>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Missing information</span><span class="count" id="missingCount">0</span></div>
+              <ul class="result-list" id="missingList"><li class="placeholder">No analysis yet.</li></ul>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Risk flags</span><span class="count" id="riskCount">0</span></div>
+              <div class="risk-list" id="riskList"><p class="placeholder">No analysis yet.</p></div>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>FAC review</span><span class="label">Facultative</span></div>
+              <p id="facSummary" class="muted">FAC review summary will appear here.</p>
+              <ul class="result-list compact" id="facIssues"><li class="placeholder">No analysis yet.</li></ul>
+            </article>
+
+            <article class="card result-card span-two next-action-card">
+              <div class="card-heading"><span>Recommended next action</span></div>
+              <p id="nextAction" class="next-action">No recommendation until analysis is complete.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="footnote">
+        <strong>Reference implementation.</strong> Use synthetic or customer-approved data only. Production use requires customer-specific security, privacy, governance, validation, and deployment review.
+      </section>
     </section>
   </main>
 
