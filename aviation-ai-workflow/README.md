@@ -58,6 +58,7 @@ It does **not** quote or bind insurance, set rates or authorize capacity, make f
     ├── web/
     │   ├── index.html
     │   ├── styles.css
+    │   ├── report.js
     │   └── app.js
     └── tests/
         └── test_review_submission.py
@@ -106,9 +107,13 @@ The browser workflow provides:
 - Risk Flags;
 - FAC Review;
 - Recommended Next Action; and
-- a prominent Human Review Required control.
+- a prominent Human Review Required control;
+- a self-contained downloadable HTML review report; and
+- a print-optimized report view for browser **Print / Save as PDF**.
 
 The UI posts the uploaded JSON to `/api/analyze`. The Flask server performs the deterministic precheck and then calls the same reviewed OpenAI Responses API workflow used by the CLI.
+
+After a successful analysis, **Download HTML report** creates a self-contained branded report in the browser. **Print / Save PDF** opens the same report in a print-optimized window and invokes the browser print dialog so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes Submission Readiness, Missing Information, Risk Flags, FAC Review, Human Review Required, and Recommended Next Action.
 
 **Security note:** the demo is intended for local proof-of-value use with synthetic or explicitly customer-approved data. Do not expose the development server publicly or place API credentials in browser code.
 
