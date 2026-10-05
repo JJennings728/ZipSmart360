@@ -41,9 +41,11 @@ The prototype separates deterministic reconciliation from AI synthesis:
 
 The model is not used to decide whether two identifiers match. Straightforward record comparison remains deterministic.
 
-## Synthetic PrairieJet case
+## Bundled synthetic cases
 
-The bundled case represents **PrairieJet Charter Group (Synthetic)**, a fictional Part 135 / Part 91 operator with:
+### PrairieJet Charter Group
+
+The first bundled case represents **PrairieJet Charter Group (Synthetic)**, a fictional Part 135 / Part 91 operator with:
 
 - 28 aircraft;
 - USD 436 million stated fleet hull value;
@@ -59,7 +61,24 @@ The separate evidence package includes:
 - synthetic aviation event history; and
 - synthetic aircraft-change filing evidence.
 
-Seven exception rules are intentionally planted so the prototype can be evaluated against known ground truth. Synthetic performance is **not** a customer performance claim.
+Seven exception rules are intentionally planted so the prototype can be evaluated against known ground truth.
+
+### Northstar Global Airlines
+
+The second bundled case represents **Northstar Global Airlines (Synthetic)**, a fictional major Part 121 network airline with:
+
+- 1,050 aircraft;
+- USD 44.465 billion of synthetic stated fleet hull value;
+- a USD 2.25 billion synthetic requested liability limit;
+- global domestic, Atlantic, Pacific, and Latin America operations;
+- large-airline operating metrics and fleet-transition complexity; and
+- eight deliberately planted reconciliation exceptions.
+
+Its scale is calibrated to public large-airline disclosures, including the United Airlines Holdings / United Airlines Q1 2026 Form 10-Q. It does **not** represent United Airlines' actual insurance program, losses, limits, fleet values, premium, deductibles, reinsurance, or underwriting information.
+
+See `docs/major-airline-case-basis.md` for the public calibration methodology.
+
+Synthetic performance is **not** a customer performance claim.
 
 ## Deterministic rule examples
 
@@ -73,7 +92,9 @@ The reference engine includes versionable rule IDs such as:
 - `R-041` aircraft-change filing-evidence completeness;
 - `R-054` external event vs. submitted loss-history reconciliation;
 - `R-060` supporting-evidence completeness; and
-- `R-070` synthetic delegated-authority referral conditions.
+- `R-070` synthetic delegated-authority referral conditions;
+- `R-080` stated fleet count vs. aircraft schedule; and
+- `R-081` fleet delivery-plan reconciliation.
 
 These statuses are review signals, not legal compliance conclusions or actual carrier appetite.
 
@@ -105,12 +126,16 @@ Uploaded non-synthetic submissions do not receive the PrairieJet reference outpu
     ├── requirements.txt
     ├── docs/
     │   ├── architecture.md
+    │   ├── major-airline-case-basis.md
     │   ├── security-governance.md
     │   └── workflow.md
     ├── sample-data/
     │   ├── synthetic_submission.json
     │   ├── synthetic_evidence.json
-    │   └── example_review_output.json
+    │   ├── example_review_output.json
+    │   ├── synthetic_airline_submission.json
+    │   ├── synthetic_airline_evidence.json
+    │   └── example_airline_review_output.json
     ├── src/
     │   ├── reconciliation.py
     │   ├── review_submission.py
@@ -138,7 +163,7 @@ Then open:
 
     http://127.0.0.1:8080
 
-Click **Run synthetic case**, then **Run reconciliation**.
+Choose either **Run major-airline case** or **Run Part 135 case**, then select **Run reconciliation**.
 
 To use live AI synthesis, copy `.env.example` to `.env` and configure an API key locally. Never commit a real API key.
 
