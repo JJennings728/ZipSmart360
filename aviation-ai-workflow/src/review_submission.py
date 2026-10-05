@@ -60,13 +60,43 @@ def precheck_submission(data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def compact_for_prompt(value: Any, *, max_list_items: int = 25, sample_items: int = 5) -> Any:
+    """Reduce large evidence arrays before sending them to the model.
+
+    The deterministic layer still evaluates the complete records. This compaction
+    only limits prompt size by replacing large lists with a record count and a
+    small sample.
+    """
+    if isinstance(value, dict):
+        return {
+            key: compact_for_prompt(item, max_list_items=max_list_items, sample_items=sample_items)
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        if len(value) > max_list_items:
+            return {
+                "record_count": len(value),
+                "truncated_for_ai_prompt": True,
+                "sample": [
+                    compact_for_prompt(item, max_list_items=max_list_items, sample_items=sample_items)
+                    for item in value[:sample_items]
+                ],
+            }
+        return [
+            compact_for_prompt(item, max_list_items=max_list_items, sample_items=sample_items)
+            for item in value
+        ]
+    return value
+
+
 def build_prompt(
     data: dict[str, Any],
     precheck: dict[str, Any],
     reconciliation: dict[str, Any] | None = None,
 ) -> str:
     """Build a conservative underwriting-preparation prompt."""
-    reconciliation_context = reconciliation or {}
+    reconciliation_context = compact_for_prompt(reconciliation or {})
+    submission_context = compact_for_prompt(data)
 
     return f"""
 You are reviewing a SYNTHETIC aviation / specialty-insurance submission for a
@@ -123,7 +153,7 @@ Deterministic evidence reconciliation:
 {json.dumps(reconciliation_context, indent=2)}
 
 Synthetic submission:
-{json.dumps(data, indent=2)}
+{json.dumps(submission_context, indent=2)}
 """.strip()
 
 
