@@ -136,7 +136,7 @@ def parse_json_output(text: str) -> dict[str, Any]:
             lines = lines[1:]
         if lines and lines[-1].strip() == "```":
             lines = lines[:-1]
-        cleaned = "\\n".join(lines).strip()
+        cleaned = "\n".join(lines).strip()
 
     result = json.loads(cleaned)
     if not isinstance(result, dict):
