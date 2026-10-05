@@ -96,6 +96,11 @@ def reconcile_case(
     registry = evidence_package.get("faa_registry") or {}
     events = evidence_package.get("aviation_events") or []
     filing_events = evidence_package.get("filing_events") or []
+    fleet_commitments = evidence_package.get("fleet_commitments") or []
+
+    authority_source = authority.get("source_id") or "AUTH-001"
+    certificate_source = certificate.get("source_id") or "INS-001"
+    registry_source = registry.get("source_id") or "FAA-001"
 
     submission_name = account.get("legal_name") or account.get("name")
     authority_name = authority.get("legal_name")
@@ -114,8 +119,8 @@ def reconcile_case(
         ),
         [
             _ev("SUB-001", "account.legal_name", submission_name),
-            _ev("AUTH-001", "operator_authority.legal_name", authority_name),
-            _ev("INS-001", "insurance_certificate.legal_name", certificate_name),
+            _ev(authority_source, "operator_authority.legal_name", authority_name),
+            _ev(certificate_source, "insurance_certificate.legal_name", certificate_name),
         ],
         severity="HIGH" if identity_status != STATUS_VERIFIED else "INFO",
         category="identity",
@@ -144,8 +149,8 @@ def reconcile_case(
         ),
         [
             _ev("SUB-001", "account.faa_certificate_number", account.get("faa_certificate_number")),
-            _ev("AUTH-001", "operator_authority.faa_certificate_number", authority.get("faa_certificate_number")),
-            _ev("INS-001", "insurance_certificate.faa_certificate_number", certificate.get("faa_certificate_number")),
+            _ev(authority_source, "operator_authority.faa_certificate_number", authority.get("faa_certificate_number")),
+            _ev(certificate_source, "insurance_certificate.faa_certificate_number", certificate.get("faa_certificate_number")),
         ],
         severity="HIGH" if cert_status != STATUS_VERIFIED else "INFO",
         category="identity",
@@ -163,8 +168,8 @@ def reconcile_case(
             else "Active insurance-certificate evidence was not supplied."
         ),
         [
-            _ev("INS-001", "insurance_certificate.form", certificate.get("form")),
-            _ev("INS-001", "insurance_certificate.status", certificate.get("status")),
+            _ev(certificate_source, "insurance_certificate.form", certificate.get("form")),
+            _ev(certificate_source, "insurance_certificate.status", certificate.get("status")),
         ],
         severity="HIGH" if not cert_active else "INFO",
         category="insurance_certificate",
@@ -197,7 +202,7 @@ def reconcile_case(
         limit_summary,
         [
             _ev("SUB-001", "exposures.liability.requested_combined_single_limit_usd", requested_limit),
-            _ev("INS-001", "insurance_certificate.coverage.combined_single_limit_usd", certificate_limit),
+            _ev(certificate_source, "insurance_certificate.coverage.combined_single_limit_usd", certificate_limit),
         ],
         severity="HIGH" if limit_status != STATUS_VERIFIED else "INFO",
         category="coverage_reconciliation",
@@ -231,7 +236,7 @@ def reconcile_case(
         aircraft_scope_summary,
         [
             _ev("SUB-001", "exposures.aircraft_schedule", sorted(submission_by_reg)),
-            _ev("INS-001", "insurance_certificate.aircraft_scope.registrations", sorted(certificate_regs)),
+            _ev(certificate_source, "insurance_certificate.aircraft_scope.registrations", sorted(certificate_regs)),
         ],
         severity="HIGH" if aircraft_scope_status != STATUS_VERIFIED else "INFO",
         category="aircraft_scope",
@@ -280,7 +285,7 @@ def reconcile_case(
         serial_summary,
         [
             _ev("SUB-001", "exposures.aircraft_schedule", f"{len(submission_by_reg)} aircraft"),
-            _ev("FAA-001", "faa_registry.records", f"{len(registry_by_reg)} aircraft records"),
+            _ev(registry_source, "faa_registry.records", f"{len(registry_by_reg)} aircraft records"),
         ],
         severity="HIGH" if serial_status != STATUS_VERIFIED else "INFO",
         category="aircraft_identity",
@@ -298,7 +303,7 @@ def reconcile_case(
             if registry_status == STATUS_VERIFIED
             else f"Registry status requires review for: {', '.join(inactive_regs)}."
         ),
-        [_ev("FAA-001", "faa_registry.records.status", "active" if not inactive_regs else inactive_regs)],
+        [_ev(registry_source, "faa_registry.records.status", "active" if not inactive_regs else inactive_regs)],
         severity="MEDIUM" if registry_status != STATUS_VERIFIED else "INFO",
         category="aircraft_status",
         suggested_action="Confirm registry status and relevance with an authorized reviewer.",
@@ -417,6 +422,64 @@ def reconcile_case(
         category="submission_completeness",
         suggested_action="Request missing evidence before consequential underwriting action." if missing_docs else None,
     ))
+
+    stated_aircraft_count = (
+        (submission.get("exposures") or {})
+        .get("operator_profile", {})
+        .get("aircraft_count")
+    )
+    if isinstance(stated_aircraft_count, int):
+        fleet_count_status = (
+            STATUS_VERIFIED if stated_aircraft_count == len(submission_by_reg) else STATUS_MISMATCH
+        )
+        checks.append(_check(
+            "R-080",
+            "Stated fleet count vs. aircraft schedule",
+            fleet_count_status,
+            (
+                f"Stated aircraft count of {stated_aircraft_count} reconciles to the aircraft schedule."
+                if fleet_count_status == STATUS_VERIFIED
+                else f"Stated aircraft count is {stated_aircraft_count}, while the aircraft schedule contains {len(submission_by_reg)} aircraft."
+            ),
+            [
+                _ev("SUB-001", "exposures.operator_profile.aircraft_count", stated_aircraft_count),
+                _ev("SUB-001", "exposures.aircraft_schedule", len(submission_by_reg)),
+            ],
+            severity="HIGH" if fleet_count_status != STATUS_VERIFIED else "INFO",
+            category="fleet_reconciliation",
+            suggested_action="Reconcile the stated fleet count to the detailed aircraft schedule." if fleet_count_status != STATUS_VERIFIED else None,
+        ))
+
+    submitted_delivery_count = (
+        (submission.get("exposures") or {})
+        .get("fleet_plan", {})
+        .get("expected_deliveries_last_nine_months_2026")
+    )
+    evidence_delivery_count = fleet_commitments.get("expected_deliveries_last_nine_months_2026")
+    if submitted_delivery_count is not None or evidence_delivery_count is not None:
+        fleet_source = fleet_commitments.get("source_id") or "FLEET-001"
+        delivery_status = (
+            STATUS_VERIFIED
+            if submitted_delivery_count == evidence_delivery_count and submitted_delivery_count is not None
+            else STATUS_MISMATCH
+        )
+        checks.append(_check(
+            "R-081",
+            "Fleet delivery-plan reconciliation",
+            delivery_status,
+            (
+                "Submitted delivery plan reconciles to the supplied fleet-commitment evidence."
+                if delivery_status == STATUS_VERIFIED
+                else f"Submitted delivery plan shows {submitted_delivery_count} expected deliveries, while supplied fleet evidence shows {evidence_delivery_count}."
+            ),
+            [
+                _ev("SUB-001", "exposures.fleet_plan.expected_deliveries_last_nine_months_2026", submitted_delivery_count),
+                _ev(fleet_source, "fleet_commitments.expected_deliveries_last_nine_months_2026", evidence_delivery_count),
+            ],
+            severity="MEDIUM" if delivery_status != STATUS_VERIFIED else "INFO",
+            category="fleet_transition",
+            suggested_action="Reconcile the delivery plan to the latest manufacturer/fleet evidence before relying on the policy-period fleet schedule." if delivery_status != STATUS_VERIFIED else None,
+        ))
 
     authority_rules = submission.get("delegated_authority", {}).get("rules") or []
     breached_rules = [
