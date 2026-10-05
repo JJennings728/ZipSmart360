@@ -1,0 +1,7500 @@
+{
+  "case_id": "SRP-AIRLINE-DEMO-001",
+  "sources": [
+    {
+      "source_id": "AUTH-A1",
+      "type": "operator_authority",
+      "name": "Synthetic Part 121 operating-authority record",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "INS-A1",
+      "type": "insurance_certificate",
+      "name": "Synthetic airline insurance certificate evidence",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "FAA-A1",
+      "type": "aircraft_registry",
+      "name": "Synthetic FAA-style fleet registry snapshot",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "EVT-A1",
+      "type": "aviation_event_history",
+      "name": "Synthetic airline event history",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "FILE-A1",
+      "type": "filing_evidence",
+      "name": "Synthetic aircraft schedule change filing evidence",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "FLEET-A1",
+      "type": "fleet_commitments",
+      "name": "Synthetic manufacturer delivery / fleet-plan evidence",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "PUB-UAL-10Q",
+      "type": "public_reference_context",
+      "name": "United Airlines Holdings / United Airlines Q1 2026 Form 10-Q (public calibration only)",
+      "version": "2026-Q1"
+    }
+  ],
+  "operator_authority": {
+    "legal_name": "Northstar Global Airlines, Inc. (Synthetic)",
+    "faa_certificate_number": "NSGA121X",
+    "authority_type": "FAA Part 121 scheduled air carrier",
+    "status": "active",
+    "source_id": "AUTH-A1"
+  },
+  "insurance_certificate": {
+    "legal_name": "Northstar Global Airlines, Inc. (Synthetic)",
+    "faa_certificate_number": "NSGA121X",
+    "form": "Synthetic U.S. airline insurance certificate evidence",
+    "section": "Major scheduled airline",
+    "status": "active",
+    "coverage": {
+      "combined_single_limit_usd": 2000000000
+    },
+    "aircraft_scope": {
+      "type": "SPECIFIC_AIRCRAFT",
+      "registrations": [
+        "SYN0001",
+        "SYN0002",
+        "SYN0003",
+        "SYN0004",
+        "SYN0005",
+        "SYN0006",
+        "SYN0007",
+        "SYN0008",
+        "SYN0009",
+        "SYN0010",
+        "SYN0011",
+        "SYN0012",
+        "SYN0013",
+        "SYN0014",
+        "SYN0015",
+        "SYN0016",
+        "SYN0017",
+        "SYN0018",
+        "SYN0019",
+        "SYN0020",
+        "SYN0021",
+        "SYN0022",
+        "SYN0023",
+        "SYN0024",
+        "SYN0025",
+        "SYN0026",
+        "SYN0027",
+        "SYN0028",
+        "SYN0029",
+        "SYN0030",
+        "SYN0031",
+        "SYN0032",
+        "SYN0033",
+        "SYN0034",
+        "SYN0035",
+        "SYN0036",
+        "SYN0037",
+        "SYN0038",
+        "SYN0039",
+        "SYN0040",
+        "SYN0041",
+        "SYN0042",
+        "SYN0043",
+        "SYN0044",
+        "SYN0045",
+        "SYN0046",
+        "SYN0047",
+        "SYN0048",
+        "SYN0049",
+        "SYN0050",
+        "SYN0051",
+        "SYN0052",
+        "SYN0053",
+        "SYN0054",
+        "SYN0055",
+        "SYN0056",
+        "SYN0057",
+        "SYN0058",
+        "SYN0059",
+        "SYN0060",
+        "SYN0061",
+        "SYN0062",
+        "SYN0063",
+        "SYN0064",
+        "SYN0065",
+        "SYN0066",
+        "SYN0067",
+        "SYN0068",
+        "SYN0069",
+        "SYN0070",
+        "SYN0071",
+        "SYN0072",
+        "SYN0073",
+        "SYN0074",
+        "SYN0075",
+        "SYN0076",
+        "SYN0077",
+        "SYN0078",
+        "SYN0079",
+        "SYN0080",
+        "SYN0081",
+        "SYN0082",
+        "SYN0083",
+        "SYN0084",
+        "SYN0085",
+        "SYN0086",
+        "SYN0087",
+        "SYN0088",
+        "SYN0089",
+        "SYN0090",
+        "SYN0091",
+        "SYN0092",
+        "SYN0093",
+        "SYN0094",
+        "SYN0095",
+        "SYN0096",
+        "SYN0097",
+        "SYN0098",
+        "SYN0099",
+        "SYN0100",
+        "SYN0101",
+        "SYN0102",
+        "SYN0103",
+        "SYN0104",
+        "SYN0105",
+        "SYN0106",
+        "SYN0107",
+        "SYN0108",
+        "SYN0109",
+        "SYN0110",
+        "SYN0111",
+        "SYN0112",
+        "SYN0113",
+        "SYN0114",
+        "SYN0115",
+        "SYN0116",
+        "SYN0117",
+        "SYN0118",
+        "SYN0119",
+        "SYN0120",
+        "SYN0121",
+        "SYN0122",
+        "SYN0123",
+        "SYN0124",
+        "SYN0125",
+        "SYN0126",
+        "SYN0127",
+        "SYN0128",
+        "SYN0129",
+        "SYN0130",
+        "SYN0131",
+        "SYN0132",
+        "SYN0133",
+        "SYN0134",
+        "SYN0135",
+        "SYN0136",
+        "SYN0137",
+        "SYN0138",
+        "SYN0139",
+        "SYN0140",
+        "SYN0141",
+        "SYN0142",
+        "SYN0143",
+        "SYN0144",
+        "SYN0145",
+        "SYN0146",
+        "SYN0147",
+        "SYN0148",
+        "SYN0149",
+        "SYN0150",
+        "SYN0151",
+        "SYN0152",
+        "SYN0153",
+        "SYN0154",
+        "SYN0155",
+        "SYN0156",
+        "SYN0157",
+        "SYN0158",
+        "SYN0159",
+        "SYN0160",
+        "SYN0161",
+        "SYN0162",
+        "SYN0163",
+        "SYN0164",
+        "SYN0165",
+        "SYN0166",
+        "SYN0167",
+        "SYN0168",
+        "SYN0169",
+        "SYN0170",
+        "SYN0171",
+        "SYN0172",
+        "SYN0173",
+        "SYN0174",
+        "SYN0175",
+        "SYN0176",
+        "SYN0177",
+        "SYN0178",
+        "SYN0179",
+        "SYN0180",
+        "SYN0181",
+        "SYN0182",
+        "SYN0183",
+        "SYN0184",
+        "SYN0185",
+        "SYN0186",
+        "SYN0187",
+        "SYN0188",
+        "SYN0189",
+        "SYN0190",
+        "SYN0191",
+        "SYN0192",
+        "SYN0193",
+        "SYN0194",
+        "SYN0195",
+        "SYN0196",
+        "SYN0197",
+        "SYN0198",
+        "SYN0199",
+        "SYN0200",
+        "SYN0201",
+        "SYN0202",
+        "SYN0203",
+        "SYN0204",
+        "SYN0205",
+        "SYN0206",
+        "SYN0207",
+        "SYN0208",
+        "SYN0209",
+        "SYN0210",
+        "SYN0211",
+        "SYN0212",
+        "SYN0213",
+        "SYN0214",
+        "SYN0215",
+        "SYN0216",
+        "SYN0217",
+        "SYN0218",
+        "SYN0219",
+        "SYN0220",
+        "SYN0221",
+        "SYN0222",
+        "SYN0223",
+        "SYN0224",
+        "SYN0225",
+        "SYN0226",
+        "SYN0227",
+        "SYN0228",
+        "SYN0229",
+        "SYN0230",
+        "SYN0231",
+        "SYN0232",
+        "SYN0233",
+        "SYN0234",
+        "SYN0235",
+        "SYN0236",
+        "SYN0237",
+        "SYN0238",
+        "SYN0239",
+        "SYN0240",
+        "SYN0241",
+        "SYN0242",
+        "SYN0243",
+        "SYN0244",
+        "SYN0245",
+        "SYN0246",
+        "SYN0247",
+        "SYN0248",
+        "SYN0249",
+        "SYN0250",
+        "SYN0251",
+        "SYN0252",
+        "SYN0253",
+        "SYN0254",
+        "SYN0255",
+        "SYN0256",
+        "SYN0257",
+        "SYN0258",
+        "SYN0259",
+        "SYN0260",
+        "SYN0261",
+        "SYN0262",
+        "SYN0263",
+        "SYN0264",
+        "SYN0265",
+        "SYN0266",
+        "SYN0267",
+        "SYN0268",
+        "SYN0269",
+        "SYN0270",
+        "SYN0271",
+        "SYN0272",
+        "SYN0273",
+        "SYN0274",
+        "SYN0275",
+        "SYN0276",
+        "SYN0277",
+        "SYN0278",
+        "SYN0279",
+        "SYN0280",
+        "SYN0281",
+        "SYN0282",
+        "SYN0283",
+        "SYN0284",
+        "SYN0285",
+        "SYN0286",
+        "SYN0287",
+        "SYN0288",
+        "SYN0289",
+        "SYN0290",
+        "SYN0291",
+        "SYN0292",
+        "SYN0293",
+        "SYN0294",
+        "SYN0295",
+        "SYN0296",
+        "SYN0297",
+        "SYN0298",
+        "SYN0299",
+        "SYN0300",
+        "SYN0301",
+        "SYN0302",
+        "SYN0303",
+        "SYN0304",
+        "SYN0305",
+        "SYN0306",
+        "SYN0307",
+        "SYN0308",
+        "SYN0309",
+        "SYN0310",
+        "SYN0311",
+        "SYN0312",
+        "SYN0313",
+        "SYN0314",
+        "SYN0315",
+        "SYN0316",
+        "SYN0317",
+        "SYN0318",
+        "SYN0319",
+        "SYN0320",
+        "SYN0321",
+        "SYN0322",
+        "SYN0323",
+        "SYN0324",
+        "SYN0325",
+        "SYN0326",
+        "SYN0327",
+        "SYN0328",
+        "SYN0329",
+        "SYN0330",
+        "SYN0331",
+        "SYN0332",
+        "SYN0333",
+        "SYN0334",
+        "SYN0335",
+        "SYN0336",
+        "SYN0337",
+        "SYN0338",
+        "SYN0339",
+        "SYN0340",
+        "SYN0341",
+        "SYN0342",
+        "SYN0343",
+        "SYN0344",
+        "SYN0345",
+        "SYN0346",
+        "SYN0347",
+        "SYN0348",
+        "SYN0349",
+        "SYN0350",
+        "SYN0351",
+        "SYN0352",
+        "SYN0353",
+        "SYN0354",
+        "SYN0355",
+        "SYN0356",
+        "SYN0357",
+        "SYN0358",
+        "SYN0359",
+        "SYN0360",
+        "SYN0361",
+        "SYN0362",
+        "SYN0363",
+        "SYN0364",
+        "SYN0365",
+        "SYN0366",
+        "SYN0367",
+        "SYN0368",
+        "SYN0369",
+        "SYN0370",
+        "SYN0371",
+        "SYN0372",
+        "SYN0373",
+        "SYN0374",
+        "SYN0375",
+        "SYN0376",
+        "SYN0377",
+        "SYN0378",
+        "SYN0379",
+        "SYN0380",
+        "SYN0381",
+        "SYN0382",
+        "SYN0383",
+        "SYN0384",
+        "SYN0385",
+        "SYN0386",
+        "SYN0387",
+        "SYN0388",
+        "SYN0389",
+        "SYN0390",
+        "SYN0391",
+        "SYN0392",
+        "SYN0393",
+        "SYN0394",
+        "SYN0395",
+        "SYN0396",
+        "SYN0397",
+        "SYN0398",
+        "SYN0399",
+        "SYN0400",
+        "SYN0401",
+        "SYN0402",
+        "SYN0403",
+        "SYN0404",
+        "SYN0405",
+        "SYN0406",
+        "SYN0407",
+        "SYN0408",
+        "SYN0409",
+        "SYN0410",
+        "SYN0411",
+        "SYN0412",
+        "SYN0413",
+        "SYN0414",
+        "SYN0415",
+        "SYN0416",
+        "SYN0417",
+        "SYN0418",
+        "SYN0419",
+        "SYN0420",
+        "SYN0421",
+        "SYN0422",
+        "SYN0423",
+        "SYN0424",
+        "SYN0425",
+        "SYN0426",
+        "SYN0427",
+        "SYN0428",
+        "SYN0429",
+        "SYN0430",
+        "SYN0431",
+        "SYN0432",
+        "SYN0433",
+        "SYN0434",
+        "SYN0435",
+        "SYN0436",
+        "SYN0437",
+        "SYN0438",
+        "SYN0439",
+        "SYN0440",
+        "SYN0441",
+        "SYN0442",
+        "SYN0443",
+        "SYN0444",
+        "SYN0445",
+        "SYN0446",
+        "SYN0447",
+        "SYN0448",
+        "SYN0449",
+        "SYN0450",
+        "SYN0451",
+        "SYN0452",
+        "SYN0453",
+        "SYN0454",
+        "SYN0455",
+        "SYN0456",
+        "SYN0457",
+        "SYN0458",
+        "SYN0459",
+        "SYN0460",
+        "SYN0461",
+        "SYN0462",
+        "SYN0463",
+        "SYN0464",
+        "SYN0465",
+        "SYN0466",
+        "SYN0467",
+        "SYN0468",
+        "SYN0469",
+        "SYN0470",
+        "SYN0471",
+        "SYN0472",
+        "SYN0473",
+        "SYN0474",
+        "SYN0475",
+        "SYN0476",
+        "SYN0477",
+        "SYN0478",
+        "SYN0479",
+        "SYN0480",
+        "SYN0481",
+        "SYN0482",
+        "SYN0483",
+        "SYN0484",
+        "SYN0485",
+        "SYN0486",
+        "SYN0487",
+        "SYN0488",
+        "SYN0489",
+        "SYN0490",
+        "SYN0491",
+        "SYN0492",
+        "SYN0493",
+        "SYN0494",
+        "SYN0495",
+        "SYN0496",
+        "SYN0497",
+        "SYN0498",
+        "SYN0499",
+        "SYN0500",
+        "SYN0501",
+        "SYN0502",
+        "SYN0503",
+        "SYN0504",
+        "SYN0505",
+        "SYN0506",
+        "SYN0507",
+        "SYN0508",
+        "SYN0509",
+        "SYN0510",
+        "SYN0511",
+        "SYN0512",
+        "SYN0513",
+        "SYN0514",
+        "SYN0515",
+        "SYN0516",
+        "SYN0517",
+        "SYN0518",
+        "SYN0519",
+        "SYN0520",
+        "SYN0521",
+        "SYN0522",
+        "SYN0523",
+        "SYN0524",
+        "SYN0525",
+        "SYN0526",
+        "SYN0527",
+        "SYN0528",
+        "SYN0529",
+        "SYN0530",
+        "SYN0531",
+        "SYN0532",
+        "SYN0533",
+        "SYN0534",
+        "SYN0535",
+        "SYN0536",
+        "SYN0537",
+        "SYN0538",
+        "SYN0539",
+        "SYN0540",
+        "SYN0541",
+        "SYN0542",
+        "SYN0543",
+        "SYN0544",
+        "SYN0545",
+        "SYN0546",
+        "SYN0547",
+        "SYN0548",
+        "SYN0549",
+        "SYN0550",
+        "SYN0551",
+        "SYN0552",
+        "SYN0553",
+        "SYN0554",
+        "SYN0555",
+        "SYN0556",
+        "SYN0557",
+        "SYN0558",
+        "SYN0559",
+        "SYN0560",
+        "SYN0561",
+        "SYN0562",
+        "SYN0563",
+        "SYN0564",
+        "SYN0565",
+        "SYN0566",
+        "SYN0567",
+        "SYN0568",
+        "SYN0569",
+        "SYN0570",
+        "SYN0571",
+        "SYN0572",
+        "SYN0573",
+        "SYN0574",
+        "SYN0575",
+        "SYN0576",
+        "SYN0577",
+        "SYN0578",
+        "SYN0579",
+        "SYN0580",
+        "SYN0581",
+        "SYN0582",
+        "SYN0583",
+        "SYN0584",
+        "SYN0585",
+        "SYN0586",
+        "SYN0587",
+        "SYN0588",
+        "SYN0589",
+        "SYN0590",
+        "SYN0591",
+        "SYN0592",
+        "SYN0593",
+        "SYN0594",
+        "SYN0595",
+        "SYN0596",
+        "SYN0597",
+        "SYN0598",
+        "SYN0599",
+        "SYN0600",
+        "SYN0601",
+        "SYN0602",
+        "SYN0603",
+        "SYN0604",
+        "SYN0605",
+        "SYN0606",
+        "SYN0607",
+        "SYN0608",
+        "SYN0609",
+        "SYN0610",
+        "SYN0611",
+        "SYN0612",
+        "SYN0613",
+        "SYN0614",
+        "SYN0615",
+        "SYN0616",
+        "SYN0617",
+        "SYN0618",
+        "SYN0619",
+        "SYN0620",
+        "SYN0621",
+        "SYN0622",
+        "SYN0623",
+        "SYN0624",
+        "SYN0625",
+        "SYN0626",
+        "SYN0627",
+        "SYN0628",
+        "SYN0629",
+        "SYN0630",
+        "SYN0631",
+        "SYN0632",
+        "SYN0633",
+        "SYN0634",
+        "SYN0635",
+        "SYN0636",
+        "SYN0637",
+        "SYN0638",
+        "SYN0639",
+        "SYN0640",
+        "SYN0641",
+        "SYN0642",
+        "SYN0643",
+        "SYN0644",
+        "SYN0645",
+        "SYN0646",
+        "SYN0647",
+        "SYN0648",
+        "SYN0649",
+        "SYN0650",
+        "SYN0651",
+        "SYN0652",
+        "SYN0653",
+        "SYN0654",
+        "SYN0655",
+        "SYN0656",
+        "SYN0657",
+        "SYN0658",
+        "SYN0659",
+        "SYN0660",
+        "SYN0661",
+        "SYN0662",
+        "SYN0663",
+        "SYN0664",
+        "SYN0665",
+        "SYN0666",
+        "SYN0667",
+        "SYN0668",
+        "SYN0669",
+        "SYN0670",
+        "SYN0671",
+        "SYN0672",
+        "SYN0673",
+        "SYN0674",
+        "SYN0675",
+        "SYN0676",
+        "SYN0677",
+        "SYN0678",
+        "SYN0679",
+        "SYN0680",
+        "SYN0681",
+        "SYN0682",
+        "SYN0683",
+        "SYN0684",
+        "SYN0685",
+        "SYN0686",
+        "SYN0687",
+        "SYN0688",
+        "SYN0689",
+        "SYN0690",
+        "SYN0691",
+        "SYN0692",
+        "SYN0693",
+        "SYN0694",
+        "SYN0695",
+        "SYN0696",
+        "SYN0697",
+        "SYN0698",
+        "SYN0699",
+        "SYN0700",
+        "SYN0701",
+        "SYN0702",
+        "SYN0703",
+        "SYN0704",
+        "SYN0705",
+        "SYN0706",
+        "SYN0707",
+        "SYN0708",
+        "SYN0709",
+        "SYN0710",
+        "SYN0711",
+        "SYN0712",
+        "SYN0713",
+        "SYN0714",
+        "SYN0715",
+        "SYN0716",
+        "SYN0717",
+        "SYN0718",
+        "SYN0719",
+        "SYN0720",
+        "SYN0721",
+        "SYN0722",
+        "SYN0723",
+        "SYN0724",
+        "SYN0725",
+        "SYN0726",
+        "SYN0727",
+        "SYN0728",
+        "SYN0729",
+        "SYN0730",
+        "SYN0731",
+        "SYN0732",
+        "SYN0733",
+        "SYN0734",
+        "SYN0735",
+        "SYN0736",
+        "SYN0737",
+        "SYN0738",
+        "SYN0739",
+        "SYN0740",
+        "SYN0741",
+        "SYN0742",
+        "SYN0743",
+        "SYN0744",
+        "SYN0745",
+        "SYN0746",
+        "SYN0747",
+        "SYN0748",
+        "SYN0749",
+        "SYN0750",
+        "SYN0751",
+        "SYN0752",
+        "SYN0753",
+        "SYN0754",
+        "SYN0755",
+        "SYN0756",
+        "SYN0757",
+        "SYN0758",
+        "SYN0759",
+        "SYN0760",
+        "SYN0761",
+        "SYN0762",
+        "SYN0763",
+        "SYN0764",
+        "SYN0765",
+        "SYN0766",
+        "SYN0767",
+        "SYN0768",
+        "SYN0769",
+        "SYN0770",
+        "SYN0771",
+        "SYN0772",
+        "SYN0773",
+        "SYN0774",
+        "SYN0775",
+        "SYN0776",
+        "SYN0777",
+        "SYN0778",
+        "SYN0779",
+        "SYN0780",
+        "SYN0781",
+        "SYN0782",
+        "SYN0783",
+        "SYN0784",
+        "SYN0785",
+        "SYN0786",
+        "SYN0787",
+        "SYN0788",
+        "SYN0789",
+        "SYN0790",
+        "SYN0791",
+        "SYN0792",
+        "SYN0793",
+        "SYN0794",
+        "SYN0795",
+        "SYN0796",
+        "SYN0797",
+        "SYN0798",
+        "SYN0799",
+        "SYN0800",
+        "SYN0801",
+        "SYN0802",
+        "SYN0803",
+        "SYN0804",
+        "SYN0805",
+        "SYN0806",
+        "SYN0807",
+        "SYN0808",
+        "SYN0809",
+        "SYN0810",
+        "SYN0811",
+        "SYN0812",
+        "SYN0813",
+        "SYN0814",
+        "SYN0815",
+        "SYN0816",
+        "SYN0817",
+        "SYN0818",
+        "SYN0819",
+        "SYN0820",
+        "SYN0821",
+        "SYN0822",
+        "SYN0823",
+        "SYN0824",
+        "SYN0825",
+        "SYN0826",
+        "SYN0827",
+        "SYN0828",
+        "SYN0829",
+        "SYN0830",
+        "SYN0831",
+        "SYN0832",
+        "SYN0833",
+        "SYN0834",
+        "SYN0835",
+        "SYN0836",
+        "SYN0837",
+        "SYN0838",
+        "SYN0839",
+        "SYN0840",
+        "SYN0841",
+        "SYN0842",
+        "SYN0843",
+        "SYN0844",
+        "SYN0845",
+        "SYN0846",
+        "SYN0847",
+        "SYN0848",
+        "SYN0849",
+        "SYN0850",
+        "SYN0851",
+        "SYN0852",
+        "SYN0853",
+        "SYN0854",
+        "SYN0855",
+        "SYN0856",
+        "SYN0857",
+        "SYN0858",
+        "SYN0859",
+        "SYN0860",
+        "SYN0861",
+        "SYN0862",
+        "SYN0863",
+        "SYN0864",
+        "SYN0865",
+        "SYN0866",
+        "SYN0867",
+        "SYN0868",
+        "SYN0869",
+        "SYN0870",
+        "SYN0871",
+        "SYN0872",
+        "SYN0873",
+        "SYN0874",
+        "SYN0875",
+        "SYN0876",
+        "SYN0877",
+        "SYN0878",
+        "SYN0879",
+        "SYN0880",
+        "SYN0881",
+        "SYN0882",
+        "SYN0883",
+        "SYN0884",
+        "SYN0885",
+        "SYN0886",
+        "SYN0887",
+        "SYN0888",
+        "SYN0889",
+        "SYN0890",
+        "SYN0891",
+        "SYN0892",
+        "SYN0893",
+        "SYN0894",
+        "SYN0895",
+        "SYN0896",
+        "SYN0897",
+        "SYN0898",
+        "SYN0899",
+        "SYN0900",
+        "SYN0901",
+        "SYN0902",
+        "SYN0903",
+        "SYN0904",
+        "SYN0905",
+        "SYN0906",
+        "SYN0907",
+        "SYN0908",
+        "SYN0909",
+        "SYN0910",
+        "SYN0911",
+        "SYN0912",
+        "SYN0913",
+        "SYN0914",
+        "SYN0915",
+        "SYN0916",
+        "SYN0917",
+        "SYN0918",
+        "SYN0919",
+        "SYN0920",
+        "SYN0921",
+        "SYN0922",
+        "SYN0923",
+        "SYN0924",
+        "SYN0925",
+        "SYN0926",
+        "SYN0927",
+        "SYN0928",
+        "SYN0929",
+        "SYN0930",
+        "SYN0931",
+        "SYN0932",
+        "SYN0933",
+        "SYN0934",
+        "SYN0935",
+        "SYN0936",
+        "SYN0937",
+        "SYN0938",
+        "SYN0939",
+        "SYN0940",
+        "SYN0941",
+        "SYN0942",
+        "SYN0943",
+        "SYN0944",
+        "SYN0945",
+        "SYN0946",
+        "SYN0947",
+        "SYN0948",
+        "SYN0949",
+        "SYN0950",
+        "SYN0951",
+        "SYN0952",
+        "SYN0953",
+        "SYN0954",
+        "SYN0955",
+        "SYN0956",
+        "SYN0957",
+        "SYN0958",
+        "SYN0959",
+        "SYN0960",
+        "SYN0961",
+        "SYN0962",
+        "SYN0963",
+        "SYN0964",
+        "SYN0965",
+        "SYN0966",
+        "SYN0967",
+        "SYN0968",
+        "SYN0969",
+        "SYN0970",
+        "SYN0971",
+        "SYN0972",
+        "SYN0973",
+        "SYN0974",
+        "SYN0975",
+        "SYN0976",
+        "SYN0977",
+        "SYN0978",
+        "SYN0979",
+        "SYN0980",
+        "SYN0981",
+        "SYN0982",
+        "SYN0983",
+        "SYN0984",
+        "SYN0985",
+        "SYN0986",
+        "SYN0987",
+        "SYN0988",
+        "SYN0989",
+        "SYN0990",
+        "SYN0991",
+        "SYN0992",
+        "SYN0993",
+        "SYN0994",
+        "SYN0995",
+        "SYN0996",
+        "SYN0997",
+        "SYN0998",
+        "SYN0999",
+        "SYN1000",
+        "SYN1001",
+        "SYN1002",
+        "SYN1003",
+        "SYN1004",
+        "SYN1005",
+        "SYN1006",
+        "SYN1007",
+        "SYN1008",
+        "SYN1009",
+        "SYN1010",
+        "SYN1011",
+        "SYN1012",
+        "SYN1013",
+        "SYN1014",
+        "SYN1015",
+        "SYN1016",
+        "SYN1017",
+        "SYN1018",
+        "SYN1019",
+        "SYN1020",
+        "SYN1021",
+        "SYN1022",
+        "SYN1023",
+        "SYN1024",
+        "SYN1025",
+        "SYN1026",
+        "SYN1027",
+        "SYN1028",
+        "SYN1029",
+        "SYN1030",
+        "SYN1031",
+        "SYN1032",
+        "SYN1033",
+        "SYN1034",
+        "SYN1035",
+        "SYN1036",
+        "SYN1037",
+        "SYN1038",
+        "SYN1039",
+        "SYN1040",
+        "SYN1041",
+        "SYN1042",
+        "SYN1043",
+        "SYN1044",
+        "SYN1045",
+        "SYN1046",
+        "SYN1047",
+        "SYN1048",
+        "SYN1049"
+      ]
+    },
+    "source_id": "INS-A1"
+  },
+  "faa_registry": {
+    "as_of": "2026-10-05",
+    "source_id": "FAA-A1",
+    "records": [
+      {
+        "registration": "SYN0001",
+        "serial_number": "SYN-00001",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0002",
+        "serial_number": "SYN-00002",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0003",
+        "serial_number": "SYN-00003",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0004",
+        "serial_number": "SYN-00004",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0005",
+        "serial_number": "SYN-00005",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0006",
+        "serial_number": "SYN-00006",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0007",
+        "serial_number": "SYN-00007",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0008",
+        "serial_number": "SYN-00008",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0009",
+        "serial_number": "SYN-00009",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0010",
+        "serial_number": "SYN-00010",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0011",
+        "serial_number": "SYN-00011",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0012",
+        "serial_number": "SYN-00012",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0013",
+        "serial_number": "SYN-00013",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0014",
+        "serial_number": "SYN-00014",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0015",
+        "serial_number": "SYN-00015",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0016",
+        "serial_number": "SYN-00016",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0017",
+        "serial_number": "SYN-00017",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0018",
+        "serial_number": "SYN-00018",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0019",
+        "serial_number": "SYN-00019",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0020",
+        "serial_number": "SYN-00020",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0021",
+        "serial_number": "SYN-00021",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0022",
+        "serial_number": "SYN-00022",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0023",
+        "serial_number": "SYN-00023",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0024",
+        "serial_number": "SYN-00024",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0025",
+        "serial_number": "SYN-00025",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0026",
+        "serial_number": "SYN-00026",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0027",
+        "serial_number": "SYN-00027",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0028",
+        "serial_number": "SYN-00028",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0029",
+        "serial_number": "SYN-00029",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0030",
+        "serial_number": "SYN-00030",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0031",
+        "serial_number": "SYN-00031",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0032",
+        "serial_number": "SYN-00032",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0033",
+        "serial_number": "SYN-00033",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0034",
+        "serial_number": "SYN-00034",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0035",
+        "serial_number": "SYN-00035",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0036",
+        "serial_number": "SYN-00036",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0037",
+        "serial_number": "SYN-00037",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0038",
+        "serial_number": "SYN-00038",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0039",
+        "serial_number": "SYN-00039",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0040",
+        "serial_number": "SYN-00040",
+        "make_model": "Boeing 737-700",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0041",
+        "serial_number": "SYN-00041",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0042",
+        "serial_number": "SYN-00042",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0043",
+        "serial_number": "SYN-00043",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0044",
+        "serial_number": "SYN-00044",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0045",
+        "serial_number": "SYN-00045",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0046",
+        "serial_number": "SYN-00046",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0047",
+        "serial_number": "SYN-00047",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0048",
+        "serial_number": "SYN-00048",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0049",
+        "serial_number": "SYN-00049",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0050",
+        "serial_number": "SYN-00050",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0051",
+        "serial_number": "SYN-00051",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0052",
+        "serial_number": "SYN-00052",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0053",
+        "serial_number": "SYN-00053",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0054",
+        "serial_number": "SYN-00054",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0055",
+        "serial_number": "SYN-00055",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0056",
+        "serial_number": "SYN-00056",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0057",
+        "serial_number": "SYN-00057",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0058",
+        "serial_number": "SYN-00058",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0059",
+        "serial_number": "SYN-00059",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0060",
+        "serial_number": "SYN-00060",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0061",
+        "serial_number": "SYN-00061",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0062",
+        "serial_number": "SYN-00062",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0063",
+        "serial_number": "SYN-00063",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0064",
+        "serial_number": "SYN-00064",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0065",
+        "serial_number": "SYN-00065",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0066",
+        "serial_number": "SYN-00066",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0067",
+        "serial_number": "SYN-00067",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0068",
+        "serial_number": "SYN-00068",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0069",
+        "serial_number": "SYN-00069",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0070",
+        "serial_number": "SYN-00070",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0071",
+        "serial_number": "SYN-00071",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0072",
+        "serial_number": "SYN-00072",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0073",
+        "serial_number": "SYN-00073",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0074",
+        "serial_number": "SYN-00074",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0075",
+        "serial_number": "SYN-00075",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0076",
+        "serial_number": "SYN-00076",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0077",
+        "serial_number": "SYN-00077",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0078",
+        "serial_number": "SYN-00078",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0079",
+        "serial_number": "SYN-00079",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0080",
+        "serial_number": "SYN-00080",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0081",
+        "serial_number": "SYN-00081",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0082",
+        "serial_number": "SYN-00082",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0083",
+        "serial_number": "SYN-00083",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0084",
+        "serial_number": "SYN-00084",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0085",
+        "serial_number": "SYN-00085",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0086",
+        "serial_number": "SYN-00086",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0087",
+        "serial_number": "SYN-00087",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0088",
+        "serial_number": "SYN-00088",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0089",
+        "serial_number": "SYN-00089",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0090",
+        "serial_number": "SYN-00090",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0091",
+        "serial_number": "SYN-00091",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0092",
+        "serial_number": "SYN-00092",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0093",
+        "serial_number": "SYN-00093",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0094",
+        "serial_number": "SYN-00094",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0095",
+        "serial_number": "SYN-00095",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0096",
+        "serial_number": "SYN-00096",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0097",
+        "serial_number": "SYN-00097",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0098",
+        "serial_number": "SYN-00098",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0099",
+        "serial_number": "SYN-00099",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0100",
+        "serial_number": "SYN-00100",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0101",
+        "serial_number": "SYN-00101",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0102",
+        "serial_number": "SYN-00102",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0103",
+        "serial_number": "SYN-00103",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0104",
+        "serial_number": "SYN-00104",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0105",
+        "serial_number": "SYN-00105",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0106",
+        "serial_number": "SYN-00106",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0107",
+        "serial_number": "SYN-00107",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0108",
+        "serial_number": "SYN-00108",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0109",
+        "serial_number": "SYN-00109",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0110",
+        "serial_number": "SYN-00110",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0111",
+        "serial_number": "SYN-00111",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0112",
+        "serial_number": "SYN-00112",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0113",
+        "serial_number": "SYN-00113",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0114",
+        "serial_number": "SYN-00114",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0115",
+        "serial_number": "SYN-00115",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0116",
+        "serial_number": "SYN-00116",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0117",
+        "serial_number": "SYN-00117",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0118",
+        "serial_number": "SYN-00118",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0119",
+        "serial_number": "SYN-00119",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0120",
+        "serial_number": "SYN-00120",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0121",
+        "serial_number": "SYN-00121",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0122",
+        "serial_number": "SYN-00122",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0123",
+        "serial_number": "SYN-00123",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0124",
+        "serial_number": "SYN-00124",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0125",
+        "serial_number": "SYN-00125",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0126",
+        "serial_number": "SYN-00126",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0127",
+        "serial_number": "SYN-00127",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0128",
+        "serial_number": "SYN-00128",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0129",
+        "serial_number": "SYN-00129",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0130",
+        "serial_number": "SYN-00130",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0131",
+        "serial_number": "SYN-00131",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0132",
+        "serial_number": "SYN-00132",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0133",
+        "serial_number": "SYN-00133",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0134",
+        "serial_number": "SYN-00134",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0135",
+        "serial_number": "SYN-00135",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0136",
+        "serial_number": "SYN-00136",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0137",
+        "serial_number": "SYN-00137",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0138",
+        "serial_number": "SYN-00138",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0139",
+        "serial_number": "SYN-00139",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0140",
+        "serial_number": "SYN-00140",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0141",
+        "serial_number": "SYN-00141",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0142",
+        "serial_number": "SYN-00142",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0143",
+        "serial_number": "SYN-00143",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0144",
+        "serial_number": "SYN-00144",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0145",
+        "serial_number": "SYN-00145",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0146",
+        "serial_number": "SYN-00146",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0147",
+        "serial_number": "SYN-00147",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0148",
+        "serial_number": "SYN-00148",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0149",
+        "serial_number": "SYN-00149",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0150",
+        "serial_number": "SYN-00150",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0151",
+        "serial_number": "SYN-00151",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0152",
+        "serial_number": "SYN-00152",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0153",
+        "serial_number": "SYN-00153",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0154",
+        "serial_number": "SYN-00154",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0155",
+        "serial_number": "SYN-00155",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0156",
+        "serial_number": "SYN-00156",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0157",
+        "serial_number": "SYN-00157",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0158",
+        "serial_number": "SYN-00158",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0159",
+        "serial_number": "SYN-00159",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0160",
+        "serial_number": "SYN-00160",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0161",
+        "serial_number": "SYN-00161",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0162",
+        "serial_number": "SYN-00162",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0163",
+        "serial_number": "SYN-00163",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0164",
+        "serial_number": "SYN-00164",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0165",
+        "serial_number": "SYN-00165",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0166",
+        "serial_number": "SYN-00166",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0167",
+        "serial_number": "SYN-00167",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0168",
+        "serial_number": "SYN-00168",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0169",
+        "serial_number": "SYN-00169",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0170",
+        "serial_number": "SYN-00170",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0171",
+        "serial_number": "SYN-00171",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0172",
+        "serial_number": "SYN-00172",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0173",
+        "serial_number": "SYN-00173",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0174",
+        "serial_number": "SYN-00174",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0175",
+        "serial_number": "SYN-00175",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0176",
+        "serial_number": "SYN-00176",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0177",
+        "serial_number": "SYN-00177",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0178",
+        "serial_number": "SYN-00178",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0179",
+        "serial_number": "SYN-00179",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0180",
+        "serial_number": "SYN-00180",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0181",
+        "serial_number": "SYN-00181",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0182",
+        "serial_number": "SYN-00182",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0183",
+        "serial_number": "SYN-00183",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0184",
+        "serial_number": "SYN-00184",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0185",
+        "serial_number": "SYN-00185",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0186",
+        "serial_number": "SYN-00186",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0187",
+        "serial_number": "SYN-00187",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0188",
+        "serial_number": "SYN-00188",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0189",
+        "serial_number": "SYN-00189",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0190",
+        "serial_number": "SYN-00190",
+        "make_model": "Boeing 737-800",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0191",
+        "serial_number": "SYN-00191",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0192",
+        "serial_number": "SYN-00192",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0193",
+        "serial_number": "SYN-00193",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0194",
+        "serial_number": "SYN-00194",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0195",
+        "serial_number": "SYN-00195",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0196",
+        "serial_number": "SYN-00196",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0197",
+        "serial_number": "SYN-00197",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0198",
+        "serial_number": "SYN-00198",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0199",
+        "serial_number": "SYN-00199",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0200",
+        "serial_number": "SYN-00200",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0201",
+        "serial_number": "SYN-00201",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0202",
+        "serial_number": "SYN-00202",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0203",
+        "serial_number": "SYN-00203",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0204",
+        "serial_number": "SYN-00204",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0205",
+        "serial_number": "SYN-00205",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0206",
+        "serial_number": "SYN-00206",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0207",
+        "serial_number": "SYN-00207",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0208",
+        "serial_number": "SYN-00208",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0209",
+        "serial_number": "SYN-00209",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0210",
+        "serial_number": "SYN-00210",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0211",
+        "serial_number": "SYN-00211",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0212",
+        "serial_number": "SYN-00212",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0213",
+        "serial_number": "SYN-00213",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0214",
+        "serial_number": "SYN-00214",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0215",
+        "serial_number": "SYN-00215",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0216",
+        "serial_number": "SYN-00216",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0217",
+        "serial_number": "SYN-00217",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0218",
+        "serial_number": "SYN-00218",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0219",
+        "serial_number": "SYN-00219",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0220",
+        "serial_number": "SYN-00220",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0221",
+        "serial_number": "SYN-00221",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0222",
+        "serial_number": "SYN-00222",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0223",
+        "serial_number": "SYN-00223",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0224",
+        "serial_number": "SYN-00224",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0225",
+        "serial_number": "SYN-00225",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0226",
+        "serial_number": "SYN-00226",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0227",
+        "serial_number": "SYN-00227",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0228",
+        "serial_number": "SYN-00228",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0229",
+        "serial_number": "SYN-00229",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0230",
+        "serial_number": "SYN-00230",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0231",
+        "serial_number": "SYN-00231",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0232",
+        "serial_number": "SYN-00232",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0233",
+        "serial_number": "SYN-00233",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0234",
+        "serial_number": "SYN-00234",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0235",
+        "serial_number": "SYN-00235",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0236",
+        "serial_number": "SYN-00236",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0237",
+        "serial_number": "SYN-00237",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0238",
+        "serial_number": "SYN-00238",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0239",
+        "serial_number": "SYN-00239",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0240",
+        "serial_number": "SYN-00240",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0241",
+        "serial_number": "SYN-00241",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0242",
+        "serial_number": "SYN-00242",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0243",
+        "serial_number": "SYN-00243",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0244",
+        "serial_number": "SYN-00244",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0245",
+        "serial_number": "SYN-00245",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0246",
+        "serial_number": "SYN-00246",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0247",
+        "serial_number": "SYN-00247",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0248",
+        "serial_number": "SYN-00248",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0249",
+        "serial_number": "SYN-00249",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0250",
+        "serial_number": "SYN-00250",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0251",
+        "serial_number": "SYN-00251",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0252",
+        "serial_number": "SYN-00252",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0253",
+        "serial_number": "SYN-00253",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0254",
+        "serial_number": "SYN-00254",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0255",
+        "serial_number": "SYN-00255",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0256",
+        "serial_number": "SYN-00256",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0257",
+        "serial_number": "SYN-00257",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0258",
+        "serial_number": "SYN-00258",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0259",
+        "serial_number": "SYN-00259",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0260",
+        "serial_number": "SYN-00260",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0261",
+        "serial_number": "SYN-00261",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0262",
+        "serial_number": "SYN-00262",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0263",
+        "serial_number": "SYN-00263",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0264",
+        "serial_number": "SYN-00264",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0265",
+        "serial_number": "SYN-00265",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0266",
+        "serial_number": "SYN-00266",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0267",
+        "serial_number": "SYN-00267",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0268",
+        "serial_number": "SYN-00268",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0269",
+        "serial_number": "SYN-00269",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0270",
+        "serial_number": "SYN-00270",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0271",
+        "serial_number": "SYN-00271",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0272",
+        "serial_number": "SYN-00272",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0273",
+        "serial_number": "SYN-00273",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0274",
+        "serial_number": "SYN-00274",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0275",
+        "serial_number": "SYN-00275",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0276",
+        "serial_number": "SYN-00276",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0277",
+        "serial_number": "SYN-00277",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0278",
+        "serial_number": "SYN-00278",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0279",
+        "serial_number": "SYN-00279",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0280",
+        "serial_number": "SYN-00280",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0281",
+        "serial_number": "SYN-00281",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0282",
+        "serial_number": "SYN-00282",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0283",
+        "serial_number": "SYN-00283",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0284",
+        "serial_number": "SYN-00284",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0285",
+        "serial_number": "SYN-00285",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0286",
+        "serial_number": "SYN-00286",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0287",
+        "serial_number": "SYN-00287",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0288",
+        "serial_number": "SYN-00288",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0289",
+        "serial_number": "SYN-00289",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0290",
+        "serial_number": "SYN-00290",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0291",
+        "serial_number": "SYN-00291",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0292",
+        "serial_number": "SYN-00292",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0293",
+        "serial_number": "SYN-00293",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0294",
+        "serial_number": "SYN-00294",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0295",
+        "serial_number": "SYN-00295",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0296",
+        "serial_number": "SYN-00296",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0297",
+        "serial_number": "SYN-00297",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0298",
+        "serial_number": "SYN-00298",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0299",
+        "serial_number": "SYN-00299",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0300",
+        "serial_number": "SYN-00300",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0301",
+        "serial_number": "SYN-00301",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0302",
+        "serial_number": "SYN-00302",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0303",
+        "serial_number": "SYN-00303",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0304",
+        "serial_number": "SYN-00304",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0305",
+        "serial_number": "SYN-00305",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0306",
+        "serial_number": "SYN-00306",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0307",
+        "serial_number": "SYN-00307",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0308",
+        "serial_number": "SYN-00308",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0309",
+        "serial_number": "SYN-00309",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0310",
+        "serial_number": "SYN-00310",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0311",
+        "serial_number": "SYN-00311",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0312",
+        "serial_number": "SYN-00312",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0313",
+        "serial_number": "SYN-00313",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0314",
+        "serial_number": "SYN-00314",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0315",
+        "serial_number": "SYN-00315",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0316",
+        "serial_number": "SYN-00316",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0317",
+        "serial_number": "SYN-00317",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0318",
+        "serial_number": "SYN-00318",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0319",
+        "serial_number": "SYN-00319",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0320",
+        "serial_number": "SYN-00320",
+        "make_model": "Boeing 737-900ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0321",
+        "serial_number": "SYN-00321",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0322",
+        "serial_number": "SYN-00322",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0323",
+        "serial_number": "SYN-00323",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0324",
+        "serial_number": "SYN-00324",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0325",
+        "serial_number": "SYN-00325",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0326",
+        "serial_number": "SYN-00326",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0327",
+        "serial_number": "SYN-00327",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0328",
+        "serial_number": "SYN-00328",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0329",
+        "serial_number": "SYN-00329",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0330",
+        "serial_number": "SYN-00330",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0331",
+        "serial_number": "SYN-00331",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0332",
+        "serial_number": "SYN-00332",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0333",
+        "serial_number": "SYN-00333",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0334",
+        "serial_number": "SYN-00334",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0335",
+        "serial_number": "SYN-00335",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0336",
+        "serial_number": "SYN-00336",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0337",
+        "serial_number": "SYN-00337",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0338",
+        "serial_number": "SYN-00338",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0339",
+        "serial_number": "SYN-00339",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0340",
+        "serial_number": "SYN-00340",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0341",
+        "serial_number": "SYN-00341",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0342",
+        "serial_number": "SYN-00342",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0343",
+        "serial_number": "SYN-00343",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0344",
+        "serial_number": "SYN-00344",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0345",
+        "serial_number": "SYN-00345",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0346",
+        "serial_number": "SYN-00346",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0347",
+        "serial_number": "SYN-00347",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0348",
+        "serial_number": "SYN-00348",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0349",
+        "serial_number": "SYN-00349",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0350",
+        "serial_number": "SYN-00350",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0351",
+        "serial_number": "SYN-00351",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0352",
+        "serial_number": "SYN-00352",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0353",
+        "serial_number": "SYN-00353",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0354",
+        "serial_number": "SYN-00354",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0355",
+        "serial_number": "SYN-00355",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0356",
+        "serial_number": "SYN-00356",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0357",
+        "serial_number": "SYN-00357",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0358",
+        "serial_number": "SYN-00358",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0359",
+        "serial_number": "SYN-00359",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0360",
+        "serial_number": "SYN-00360",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0361",
+        "serial_number": "SYN-00361",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0362",
+        "serial_number": "SYN-00362",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0363",
+        "serial_number": "SYN-00363",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0364",
+        "serial_number": "SYN-00364",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0365",
+        "serial_number": "SYN-00365",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0366",
+        "serial_number": "SYN-00366",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0367",
+        "serial_number": "SYN-00367",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0368",
+        "serial_number": "SYN-00368",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0369",
+        "serial_number": "SYN-00369",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0370",
+        "serial_number": "SYN-00370",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0371",
+        "serial_number": "SYN-00371",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0372",
+        "serial_number": "SYN-00372",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0373",
+        "serial_number": "SYN-00373",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0374",
+        "serial_number": "SYN-00374",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0375",
+        "serial_number": "SYN-00375",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0376",
+        "serial_number": "SYN-00376",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0377",
+        "serial_number": "SYN-00377",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0378",
+        "serial_number": "SYN-00378",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0379",
+        "serial_number": "SYN-00379",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0380",
+        "serial_number": "SYN-00380",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0381",
+        "serial_number": "SYN-00381",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0382",
+        "serial_number": "SYN-00382",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0383",
+        "serial_number": "SYN-00383",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0384",
+        "serial_number": "SYN-00384",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0385",
+        "serial_number": "SYN-00385",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0386",
+        "serial_number": "SYN-00386",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0387",
+        "serial_number": "SYN-00387",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0388",
+        "serial_number": "SYN-00388",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0389",
+        "serial_number": "SYN-00389",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0390",
+        "serial_number": "SYN-00390",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0391",
+        "serial_number": "SYN-00391",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0392",
+        "serial_number": "SYN-00392",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0393",
+        "serial_number": "SYN-00393",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0394",
+        "serial_number": "SYN-00394",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0395",
+        "serial_number": "SYN-00395",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0396",
+        "serial_number": "SYN-00396",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0397",
+        "serial_number": "SYN-00397",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0398",
+        "serial_number": "SYN-00398",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0399",
+        "serial_number": "SYN-00399",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0400",
+        "serial_number": "SYN-00400",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0401",
+        "serial_number": "SYN-00401",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0402",
+        "serial_number": "SYN-00402",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0403",
+        "serial_number": "SYN-00403",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0404",
+        "serial_number": "SYN-00404",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0405",
+        "serial_number": "SYN-00405",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0406",
+        "serial_number": "SYN-00406",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0407",
+        "serial_number": "SYN-00407",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0408",
+        "serial_number": "SYN-00408",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0409",
+        "serial_number": "SYN-00409",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0410",
+        "serial_number": "SYN-00410",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0411",
+        "serial_number": "SYN-00411",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0412",
+        "serial_number": "SYN-00412",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0413",
+        "serial_number": "SYN-00413",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0414",
+        "serial_number": "SYN-00414",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0415",
+        "serial_number": "SYN-00415",
+        "make_model": "Boeing 737 MAX 8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0416",
+        "serial_number": "SYN-00416",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0417",
+        "serial_number": "SYN-00417",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0418",
+        "serial_number": "SYN-00418",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0419",
+        "serial_number": "SYN-00419",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0420",
+        "serial_number": "SYN-00420",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0421",
+        "serial_number": "SYN-00421",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0422",
+        "serial_number": "SYN-00422",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0423",
+        "serial_number": "SYN-00423",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0424",
+        "serial_number": "SYN-00424",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0425",
+        "serial_number": "SYN-00425",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0426",
+        "serial_number": "SYN-00426",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0427",
+        "serial_number": "SYN-00427",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0428",
+        "serial_number": "SYN-00428",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0429",
+        "serial_number": "SYN-00429",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0430",
+        "serial_number": "SYN-00430",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0431",
+        "serial_number": "SYN-00431",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0432",
+        "serial_number": "SYN-00432",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0433",
+        "serial_number": "SYN-00433",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0434",
+        "serial_number": "SYN-00434",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0435",
+        "serial_number": "SYN-00435",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0436",
+        "serial_number": "SYN-00436",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0437",
+        "serial_number": "SYN-00437",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0438",
+        "serial_number": "SYN-00438",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0439",
+        "serial_number": "SYN-00439",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0440",
+        "serial_number": "SYN-00440",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0441",
+        "serial_number": "SYN-00441",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0442",
+        "serial_number": "SYN-00442",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0443",
+        "serial_number": "SYN-00443",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0444",
+        "serial_number": "SYN-00444",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0445",
+        "serial_number": "SYN-00445",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0446",
+        "serial_number": "SYN-00446",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0447",
+        "serial_number": "SYN-00447",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0448",
+        "serial_number": "SYN-00448",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0449",
+        "serial_number": "SYN-00449",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0450",
+        "serial_number": "SYN-00450",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0451",
+        "serial_number": "SYN-00451",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0452",
+        "serial_number": "SYN-00452",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0453",
+        "serial_number": "SYN-00453",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0454",
+        "serial_number": "SYN-00454",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0455",
+        "serial_number": "SYN-00455",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0456",
+        "serial_number": "SYN-00456",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0457",
+        "serial_number": "SYN-00457",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0458",
+        "serial_number": "SYN-00458",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0459",
+        "serial_number": "SYN-00459",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0460",
+        "serial_number": "SYN-00460",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0461",
+        "serial_number": "SYN-00461",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0462",
+        "serial_number": "SYN-00462",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0463",
+        "serial_number": "SYN-00463",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0464",
+        "serial_number": "SYN-00464",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0465",
+        "serial_number": "SYN-00465",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0466",
+        "serial_number": "SYN-00466",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0467",
+        "serial_number": "SYN-00467",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0468",
+        "serial_number": "SYN-00468",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0469",
+        "serial_number": "SYN-00469",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0470",
+        "serial_number": "SYN-00470",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0471",
+        "serial_number": "SYN-00471",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0472",
+        "serial_number": "SYN-00472",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0473",
+        "serial_number": "SYN-00473",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0474",
+        "serial_number": "SYN-00474",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0475",
+        "serial_number": "SYN-00475",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0476",
+        "serial_number": "SYN-00476",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0477",
+        "serial_number": "SYN-00477",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0478",
+        "serial_number": "SYN-00478",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0479",
+        "serial_number": "SYN-00479",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0480",
+        "serial_number": "SYN-00480",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0481",
+        "serial_number": "SYN-00481",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0482",
+        "serial_number": "SYN-00482",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0483",
+        "serial_number": "SYN-00483",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0484",
+        "serial_number": "SYN-00484",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0485",
+        "serial_number": "SYN-00485",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0486",
+        "serial_number": "SYN-00486",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0487",
+        "serial_number": "SYN-00487",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0488",
+        "serial_number": "SYN-00488",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0489",
+        "serial_number": "SYN-00489",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0490",
+        "serial_number": "SYN-00490",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0491",
+        "serial_number": "SYN-00491",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0492",
+        "serial_number": "SYN-00492",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0493",
+        "serial_number": "SYN-00493",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0494",
+        "serial_number": "SYN-00494",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0495",
+        "serial_number": "SYN-00495",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0496",
+        "serial_number": "SYN-00496",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0497",
+        "serial_number": "SYN-00497",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0498",
+        "serial_number": "SYN-00498",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0499",
+        "serial_number": "SYN-00499",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0500",
+        "serial_number": "SYN-00500",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0501",
+        "serial_number": "SYN-00501",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0502",
+        "serial_number": "SYN-00502",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0503",
+        "serial_number": "SYN-00503",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0504",
+        "serial_number": "SYN-00504",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0505",
+        "serial_number": "SYN-00505",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0506",
+        "serial_number": "SYN-00506",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0507",
+        "serial_number": "SYN-00507",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0508",
+        "serial_number": "SYN-00508",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0509",
+        "serial_number": "SYN-00509",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0510",
+        "serial_number": "SYN-00510",
+        "make_model": "Boeing 737 MAX 9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0511",
+        "serial_number": "SYN-00511",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0512",
+        "serial_number": "SYN-00512",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0513",
+        "serial_number": "SYN-00513",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0514",
+        "serial_number": "SYN-00514",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0515",
+        "serial_number": "SYN-00515",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0516",
+        "serial_number": "SYN-00516",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0517",
+        "serial_number": "SYN-00517",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0518",
+        "serial_number": "SYN-00518",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0519",
+        "serial_number": "SYN-00519",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0520",
+        "serial_number": "SYN-00520",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0521",
+        "serial_number": "SYN-00521",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0522",
+        "serial_number": "SYN-00522",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0523",
+        "serial_number": "SYN-00523",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0524",
+        "serial_number": "SYN-00524",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0525",
+        "serial_number": "SYN-00525",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0526",
+        "serial_number": "SYN-00526",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0527",
+        "serial_number": "SYN-00527",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0528",
+        "serial_number": "SYN-00528",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0529",
+        "serial_number": "SYN-00529",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0530",
+        "serial_number": "SYN-00530",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0531",
+        "serial_number": "SYN-00531",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0532",
+        "serial_number": "SYN-00532",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0533",
+        "serial_number": "SYN-00533",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0534",
+        "serial_number": "SYN-00534",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0535",
+        "serial_number": "SYN-00535",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0536",
+        "serial_number": "SYN-00536",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0537",
+        "serial_number": "SYN-00537",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0538",
+        "serial_number": "SYN-00538",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0539",
+        "serial_number": "SYN-00539",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0540",
+        "serial_number": "SYN-00540",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0541",
+        "serial_number": "SYN-00541",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0542",
+        "serial_number": "SYN-00542",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0543",
+        "serial_number": "SYN-00543",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0544",
+        "serial_number": "SYN-00544",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0545",
+        "serial_number": "SYN-00545",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0546",
+        "serial_number": "SYN-00546",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0547",
+        "serial_number": "SYN-00547",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0548",
+        "serial_number": "SYN-00548",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0549",
+        "serial_number": "SYN-00549",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0550",
+        "serial_number": "SYN-00550",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0551",
+        "serial_number": "SYN-00551",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0552",
+        "serial_number": "SYN-00552",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0553",
+        "serial_number": "SYN-00553",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0554",
+        "serial_number": "SYN-00554",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0555",
+        "serial_number": "SYN-00555",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0556",
+        "serial_number": "SYN-00556",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0557",
+        "serial_number": "SYN-00557",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0558",
+        "serial_number": "SYN-00558",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0559",
+        "serial_number": "SYN-00559",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0560",
+        "serial_number": "SYN-00560",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0561",
+        "serial_number": "SYN-00561",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0562",
+        "serial_number": "SYN-00562",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0563",
+        "serial_number": "SYN-00563",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0564",
+        "serial_number": "SYN-00564",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0565",
+        "serial_number": "SYN-00565",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0566",
+        "serial_number": "SYN-00566",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0567",
+        "serial_number": "SYN-00567",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0568",
+        "serial_number": "SYN-00568",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0569",
+        "serial_number": "SYN-00569",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0570",
+        "serial_number": "SYN-00570",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0571",
+        "serial_number": "SYN-00571",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0572",
+        "serial_number": "SYN-00572",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0573",
+        "serial_number": "SYN-00573",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0574",
+        "serial_number": "SYN-00574",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0575",
+        "serial_number": "SYN-00575",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0576",
+        "serial_number": "SYN-00576",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0577",
+        "serial_number": "SYN-00577",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0578",
+        "serial_number": "SYN-00578",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0579",
+        "serial_number": "SYN-00579",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0580",
+        "serial_number": "SYN-00580",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0581",
+        "serial_number": "SYN-00581",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0582",
+        "serial_number": "SYN-00582",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0583",
+        "serial_number": "SYN-00583",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0584",
+        "serial_number": "SYN-00584",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0585",
+        "serial_number": "SYN-00585",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0586",
+        "serial_number": "SYN-00586",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0587",
+        "serial_number": "SYN-00587",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0588",
+        "serial_number": "SYN-00588",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0589",
+        "serial_number": "SYN-00589",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0590",
+        "serial_number": "SYN-00590",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0591",
+        "serial_number": "SYN-00591",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0592",
+        "serial_number": "SYN-00592",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0593",
+        "serial_number": "SYN-00593",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0594",
+        "serial_number": "SYN-00594",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0595",
+        "serial_number": "SYN-00595",
+        "make_model": "Airbus A319",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0596",
+        "serial_number": "SYN-00596",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0597",
+        "serial_number": "SYN-00597",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0598",
+        "serial_number": "SYN-00598",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0599",
+        "serial_number": "SYN-00599",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0600",
+        "serial_number": "SYN-00600",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0601",
+        "serial_number": "SYN-00601",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0602",
+        "serial_number": "SYN-00602",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0603",
+        "serial_number": "SYN-00603",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0604",
+        "serial_number": "SYN-00604",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0605",
+        "serial_number": "SYN-00605",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0606",
+        "serial_number": "SYN-00606",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0607",
+        "serial_number": "SYN-00607",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0608",
+        "serial_number": "SYN-00608",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0609",
+        "serial_number": "SYN-00609",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0610",
+        "serial_number": "SYN-00610",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0611",
+        "serial_number": "SYN-00611",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0612",
+        "serial_number": "SYN-00612",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0613",
+        "serial_number": "SYN-00613",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0614",
+        "serial_number": "SYN-00614",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0615",
+        "serial_number": "SYN-00615",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0616",
+        "serial_number": "SYN-00616",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0617",
+        "serial_number": "SYN-00617",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0618",
+        "serial_number": "SYN-00618",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0619",
+        "serial_number": "SYN-00619",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0620",
+        "serial_number": "SYN-00620",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0621",
+        "serial_number": "SYN-00621",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0622",
+        "serial_number": "SYN-00622",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0623",
+        "serial_number": "SYN-00623",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0624",
+        "serial_number": "SYN-00624",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0625",
+        "serial_number": "SYN-00625",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0626",
+        "serial_number": "SYN-00626",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0627",
+        "serial_number": "SYN-00627",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0628",
+        "serial_number": "SYN-00628",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0629",
+        "serial_number": "SYN-00629",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0630",
+        "serial_number": "SYN-00630",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0631",
+        "serial_number": "SYN-00631",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0632",
+        "serial_number": "SYN-00632",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0633",
+        "serial_number": "SYN-00633",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0634",
+        "serial_number": "SYN-00634",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0635",
+        "serial_number": "SYN-00635",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0636",
+        "serial_number": "SYN-00636",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0637",
+        "serial_number": "SYN-00637",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0638",
+        "serial_number": "SYN-00638",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0639",
+        "serial_number": "SYN-00639",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0640",
+        "serial_number": "SYN-00640",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0641",
+        "serial_number": "SYN-00641",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0642",
+        "serial_number": "SYN-00642",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0643",
+        "serial_number": "SYN-00643",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0644",
+        "serial_number": "SYN-00644",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0645",
+        "serial_number": "SYN-00645",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0646",
+        "serial_number": "SYN-00646",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0647",
+        "serial_number": "SYN-00647",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0648",
+        "serial_number": "SYN-00648",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0649",
+        "serial_number": "SYN-00649",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0650",
+        "serial_number": "SYN-00650",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0651",
+        "serial_number": "SYN-00651",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0652",
+        "serial_number": "SYN-00652",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0653",
+        "serial_number": "SYN-00653",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0654",
+        "serial_number": "SYN-00654",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0655",
+        "serial_number": "SYN-00655",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0656",
+        "serial_number": "SYN-00656",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0657",
+        "serial_number": "SYN-00657",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0658",
+        "serial_number": "SYN-00658",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0659",
+        "serial_number": "SYN-00659",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0660",
+        "serial_number": "SYN-00660",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0661",
+        "serial_number": "SYN-00661",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0662",
+        "serial_number": "SYN-00662",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0663",
+        "serial_number": "SYN-00663",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0664",
+        "serial_number": "SYN-00664",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0665",
+        "serial_number": "SYN-00665",
+        "make_model": "Airbus A320",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0666",
+        "serial_number": "SYN-00666",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0667",
+        "serial_number": "SYN-00667",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0668",
+        "serial_number": "SYN-00668",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0669",
+        "serial_number": "SYN-00669",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0670",
+        "serial_number": "SYN-00670",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0671",
+        "serial_number": "SYN-00671",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0672",
+        "serial_number": "SYN-00672",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0673",
+        "serial_number": "SYN-00673",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0674",
+        "serial_number": "SYN-00674",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0675",
+        "serial_number": "SYN-00675",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0676",
+        "serial_number": "SYN-00676",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0677",
+        "serial_number": "SYN-00677",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0678",
+        "serial_number": "SYN-00678",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0679",
+        "serial_number": "SYN-00679",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0680",
+        "serial_number": "SYN-00680",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0681",
+        "serial_number": "SYN-00681",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0682",
+        "serial_number": "SYN-00682",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0683",
+        "serial_number": "SYN-00683",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0684",
+        "serial_number": "SYN-00684",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0685",
+        "serial_number": "SYN-00685",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0686",
+        "serial_number": "SYN-00686",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0687",
+        "serial_number": "SYN-00687",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0688",
+        "serial_number": "SYN-00688",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0689",
+        "serial_number": "SYN-00689",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0690",
+        "serial_number": "SYN-00690",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0691",
+        "serial_number": "SYN-00691",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0692",
+        "serial_number": "SYN-00692",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0693",
+        "serial_number": "SYN-00693",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0694",
+        "serial_number": "SYN-00694",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0695",
+        "serial_number": "SYN-00695",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0696",
+        "serial_number": "SYN-00696",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0697",
+        "serial_number": "SYN-00697",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0698",
+        "serial_number": "SYN-00698",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0699",
+        "serial_number": "SYN-00699",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0700",
+        "serial_number": "SYN-00700",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0701",
+        "serial_number": "SYN-00701",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0702",
+        "serial_number": "SYN-00702",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0703",
+        "serial_number": "SYN-00703",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0704",
+        "serial_number": "SYN-00704",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0705",
+        "serial_number": "SYN-00705",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0706",
+        "serial_number": "SYN-00706",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0707",
+        "serial_number": "SYN-00707",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0708",
+        "serial_number": "SYN-00708",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0709",
+        "serial_number": "SYN-00709",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0710",
+        "serial_number": "SYN-00710",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0711",
+        "serial_number": "SYN-00711",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0712",
+        "serial_number": "SYN-00712",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0713",
+        "serial_number": "SYN-00713",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0714",
+        "serial_number": "SYN-00714",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0715",
+        "serial_number": "SYN-00715",
+        "make_model": "Airbus A321neo",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0716",
+        "serial_number": "SYN-00716",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0717",
+        "serial_number": "SYN-00717",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0718",
+        "serial_number": "SYN-00718",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0719",
+        "serial_number": "SYN-00719",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0720",
+        "serial_number": "SYN-00720",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0721",
+        "serial_number": "SYN-00721",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0722",
+        "serial_number": "SYN-00722",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0723",
+        "serial_number": "SYN-00723",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0724",
+        "serial_number": "SYN-00724",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0725",
+        "serial_number": "SYN-00725",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0726",
+        "serial_number": "SYN-00726",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0727",
+        "serial_number": "SYN-00727",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0728",
+        "serial_number": "SYN-00728",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0729",
+        "serial_number": "SYN-00729",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0730",
+        "serial_number": "SYN-00730",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0731",
+        "serial_number": "SYN-00731",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0732",
+        "serial_number": "SYN-00732",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0733",
+        "serial_number": "SYN-00733",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0734",
+        "serial_number": "SYN-00734",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0735",
+        "serial_number": "SYN-00735",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0736",
+        "serial_number": "SYN-00736",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0737",
+        "serial_number": "SYN-00737",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0738",
+        "serial_number": "SYN-00738",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0739",
+        "serial_number": "SYN-00739",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0740",
+        "serial_number": "SYN-00740",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0741",
+        "serial_number": "SYN-00741",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0742",
+        "serial_number": "SYN-00742",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0743",
+        "serial_number": "SYN-00743",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0744",
+        "serial_number": "SYN-00744",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0745",
+        "serial_number": "SYN-00745",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0746",
+        "serial_number": "SYN-00746",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0747",
+        "serial_number": "SYN-00747",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0748",
+        "serial_number": "SYN-00748",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0749",
+        "serial_number": "SYN-00749",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0750",
+        "serial_number": "SYN-00750",
+        "make_model": "Boeing 757-200",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0751",
+        "serial_number": "SYN-00751",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0752",
+        "serial_number": "SYN-00752",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0753",
+        "serial_number": "SYN-00753",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0754",
+        "serial_number": "SYN-00754",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0755",
+        "serial_number": "SYN-00755",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0756",
+        "serial_number": "SYN-00756",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0757",
+        "serial_number": "SYN-00757",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0758",
+        "serial_number": "SYN-00758",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0759",
+        "serial_number": "SYN-00759",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0760",
+        "serial_number": "SYN-00760",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0761",
+        "serial_number": "SYN-00761",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0762",
+        "serial_number": "SYN-00762",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0763",
+        "serial_number": "SYN-00763",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0764",
+        "serial_number": "SYN-00764",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0765",
+        "serial_number": "SYN-00765",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0766",
+        "serial_number": "SYN-00766",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0767",
+        "serial_number": "SYN-00767",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0768",
+        "serial_number": "SYN-00768",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0769",
+        "serial_number": "SYN-00769",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0770",
+        "serial_number": "SYN-00770",
+        "make_model": "Boeing 757-300",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0771",
+        "serial_number": "SYN-00771",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0772",
+        "serial_number": "SYN-00772",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0773",
+        "serial_number": "SYN-00773",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0774",
+        "serial_number": "SYN-00774",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0775",
+        "serial_number": "SYN-00775",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0776",
+        "serial_number": "SYN-00776",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0777",
+        "serial_number": "SYN-00777",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0778",
+        "serial_number": "SYN-00778",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0779",
+        "serial_number": "SYN-00779",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0780",
+        "serial_number": "SYN-00780",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0781",
+        "serial_number": "SYN-00781",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0782",
+        "serial_number": "SYN-00782",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0783",
+        "serial_number": "SYN-00783",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0784",
+        "serial_number": "SYN-00784",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0785",
+        "serial_number": "SYN-00785",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0786",
+        "serial_number": "SYN-00786",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0787",
+        "serial_number": "SYN-00787",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0788",
+        "serial_number": "SYN-00788",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0789",
+        "serial_number": "SYN-00789",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0790",
+        "serial_number": "SYN-00790",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0791",
+        "serial_number": "SYN-00791",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0792",
+        "serial_number": "SYN-00792",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0793",
+        "serial_number": "SYN-00793",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0794",
+        "serial_number": "SYN-00794",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0795",
+        "serial_number": "SYN-00795",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0796",
+        "serial_number": "SYN-00796",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0797",
+        "serial_number": "SYN-00797",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0798",
+        "serial_number": "SYN-00798",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0799",
+        "serial_number": "SYN-00799",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0800",
+        "serial_number": "SYN-00800",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0801",
+        "serial_number": "SYN-00801",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0802",
+        "serial_number": "SYN-00802",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0803",
+        "serial_number": "SYN-00803",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0804",
+        "serial_number": "SYN-00804",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0805",
+        "serial_number": "SYN-00805",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0806",
+        "serial_number": "SYN-00806",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0807",
+        "serial_number": "SYN-00807",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0808",
+        "serial_number": "SYN-00808",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0809",
+        "serial_number": "SYN-00809",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0810",
+        "serial_number": "SYN-00810",
+        "make_model": "Boeing 767-300ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0811",
+        "serial_number": "SYN-00811",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0812",
+        "serial_number": "SYN-00812",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0813",
+        "serial_number": "SYN-00813",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0814",
+        "serial_number": "SYN-00814",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0815",
+        "serial_number": "SYN-00815",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0816",
+        "serial_number": "SYN-00816",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0817",
+        "serial_number": "SYN-00817",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0818",
+        "serial_number": "SYN-00818",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0819",
+        "serial_number": "SYN-00819",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0820",
+        "serial_number": "SYN-00820",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0821",
+        "serial_number": "SYN-00821",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0822",
+        "serial_number": "SYN-00822",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0823",
+        "serial_number": "SYN-00823",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0824",
+        "serial_number": "SYN-00824",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0825",
+        "serial_number": "SYN-00825",
+        "make_model": "Boeing 767-400ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0826",
+        "serial_number": "SYN-00826",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0827",
+        "serial_number": "SYN-00827",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0828",
+        "serial_number": "SYN-00828",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0829",
+        "serial_number": "SYN-00829",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0830",
+        "serial_number": "SYN-00830",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0831",
+        "serial_number": "SYN-00831",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0832",
+        "serial_number": "SYN-00832",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0833",
+        "serial_number": "SYN-00833",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0834",
+        "serial_number": "SYN-00834",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0835",
+        "serial_number": "SYN-00835",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0836",
+        "serial_number": "SYN-00836",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0837",
+        "serial_number": "SYN-00837",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0838",
+        "serial_number": "SYN-00838",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0839",
+        "serial_number": "SYN-00839",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0840",
+        "serial_number": "SYN-00840",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0841",
+        "serial_number": "SYN-00841",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0842",
+        "serial_number": "SYN-00842",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0843",
+        "serial_number": "SYN-00843",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0844",
+        "serial_number": "SYN-00844",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0845",
+        "serial_number": "SYN-00845",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0846",
+        "serial_number": "SYN-00846",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0847",
+        "serial_number": "SYN-00847",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0848",
+        "serial_number": "SYN-00848",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0849",
+        "serial_number": "SYN-00849",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0850",
+        "serial_number": "SYN-00850",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0851",
+        "serial_number": "SYN-00851",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0852",
+        "serial_number": "SYN-00852",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0853",
+        "serial_number": "SYN-00853",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0854",
+        "serial_number": "SYN-00854",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0855",
+        "serial_number": "SYN-00855",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0856",
+        "serial_number": "SYN-00856",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0857",
+        "serial_number": "SYN-00857",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0858",
+        "serial_number": "SYN-00858",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0859",
+        "serial_number": "SYN-00859",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0860",
+        "serial_number": "SYN-00860",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0861",
+        "serial_number": "SYN-00861",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0862",
+        "serial_number": "SYN-00862",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0863",
+        "serial_number": "SYN-00863",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0864",
+        "serial_number": "SYN-00864",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0865",
+        "serial_number": "SYN-00865",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0866",
+        "serial_number": "SYN-00866",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0867",
+        "serial_number": "SYN-00867",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0868",
+        "serial_number": "SYN-00868",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0869",
+        "serial_number": "SYN-00869",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0870",
+        "serial_number": "SYN-00870",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0871",
+        "serial_number": "SYN-00871",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0872",
+        "serial_number": "SYN-00872",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0873",
+        "serial_number": "SYN-00873",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0874",
+        "serial_number": "SYN-00874",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0875",
+        "serial_number": "SYN-00875",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0876",
+        "serial_number": "SYN-00876",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0877",
+        "serial_number": "SYN-00877",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0878",
+        "serial_number": "SYN-00878",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0879",
+        "serial_number": "SYN-00879",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0880",
+        "serial_number": "SYN-00880",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0881",
+        "serial_number": "SYN-00881",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0882",
+        "serial_number": "SYN-00882",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0883",
+        "serial_number": "SYN-00883",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0884",
+        "serial_number": "SYN-00884",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0885",
+        "serial_number": "SYN-00885",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0886",
+        "serial_number": "SYN-00886",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0887",
+        "serial_number": "SYN-00887",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0888",
+        "serial_number": "SYN-00888",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0889",
+        "serial_number": "SYN-00889",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0890",
+        "serial_number": "SYN-00890",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0891",
+        "serial_number": "SYN-00891",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0892",
+        "serial_number": "SYN-00892",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0893",
+        "serial_number": "SYN-00893",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0894",
+        "serial_number": "SYN-00894",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0895",
+        "serial_number": "SYN-00895",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0896",
+        "serial_number": "SYN-00896",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0897",
+        "serial_number": "SYN-00897",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0898",
+        "serial_number": "SYN-00898",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0899",
+        "serial_number": "SYN-00899",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0900",
+        "serial_number": "SYN-00900",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0901",
+        "serial_number": "SYN-00901",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0902",
+        "serial_number": "SYN-00902",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0903",
+        "serial_number": "SYN-00903",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0904",
+        "serial_number": "SYN-00904",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0905",
+        "serial_number": "SYN-00905",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0906",
+        "serial_number": "SYN-00906",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0907",
+        "serial_number": "SYN-00907",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0908",
+        "serial_number": "SYN-00908",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0909",
+        "serial_number": "SYN-00909",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0910",
+        "serial_number": "SYN-00910",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0911",
+        "serial_number": "SYN-00911",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0912",
+        "serial_number": "SYN-00912",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0913",
+        "serial_number": "SYN-00913",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0914",
+        "serial_number": "SYN-00914",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0915",
+        "serial_number": "SYN-00915",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0916",
+        "serial_number": "SYN-00916",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0917",
+        "serial_number": "SYN-00917",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0918",
+        "serial_number": "SYN-00918",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0919",
+        "serial_number": "SYN-00919",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0920",
+        "serial_number": "SYN-00920",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0921",
+        "serial_number": "SYN-00921",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0922",
+        "serial_number": "SYN-00922",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0923",
+        "serial_number": "SYN-00923",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0924",
+        "serial_number": "SYN-00924",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0925",
+        "serial_number": "SYN-00925",
+        "make_model": "Boeing 777-200/ER",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0926",
+        "serial_number": "SYN-00926",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0927",
+        "serial_number": "SYN-00927",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0928",
+        "serial_number": "SYN-00928",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0929",
+        "serial_number": "SYN-00929",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0930",
+        "serial_number": "SYN-00930",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0931",
+        "serial_number": "SYN-00931",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0932",
+        "serial_number": "SYN-00932",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0933",
+        "serial_number": "SYN-00933",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0934",
+        "serial_number": "SYN-00934",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0935",
+        "serial_number": "SYN-00935",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0936",
+        "serial_number": "SYN-00936",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0937",
+        "serial_number": "SYN-00937",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0938",
+        "serial_number": "SYN-00938",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0939",
+        "serial_number": "SYN-00939",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0940",
+        "serial_number": "SYN-00940",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0941",
+        "serial_number": "SYN-00941",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0942",
+        "serial_number": "SYN-00942",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0943",
+        "serial_number": "SYN-00943",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0944",
+        "serial_number": "SYN-00944",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0945",
+        "serial_number": "SYN-00945",
+        "make_model": "Boeing 787-8",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0946",
+        "serial_number": "SYN-00946",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0947",
+        "serial_number": "SYN-00947",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0948",
+        "serial_number": "SYN-00948",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0949",
+        "serial_number": "SYN-00949",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0950",
+        "serial_number": "SYN-00950",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0951",
+        "serial_number": "SYN-00951",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0952",
+        "serial_number": "SYN-00952",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0953",
+        "serial_number": "SYN-00953",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0954",
+        "serial_number": "SYN-00954",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0955",
+        "serial_number": "SYN-00955",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0956",
+        "serial_number": "SYN-00956",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0957",
+        "serial_number": "SYN-00957",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0958",
+        "serial_number": "SYN-00958",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0959",
+        "serial_number": "SYN-00959",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0960",
+        "serial_number": "SYN-00960",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0961",
+        "serial_number": "SYN-00961",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0962",
+        "serial_number": "SYN-00962",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0963",
+        "serial_number": "SYN-00963",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0964",
+        "serial_number": "SYN-00964",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0965",
+        "serial_number": "SYN-00965",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0966",
+        "serial_number": "SYN-00966",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0967",
+        "serial_number": "SYN-00967",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0968",
+        "serial_number": "SYN-00968",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0969",
+        "serial_number": "SYN-00969",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0970",
+        "serial_number": "SYN-00970",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0971",
+        "serial_number": "SYN-00971",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0972",
+        "serial_number": "SYN-00972",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0973",
+        "serial_number": "SYN-00973",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0974",
+        "serial_number": "SYN-00974",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0975",
+        "serial_number": "SYN-00975",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0976",
+        "serial_number": "SYN-00976",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0977",
+        "serial_number": "SYN-00977",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0978",
+        "serial_number": "SYN-00978",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0979",
+        "serial_number": "SYN-00979",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0980",
+        "serial_number": "SYN-00980",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0981",
+        "serial_number": "SYN-00981",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0982",
+        "serial_number": "SYN-00982",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0983",
+        "serial_number": "SYN-00983",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0984",
+        "serial_number": "SYN-00984",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0985",
+        "serial_number": "SYN-00985",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0986",
+        "serial_number": "SYN-00986",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0987",
+        "serial_number": "SYN-00987",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0988",
+        "serial_number": "SYN-00988",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0989",
+        "serial_number": "SYN-00989",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0990",
+        "serial_number": "SYN-00990",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0991",
+        "serial_number": "SYN-00991",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0992",
+        "serial_number": "SYN-00992",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0993",
+        "serial_number": "SYN-00993",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0994",
+        "serial_number": "SYN-00994",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0995",
+        "serial_number": "SYN-00995",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0996",
+        "serial_number": "SYN-00996",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0997",
+        "serial_number": "SYN-00997",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0998",
+        "serial_number": "SYN-00998",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN0999",
+        "serial_number": "SYN-00999",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1000",
+        "serial_number": "SYN-01000",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1001",
+        "serial_number": "SYN-01001",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1002",
+        "serial_number": "SYN-01002",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1003",
+        "serial_number": "SYN-01003",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1004",
+        "serial_number": "SYN-01004",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1005",
+        "serial_number": "SYN-01005",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1006",
+        "serial_number": "SYN-01006",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1007",
+        "serial_number": "SYN-01007",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1008",
+        "serial_number": "SYN-01008",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1009",
+        "serial_number": "SYN-01009",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1010",
+        "serial_number": "SYN-01010",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1011",
+        "serial_number": "SYN-01011",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1012",
+        "serial_number": "SYN-01012",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1013",
+        "serial_number": "SYN-01013",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1014",
+        "serial_number": "SYN-01014",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1015",
+        "serial_number": "SYN-01015",
+        "make_model": "Boeing 787-9",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1016",
+        "serial_number": "SYN-01016",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1017",
+        "serial_number": "SYN-01017",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1018",
+        "serial_number": "SYN-01018",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1019",
+        "serial_number": "SYN-01019",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1020",
+        "serial_number": "SYN-01020",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1021",
+        "serial_number": "SYN-01021",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1022",
+        "serial_number": "SYN-01022",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1023",
+        "serial_number": "SYN-01023",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1024",
+        "serial_number": "SYN-01024",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1025",
+        "serial_number": "SYN-01025",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1026",
+        "serial_number": "SYN-01026",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1027",
+        "serial_number": "SYN-01027",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1028",
+        "serial_number": "SYN-01028",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1029",
+        "serial_number": "SYN-01029",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1030",
+        "serial_number": "SYN-01030",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1031",
+        "serial_number": "SYN-01031",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1032",
+        "serial_number": "SYN-01032",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1033",
+        "serial_number": "SYN-01033",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1034",
+        "serial_number": "SYN-01034",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1035",
+        "serial_number": "SYN-01035",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1036",
+        "serial_number": "SYN-01036",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1037",
+        "serial_number": "SYN-01037",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1038",
+        "serial_number": "SYN-01038",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1039",
+        "serial_number": "SYN-01039",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1040",
+        "serial_number": "SYN-01040",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1041",
+        "serial_number": "SYN-01041",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1042",
+        "serial_number": "SYN-01042",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1043",
+        "serial_number": "SYN-01043",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1044",
+        "serial_number": "SYN-01044",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1045",
+        "serial_number": "SYN-01045",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1046",
+        "serial_number": "SYN-01046",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1047",
+        "serial_number": "SYN-01047",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1048",
+        "serial_number": "SYN-01048",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1049",
+        "serial_number": "SYN-01049",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      },
+      {
+        "registration": "SYN1050",
+        "serial_number": "SYN-99999",
+        "make_model": "Boeing 787-10",
+        "status": "active"
+      }
+    ]
+  },
+  "aviation_events": [
+    {
+      "event_id": "SYN-AIR-EVT-2026-001",
+      "source_id": "EVT-A1",
+      "event_date": "2026-06-11",
+      "registration": "SYN1050",
+      "make_model": "Boeing 787-10",
+      "event_type": "ground equipment contact",
+      "aircraft_damage": "minor",
+      "far_part": "121",
+      "note": "Synthetic external event deliberately absent from submitted loss history for reconciliation testing."
+    }
+  ],
+  "filing_events": [
+    {
+      "filing_event_id": "SYN-AIR-FILE-001",
+      "source_id": "FILE-A1",
+      "event_type": "aircraft_schedule_change",
+      "registration": "SYN1050",
+      "effective_at": "2026-09-15",
+      "notice_sent_at": "2026-09-27",
+      "agency_received_at": null,
+      "note": "Synthetic record intentionally omits agency receipt evidence."
+    }
+  ],
+  "fleet_commitments": {
+    "source_id": "FLEET-A1",
+    "expected_deliveries_last_nine_months_2026": 87,
+    "expected_deliveries_2027": 89,
+    "expected_deliveries_after_2027": 379,
+    "firm_commitments_total": 600,
+    "note": "Synthetic evidence retains the delivery-scale pattern of the public reference while remaining fictional for underwriting use."
+  },
+  "public_reference_context": {
+    "source_id": "PUB-UAL-10Q",
+    "purpose": "Scale and scenario calibration only; not insured evidence.",
+    "reported_q1_2026": {
+      "passengers_thousands": 42486,
+      "available_seat_miles_millions": 77698,
+      "passenger_load_factor_percent": 81.6,
+      "fuel_gallons_millions": 1093,
+      "employee_headcount": 115600,
+      "aircraft_maintenance_materials_and_outside_repairs_usd": 854000000,
+      "maintenance_expense_growth_percent": 16.8,
+      "operating_revenue_usd": 14608000000
+    },
+    "reported_fleet_commitments": {
+      "firm_commitments_total": 600,
+      "expected_deliveries_last_nine_months_2026": 87,
+      "expected_deliveries_2027": 89,
+      "expected_deliveries_after_2027": 379
+    },
+    "reported_risk_context": [
+      "geopolitical disruption and higher fuel prices",
+      "regulatory or court actions affecting hub capacity",
+      "government funding or staffing constraints",
+      "technology and automated systems disruption",
+      "privacy, data security and cybersecurity",
+      "supplier concentration and aircraft / engine delivery risk",
+      "insurance cost increases or inadequate coverage"
+    ]
+  },
+  "ground_truth": {
+    "expected_exception_rule_ids": [
+      "R-020",
+      "R-030",
+      "R-031",
+      "R-041",
+      "R-054",
+      "R-060",
+      "R-070",
+      "R-081"
+    ],
+    "note": "Known synthetic exception set used only to evaluate prototype detection."
+  }
+}
