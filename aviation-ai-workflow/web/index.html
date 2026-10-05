@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StrategicRisk Partners | Commercial Aviation Underwriting Intelligence</title>
-  <meta name="description" content="A StrategicRisk Partners proof-of-value demonstration for AI-assisted commercial aviation submission, hull, authority, and facultative review.">
+  <title>StrategicRisk Partners | Aviation Underwriting Intelligence</title>
+  <meta name="description" content="Evidence-backed aviation underwriting intelligence proof of value: source reconciliation, exception detection, and human review.">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header class="site-header">
     <a class="brand brand-link" href="#top" aria-label="StrategicRisk Partners home">
-      <div class="brand-mark" aria-hidden="true">SR</div>
+      <div class="brand-mark" aria-hidden="true">SRP</div>
       <div>
         <div class="brand-name">StrategicRisk Partners</div>
-        <div class="brand-subtitle">Commercial Aviation Underwriting Intelligence</div>
+        <div class="brand-subtitle">Aviation Underwriting Intelligence</div>
       </div>
     </a>
-    <span class="demo-badge">AI workflow demonstration</span>
+    <span class="demo-badge">Synthetic proof of value</span>
   </header>
 
   <main id="top">
@@ -26,67 +26,65 @@
 
       <div class="landing-inner">
         <div class="landing-copy">
-          <p class="landing-eyebrow">Commercial Aviation Insurance · Proof of Value</p>
-          <h1 id="landingTitle">Turn complex commercial aviation submissions into structured underwriting intelligence.</h1>
-          <p class="landing-value">StrategicRisk Partners demonstrates how brokers, MGAs, and specialist aviation underwriters can structure fleet, pilot, utilization, hull, authority, and capacity information before the human underwriting decision.</p>
+          <p class="landing-eyebrow">Evidence reconciliation · Exception detection · Human review</p>
+          <h1 id="landingTitle">Reconcile aviation evidence before the underwriting decision.</h1>
+          <p class="landing-value">A controlled proof of value for comparing underwriting submissions with regulatory-style records, aircraft evidence, event history, and insurance records—then routing discrepancies to an authorized human reviewer.</p>
 
           <div class="landing-actions">
             <button class="landing-primary" id="landingSampleButton" type="button">
-              <span>Load synthetic sample</span>
+              <span>Run synthetic case</span>
               <span class="button-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="landing-secondary" id="landingUploadButton" type="button">Upload your own JSON</button>
+            <button class="landing-secondary" id="landingUploadButton" type="button">Upload submission JSON</button>
           </div>
 
           <div class="landing-trust">
-            <span><strong>Synthetic-first</strong> demonstration</span>
+            <span><strong>Known ground truth</strong> for evaluation</span>
             <span aria-hidden="true">•</span>
-            <span><strong>Authority-aware</strong> referral logic</span>
+            <span><strong>Deterministic checks</strong> before AI synthesis</span>
             <span aria-hidden="true">•</span>
-            <span><strong>Human review</strong> required</span>
+            <span><strong>Human authority</strong> preserved</span>
           </div>
         </div>
 
-        <div class="preview-panel" aria-label="Preview of workflow outputs">
+        <div class="preview-panel" aria-label="Prototype preview">
           <div class="preview-topline">
             <div>
-              <span class="preview-kicker">Review package</span>
-              <strong>Submission intelligence</strong>
+              <span class="preview-kicker">Synthetic case</span>
+              <strong>PrairieJet Charter Group</strong>
             </div>
-            <span class="preview-live"><span class="preview-dot"></span>Synthetic</span>
+            <span class="preview-live"><span class="preview-dot"></span>POV</span>
           </div>
 
           <div class="preview-readiness">
             <div>
-              <span>Submission readiness</span>
-              <strong>Additional information required</strong>
+              <span>Evidence package</span>
+              <strong>Submission + 5 supporting sources</strong>
             </div>
-            <span class="preview-chip">Review</span>
+            <span class="preview-chip">Traceable</span>
           </div>
 
           <div class="preview-grid">
             <div class="preview-tile">
               <span class="preview-number">28</span>
-              <span>Aircraft in fleet</span>
+              <span>Aircraft</span>
             </div>
             <div class="preview-tile">
-              <span class="preview-number">$436M</span>
-              <span>Stated hull value</span>
+              <span class="preview-number">27/28</span>
+              <span>Certificate reconciliation</span>
             </div>
             <div class="preview-tile">
-              <span class="preview-number">03</span>
-              <span>Missing information</span>
+              <span class="preview-number">07</span>
+              <span>Planted exceptions</span>
             </div>
             <div class="preview-tile preview-human">
-              <span class="preview-icon">REF</span>
-              <span>Authority referral indicated</span>
+              <span class="preview-icon">HITL</span>
+              <span>Human disposition required</span>
             </div>
           </div>
 
           <div class="preview-footer">
-            <span>Broker / MGA / carrier workflow</span>
-            <span>→</span>
-            <span>Authorized reviewer</span>
+            <span>Evidence</span><span>→</span><span>Rules</span><span>→</span><span>Exceptions</span><span>→</span><span>Human review</span>
           </div>
         </div>
       </div>
@@ -100,22 +98,23 @@
     <section class="demo-shell" id="demo">
       <div class="demo-intro">
         <div>
-          <p class="eyebrow">Interactive demonstration</p>
-          <h2>Review a synthetic Part 135 charter submission.</h2>
+          <p class="eyebrow">Interactive proof of value</p>
+          <h2>PrairieJet synthetic aviation reconciliation case.</h2>
         </div>
-        <p>Load the included 28-aircraft synthetic commercial GA account to see submission triage, exposure analysis, hull review, authority referral, and FAC decision support in one controlled workflow.</p>
+        <p>The case intentionally contains known inconsistencies. The prototype performs deterministic reconciliation first, presents evidence-backed exceptions, then uses AI only for controlled synthesis and review preparation.</p>
       </div>
 
       <section class="workspace">
         <aside class="upload-panel card">
-          <p class="section-kicker">1 · Input</p>
-          <h2>Submission</h2>
+          <p class="section-kicker">1 · Case intake</p>
+          <h2>Evidence package</h2>
           <label class="drop-zone" id="dropZone" for="fileInput">
             <input id="fileInput" type="file" accept="application/json,.json" hidden>
             <span class="drop-icon">↑</span>
             <strong>Upload submission JSON</strong>
-            <span>or drag a .json file here</span>
+            <span>Submission-only mode is supported</span>
           </label>
+
           <div class="file-row" id="fileRow" hidden>
             <div>
               <strong id="fileName">No file selected</strong>
@@ -123,16 +122,24 @@
             </div>
             <button class="text-button" id="clearButton" type="button">Clear</button>
           </div>
-          <button class="secondary-button" id="loadSampleButton" type="button">Load synthetic sample</button>
-          <button class="primary-button" id="analyzeButton" type="button" disabled>Analyze submission</button>
-          <div class="status-box" id="statusBox" role="status" aria-live="polite">Choose a JSON submission to begin.</div>
+
+          <div class="source-note" id="evidenceNote">Load the synthetic case to include authority, OST 6410-style, registry, event, and filing evidence.</div>
+
+          <button class="secondary-button" id="loadSampleButton" type="button">Load complete synthetic case</button>
+          <button class="primary-button" id="analyzeButton" type="button" disabled>Run reconciliation</button>
+          <div class="status-box" id="statusBox" role="status" aria-live="polite">Choose a case to begin.</div>
+
+          <div class="control-note">
+            <strong>Decision-support boundary</strong>
+            <span>No quoting, binding, pricing, capacity deployment, coverage determination, or legal/regulatory conclusion.</span>
+          </div>
         </aside>
 
         <section class="results" aria-live="polite">
           <div class="results-header">
             <div>
-              <p class="section-kicker">2 · Review package</p>
-              <h2>Analysis results</h2>
+              <p class="section-kicker">2 · Evidence-backed review</p>
+              <h2>Case results</h2>
             </div>
             <div class="results-controls">
               <span id="resultState" class="result-state">Waiting for analysis</span>
@@ -143,6 +150,69 @@
           </div>
 
           <div class="result-grid">
+            <article class="card result-card span-two">
+              <div class="card-heading">
+                <span>Reconciliation summary</span>
+                <span class="status-pill neutral" id="caseStatus">Not analyzed</span>
+              </div>
+              <div class="metric-grid">
+                <div class="metric"><span>Evidence sources</span><strong id="metricSources">—</strong></div>
+                <div class="metric"><span>Checks executed</span><strong id="metricChecks">—</strong></div>
+                <div class="metric"><span>Verified checks</span><strong id="metricVerified">—</strong></div>
+                <div class="metric"><span>Exceptions</span><strong id="metricExceptions">—</strong></div>
+                <div class="metric"><span>Aircraft reconciled</span><strong id="metricAircraftReconciled">—</strong></div>
+                <div class="metric"><span>Ground-truth detection</span><strong id="metricDetection">—</strong></div>
+              </div>
+              <p class="microcopy" id="reconciliationDisclaimer">Deterministic reconciliation results will appear here.</p>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Evidence sources</span><span class="count" id="sourceCount">0</span></div>
+              <div class="source-grid" id="sourceGrid"><p class="placeholder">No evidence package loaded.</p></div>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Reconciliation checks</span><span class="count" id="checkCount">0</span></div>
+              <div class="table-wrap">
+                <table class="recon-table">
+                  <thead><tr><th>Rule</th><th>Check</th><th>Result</th><th>Summary</th></tr></thead>
+                  <tbody id="checkTableBody"><tr><td colspan="4" class="placeholder-cell">No reconciliation yet.</td></tr></tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Exception register</span><span class="count" id="exceptionCount">0</span></div>
+              <p class="muted register-intro">Each exception shows source evidence and remains open until a human reviewer records a disposition. Actions below are session-only in this prototype.</p>
+              <div class="exception-list" id="exceptionList"><p class="placeholder">No exceptions generated.</p></div>
+            </article>
+
+            <article class="card result-card">
+              <div class="card-heading"><span>Human control</span><span class="status-pill warn" id="humanStatus">Required</span></div>
+              <p class="muted" id="humanCopy">An authorized human reviewer must disposition exceptions before consequential underwriting action.</p>
+            </article>
+
+            <article class="card result-card">
+              <div class="card-heading"><span>POV evaluation</span><span class="label">Synthetic ground truth</span></div>
+              <p class="muted" id="evaluationSummary">Run the synthetic case to compare detected exceptions against the planted answer key.</p>
+              <div class="evaluation-row"><span>Expected</span><strong id="evalExpected">—</strong></div>
+              <div class="evaluation-row"><span>Detected</span><strong id="evalDetected">—</strong></div>
+              <div class="evaluation-row"><span>Unexpected</span><strong id="evalUnexpected">—</strong></div>
+            </article>
+
+            <article class="card result-card span-two">
+              <div class="card-heading"><span>Audit trail</span><span class="label">Session</span></div>
+              <ol class="audit-list" id="auditList"><li class="placeholder">No activity yet.</li></ol>
+            </article>
+
+            <article class="card result-card span-two synthesis-divider">
+              <div class="card-heading">
+                <span>AI-assisted underwriting synthesis</span>
+                <span class="label" id="reviewModeLabel">Pending</span>
+              </div>
+              <p class="muted">The synthesis layer summarizes supplied facts and deterministic reconciliation output. It does not replace the evidence checks above.</p>
+            </article>
+
             <article class="card result-card readiness-card">
               <div class="card-heading">
                 <span>Submission readiness</span>
@@ -151,17 +221,13 @@
               <p id="readinessSummary" class="muted">Readiness status and summary will appear here.</p>
             </article>
 
-            <article class="card result-card human-card">
-              <div class="card-heading">
-                <span>Human review required</span>
-                <span class="status-pill neutral" id="humanStatus">Pending</span>
-              </div>
-              <p class="muted" id="humanCopy">The workflow requires an authorized human reviewer before any consequential action.</p>
+            <article class="card result-card">
+              <div class="card-heading"><span>Exposure profile</span><span class="label">Commercial GA</span></div>
+              <p id="exposureSummary" class="muted">Fleet and utilization metrics will appear here.</p>
             </article>
 
             <article class="card result-card span-two">
-              <div class="card-heading"><span>Exposure summary</span><span class="label">Commercial GA</span></div>
-              <p id="exposureSummary" class="muted">Fleet and utilization metrics will appear here.</p>
+              <div class="card-heading"><span>Exposure metrics</span></div>
               <div class="metric-grid">
                 <div class="metric"><span>Aircraft</span><strong id="metricAircraft">—</strong></div>
                 <div class="metric"><span>Hull TIV</span><strong id="metricHullTiv">—</strong></div>
@@ -210,11 +276,10 @@
       </section>
 
       <section class="footnote">
-        <strong>Reference implementation.</strong> Use synthetic or customer-approved data only. Production use requires customer-specific security, privacy, governance, validation, and deployment review.
+        <strong>Reference implementation.</strong> All named entities, aircraft identifiers, records, thresholds, and events in the included case are synthetic. Production use requires customer-approved data, security, governance, validation, and deployment review.
       </section>
     </section>
   </main>
-
 
   <div class="report-modal" id="reportModal" hidden>
     <div class="report-modal-backdrop" id="reportModalBackdrop"></div>
@@ -223,7 +288,7 @@
         <div>
           <p class="report-modal-kicker">StrategicRisk Partners</p>
           <h2 id="reportModalTitle">Review report preview</h2>
-          <p>Review the generated underwriting-intelligence report before downloading or saving it as a PDF.</p>
+          <p>Evidence reconciliation and AI-assisted synthesis for authorized human review.</p>
         </div>
         <button class="report-modal-close" id="closeReportPreviewButton" type="button" aria-label="Close report preview">×</button>
       </header>
@@ -241,12 +306,7 @@
         </div>
 
         <div class="report-preview-frame-shell">
-          <iframe
-            id="reportPreviewFrame"
-            class="report-preview-frame"
-            title="StrategicRisk Partners review report preview"
-            sandbox=""
-          ></iframe>
+          <iframe id="reportPreviewFrame" class="report-preview-frame" title="StrategicRisk Partners review report preview" sandbox=""></iframe>
         </div>
       </div>
     </section>
