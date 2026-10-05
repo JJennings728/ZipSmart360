@@ -40,8 +40,17 @@ def sample_data(filename: str):
     return send_from_directory(SAMPLE_DIR, filename)
 
 
-def _load_reference_review() -> dict[str, Any]:
-    with (SAMPLE_DIR / "example_review_output.json").open("r", encoding="utf-8") as handle:
+REFERENCE_REVIEW_FILES = {
+    "SRP-DEMO-001": "example_review_output.json",
+    "SRP-AIRLINE-DEMO-001": "example_airline_review_output.json",
+}
+
+
+def _load_reference_review(case_id: str) -> dict[str, Any]:
+    filename = REFERENCE_REVIEW_FILES.get(case_id)
+    if not filename:
+        raise ValueError("No bundled reference review exists for this case.")
+    with (SAMPLE_DIR / filename).open("r", encoding="utf-8") as handle:
         value = json.load(handle)
     if not isinstance(value, dict):
         raise ValueError("Reference review output must be a JSON object.")
@@ -86,10 +95,16 @@ def analyze():
     else:
         # Keep only the bundled synthetic proof-of-value demonstrable without credentials.
         # Uploaded non-synthetic submissions must not receive PrairieJet reference output.
+        case_id = evidence.get("case_id") if isinstance(evidence, dict) else None
+        expected_name_token = {
+            "SRP-DEMO-001": "prairiejet",
+            "SRP-AIRLINE-DEMO-001": "northstar",
+        }.get(case_id)
         is_bundled_demo = (
             isinstance(evidence, dict)
-            and evidence.get("case_id") == "SRP-DEMO-001"
-            and "prairiejet" in str((submission.get("account") or {}).get("name", "")).lower()
+            and case_id in REFERENCE_REVIEW_FILES
+            and expected_name_token
+            and expected_name_token in str((submission.get("account") or {}).get("name", "")).lower()
         )
         if not is_bundled_demo:
             return jsonify({
@@ -99,7 +114,7 @@ def analyze():
             }), 503
 
         try:
-            review = _load_reference_review()
+            review = _load_reference_review(case_id)
             review_mode = "reference_output"
         except Exception:
             logger.exception("Unable to load reference review output")
