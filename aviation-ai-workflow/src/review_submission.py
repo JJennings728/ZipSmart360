@@ -151,7 +151,7 @@ def review_submission(
         input=[
             {
                 "role": "user",
-                "content": build_prompt(data, precheck),
+                "content": build_prompt(data, precheck, reconciliation),
             }
         ],
     )
