@@ -14,7 +14,9 @@ const fileName = $('fileName');
 const fileMeta = $('fileMeta');
 const clearButton = $('clearButton');
 const loadSampleButton = $('loadSampleButton');
+const loadAirlineButton = $('loadAirlineButton');
 const landingSampleButton = $('landingSampleButton');
+const landingAirlineButton = $('landingAirlineButton');
 const landingUploadButton = $('landingUploadButton');
 const analyzeButton = $('analyzeButton');
 const statusBox = $('statusBox');
@@ -56,7 +58,7 @@ function setSubmission(data, name, sizeText = '', evidence = null) {
   analyzeButton.disabled = false;
   resultState.textContent = 'Waiting for analysis';
   $('evidenceNote').textContent = evidence
-    ? 'Complete synthetic package loaded: submission + authority, insurance certificate, aircraft registry, event history, and filing evidence.'
+    ? 'Complete synthetic package loaded with supporting authority, insurance, aircraft, event, filing, and case-specific evidence.'
     : 'Submission-only mode: external evidence reconciliation will not run.';
   setStatus(evidence ? 'Synthetic case loaded. Ready to run reconciliation.' : 'Submission loaded. Ready for submission-only analysis.');
 }
@@ -70,7 +72,7 @@ function clearSubmission() {
   fileRow.hidden = true;
   analyzeButton.disabled = true;
   resultState.textContent = 'Waiting for analysis';
-  $('evidenceNote').textContent = 'Load the synthetic case to include authority, OST 6410-style, registry, event, and filing evidence.';
+  $('evidenceNote').textContent = 'Choose a bundled case to include authority, insurance-certificate, registry, event, filing, and fleet evidence.';
   setStatus('Choose a case to begin.');
 }
 
@@ -115,14 +117,40 @@ dropZone.addEventListener('drop', event => {
   readJsonFile(file);
 });
 
-async function loadSyntheticSample({ scrollToDemo = false } = {}) {
-  const triggerButtons = [loadSampleButton, landingSampleButton].filter(Boolean);
+const BUNDLED_CASES = {
+  part135: {
+    submissionUrl: '/sample-data/synthetic_submission.json',
+    evidenceUrl: '/sample-data/synthetic_evidence.json',
+    name: 'PrairieJet Part 135 synthetic case',
+    meta: '28 aircraft · submission + 5 supporting evidence sources',
+  },
+  airline: {
+    submissionUrl: '/sample-data/synthetic_airline_submission.json',
+    evidenceUrl: '/sample-data/synthetic_airline_evidence.json',
+    name: 'Northstar major-airline synthetic case',
+    meta: '1,050 aircraft · submission + 7 supporting evidence sources',
+  },
+};
+
+async function loadBundledCase(caseKey, { scrollToDemo = false } = {}) {
+  const config = BUNDLED_CASES[caseKey];
+  if (!config) {
+    setStatus('Unknown bundled case.', 'error');
+    return;
+  }
+
+  const triggerButtons = [
+    loadSampleButton,
+    loadAirlineButton,
+    landingSampleButton,
+    landingAirlineButton,
+  ].filter(Boolean);
   triggerButtons.forEach(button => { button.disabled = true; });
 
   try {
     const [submissionResponse, evidenceResponse] = await Promise.all([
-      fetch('/sample-data/synthetic_submission.json'),
-      fetch('/sample-data/synthetic_evidence.json'),
+      fetch(config.submissionUrl),
+      fetch(config.evidenceUrl),
     ]);
     if (!submissionResponse.ok || !evidenceResponse.ok) {
       throw new Error('Unable to load the complete synthetic case.');
@@ -132,12 +160,7 @@ async function loadSyntheticSample({ scrollToDemo = false } = {}) {
       evidenceResponse.json(),
     ]);
 
-    setSubmission(
-      submission,
-      'PrairieJet synthetic case',
-      'Submission + 5 supporting evidence sources',
-      evidence,
-    );
+    setSubmission(submission, config.name, config.meta, evidence);
 
     if (scrollToDemo) {
       $('demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -150,8 +173,10 @@ async function loadSyntheticSample({ scrollToDemo = false } = {}) {
   }
 }
 
-loadSampleButton.addEventListener('click', () => loadSyntheticSample());
-landingSampleButton?.addEventListener('click', () => loadSyntheticSample({ scrollToDemo: true }));
+loadSampleButton.addEventListener('click', () => loadBundledCase('part135'));
+loadAirlineButton?.addEventListener('click', () => loadBundledCase('airline'));
+landingSampleButton?.addEventListener('click', () => loadBundledCase('part135', { scrollToDemo: true }));
+landingAirlineButton?.addEventListener('click', () => loadBundledCase('airline', { scrollToDemo: true }));
 landingUploadButton?.addEventListener('click', () => {
   $('demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   window.setTimeout(() => fileInput.click(), 500);
