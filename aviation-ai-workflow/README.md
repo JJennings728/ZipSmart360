@@ -1,4 +1,4 @@
-# StrategicRisk Partners — Commercial Aviation Underwriting Intelligence Proof of Value
+# StrategicRisk Partners — Aviation Underwriting Intelligence Proof of Value
 
 A reference implementation for evaluating an **AI-assisted commercial aviation underwriting-intelligence workflow** using synthetic data and the OpenAI Responses API. The demonstration is designed around broker, MGA, delegated-authority, specialist-carrier, and facultative-review workflows.
 
@@ -119,7 +119,7 @@ The browser workflow provides:
 - a self-contained downloadable HTML review report; and
 - a print-optimized report view for browser **Print / Save as PDF**.
 
-The UI posts the uploaded JSON to `/api/analyze`. The Flask server performs the deterministic precheck and then calls the same reviewed OpenAI Responses API workflow used by the CLI.
+The UI posts either a submission-only JSON object or a `{ submission, evidence }` package to `/api/analyze`. When evidence is supplied, the Flask server runs deterministic reconciliation first and passes that evidence context into the controlled AI review. The included synthetic case can still demonstrate the deterministic workflow with repository reference synthesis when no API key is configured; uploaded non-synthetic cases require a configured API key for AI synthesis.
 
 After a successful analysis, **Preview review report** opens a full in-app report preview generated from the current analysis. From that preview, **Download HTML** creates a self-contained branded report and **Print / Save PDF** opens the same report in a print-optimized window so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes exposure metrics, hull analysis, missing information, risk flags, delegated-authority referral logic, FAC review, Human Review Required, and Recommended Next Action.
 
