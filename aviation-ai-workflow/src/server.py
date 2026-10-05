@@ -84,8 +84,20 @@ def analyze():
                 "reconciliation": reconciliation,
             }), 500
     else:
-        # Keep the synthetic proof-of-value demonstrable without credentials.
-        # The UI clearly labels this as repository reference output, not a live model response.
+        # Keep only the bundled synthetic proof-of-value demonstrable without credentials.
+        # Uploaded non-synthetic submissions must not receive PrairieJet reference output.
+        is_bundled_demo = (
+            isinstance(evidence, dict)
+            and evidence.get("case_id") == "SRP-DEMO-001"
+            and "prairiejet" in str((submission.get("account") or {}).get("name", "")).lower()
+        )
+        if not is_bundled_demo:
+            return jsonify({
+                "error": "OPENAI_API_KEY is not configured. The credential-free reference synthesis is available only for the bundled synthetic case.",
+                "precheck": precheck,
+                "reconciliation": reconciliation,
+            }), 503
+
         try:
             review = _load_reference_review()
             review_mode = "reference_output"
