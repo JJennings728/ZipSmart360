@@ -96,7 +96,7 @@ def reconcile_case(
     registry = evidence_package.get("faa_registry") or {}
     events = evidence_package.get("aviation_events") or []
     filing_events = evidence_package.get("filing_events") or []
-    fleet_commitments = evidence_package.get("fleet_commitments") or []
+    fleet_commitments = evidence_package.get("fleet_commitments") or {}
 
     authority_source = authority.get("source_id") or "AUTH-001"
     certificate_source = certificate.get("source_id") or "INS-001"
