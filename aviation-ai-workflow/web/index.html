@@ -31,10 +31,11 @@
           <p class="landing-value">A controlled proof of value for comparing underwriting submissions with regulatory-style records, aircraft evidence, event history, and insurance records—then routing discrepancies to an authorized human reviewer.</p>
 
           <div class="landing-actions">
-            <button class="landing-primary" id="landingSampleButton" type="button">
-              <span>Run synthetic case</span>
+            <button class="landing-primary" id="landingAirlineButton" type="button">
+              <span>Run major-airline case</span>
               <span class="button-arrow" aria-hidden="true">→</span>
             </button>
+            <button class="landing-secondary" id="landingSampleButton" type="button">Run Part 135 case</button>
             <button class="landing-secondary" id="landingUploadButton" type="button">Upload submission JSON</button>
           </div>
 
@@ -51,7 +52,7 @@
           <div class="preview-topline">
             <div>
               <span class="preview-kicker">Synthetic case</span>
-              <strong>PrairieJet Charter Group</strong>
+              <strong>Northstar Global Airlines</strong>
             </div>
             <span class="preview-live"><span class="preview-dot"></span>POV</span>
           </div>
@@ -59,22 +60,22 @@
           <div class="preview-readiness">
             <div>
               <span>Evidence package</span>
-              <strong>Submission + 5 supporting sources</strong>
+              <strong>Submission + 7 supporting sources</strong>
             </div>
             <span class="preview-chip">Traceable</span>
           </div>
 
           <div class="preview-grid">
             <div class="preview-tile">
-              <span class="preview-number">28</span>
+              <span class="preview-number">1,050</span>
               <span>Aircraft</span>
             </div>
             <div class="preview-tile">
-              <span class="preview-number">27/28</span>
+              <span class="preview-number">1049/1050</span>
               <span>Certificate reconciliation</span>
             </div>
             <div class="preview-tile">
-              <span class="preview-number">07</span>
+              <span class="preview-number">08</span>
               <span>Planted exceptions</span>
             </div>
             <div class="preview-tile preview-human">
@@ -99,9 +100,9 @@
       <div class="demo-intro">
         <div>
           <p class="eyebrow">Interactive proof of value</p>
-          <h2>PrairieJet synthetic aviation reconciliation case.</h2>
+          <h2>Choose a synthetic aviation reconciliation case.</h2>
         </div>
-        <p>The case intentionally contains known inconsistencies. The prototype performs deterministic reconciliation first, presents evidence-backed exceptions, then uses AI only for controlled synthesis and review preparation.</p>
+        <p>Use either the 28-aircraft Part 135 case or the 1,050-aircraft major-airline case. Both intentionally contain known inconsistencies so the prototype can measure deterministic detection before controlled AI synthesis and human review.</p>
       </div>
 
       <section class="workspace">
@@ -123,9 +124,10 @@
             <button class="text-button" id="clearButton" type="button">Clear</button>
           </div>
 
-          <div class="source-note" id="evidenceNote">Load the synthetic case to include authority, OST 6410-style, registry, event, and filing evidence.</div>
+          <div class="source-note" id="evidenceNote">Choose a bundled case to include authority, insurance-certificate, registry, event, filing, and fleet evidence.</div>
 
-          <button class="secondary-button" id="loadSampleButton" type="button">Load complete synthetic case</button>
+          <button class="secondary-button" id="loadAirlineButton" type="button">Load major-airline synthetic case</button>
+          <button class="secondary-button" id="loadSampleButton" type="button">Load Part 135 synthetic case</button>
           <button class="primary-button" id="analyzeButton" type="button" disabled>Run reconciliation</button>
           <div class="status-box" id="statusBox" role="status" aria-live="polite">Choose a case to begin.</div>
 
