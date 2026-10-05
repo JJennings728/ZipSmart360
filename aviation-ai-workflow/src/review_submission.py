@@ -60,8 +60,14 @@ def precheck_submission(data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_prompt(data: dict[str, Any], precheck: dict[str, Any]) -> str:
+def build_prompt(
+    data: dict[str, Any],
+    precheck: dict[str, Any],
+    reconciliation: dict[str, Any] | None = None,
+) -> str:
     """Build a conservative underwriting-preparation prompt."""
+    reconciliation_context = reconciliation or {}
+
     return f"""
 You are reviewing a SYNTHETIC aviation / specialty-insurance submission for a
 proof-of-value demonstration, with particular emphasis on commercial general
@@ -72,7 +78,8 @@ You are a decision-support component only. You do not have underwriting,
 pricing, capacity, claims, legal, regulatory, or sanctions authority.
 
 Rules:
-1. Use only facts contained in the supplied JSON.
+1. Use only facts contained in the supplied submission, deterministic precheck,
+   and deterministic reconciliation context below.
 2. Clearly separate facts from assumptions or unknowns.
 3. Do not invent missing limits, prices, loss details, CAT results, engineering
    findings, legal conclusions, or customer facts.
@@ -85,8 +92,14 @@ Rules:
 7. When delegated-authority rules are supplied, compare the submission facts
    only to those supplied synthetic rules. Do not invent carrier appetite.
 8. If a requested field is not applicable or cannot be supported by the
-   submission, state that explicitly instead of inventing information.
-9. Return VALID JSON ONLY. Do not wrap it in Markdown.
+   supplied evidence, state that explicitly instead of inventing information.
+9. Treat deterministic reconciliation results as evidence-backed workflow
+   outputs. Do not override a VERIFIED, MISSING_EVIDENCE, MISMATCH, UNRESOLVED,
+   or REFER result with an unsupported conclusion.
+10. An external aviation event is not automatically an insurance claim or an
+    undisclosed loss. Describe unreconciled events neutrally and route them for
+    review.
+11. Return VALID JSON ONLY. Do not wrap it in Markdown.
 
 Return exactly these top-level keys:
 - submission_readiness: object with "status" and "summary"
@@ -106,6 +119,9 @@ Return exactly these top-level keys:
 Deterministic precheck:
 {json.dumps(precheck, indent=2)}
 
+Deterministic evidence reconciliation:
+{json.dumps(reconciliation_context, indent=2)}
+
 Synthetic submission:
 {json.dumps(data, indent=2)}
 """.strip()
@@ -120,7 +136,7 @@ def parse_json_output(text: str) -> dict[str, Any]:
             lines = lines[1:]
         if lines and lines[-1].strip() == "```":
             lines = lines[:-1]
-        cleaned = "\n".join(lines).strip()
+        cleaned = "\\n".join(lines).strip()
 
     result = json.loads(cleaned)
     if not isinstance(result, dict):
@@ -140,6 +156,7 @@ def review_submission(
     data: dict[str, Any],
     client: OpenAI | None = None,
     model: str | None = None,
+    reconciliation: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Call the OpenAI Responses API and validate the returned review."""
     precheck = precheck_submission(data)
