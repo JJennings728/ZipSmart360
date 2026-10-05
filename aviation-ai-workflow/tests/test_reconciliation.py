@@ -27,8 +27,8 @@ def test_synthetic_reconciliation_detects_known_ground_truth():
 
     assert result["status"] == "REVIEW_REQUIRED"
     assert result["summary"]["source_count"] == 6
-    assert result["summary"]["check_count"] == 12
-    assert result["summary"]["verified_count"] == 5
+    assert result["summary"]["check_count"] == 13
+    assert result["summary"]["verified_count"] == 6
     assert result["summary"]["exception_count"] == 7
     assert result["summary"]["aircraft_total"] == 28
     assert result["summary"]["aircraft_reconciled_to_certificate"] == 27
@@ -73,3 +73,42 @@ def test_external_event_is_not_automatically_called_an_undisclosed_loss():
 
     assert "not reconciled" in event_exception["summary"].lower()
     assert "do not label it an undisclosed loss" in event_exception["suggested_action"].lower()
+
+
+AIRLINE_SUBMISSION_PATH = BASE / "sample-data" / "synthetic_airline_submission.json"
+AIRLINE_EVIDENCE_PATH = BASE / "sample-data" / "synthetic_airline_evidence.json"
+
+
+def test_major_airline_case_reconciles_1050_aircraft_and_detects_answer_key():
+    submission = load_json(AIRLINE_SUBMISSION_PATH)
+    evidence = load_json(AIRLINE_EVIDENCE_PATH)
+
+    result = MODULE.reconcile_case(submission, evidence)
+
+    assert result["status"] == "REVIEW_REQUIRED"
+    assert result["summary"]["source_count"] == 8
+    assert result["summary"]["check_count"] == 14
+    assert result["summary"]["verified_count"] == 6
+    assert result["summary"]["exception_count"] == 8
+    assert result["summary"]["aircraft_total"] == 1050
+    assert result["summary"]["aircraft_reconciled_to_certificate"] == 1049
+
+    evaluation = result["evaluation"]
+    assert evaluation["ground_truth_available"] is True
+    assert evaluation["expected_exception_count"] == 8
+    assert evaluation["detected_expected_count"] == 8
+    assert evaluation["detection_rate_percent"] == 100.0
+    assert evaluation["missed_expected_rule_ids"] == []
+    assert evaluation["unexpected_exception_rule_ids"] == []
+
+
+def test_major_airline_delivery_plan_is_evidence_backed_mismatch():
+    submission = load_json(AIRLINE_SUBMISSION_PATH)
+    evidence = load_json(AIRLINE_EVIDENCE_PATH)
+
+    result = MODULE.reconcile_case(submission, evidence)
+    delivery_check = next(item for item in result["checks"] if item["rule_id"] == "R-081")
+
+    assert delivery_check["status"] == "MISMATCH"
+    assert "90 expected deliveries" in delivery_check["summary"]
+    assert "87" in delivery_check["summary"]
