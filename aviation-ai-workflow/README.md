@@ -1,47 +1,122 @@
-# StrategicRisk Partners — Commercial Aviation Underwriting Intelligence Proof of Value
+# StrategicRisk Partners — Aviation Underwriting Intelligence Proof of Value
 
-A reference implementation for evaluating an **AI-assisted commercial aviation underwriting-intelligence workflow** using synthetic data and the OpenAI Responses API. The demonstration is designed around broker, MGA, delegated-authority, specialist-carrier, and facultative-review workflows.
+A reference implementation for evaluating an **evidence-backed, AI-assisted aviation underwriting-intelligence workflow** using synthetic data.
 
-> **Demonstration only.** This project uses synthetic information. It does not contain customer, carrier, broker, prior-employer, or personally identifiable information. It is not represented as a customer deployment, production underwriting system, or authority to quote, bind, deny, settle, or otherwise make consequential insurance decisions.
+> **Demonstration only.** This project contains synthetic information only. It is not a customer deployment, production underwriting system, legal/regulatory compliance determination, or authority to quote, bind, price, decline, settle, deploy capacity, or make another consequential insurance decision.
 
 ## Business problem
 
-Commercial aviation teams may receive submissions spread across applications, aircraft schedules, pilot schedules, loss runs, operating specifications, safety and maintenance documentation, policy wording, and facultative or excess-capacity materials. Before a senior underwriter can make a decision, analysts and underwriters may need to:
+Aviation underwriting teams may receive information across submissions, aircraft schedules, insurance records, operator-authority material, aircraft records, loss histories, external event data, pilot information, and supporting correspondence.
 
-- identify missing submission items;
-- normalize key exposure information;
-- distinguish attritional losses from large or catastrophe losses;
-- flag wording or facultative-reinsurance issues;
-- identify concentration, BI/CBI, CAT, and special-hazard concerns; and
-- prepare a review-ready summary.
+Before an authorized underwriter makes a decision, teams may need to locate records, compare fields, resolve mismatches, identify missing evidence, and prepare a review-ready file. This workflow is a **hypothesis to validate with customer users**, not a claim about any specific insurer.
 
-This proof of value demonstrates a controlled workflow that assists with **completeness checking, extraction, synthesis, and exception flagging** while preserving human underwriting authority.
+## What the prototype does
 
-## What the demo does
+The prototype separates deterministic reconciliation from AI synthesis:
 
-    Synthetic submission JSON
-            |
-            v
-    Local completeness / schema pre-check
-            |
-            v
-    OpenAI Responses API
-            |
-            v
-    Structured review output
-            |
-            v
-    Mandatory human underwriting review
+    Synthetic underwriting submission
+                 +
+    Authority / insurance / aircraft / event / filing evidence
+                 |
+                 v
+    Deterministic validation + normalization
+                 |
+                 v
+    Evidence reconciliation rules
+                 |
+                 +--> VERIFIED
+                 +--> MISSING_EVIDENCE
+                 +--> MISMATCH
+                 +--> UNRESOLVED
+                 +--> REFER
+                 |
+                 v
+    Evidence-backed exception register
+                 |
+                 v
+    Controlled AI-assisted synthesis
+                 |
+                 v
+    Human disposition + audit trail
 
-The model is instructed to produce a review package containing submission readiness, a commercial-aviation exposure summary, hull and asset observations, missing-information requests, risk flags, illustrative delegated-authority referral analysis, FAC / capacity review, a recommended next action, and explicit limitations.
+The model is not used to decide whether two identifiers match. Straightforward record comparison remains deterministic.
 
-## Synthetic commercial GA scenario
+## Bundled synthetic cases
 
-The included sample represents **PrairieJet Charter Group (Synthetic)**, a fictional Part 135 / Part 91 operator with 28 aircraft, USD 436 million of stated hull value, a USD 500 million requested liability limit, a 29.2% projected utilization increase, incomplete supporting information, and intentionally exceeded **synthetic** delegated-authority thresholds. The scenario is designed to demonstrate referral logic and underwriting preparation—not actual carrier appetite or authority.
+### PrairieJet Charter Group
 
-## What the demo does not do
+The first bundled case represents **PrairieJet Charter Group (Synthetic)**, a fictional Part 135 / Part 91 operator with:
 
-It does **not** quote or bind insurance, set rates or authorize capacity, make final coverage determinations, replace CAT/actuarial/engineering/sanctions/legal/regulatory review, make autonomous consequential decisions, or process real customer data by default.
+- 28 aircraft;
+- USD 436 million stated fleet hull value;
+- USD 500 million requested liability limit;
+- 29.2% projected utilization increase; and
+- incomplete supporting evidence.
+
+The separate evidence package includes:
+
+- synthetic Part 298 / operating-authority data;
+- synthetic OST 6410-style insurance evidence;
+- synthetic FAA-style aircraft registry records;
+- synthetic aviation event history; and
+- synthetic aircraft-change filing evidence.
+
+Seven exception rules are intentionally planted so the prototype can be evaluated against known ground truth.
+
+### Northstar Global Airlines
+
+The second bundled case represents **Northstar Global Airlines (Synthetic)**, a fictional major Part 121 network airline with:
+
+- 1,050 aircraft;
+- USD 44.465 billion of synthetic stated fleet hull value;
+- a USD 2.25 billion synthetic requested liability limit;
+- global domestic, Atlantic, Pacific, and Latin America operations;
+- large-airline operating metrics and fleet-transition complexity; and
+- eight deliberately planted reconciliation exceptions.
+
+Its scale is calibrated to public large-airline disclosures, including the United Airlines Holdings / United Airlines Q1 2026 Form 10-Q. It does **not** represent United Airlines' actual insurance program, losses, limits, fleet values, premium, deductibles, reinsurance, or underwriting information.
+
+See `docs/major-airline-case-basis.md` for the public calibration methodology.
+
+Synthetic performance is **not** a customer performance claim.
+
+## Deterministic rule examples
+
+The reference engine includes versionable rule IDs such as:
+
+- `R-001` operator identity reconciliation;
+- `R-002` FAA certificate-number reconciliation;
+- `R-020` requested liability limit vs. supplied certificate evidence;
+- `R-030` aircraft-scope reconciliation;
+- `R-031` registration / serial reconciliation;
+- `R-041` aircraft-change filing-evidence completeness;
+- `R-054` external event vs. submitted loss-history reconciliation;
+- `R-060` supporting-evidence completeness; and
+- `R-070` synthetic delegated-authority referral conditions;
+- `R-080` stated fleet count vs. aircraft schedule; and
+- `R-081` fleet delivery-plan reconciliation.
+
+These statuses are review signals, not legal compliance conclusions or actual carrier appetite.
+
+## Browser workflow
+
+The browser demonstration includes:
+
+- one-click loading of the complete synthetic case;
+- evidence-source inventory and source IDs;
+- deterministic reconciliation checks;
+- evidence-backed exception register;
+- human disposition controls;
+- session audit trail;
+- synthetic ground-truth evaluation;
+- AI-assisted underwriting synthesis;
+- report preview;
+- downloadable HTML report; and
+- browser Print / Save as PDF.
+
+When an `OPENAI_API_KEY` is configured, the synthesis layer calls the OpenAI Responses API. Without an API key, the **bundled synthetic case only** uses a clearly labeled repository reference output so the deterministic prototype remains demonstrable.
+
+Uploaded non-synthetic submissions do not receive the PrairieJet reference output.
 
 ## Repository structure
 
@@ -51,12 +126,18 @@ It does **not** quote or bind insurance, set rates or authorize capacity, make f
     ├── requirements.txt
     ├── docs/
     │   ├── architecture.md
+    │   ├── major-airline-case-basis.md
     │   ├── security-governance.md
     │   └── workflow.md
     ├── sample-data/
     │   ├── synthetic_submission.json
-    │   └── example_review_output.json
+    │   ├── synthetic_evidence.json
+    │   ├── example_review_output.json
+    │   ├── synthetic_airline_submission.json
+    │   ├── synthetic_airline_evidence.json
+    │   └── example_airline_review_output.json
     ├── src/
+    │   ├── reconciliation.py
     │   ├── review_submission.py
     │   └── server.py
     ├── web/
@@ -65,6 +146,7 @@ It does **not** quote or bind insurance, set rates or authorize capacity, make f
     │   ├── report.js
     │   └── app.js
     └── tests/
+        ├── test_reconciliation.py
         └── test_review_submission.py
 
 ## Quick start
@@ -75,81 +157,58 @@ Requires Python 3.11+.
     python -m venv .venv
     source .venv/bin/activate   # Windows: .venv\Scripts\activate
     pip install -r requirements.txt
-
-Copy `.env.example` to `.env` and add your API key locally. Never commit a real API key.
-
-Run the local completeness check without an API call:
-
-    python src/review_submission.py sample-data/synthetic_submission.json --precheck-only
-
-Run the AI-assisted review:
-
-    python src/review_submission.py sample-data/synthetic_submission.json
-
-The code uses the OpenAI **Responses API**. The default model can be changed with `OPENAI_MODEL`.
-
-
-## Browser demo
-
-The repository now includes a lightweight browser interface for live demonstrations. The API key remains on the server; it is never requested or stored by the browser.
-
-After installing requirements and configuring `.env`, start the local demo server:
-
     python src/server.py
 
 Then open:
 
     http://127.0.0.1:8080
 
-The browser workflow provides:
+Choose either **Run major-airline case** or **Run Part 135 case**, then select **Run reconciliation**.
 
-- JSON upload and drag-and-drop;
-- a one-click **28-aircraft synthetic Part 135 charter sample**;
-- Analyze submission;
-- Submission Readiness;
-- Commercial GA Exposure Summary;
-- Hull & Asset Analysis;
-- Missing Information;
-- Risk Flags;
-- Delegated Authority & Referral Review;
-- FAC / Capacity Review;
-- Recommended Next Action;
-- a prominent Human Review Required control;
-- a polished in-app preview of the generated review report;
-- a self-contained downloadable HTML review report; and
-- a print-optimized report view for browser **Print / Save as PDF**.
+To use live AI synthesis, copy `.env.example` to `.env` and configure an API key locally. Never commit a real API key.
 
-The UI posts the uploaded JSON to `/api/analyze`. The Flask server performs the deterministic precheck and then calls the same reviewed OpenAI Responses API workflow used by the CLI.
+## Validation
 
-After a successful analysis, **Preview review report** opens a full in-app report preview generated from the current analysis. From that preview, **Download HTML** creates a self-contained branded report and **Print / Save PDF** opens the same report in a print-optimized window so it can be saved as a PDF without sending the report to an additional server-side PDF service. The report includes exposure metrics, hull analysis, missing information, risk flags, delegated-authority referral logic, FAC review, Human Review Required, and Recommended Next Action.
+The bundled case tests whether all seven intentionally planted exception rules are detected without unexpected exception rules.
 
-**Security note:** the demo is intended for local proof-of-value use with synthetic or explicitly customer-approved data. Do not expose the development server publicly or place API credentials in browser code.
+A real design-partner proof of value should instead use a customer-approved answer key and agreed measures such as:
 
-## Validation approach
+- extraction accuracy;
+- reconciliation accuracy;
+- exception recall;
+- false-positive rate;
+- unsupported-claim rate;
+- reviewer correction rate;
+- evidence traceability;
+- review-cycle time; and
+- reviewer usefulness.
 
-A proof of value should be evaluated against agreed criteria rather than subjective impressions. Recommended measures include completeness recall, extraction accuracy, unsupported-claim rate, reviewer usefulness, human-review compliance, and controlled cycle-time comparison.
+No production performance claim should be made before representative customer-approved testing.
 
-No performance claim should be made until measured with representative customer-approved examples.
+## Human-control boundary
 
-## Governance principles
+The system does not independently:
 
-1. **Human-in-the-loop:** final underwriting, pricing, capacity, claims, coverage, sanctions, legal, and regulatory decisions remain with authorized people.
-2. **Data minimization:** provide only information required for the use case.
-3. **Access control:** production access should follow least privilege and customer-approved identity controls.
-4. **Auditability:** retain appropriate records of source material, model output, reviewer action, and final disposition.
-5. **Validation:** test extraction errors, unsupported statements, omissions, and failure modes before production.
-6. **Change control:** model, prompt, schema, and integration changes should be versioned and revalidated.
+- quote or bind insurance;
+- set or approve price;
+- deploy capacity;
+- accept or decline risk;
+- determine final coverage;
+- decide claims;
+- make sanctions determinations;
+- make legal/regulatory compliance determinations; or
+- replace actuarial, engineering, catastrophe-model, underwriting, or reinsurance judgment.
 
-See `docs/security-governance.md` for the production-readiness checklist.
+The bundled UI requires human disposition of exceptions and clearly labels the workflow as decision support.
 
-## Intended commercial use
+## Design-partner pathway
 
-StrategicRisk Partners can use this repository as a **technical demonstration and discovery asset** when discussing commercial aviation submission intelligence, delegated-authority controls, underwriting workflow modernization, and facultative/capacity review.
+See `docs/workflow.md` for a proposed **8–12 week design-partner proof of value**, including discovery, answer-key creation, controlled implementation, evaluation, and optional scale assessment.
 
-A real customer engagement should begin with the customer's workflow, business problem, evidence of pain, success measures, security/governance requirements, and agreed next validation step. Production implementation should be separately scoped and approved.
+See `docs/architecture.md` for the evidence-reconciliation architecture and `docs/security-governance.md` for production-readiness considerations.
 
 ## Status
 
-**Reference implementation / synthetic-data demonstration.**
+**Working reference implementation / synthetic-data proof of value.**
 
-The project demonstrates workflow architecture, API integration, local validation, testing, governance, and human-review controls. It should not be described as a customer implementation unless and until it has actually been delivered for a customer.
+It should be described as a prototype or proof of value—not as a customer implementation—unless and until it is actually delivered and validated with a customer.

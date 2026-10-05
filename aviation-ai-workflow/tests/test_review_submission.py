@@ -71,3 +71,20 @@ def test_parse_json_output_requires_human_review():
 
     result = MODULE.parse_json_output(json.dumps(payload))
     assert result["human_review_required"] is True
+
+
+
+AIRLINE_SAMPLE_PATH = Path(__file__).parents[1] / "sample-data" / "synthetic_airline_submission.json"
+
+
+def test_large_airline_schedule_is_compacted_for_model_prompt():
+    data = MODULE.load_submission(AIRLINE_SAMPLE_PATH)
+    compacted = MODULE.compact_for_prompt(data)
+
+    schedule = compacted["exposures"]["aircraft_schedule"]
+    assert schedule["record_count"] == 1050
+    assert schedule["truncated_for_ai_prompt"] is True
+    assert len(schedule["sample"]) == 5
+
+    # The original submission remains complete for deterministic reconciliation.
+    assert len(data["exposures"]["aircraft_schedule"]) == 1050
