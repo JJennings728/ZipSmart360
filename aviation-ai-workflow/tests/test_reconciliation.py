@@ -101,6 +101,9 @@ def test_major_airline_case_reconciles_1050_aircraft_and_detects_answer_key():
     assert evaluation["missed_expected_rule_ids"] == []
     assert evaluation["unexpected_exception_rule_ids"] == []
 
+    event_link_check = next(item for item in result["checks"] if item["rule_id"] == "R-050")
+    assert event_link_check["evidence"][0]["source_id"] == "EVT-A1"
+
 
 def test_major_airline_delivery_plan_is_evidence_backed_mismatch():
     submission = load_json(AIRLINE_SUBMISSION_PATH)
