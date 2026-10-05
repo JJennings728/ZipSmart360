@@ -348,6 +348,11 @@ def reconcile_case(
     ))
 
     event_rows = [item for item in events if isinstance(item, dict)]
+    event_source = (
+        event_rows[0].get("source_id")
+        if event_rows and isinstance(event_rows[0], dict)
+        else "EVT-001"
+    ) or "EVT-001"
     matched_event_regs = sorted({_reg(item.get("registration")) for item in event_rows if _reg(item.get("registration")) in submission_by_reg})
     event_link_status = STATUS_VERIFIED if len(matched_event_regs) == len(event_rows) else STATUS_UNRESOLVED
     checks.append(_check(
@@ -359,7 +364,7 @@ def reconcile_case(
             if event_link_status == STATUS_VERIFIED
             else "One or more external-event registrations cannot be linked to the submitted aircraft schedule."
         ),
-        [_ev("EVT-001", "aviation_events.registration", [item.get("registration") for item in event_rows])],
+        [_ev(event_source, "aviation_events.registration", [item.get("registration") for item in event_rows])],
         severity="MEDIUM" if event_link_status != STATUS_VERIFIED else "INFO",
         category="external_event",
         suggested_action="Resolve aircraft identity before interpreting event context.",
