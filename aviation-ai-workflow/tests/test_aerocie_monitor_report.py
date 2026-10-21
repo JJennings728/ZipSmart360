@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+from contextlib import closing
 import sqlite3
 import tempfile
 import unittest
@@ -57,7 +58,7 @@ class MonitorAndReportTests(unittest.TestCase):
         changed = monitor.run_monitor(db=self.db, since='2026-10-01', get_json=fake_api([sample(title='Changed title')]))
         self.assertEqual(changed['metadata_changed'], 1)
         self.assertEqual(changed['review_items'][0]['monitor_event'], 'metadata_changed')
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn:
             self.assertEqual(conn.execute('SELECT COUNT(*) FROM document_snapshots').fetchone()[0], 2)
 
     def test_proposal_not_a_rule(self):
@@ -112,7 +113,7 @@ class MonitorAndReportTests(unittest.TestCase):
             monitor.run_monitor(db=self.db, since='2026-99-99', get_json=fake_api([]))
 
     def test_reports_read_only_and_print_ready(self):
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn:
             initialize(conn)
             ingest(conn,sample(),source='published')
         before=self.db.read_bytes()
