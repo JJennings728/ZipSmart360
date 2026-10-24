@@ -42,3 +42,13 @@ The collector's Federal Register API is public. There is **no new API key** need
 4. Never enter passwords, personal financial data, controlled technical information, classified data, or unapproved customer records.
 5. Before customer release, verify governing source text, FAA DRS, revisions, applicability, evidence, access controls, data rights and qualified approval.
 6. The `build/` folder stays untracked per repository rules; do not publish local databases.
+
+## Output and source-integrity contract
+
+Every successful CLI command returns an envelope with `compliance_status: NOT_DETERMINED`, `external_release_authorized: false`, and `result` (including empty lists and histories). Add and status function responses also include both markers.
+
+The pin is the SHA-256 of the saved published **metadata payload bytes**, not authenticated legal text. Listing validates the original pin independently of the latest local snapshot. Missing or invalid original evidence yields `PINNED_SOURCE_UNAVAILABLE_OR_INVALID_REVIEW_REQUIRED`; unavailable or invalid latest evidence yields `SOURCE_UNAVAILABLE_REVIEW_REQUIRED`; a changed latest digest yields `SOURCE_CHANGED_REVIEW_REQUIRED`. Neither condition changes the original pin.
+
+`MATCHES_LATEST_LOCAL_METADATA_SNAPSHOT` only means that the pin matches the latest saved local metadata. Live freshness, governing full text and supersession remain unverified. No network request is made by this module. An unchanged old local snapshot does not establish current legal authority.
+
+Candidate writes reject source-file aliases and databases containing collector tables. This is protection against accidental misuse in a local prototype, not a security boundary against concurrent hostile filesystem changes.

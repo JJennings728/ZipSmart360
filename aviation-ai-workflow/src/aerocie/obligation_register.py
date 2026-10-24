@@ -27,7 +27,19 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def _guard_candidate_db(db: Path, source_db: Path = DEFAULT_SOURCE_DB) -> None:
+    if (db.resolve() == source_db.resolve() or
+            (db.exists() and source_db.exists() and db.samefile(source_db))):
+        raise ValueError("Candidate and source databases must be distinct files")
+    if db.is_file():
+        with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as conn:
+            if conn.execute("SELECT 1 FROM sqlite_master WHERE name IN "
+                            "('document_snapshots', 'change_events')").fetchone():
+                raise ValueError("Refusing to write candidate data into a collector database")
+
+
 def initialize(db: Path) -> None:
+    _guard_candidate_db(db)
     db.parent.mkdir(parents=True, exist_ok=True)
     with closing(sqlite3.connect(db)) as conn:
         conn.execute("PRAGMA foreign_keys=ON")
@@ -67,6 +79,7 @@ def _checked_text(value: str, label: str, limit: int = 1000) -> str:
 def add_candidate(db: Path, source_db: Path, *, document_number: str,
                   research_question: str, actor: str, owner: str = "",
                   internal_review_by: str | None = None) -> dict:
+    _guard_candidate_db(db, source_db)
     question = _checked_text(research_question, "Research question", 1500)
     actor = _checked_text(actor, "Actor", 120)
     if len(owner) > 120:
@@ -97,7 +110,7 @@ def add_candidate(db: Path, source_db: Path, *, document_number: str,
                 (candidate_id, actor, "Candidate only | qualified review required", now))
     return {"id": candidate_id, "state": STATES[0],
             "source_document": document_number, "review_required": True,
-            "compliance_status": "NOT_DETERMINED"}
+            "compliance_status": "NOT_DETERMINED", "external_release_authorized": False}
 
 
 def change_research_status(db: Path, *, candidate_id: str, state: str,
@@ -121,13 +134,13 @@ def change_research_status(db: Path, *, candidate_id: str, state: str,
                 VALUES (?, ?, ?, ?, ?)""",
                 (candidate_id, f"{row[0]} -> {state}", actor, notes, utc_now()))
     return {"id": candidate_id, "research_state": state,
-            "compliance_status": "NOT_DETERMINED"}
+            "compliance_status": "NOT_DETERMINED", "external_release_authorized": False}
 
 
 def candidates(db: Path, source_db: Path | None = None) -> list[dict]:
     if not db.is_file():
         return []
-    with closing(sqlite3.connect(f"file:{db.resolve().as_posix()}?mode=ro", uri=True)) as conn:
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as conn:
         conn.row_factory = sqlite3.Row
         rows = [dict(r) for r in conn.execute(
             "SELECT * FROM obligation_candidates ORDER BY created_at DESC, id")]
@@ -137,11 +150,17 @@ def candidates(db: Path, source_db: Path | None = None) -> list[dict]:
             row["source_status"] = "NOT_RECHECKED"
             if source_db is not None:
                 try:
+                    snapshot(source_db, row["source_document"],
+                             fingerprint=row["source_fingerprint"])
+                except (ValueError, OSError, sqlite3.Error):
+                    row["source_status"] = "PINNED_SOURCE_UNAVAILABLE_OR_INVALID_REVIEW_REQUIRED"
+                    continue
+                try:
                     current = snapshot(source_db, row["source_document"])
-                    row["source_status"] = ("SOURCE_SNAPSHOT_CURRENT"
+                    row["source_status"] = ("MATCHES_LATEST_LOCAL_METADATA_SNAPSHOT"
                                             if current["fingerprint"] == row["source_fingerprint"]
                                             else "SOURCE_CHANGED_REVIEW_REQUIRED")
-                except (ValueError, FileNotFoundError, sqlite3.Error):
+                except (ValueError, OSError, sqlite3.Error):
                     row["source_status"] = "SOURCE_UNAVAILABLE_REVIEW_REQUIRED"
     return rows
 
@@ -149,7 +168,7 @@ def candidates(db: Path, source_db: Path | None = None) -> list[dict]:
 def events(db: Path, candidate_id: str) -> list[dict]:
     if not db.is_file():
         return []
-    with closing(sqlite3.connect(f"file:{db.resolve().as_posix()}?mode=ro", uri=True)) as conn:
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as conn:
         conn.row_factory = sqlite3.Row
         return [dict(r) for r in conn.execute(
             "SELECT * FROM candidate_events WHERE candidate_id=? ORDER BY id",
@@ -178,6 +197,8 @@ def main(argv: list[str] | None = None) -> int:
     history.add_argument("--id", required=True)
     args = parser.parse_args(argv)
     try:
+        if args.command in ("init", "add-from-faa", "status"):
+            _guard_candidate_db(args.db, args.source_db)
         if args.command == "init":
             initialize(args.db)
             result = {"database": str(args.db), "status": "initialized_local_only"}
@@ -192,7 +213,9 @@ def main(argv: list[str] | None = None) -> int:
             result = events(args.db, args.id)
         else:
             result = candidates(args.db, args.source_db)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
+        print(json.dumps({"compliance_status": "NOT_DETERMINED",
+                          "external_release_authorized": False,
+                          "result": result}, indent=2, ensure_ascii=False))
         return 0
     except (ValueError, sqlite3.Error, OSError) as exc:
         print(f"AeroCIE-008 error: {exc}", file=sys.stderr)

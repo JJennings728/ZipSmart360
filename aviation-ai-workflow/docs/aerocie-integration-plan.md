@@ -3,9 +3,11 @@
 ## Current, already integrated
 - **FederalRegister.gov API v1**: live published/public-inspection metadata research through existing `src.aerocie.fr_collector`; no key required for basic queries.
   Documentation: https://www.federalregister.gov/developers/documentation/api/v1
-- **FAA Dynamic Regulatory System (DRS)**: official current FAA source cross-check. Human source validation; do not claim a stable sanctioned API without documentation. https://drs.faa.gov/
 - **SQLite 3**: built into Python standard library; separate local source and candidate registers. **Not** hosted multi-tenant infrastructure.
 - **GitHub**: change control and tests in existing repository; no secrets or local `build` data in commits.
+
+## Manual source verification | not an API integration
+- **FAA Dynamic Regulatory System (DRS)**: official current FAA source cross-check. Human source validation; do not claim a stable sanctioned API without documentation. https://drs.faa.gov/
 
 ## Optional integrations, not required for AeroCIE-008
 - **OpenAI Responses API**: model-assisted candidate extraction and structured JSON with strict schemas; optional *future* AeroCIE-010 feature requiring a paid API key and test coverage. https://developers.openai.com/api/reference/responses/overview
