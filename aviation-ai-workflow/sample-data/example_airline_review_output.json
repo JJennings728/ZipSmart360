@@ -1,0 +1,89 @@
+{
+  "submission_readiness": {
+    "status": "additional_information_required",
+    "summary": "The synthetic major-airline submission contains fleet, loss, operations, safety, maintenance, cyber, and financial-scale information, but the global airport exposure schedule, final fleet-delivery reconciliation, and business-interruption dependency map are missing."
+  },
+  "exposure_summary": {
+    "aircraft_count": 1050,
+    "total_hull_value_usd": 44465000000,
+    "largest_single_aircraft_hull_usd": 100000000,
+    "requested_liability_limit_usd": 2250000000,
+    "projected_flight_hours": 3600000,
+    "utilization_change_percent": 4.3,
+    "summary": "Northstar Global Airlines (Synthetic) presents 1,050 aircraft with USD 44.465 billion of stated hull value, a USD 100 million largest single-aircraft value, a USD 2.25 billion requested liability limit, and approximately 3.6 million projected policy-year flight hours."
+  },
+  "hull_asset_analysis": {
+    "status": "review_required",
+    "summary": "The scale of fleet value, widebody concentration, fleet-transition activity, and delivery-plan uncertainty require senior aviation underwriting and capacity review.",
+    "issues": [
+      "Synthetic aggregate fleet hull value is USD 44.465 billion across 1,050 aircraft.",
+      "The largest stated single-aircraft hull value is USD 100 million on the synthetic 787-10 group.",
+      "The submitted 2026 delivery plan does not reconcile to the supplied synthetic fleet-commitment evidence.",
+      "Repair-cost, spare-engine, parts-availability, grounding, and fleet-wide accumulation assumptions are not independently validated by this demonstration."
+    ]
+  },
+  "missing_information": [
+    "Updated global airport and overnight ground-accumulation exposure schedule.",
+    "Final 2027 fleet delivery / retirement reconciliation tied to manufacturer evidence.",
+    "Business-interruption dependency map covering critical hubs, IT systems, MRO, suppliers, fuel, and regional-carrier dependencies."
+  ],
+  "risk_flags": [
+    {
+      "category": "fleet_scale",
+      "fact": "The synthetic fleet contains 1,050 aircraft with USD 44.465 billion of stated hull value.",
+      "why_review": "Aggregate hull, airport accumulation, spare-engine, and catastrophe concentration require specialist airline-market review."
+    },
+    {
+      "category": "liability_tower",
+      "fact": "The synthetic requested liability limit is USD 2.25 billion while supplied certificate evidence shows USD 2.0 billion.",
+      "why_review": "Tower structure, market capacity, attachment, and documentation require authorized broker/carrier/reinsurer review."
+    },
+    {
+      "category": "fleet_transition",
+      "fact": "The synthetic submission expects 90 deliveries in the last nine months of 2026 while the supplied fleet evidence shows 87.",
+      "why_review": "Fleet schedules and insurance evidence should be synchronized as aircraft enter or leave service."
+    },
+    {
+      "category": "maintenance_trend",
+      "fact": "Synthetic maintenance materials and outside-repair expense growth is represented at 15.7%.",
+      "why_review": "The cause and persistence of engine-overhaul, component-repair, and supply-chain cost pressure should be understood."
+    },
+    {
+      "category": "external_event",
+      "fact": "One synthetic external aviation event involving SYN1050 is not reconciled to the submitted loss history.",
+      "why_review": "The event should be classified by a human reviewer; an event is not automatically an insurance claim or undisclosed loss."
+    },
+    {
+      "category": "network_and_systemic_risk",
+      "fact": "The synthetic network spans domestic, Atlantic, Pacific, and Latin America operations with major hub and technology dependencies.",
+      "why_review": "Geopolitical, cyber, airport, fuel, supplier, and business-interruption dependencies may create correlated loss or operational scenarios."
+    }
+  ],
+  "delegated_authority_review": {
+    "status": "carrier_referral_indicated",
+    "summary": "Multiple supplied synthetic airline referral thresholds are exceeded; the account should be routed to senior airline underwriting and capacity review.",
+    "reasons": [
+      "USD 100 million largest single-aircraft hull exceeds the synthetic USD 90 million threshold.",
+      "USD 2.25 billion requested liability limit exceeds the synthetic USD 2.0 billion threshold.",
+      "15.7% maintenance-expense growth exceeds the synthetic 15% operations-review threshold.",
+      "Submitted 2026 delivery plan differs from supplied fleet evidence by three aircraft."
+    ],
+    "disclaimer": "Illustrative referral logic only; not actual carrier, broker, or reinsurer appetite, authority, pricing, or capacity."
+  },
+  "fac_review": {
+    "summary": "The synthetic account is suitable for subscription-market / facultative-capacity discussion because of fleet value, liability tower size, global operations, and fleet-transition complexity; no placement or participation decision is made.",
+    "issues": [
+      "Final tower structure, attachment points, shares, and wording are not supplied.",
+      "Airport ground accumulation and war / geopolitical exposure require separate specialist review.",
+      "Fleet-delivery and aircraft-scope evidence should reconcile before final placement documentation.",
+      "Cyber/technology and business-interruption dependencies should be reviewed alongside aviation coverage boundaries."
+    ]
+  },
+  "recommended_next_action": "Obtain the missing airport-accumulation, fleet-delivery, and dependency evidence; reconcile the certificate and registry exceptions; then route the account to authorized senior airline underwriting and capacity reviewers for tower, accumulation, wording, war, and subscription-market assessment.",
+  "human_review_required": true,
+  "limitations": [
+    "Synthetic demonstration data only.",
+    "The scenario uses public large-airline disclosures only for scale calibration; it does not represent United Airlines' insurance program, losses, limits, fleet values, or underwriting information.",
+    "No pricing, binding, declining, capacity, coverage, claims, legal, sanctions, regulatory, actuarial, engineering, or catastrophe-model determination is made."
+  ]
+}
