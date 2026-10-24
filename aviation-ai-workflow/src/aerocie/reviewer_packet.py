@@ -32,23 +32,32 @@ def now_utc() -> str:
     return dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
 
 
-def snapshot(db: Path, document_number: str) -> dict[str, Any]:
-    """Return latest published snapshot and its saved collector fingerprint."""
+def snapshot(db: Path, document_number: str, *, fingerprint: str | None = None) -> dict[str, Any]:
+    """Validate a pinned published metadata snapshot, or the latest local one."""
     if not DOC_RE.fullmatch(document_number):
         raise ValueError("Invalid Federal Register document number")
     if not db.is_file():
         raise FileNotFoundError(f"Missing collector database: {db}")
-    with closing(sqlite3.connect(f"file:{db.resolve().as_posix()}?mode=ro", uri=True)) as conn:
+    if fingerprint is not None and (not isinstance(fingerprint, str) or
+                                    not re.fullmatch(r"[0-9a-f]{64}", fingerprint)):
+        raise ValueError("Invalid pinned SHA-256 fingerprint")
+    clause = " AND fingerprint=?" if fingerprint is not None else ""
+    params = (document_number, fingerprint) if fingerprint is not None else (document_number,)
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as conn:
         row = conn.execute("""SELECT source, fingerprint, payload_json FROM document_snapshots
-            WHERE source='published' AND document_number=? ORDER BY id DESC LIMIT 1""",
-            (document_number,)).fetchone()
+            WHERE source='published' AND document_number=?""" + clause + " ORDER BY id DESC LIMIT 1",
+            params).fetchone()
     if row is None:
         raise ValueError("Published document absent from local database (or only in public inspection)")
     source, fingerprint, payload = row
+    if not isinstance(payload, str) or not isinstance(fingerprint, str):
+        raise ValueError("Snapshot payload and fingerprint must be strings")
     expected = hashlib.sha256(payload.encode("utf-8")).hexdigest()
     if expected != fingerprint:
         raise ValueError("Stored collector fingerprint does not match the snapshot payload")
     data = json.loads(payload)
+    if not isinstance(data, dict):
+        raise ValueError("Snapshot payload must be a JSON object")
     if data.get("document_number") != document_number or data.get("source") != "published":
         raise ValueError("Snapshot document metadata is inconsistent")
     return {"source": source, "fingerprint": fingerprint, "record": data}

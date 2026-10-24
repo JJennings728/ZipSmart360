@@ -67,6 +67,17 @@ It does **not** quote or bind insurance, set rates or authorize capacity, make f
     └── tests/
         └── test_review_submission.py
 
+## AeroCIE | Aerospace compliance research infrastructure in development
+
+The **AeroCIE** modules are separate from the synthetic underwriting demo described above. The current FAA research prototype supports source snapshots, research triage, draft packets and local human-review records; **it is not a production compliance system**.
+
+- [AeroCIE-008 | source-linked research candidate register](docs/aerocie-008-obligation-register.md)
+- [Product scope and compliant marketing language](docs/aerocie-product-positioning.md)
+- [API priorities and Windows PowerShell setup](docs/aerocie-integration-plan.md)
+- [Existing AeroCIE research modules](docs/aerocie-quickstart.md)
+
+Strategic target: **AeroCIE | AI-Native Aerospace Compliance Infrastructure** — Monitor | Interpret | Map | Review | Document. All new candidate records explicitly remain `NOT_DETERMINED`; AI extraction, customer auth, multi-tenant hosting and verified regulatory applicability are future work.
+
 ## Quick start
 
 Requires Python 3.11+.
