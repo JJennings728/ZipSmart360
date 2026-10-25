@@ -22,7 +22,7 @@ class KnowledgeGraphTests(unittest.TestCase):
         self.source_file = root / 'synthetic.txt'
         self.source_file.write_text('SYNTHETIC DEMO. Example aircraft appears in an example memo.\n', encoding='utf-8')
         kg.import_text(self.db, doc_id='doc:synthetic:1', title='Synthetic demonstration',
-                       url='https://example.invalid/demo', text=self.source_file.read_text(),
+                       url='https://example.invalid/demo', text=self.source_file.read_bytes().decode('utf-8'),
                        source_db=self.source_db)
         kg.add_node(self.db, node_id='aircraft:fictional', kind='AIRCRAFT',
                     label='Fictional aircraft', source_db=self.source_db)
@@ -45,6 +45,21 @@ class KnowledgeGraphTests(unittest.TestCase):
         self.assertEqual(out['compliance_status'],'NOT_DETERMINED')
         self.assertFalse(out['external_release_authorized'])
 
+    def test_windows_style_crlf_bytes_pinned_without_normalization(self):
+        # Explicitly verify raw file bytes are hashed, even with Windows CRLF.
+        crlf_file = Path(self.tmp.name) / 'crlf.txt'
+        raw_bytes = b'SYNTHETIC WINDOWS CRLF SAMPLE\r\n'
+        crlf_file.write_bytes(raw_bytes)
+        out = io.StringIO()
+        with redirect_stdout(out):
+            result = kg.main(['--db', str(self.db), '--source-db', str(self.source_db),
+                              'import-file', '--id', 'doc:crlf:1',
+                              '--title', 'CRLF test', '--url', 'https://example.invalid/crlf',
+                              '--file', str(crlf_file)])
+        self.assertEqual(result, 0)
+        stored = {item['id']: item for item in kg.export_graph(self.db, self.source_db)['documents']}
+        self.assertEqual(stored['doc:crlf:1']['sha256'], hashlib.sha256(raw_bytes).hexdigest())
+
     def test_link_requires_exact_quote(self):
         with self.assertRaises(ValueError):self.add(excerpt='claim not in source')
         self.assertEqual(kg.export_graph(self.db,self.source_db)['edges'],[])
@@ -64,7 +79,7 @@ class KnowledgeGraphTests(unittest.TestCase):
 
     def test_id_is_immutable(self):
         kg.import_text(self.db,doc_id='doc:synthetic:1',title='Synthetic demonstration',
-                       url='https://example.invalid/demo',text=self.source_file.read_text(),
+                       url='https://example.invalid/demo',text=self.source_file.read_bytes().decode('utf-8'),
                        source_db=self.source_db)
         with self.assertRaises(ValueError):
             kg.import_text(self.db,doc_id='doc:synthetic:1',title='Edited',
