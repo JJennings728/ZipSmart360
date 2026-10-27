@@ -303,3 +303,131 @@ for page in ['index.html','intelligence/index.html','sectors/index.html','servic
 for image_name in MEDIA_ASSETS:
     if not (MEDIA_ROOT/image_name).exists():raise RuntimeError('Missing photo: '+image_name)
 print('SRP_VISUAL_UPDATE_OK','images',len(MEDIA_ASSETS),'space_risk_analytics',True,'public_naics_label_removed',True,'market_hero_contrast',True)
+
+
+# SRP_OPTION_B_2026 | Enterprise presentation and engagement accessibility
+# Static-site copy and presentation only; no billing or mail changes.
+from html import escape as _esc
+
+_SRP_ENTERPRISE_CSS = """
+<style id="srp-enterprise-2026">
+:root{--srp-navy:#07182d;--srp-ice:#eaf6fc;--srp-cyan:#77e4fa}
+.srp-engagement-card{background:#07182d!important;color:#f4f8fc!important;border:1px solid #284766!important;border-radius:14px!important;padding:clamp(28px,4vw,54px)!important;box-shadow:0 18px 45px rgba(4,17,35,.14)!important;margin:36px 0!important}
+.srp-engagement-card h2{color:#fff!important;font-size:clamp(28px,3vw,40px)!important;line-height:1.2!important;margin:0 0 26px!important}
+.srp-engagement-card p,.srp-engagement-card li{color:#e2ecf5!important;font-size:16px!important;line-height:1.75!important}
+.srp-engagement-card strong{color:#fff!important}
+.srp-engagement-card a{color:#77e4fa!important;text-decoration:underline!important;text-underline-offset:3px}
+.srp-engagement-card a:hover,.srp-engagement-card a:focus-visible{color:#fff!important}
+.srp-engagement-card a:focus-visible{outline:2px solid #77e4fa;outline-offset:4px}
+.srp-engagement-card .srp-eyebrow{color:#77e4fa!important;font:700 12px/1.55 system-ui,sans-serif!important;text-transform:uppercase;letter-spacing:.15em}
+.srp-engagement-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin:26px 0}
+.srp-engagement-step{padding:16px 0;border-top:1px solid #355572}
+.srp-engagement-step .srp-number{display:block;color:#77e4fa!important;font:700 15px/1.3 system-ui,sans-serif;margin-bottom:8px}
+.srp-engagement-step h3{color:#fff!important;font:700 20px/1.2 system-ui,sans-serif;margin:0 0 8px}
+.srp-engagement-step p{margin:0!important;font-size:15px!important}
+.srp-engagement-card .srp-engagement-footer{border-top:1px solid #355572;padding-top:18px;margin-top:20px}
+.srp-engagement-card .srp-policy-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:15px;font-size:14px}
+.srp-engagement-card .srp-contact-link{display:inline-block;margin:8px 0 0;font-weight:700}
+.srp-enterprise-lead{color:#e4eef9;font:400 clamp(16px,1.65vw,19px)/1.7 system-ui,sans-serif;max-width:800px}
+.srp-enterprise-kicker{font:700 12px/1.6 system-ui,sans-serif;color:#63dff5;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
+.srp-enterprise-solution{border-top:1px solid #d6e3ec;padding:28px 0}
+.srp-enterprise-solution h2{margin:0 0 8px}
+.srp-enterprise-solution p{max-width:800px;line-height:1.75}
+@media(max-width:720px){.srp-engagement-steps{grid-template-columns:1fr;gap:8px}.srp-engagement-card{padding:26px 22px!important}.srp-engagement-card p,.srp-engagement-card li{font-size:15px!important}}
+</style>
+"""
+
+engagement_card = """
+<section class="srp-engagement-card" id="how-engagements-work" aria-labelledby="engagements-heading">
+ <p class="srp-eyebrow">Our engagement process</p>
+ <h2 id="engagements-heading">How engagements work</h2>
+ <div class="srp-engagement-steps">
+  <div class="srp-engagement-step"><span class="srp-number">01</span><h3>Initial consultation</h3><p>Tell us about your organization, aircraft, fleet, supplier concern, technology requirements, or research objective.</p></div>
+  <div class="srp-engagement-step"><span class="srp-number">02</span><h3>Scope and proposal</h3><p>We review source availability, authorized data use, timing, deliverables, assumptions, and commercial terms.</p></div>
+  <div class="srp-engagement-step"><span class="srp-number">03</span><h3>Engagement authorization</h3><p>After written agreement on the scope, we finalize engagement documentation and provide invoicing instructions.</p></div>
+  <div class="srp-engagement-step"><span class="srp-number">04</span><h3>Research and delivery</h3><p>We provide agreed reports, analytical work products, or prototypes with sources, methodological limits, and review requirements.</p></div>
+ </div>
+ <div class="srp-engagement-footer">
+  <p>StrategicRisk Partners provides independent research, analytics, and technology consulting. No insurance coverage is bound and no insurance premiums are collected through this website. Regulated insurance services and restricted-data processing require separate qualifications and authorization.</p>
+  <p><strong>Request a consultation:</strong> <a class="srp-contact-link" href="mailto:info@sriskpartners.com">info@sriskpartners.com</a></p>
+  <nav aria-label="Business policies" class="srp-policy-links"><a href="/terms-of-service/">Terms of Service</a><a href="/refund-policy/">Refund Policy</a><a href="/contact/">Contact SRP</a></nav>
+ </div>
+</section>
+"""
+
+def _enterprise_style_and_copy(relpath,replacements=(),first_h1=None):
+    page=ROOT/relpath
+    if not page.is_file():raise RuntimeError("Missing requested enterprise page: "+relpath)
+    text=page.read_text("utf-8")
+    if "srp-enterprise-2026" not in text:
+        if "</head>" not in text:raise RuntimeError("Missing document head: "+relpath)
+        text=text.replace("</head>",_SRP_ENTERPRISE_CSS+"</head>",1)
+    if first_h1 is not None:
+        pat=re.compile(r"<h1\b[^>]*>[\s\S]*?</h1>",re.I)
+        if not pat.search(text):raise RuntimeError("Missing primary heading: "+relpath)
+        text=pat.sub("<h1>"+_esc(first_h1)+"</h1>",text,count=1)
+    for old,new in replacements:
+        if old not in text:
+            raise RuntimeError("Expected outdated copy was not found in "+relpath+": "+old)
+        text=text.replace(old,new)
+    page.write_text(text,encoding="utf-8")
+
+_enterprise_style_and_copy("index.html",(
+    ("Focused expertise.","Integrated research and technology solutions."),
+    ("Defined deliverables. Transparent starting prices.","Defined scopes. Written proposals."),
+),first_h1="Advancing decisions through aerospace intelligence")
+
+_enterprise_style_and_copy("intelligence/index.html",(
+    ("Four connected lines of business","Research, analytics and emerging technology"),
+    ("Start with a paid research engagement","Start with a scoped research engagement"),
+),first_h1="Turning complex research into connected intelligence")
+
+_enterprise_style_and_copy("solutions/space/index.html",
+    first_h1="Space risk analytics | Launch and satellite intelligence")
+
+_enterprise_style_and_copy("services-pricing/index.html",
+    first_h1="Integrated research and technology solutions")
+
+# The gray text-on-gray legacy panel is replaced with a single accessible navy card.
+services_file=ROOT/"services-pricing/index.html"
+services_text=services_file.read_text("utf-8")
+old_panel=r'<div\s+class="srisk-payment-panel"\s*>[\s\S]*?</div>'
+if len(re.findall(old_panel,services_text,flags=re.I))!=1:
+    raise RuntimeError("Cannot safely identify unique legacy ordering panel.")
+services_text=re.sub(old_panel,engagement_card,services_text,count=1,flags=re.I)
+services_text=services_text.replace("Services &amp; pricing","Services &amp; Consulting")
+services_text=services_text.replace("Services & pricing","Services & Consulting")
+services_file.write_text(services_text,encoding="utf-8")
+
+# Reinforce accurate positioning, without introducing a fifth nav tab or public price.
+def _add_service_line(page,section_id,heading,description):
+    p=ROOT/page
+    s=p.read_text("utf-8")
+    if 'id="'+section_id+'"' in s:return
+    match=re.search(r"</main\s*>",s,re.I)
+    if not match:raise RuntimeError("Missing main section for "+page)
+    line='<section class="srp-enterprise-solution" id="'+section_id+'"><h2>'+_esc(heading)+'</h2><p>'+_esc(description)+'</p><p><a href="mailto:info@sriskpartners.com?subject=SRP%20Consultation">Discuss your requirements: info@sriskpartners.com</a></p></section>'
+    s=s[:match.start()]+line+s[match.start():]
+    p.write_text(s,encoding="utf-8")
+
+_add_service_line("index.html","srp-defining-capabilities","Aviation | Space | Technology | Defense-Industry Research",
+    "Independent source-linked aviation risk intelligence, space and mission exposure research, enterprise AI and PowerShell workflow prototyping, supplier research, and management-ready analytics.")
+_add_service_line("intelligence/index.html","srp-aerocie-capabilities","Introducing AeroCIE | Source-linked research workflows",
+    "AeroCIE is an early-stage technology prototype exploring document provenance, evidence linking, deterministic checks and human review. Its interactive public graph is synthetic, not a validated live government feed or certified regulatory determination system.")
+_add_service_line("solutions/space/index.html","srp-space-research-capabilities","Space intelligence beyond the atmosphere",
+    "Source-linked research into launch events, satellite operating environments, published space-weather observations and Earth observation context, using appropriately licensed public data. No operational mission assurance, launch certification, flight-safety guidance or real-time hazard forecasting.")
+
+# Validate copy, typography, CTA and portfolio assets before publishing.
+out_services=services_file.read_text("utf-8")
+if "How ordering works" in out_services or "Financing is offered" in out_services:
+    raise RuntimeError("Old checkout and ordering language remains.")
+if any(x not in out_services for x in ["How engagements work","srp-engagement-card","info@sriskpartners.com","Terms of Service"]):
+    raise RuntimeError("Engagement-card regression.")
+for rel in ["index.html","intelligence/index.html","services-pricing/index.html","solutions/space/index.html"]:
+    doc=(ROOT/rel).read_text("utf-8")
+    if "srp-enterprise-2026" not in doc:raise RuntimeError("Missing enterprise styles: "+rel)
+    if "| NAICS 541690" in doc:raise RuntimeError("Unwanted NAICS badge: "+rel)
+    if any(v in doc for v in ["$995","$2,995","$7,500"]):raise RuntimeError("Public pricing regression: "+rel)
+if not (ROOT/"aerocie-demo/glow-effects.js").exists():raise RuntimeError("AeroCIE interactive asset missing")
+if not (ROOT/"assets/srp/srp-satellite.webp").exists():raise RuntimeError("Space stock image missing")
+print("SRP_OPTION_B_READY","engagement_card","replaced","readability","enhanced","pages",4,"no_public_prices",True,"aerocie",True)
