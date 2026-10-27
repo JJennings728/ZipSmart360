@@ -19,6 +19,21 @@ if not all(x in demo for x in ["8,800 SIMULATED NODES", "NOT_DETERMINED", "9,000
     raise RuntimeError("Graph disclosure and simulation checks failed.")
 demo_path.write_bytes(content)
 
+# Immutable, reviewed visual enhancement — standalone JS, no live data.
+GLOW_COMMIT = "afad0ab0ffabd40852955873f5f35ab3661e86ee"
+GLOW_URL = "https://raw.githubusercontent.com/JJennings728/ZipSmart360/" + GLOW_COMMIT + "/website-public/aerocie-demo/glow-effects.js"
+with urlopen(GLOW_URL, timeout=35) as response:
+    glow_js = response.read().decode("utf-8")
+if len(glow_js) < 9000 or not all(token in glow_js for token in ["AeroCIEHoverEffects", "ILLUSTRATIVE_SYNTHETIC", "srp-stage-rail", "prefers-reduced-motion"]):
+    raise RuntimeError("Interactive glow source invalid or incomplete.")
+(ROOT / "aerocie-demo" / "glow-effects.js").write_text(glow_js, encoding="utf-8")
+html = demo_path.read_text(encoding="utf-8")
+if "glow-effects.js" not in html:
+    if html.count("</body>") != 1:
+        raise RuntimeError("Unexpected synthetic demo HTML closing tag.")
+    html = html.replace("</body>", '<script src="/aerocie-demo/glow-effects.js" defer></script></body>')
+    demo_path.write_text(html, encoding="utf-8")
+
 def inject(path, fragment, mark):
     path = ROOT / path
     if not path.is_file():
@@ -139,4 +154,4 @@ for route in ["index.html", "intelligence/index.html", "services-pricing/index.h
         raise RuntimeError("Required route missing: " + route)
 if 'iframe class="srp-demo-frame"' not in (ROOT/"intelligence/index.html").read_text("utf-8"):
     raise RuntimeError("Interactive embedded preview missing.")
-print("SRP_SITE_BUILD_OK", "synthetic_demo_bytes",len(content),"edited_prices",len(changed),"demo_in_intelligence",True)
+print("SRP_SITE_BUILD_OK", "synthetic_demo_bytes",len(content),"edited_prices",len(changed),"demo_in_intelligence",True,"hover_effects",True,"seven_stages",True)
