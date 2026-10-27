@@ -539,3 +539,24 @@ for rel in ["index.html","research/index.html","intelligence/index.html","servic
         if old in txt:raise RuntimeError("Outdated copy remains: "+rel)
 if len(re.findall(r'<a href="/(services-pricing|intelligence)/"',CAPABILITIES))<2:raise RuntimeError("Domain links incomplete")
 print("SRP_NAV_COPY_2026_OK",len(SRP_MENU),"navitems",5,"domains", "publication_preview",True,"demo_disclosure_retained",True)
+
+# SRP_REFUND_CTA_HIDDEN_2026
+# A separate refund policy remains at its existing direct URL for contractual reference.
+# This removes its prominent link from sales/consulting pages, not the policy itself.
+import re as _srp_re
+for _srp_rel in ["index.html","services-pricing/index.html","intelligence/index.html","contact/index.html","research/index.html"]:
+    _srp_page = ROOT / _srp_rel
+    if not _srp_page.is_file():
+        continue
+    _srp_html_str = _srp_page.read_text("utf-8")
+    _srp_clean = _srp_re.sub(r'(?is)<a\b[^>]*\bhref\s*=\s*["\'][^"\']*refund-policy/["\'][^>]*>.*?</a>', "", _srp_html_str)
+    _srp_clean = _srp_re.sub(r'(?is)<(?:a|button)\b[^>]*>\s*(?:Request a refund|Refund / Return|Refund &amp; Return|Refund Policy)\s*</(?:a|button)>', "", _srp_clean)
+    if _srp_clean != _srp_html_str:
+        _srp_page.write_text(_srp_clean, encoding="utf-8")
+    if _srp_re.search(r'(?is)<a\b[^>]*\bhref\s*=\s*["\'][^"\']*refund-policy/["\']', _srp_clean):
+        raise RuntimeError("Refund link remains on public marketing page: " + _srp_rel)
+if not (ROOT / "refund-policy/index.html").is_file():
+    raise RuntimeError("Underlying refund policy must remain accessible")
+if "info@sriskpartners.com" not in (ROOT/"services-pricing/index.html").read_text("utf-8"):
+    raise RuntimeError("Sales consultation CTA missing")
+print("SRP_REFUND_CTA_REMOVED", True, "policy_retained", True)
