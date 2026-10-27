@@ -431,3 +431,111 @@ for rel in ["index.html","intelligence/index.html","services-pricing/index.html"
 if not (ROOT/"aerocie-demo/glow-effects.js").exists():raise RuntimeError("AeroCIE interactive asset missing")
 if not (ROOT/"assets/srp/srp-satellite.webp").exists():raise RuntimeError("Space stock image missing")
 print("SRP_OPTION_B_READY","engagement_card","replaced","readability","enhanced","pages",4,"no_public_prices",True,"aerocie",True)
+
+
+# SRP 2026-10-26 | Corporate information architecture and editorial refresh.
+import html as _srp_html
+SRP_MENU = [("What We Do","/services-pricing/"),("Who We Are","/#who-we-are"),("Information","/intelligence/"),("Connect Us","/contact/")]
+SRP_FOOTER = "2026 StrategicRisk Partners. All Rights Reserved."
+PUBLIC_COPY_REPLACEMENTS = [
+ ("Four concise examples of how selected FAA and NTSB records can inform better documentation requests and exposure discussions. No proprietary data claims or manufactured risk scores.",
+  "Selected aerospace intelligence briefings translate regulatory, safety, and technical signals into clearer exposure insights, evidence priorities, and decision-ready context."),
+ ("Research you can examine", "Featured Intelligence"),
+ ("research you can examine", "Featured Intelligence"),
+ ("public FAA and NTSB records can help answer", "connected aviation intelligence can illuminate"),
+ ("Capabilities are scoped individually; no federal registration approval, contract award, CMMC certification, or clearance implied.",""),
+ ("Illustrative simulation only | No live FAA, NASA, or DoD feeds | No verified regulatory decisions | Compliance: NOT_DETERMINED","")
+]
+PAGE_REBRAND_CSS="""<style id="srp-enterprise-nav">
+.srp-capabilities{background:#f2f7fb;color:#081d36;padding:68px max(24px,calc((100% - 1130px)/2));}
+.srp-capabilities h2{font:700 clamp(30px,3.6vw,48px)/1.15 system-ui,sans-serif;color:#081d36;margin:10px 0 12px}
+.srp-capabilities p{color:#35536c;line-height:1.7;max-width:850px;font-size:17px}
+.srp-capability-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.srp-capability-grid a{background:white;color:#0a3158;text-decoration:none;border:1px solid #d2e2ee;border-top:3px solid #197cbe;border-radius:5px;min-height:94px;display:flex;align-items:center;justify-content:center;padding:15px 10px;text-align:center;font:700 14px/1.4 system-ui,sans-serif}
+.srp-capability-grid a:hover,.srp-capability-grid a:focus-visible{background:#e5f6fd;outline:2px solid #1782c5}
+.srp-footnote-2026{padding:18px 20px;text-align:center;color:#bcd1e4;background:#051325;font:12px/1.5 system-ui,sans-serif}
+.srp-site-nav-upgraded a{white-space:nowrap}
+@media(max-width:800px){.srp-capability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.srp-capability-grid{grid-template-columns:1fr}.srp-capabilities{padding:46px 20px}}
+</style>"""
+# No fabricated certifications or market size claims. Domain taxonomy describes offerings, not
+# qualifications or completed government contracts.
+CAPABILITIES="""
+<section class="srp-capabilities" id="what-we-do" aria-labelledby="srp-what-title">
+<div style="font:700 12px system-ui,sans-serif;color:#126fc0;letter-spacing:.16em">01 | WHAT WE DO</div>
+<h2 id="srp-what-title">Intelligence and technology for complex decisions.</h2>
+<p>We combine aerospace risk intelligence, structured data analysis, cyber risk advisory and technology consulting to help organizations assess exposure, improve workflows and manage uncertainty.</p>
+<h3 style="font:700 20px system-ui,sans-serif;color:#07182d">Capabilities by Domain</h3>
+<div class="srp-capability-grid">
+<a href="/services-pricing/#defense-contractor-services">Aerospace</a>
+<a href="/intelligence/">Data</a>
+<a href="/services-pricing/#defense-contractor-services">Cyber</a>
+<a href="/services-pricing/">Management Consulting</a>
+<a href="/intelligence/#aerocie-network">Technology Services</a>
+</div>
+</section>
+<section class="srp-capabilities" id="who-we-are" style="background:#07182d;color:#fff" aria-labelledby="srp-who-title">
+<div style="font:700 12px system-ui,sans-serif;color:#65e5ef;letter-spacing:.16em">02 | WHO WE ARE</div>
+<h2 id="srp-who-title" style="color:#fff">Independent perspective. Source-linked insight.</h2>
+<p style="color:#d9e6f4">StrategicRisk Partners LLC is an Iowa-based independent research and technology consulting business serving aviation, aerospace, space and defense-industry organizations. Our work connects technical research, structured analysis and practical workflow development, with documented assumptions and human review.</p>
+<a href="mailto:info@sriskpartners.com" style="color:#77e4fa;font-weight:700">Connect with our team | info@sriskpartners.com</a>
+</section>
+"""
+# Place a minimal non-destructive accessibility-safe nav script after the site's own legacy scripts.
+_NAV_JS = r"""<script id="srp-navigation-2026">
+(function(){
+  const items=[["What We Do","/services-pricing/"],["Who We Are","/#who-we-are"],["Information","/intelligence/"],["Connect Us","/contact/"]];
+  function update(){
+    const navs=[...document.querySelectorAll("header nav, nav#site-nav, header .nav")];
+    const nav=navs.find(n=>n.querySelectorAll("a").length>=2);
+    if(!nav)return;
+    nav.classList.add("srp-site-nav-upgraded");
+    nav.querySelectorAll("a").forEach(a=>a.remove());
+    items.forEach(([label,href])=>{const a=document.createElement("a");a.textContent=label;a.href=href;nav.appendChild(a)});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",update);
+  else update();
+})();
+</script>"""
+for page in ROOT.rglob("*.html"):
+    if page == demo_path or page.parts[-2:] == ("aerocie-demo","index.html"):continue
+    raw=page.read_text("utf-8")
+    updated=raw
+    for old,new in PUBLIC_COPY_REPLACEMENTS:
+        updated=updated.replace(old,new)
+    if "srp-navigation-2026" not in updated and "</body>" in updated:
+        updated=updated.replace("</body>",_NAV_JS+"</body>",1)
+    if "srp-enterprise-nav" not in updated and "</head>" in updated:
+        updated=updated.replace("</head>",PAGE_REBRAND_CSS+"</head>",1)
+    if "srp-footnote-2026" not in updated and "</body>" in updated:
+        updated=updated.replace("</body>",'<div class="srp-footnote-2026">© '+SRP_FOOTER+"</div></body>",1)
+    if updated!=raw:page.write_text(updated,encoding="utf-8")
+# Homepage information hierarchy follows the exact five services and four-nav structure.
+homepage=ROOT/"index.html"
+s=homepage.read_text("utf-8")
+if 'id="what-we-do"' not in s:
+    location=re.search(r'</main\s*>',s,re.I)
+    if not location:raise RuntimeError("Homepage missing main insertion point")
+    s=s[:location.start()]+CAPABILITIES+s[location.start():]
+    homepage.write_text(s,encoding="utf-8")
+# Preserve the separate interactive demo disclaimer, without a long marketing warning on homepage.
+demo_text=demo_path.read_text("utf-8")
+if not ("SIMULATED" in demo_text and "NOT_DETERMINED" in demo_text):
+    raise RuntimeError("Synthetic graph's own disclosure must remain on its demo page.")
+# Reformat featured preview on the site: no narrow strip and no white text on a bright cover.
+MARKET_PREVIEW_CSS="""<style id="srp-featured-publication-fix">
+.market-home-teaser{grid-template-columns:minmax(0,1fr) minmax(250px,38%)!important;gap:26px!important;align-items:center!important;padding:30px!important}
+.market-home-teaser img{display:block!important;width:100%!important;max-width:390px!important;height:auto!important;max-height:330px!important;object-fit:contain!important;margin:0 auto!important;border-radius:4px}
+.market-home-teaser h2,.market-home-teaser h3,.market-home-teaser p,.market-home-teaser a{color:#f6fbff!important;text-shadow:0 2px 10px #061328}
+.market-home-teaser a{color:#8be9ff!important}
+@media(max-width:800px){.market-home-teaser{grid-template-columns:1fr!important;padding:22px!important}.market-home-teaser img{max-width:320px!important;max-height:240px!important}}
+</style>"""
+s=homepage.read_text("utf-8")
+if "srp-featured-publication-fix" not in s and "</head>" in s:
+    homepage.write_text(s.replace("</head>",MARKET_PREVIEW_CSS+"</head>",1),encoding="utf-8")
+for rel in ["index.html","research/index.html","intelligence/index.html","services-pricing/index.html","research/aviation-market-overview-2026/index.html"]:
+    txt=(ROOT/rel).read_text("utf-8")
+    for old in ["Four concise examples of how selected FAA and NTSB records can inform better documentation requests and exposure discussions. No proprietary data claims or manufactured risk scores.","Capabilities are scoped individually; no federal registration approval, contract award, CMMC certification, or clearance implied.","Illustrative simulation only | No live FAA, NASA, or DoD feeds | No verified regulatory decisions | Compliance: NOT_DETERMINED"]:
+        if old in txt:raise RuntimeError("Outdated copy remains: "+rel)
+if len(re.findall(r'<a href="/(services-pricing|intelligence)/"',CAPABILITIES))<2:raise RuntimeError("Domain links incomplete")
+print("SRP_NAV_COPY_2026_OK",len(SRP_MENU),"navitems",5,"domains", "publication_preview",True,"demo_disclosure_retained",True)
