@@ -155,3 +155,151 @@ for route in ["index.html", "intelligence/index.html", "services-pricing/index.h
 if 'iframe class="srp-demo-frame"' not in (ROOT/"intelligence/index.html").read_text("utf-8"):
     raise RuntimeError("Interactive embedded preview missing.")
 print("SRP_SITE_BUILD_OK", "synthetic_demo_bytes",len(content),"edited_prices",len(changed),"demo_in_intelligence",True,"hover_effects",True,"seven_stages",True)
+
+# SRP VISUAL + SPACE ANALYTICS SITE UPDATE | 2026-10-26
+# Keeps the source-verified AeroCIE synthetic demo, safeguards and consultation-only pricing.
+import hashlib
+from html import escape as srp_escape
+
+MEDIA_ASSETS = {
+    'srp-digital-engineering.webp': ('77e85cb3f762c22f63c58cbb948c13733896cb92', 55066),
+    'srp-aircraft-night.webp': ('2493e24a46cd2134f25b98a408d9a02724b6b91c', 29574),
+    'srp-engine-manufacturing.webp': ('614ff5cd3d6e8b77de997d08520a3ac14df1f088', 178924),
+    'srp-launch.webp': ('ddd951197df2e3fc9520ea090903d42cad1cc9ce', 39980),
+    'srp-data-network.webp': ('1c7edfe96187f9105d7b5b7409e02c730e653ca3', 144690),
+    'srp-satellite.webp': ('798bc6f0ef37929ef7e9f85246241ec4dbd08c1e', 52708),
+}
+MEDIA_BASE_URL = 'https://dmmcy0pwk6bqi.cloudfront.net/'
+MEDIA_ROOT = ROOT / 'assets' / 'srp'
+MEDIA_ROOT.mkdir(parents=True, exist_ok=True)
+for image_name, (digest, expected_size) in MEDIA_ASSETS.items():
+    target = MEDIA_ROOT / image_name
+    with urlopen(MEDIA_BASE_URL + digest, timeout=40) as response:
+        blob = response.read()
+    if len(blob) != expected_size or hashlib.sha1(blob).hexdigest() != digest or blob[:4] != b'RIFF':
+        raise RuntimeError('Adobe Stock image was incomplete or altered: ' + image_name)
+    target.write_bytes(blob)
+
+# Remove only the public NAICS label; underlying formal supplier capability documents stay unchanged.
+for p in ROOT.rglob('*.html'):
+    if p == demo_path:
+        continue
+    before = p.read_text('utf-8')
+    after = re.sub(r'\s*\|\s*NAICS\s*541690\b', '', before, flags=re.I)
+    after = re.sub(r'(?is)<p>\s*<strong>Primary documented NAICS:\s*541690</strong>.*?</p>', '', after)
+    if before != after:
+        p.write_text(after, encoding='utf-8')
+
+SITE_STOCK_CSS = r'''
+<style id="srp-stock-photos-2026">
+.srp-stock-panel{position:relative;isolation:isolate;min-height:300px;display:flex;align-items:center;background:#06162c;overflow:hidden;color:#fff;border-radius:0}
+.srp-stock-panel::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--srp-photo) center/cover no-repeat}
+.srp-stock-panel::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(2,11,29,.97) 0%,rgba(3,16,37,.91) 36%,rgba(4,19,43,.49) 66%,rgba(3,13,31,.19) 100%)}
+.srp-stock-panel .srp-stock-inner{width:min(1140px,calc(100% - 44px));margin:0 auto;padding:54px 0;color:#fff}
+.srp-stock-panel .srp-stock-copy{max-width:645px}
+.srp-stock-panel .srp-stock-eyebrow{margin:0 0 12px;color:#63dff5;font:700 12px/1.6 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.srp-stock-panel h2{color:#fff!important;font:700 clamp(27px,3.6vw,44px)/1.13 system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 18px;text-shadow:0 2px 12px #04162a}
+.srp-stock-panel p{color:#e8f3ff!important;font:400 16px/1.7 system-ui,sans-serif;margin:0 0 21px;max-width:660px;text-shadow:0 1px 8px #061329}
+.srp-stock-panel a.srp-stock-cta{display:inline-block;padding:12px 18px;border-radius:5px;background:#1468b5;color:#fff!important;text-decoration:none;font:700 13px system-ui,sans-serif}
+.srp-stock-panel a.srp-stock-cta:hover,.srp-stock-panel a.srp-stock-cta:focus-visible{background:#0b88d1;text-decoration:underline}
+.srp-stock-panel.srp-compact{min-height:275px}
+@media(max-width:700px){.srp-stock-panel{min-height:300px}.srp-stock-panel::after{background:linear-gradient(90deg,rgba(2,11,29,.96),rgba(3,15,33,.73))}.srp-stock-panel .srp-stock-inner{padding:40px 0}.srp-stock-panel h2{font-size:clamp(26px,6.4vw,36px)}}
+</style>
+'''
+
+def srp_stock_section(section_id,photo,eyebrow,title,description,link,button,compact=True):
+    assert photo in MEDIA_ASSETS
+    cls=' srp-compact' if compact else ''
+    return '''<section class="srp-stock-panel%s" id="%s" style="--srp-photo:url('/assets/srp/%s')" aria-label="%s">
+<div class="srp-stock-inner"><div class="srp-stock-copy"><p class="srp-stock-eyebrow">%s</p><h2>%s</h2><p>%s</p><a class="srp-stock-cta" href="%s">%s</a></div></div></section>''' % (
+      cls, srp_escape(section_id), srp_escape(photo), srp_escape(title),
+      srp_escape(eyebrow),srp_escape(title),srp_escape(description),srp_escape(link),srp_escape(button))
+
+def srp_insert_in_main(page, html, mark, near_top=False):
+    path=ROOT/page
+    if not path.exists():
+        raise RuntimeError('Expected site route missing: '+page)
+    text=path.read_text('utf-8')
+    if mark in text:
+        return
+    if near_top:
+        # Insert within main without replacing existing hero/nav.
+        match=re.search(r'<main\b[^>]*>',text,re.I)
+        if match:
+            at=match.end()
+        else:
+            match=re.search(r'</header\s*>',text,re.I)
+            if not match: raise RuntimeError('Missing insertion anchor: '+page)
+            at=match.end()
+    else:
+        match=re.search(r'</main\s*>',text,re.I)
+        if not match: raise RuntimeError('Missing main closing tag: '+page)
+        at=match.start()
+    path.write_text(text[:at]+'\n'+SITE_STOCK_CSS+'\n'+html+'\n'+text[at:],encoding='utf-8')
+
+# Six individual stock images; each is used in a relevant section, not combined.
+srp_insert_in_main('index.html',srp_stock_section(
+    'srp-aerospace-advisory-photo','srp-digital-engineering.webp','Aerospace intelligence | Digital consulting',
+    'Technical insight for complex aerospace risk',
+    'Source-linked aviation and aerospace research, operational analytics, and tailored technology consulting.',
+    '/services-pricing/','Explore consulting capabilities'),'id="srp-aerospace-advisory-photo"',near_top=False)
+
+srp_insert_in_main('intelligence/index.html',srp_stock_section(
+    'srp-data-network-photo','srp-data-network.webp','AeroCIE | Evidence workflows',
+    'Research built on traceable sources',
+    'Prototype source provenance, record reconciliation, human-review gates and deterministic checks—with simulation clearly identified.',
+    '/aerocie-demo/','Explore interactive demo'),'id="srp-data-network-photo"',near_top=False)
+
+srp_insert_in_main('sectors/index.html',srp_stock_section(
+    'srp-engine-manufacturing-photo','srp-engine-manufacturing.webp','Manufacturing | MRO | Supplier research',
+    'Technical evidence for aerospace suppliers',
+    'Independent public-source research on aviation engines, manufacturing considerations, regulatory developments and supplier exposure.',
+    '/services-pricing/','Discuss your research scope'),'id="srp-engine-manufacturing-photo"',near_top=False)
+
+srp_insert_in_main('solutions/space/index.html',srp_stock_section(
+    'srp-launch-photo','srp-launch.webp','Launch | Mission exposure',
+    'Space risk analytics and launch intelligence',
+    'Source-linked public research on launch events, space-sector exposures, mission context and aerospace loss history. No real-time mission assurance or safety prediction is represented.',
+    '/services-pricing/#space-risk-analytics','Request space risk research'),'id="srp-launch-photo"',near_top=False)
+
+space_service=srp_stock_section(
+    'space-risk-analytics','srp-satellite.webp','Space risk analytics | Earth observation',
+    'Satellite, launch and aerospace risk research',
+    'Scope-limited analysis of public launch, satellite and space-event records, selected NASA EONET natural-hazard context and DONKI space-weather context, and source-linked operational exposure research. Research support only—not live hazard warnings, engineering certification, insurance rating or verified mission predictions.',
+    'mailto:info@sriskpartners.com?subject=Space%20Risk%20Analytics%20Consultation','Request a consultation')
+srp_insert_in_main('services-pricing/index.html',space_service,'id="space-risk-analytics"',near_top=False)
+
+# Make the insurance-market landing-page hero compact and high-contrast. Replace bright cockpit photo
+# with original dark aircraft photo and limit the separate report-cover image footprint.
+market=ROOT/'research/aviation-market-overview-2026/index.html'
+if not market.is_file():raise RuntimeError('Insurance market page missing')
+market_html=market.read_text('utf-8')
+market_style=r'''<style id="srp-market-legibility-fix">
+.market-hero{background-image:linear-gradient(90deg,rgba(2,10,27,.99) 0%,rgba(2,13,33,.94) 40%,rgba(3,17,37,.71) 73%,rgba(3,14,30,.55) 100%),url('/assets/srp/srp-aircraft-night.webp')!important;background-position:center 58%!important;background-size:cover!important;padding:clamp(52px,5.2vw,78px) 0 clamp(46px,5vw,70px)!important;min-height:0!important}
+.market-hero h1{font-size:clamp(32px,4.2vw,58px)!important;max-width:780px!important;line-height:1.13!important;text-shadow:0 3px 16px #030d20!important}
+.market-hero h1 span{color:#63dfff!important}
+.market-hero .sub,.market-hero p{color:#f4faff!important;text-shadow:0 2px 10px #061329!important}
+.market-hero .container{position:relative;z-index:1}
+img[src*='Market_Overview_2026_Cover'],img[src*='market-overview-2026-cover'],.market-cover img,.report-cover img{display:block!important;width:auto!important;max-width:min(100%,460px)!important;height:auto!important;max-height:560px!important;object-fit:contain!important;margin-left:auto;margin-right:auto}
+@media(max-width:700px){.market-hero{padding:46px 0 50px!important;background-position:60% center!important}.market-hero h1{font-size:clamp(31px,7.2vw,43px)!important;max-width:100%!important}}
+</style>'''
+if 'id="srp-market-legibility-fix"' not in market_html:
+    if '</head>' not in market_html:raise RuntimeError('Insurance market head missing')
+    market_html=market_html.replace('</head>',market_style+'</head>',1)
+    market.write_text(market_html,encoding='utf-8')
+
+# Ensure space analytics is discoverable from our public intelligence section as well as services.
+additional='''<div style="margin:26px auto 12px;width:min(1140px,calc(100% - 44px));padding:20px 24px;background:#0b2644;border-left:4px solid #39c8ee;color:white">
+<strong style="font-size:18px">Space Risk Analytics</strong><p style="color:#dcecf9">Independent public-source launch, satellite, Earth observation, and operational risk research with dated source references and human review.</p>
+<a style="color:#78e4ff" href="/services-pricing/#space-risk-analytics">Explore space risk advisory</a></div>'''
+srp_insert_in_main('intelligence/index.html',additional,'Explore space risk advisory',near_top=False)
+
+# Release guards: no listed service prices, no visible NAICS label, and six distinct image assets.
+for page in ['index.html','intelligence/index.html','sectors/index.html','services-pricing/index.html','solutions/space/index.html','research/aviation-market-overview-2026/index.html']:
+    s=(ROOT/page).read_text('utf-8')
+    if 'NAICS 541690' in s:raise RuntimeError('Public NAICS label remains: '+page)
+    if any(p in s for p in ['$995','$2,995','$7,500']):raise RuntimeError('Public legacy price remains: '+page)
+    if page=='research/aviation-market-overview-2026/index.html' and 'id="srp-market-legibility-fix"' not in s:raise RuntimeError('Market hero override not found')
+for image_name in MEDIA_ASSETS:
+    if not (MEDIA_ROOT/image_name).exists():raise RuntimeError('Missing photo: '+image_name)
+print('SRP_VISUAL_UPDATE_OK','images',len(MEDIA_ASSETS),'space_risk_analytics',True,'public_naics_label_removed',True,'market_hero_contrast',True)
