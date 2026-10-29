@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>AeroCIE | Local Research Workbench</title>
+  <meta name="description" content="Internal synthetic aviation regulatory research workbench">
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Workbench navigation">
+    <div class="brand-mark" aria-label="StrategicRisk Partners"><span class="mark">✦</span>
+      <div><strong>STRATEGICRISK</strong><span>PARTNERS</span></div></div>
+    <div class="product-name"><span class="blue-dot"></span> AeroCIE <span class="tag">LAB</span></div>
+    <nav aria-label="Workbench sections">
+      <a href="#intake" class="selected" aria-current="page"><span>01</span> Case intake</a>
+      <a href="#evidence"><span>02</span> Evidence snapshot</a>
+      <a href="#preview"><span>03</span> Research report</a>
+      <a href="#deliverables"><span>04</span> Exports</a>
+    </nav>
+    <div class="side-status">
+      <span class="eyebrow">SYSTEM STATUS</span>
+      <p><span class="status-dot"></span> Local workspace</p>
+      <p><span class="status-dot amber"></span> Human review required</p>
+      <p class="sub">No external delivery or customer ingestion.</p>
+    </div>
+    <div class="side-footer">STRATEGICRISK PARTNERS LLC<br>AVIATION | AEROSPACE | RISK</div>
+  </aside>
+  <div class="main-shell">
+    <header class="topline"><span>RESEARCH OPERATIONS <span class="pipe">|</span> INTERNAL PILOT</span>
+      <span class="session-label">SYNTHETIC DATA ONLY</span></header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow">OPERATOR WORKBENCH <span class="pipe">|</span> PHASE 22</div>
+        <h1 id="page-title">Research, with the <em>evidence</em> in view.</h1>
+        <p>Prepare a controlled aviation regulatory research preview from synthetic case intake and a recorded evidence packet. Inspect the source trail, preserve review status, and export your internal report.</p>
+        <div class="hero-pills"><span>01 | DEFINE</span><span>02 | REVIEW</span><span>03 | PREVIEW</span><span>04 | EXPORT</span></div>
+      </section>
+      <div class="workspace-grid">
+        <div class="left-column">
+          <section class="panel" id="intake" aria-labelledby="intake-title">
+            <div class="section-heading"><div><span class="eyebrow">01 | RESEARCH REQUEST</span>
+                <h2 id="intake-title">Case intake</h2></div><span class="tiny-tag">LOCAL ONLY</span></div>
+            <p class="description">Edit the fictional organization and research question. Case identifiers stay bound to the synthetic fixture.</p>
+            <form id="intake-form">
+              <label for="organization">Synthetic organization</label>
+              <input id="organization" name="organization" type="text" maxlength="1000" required autocomplete="off" spellcheck="false" placeholder="Synthetic Example Aviation LLC">
+              <label for="scope">Requested research scope</label>
+              <textarea id="scope" name="scope" rows="5" maxlength="1000" required placeholder="Describe one fictional research question"></textarea>
+              <div class="field-row"><div><span class="field-title">Case reference</span><code id="case-id">Loading…</code></div>
+                <div><span class="field-title">Subject</span><code id="subject-id">Loading…</code></div></div>
+              <button class="primary" id="generate" type="submit" disabled>Generate research preview <span aria-hidden="true">→</span></button>
+              <p class="form-note">This local demo accepts synthetic intake only. The report is held for human review.</p>
+            </form>
+          </section>
+          <section class="panel evidence" id="evidence" aria-labelledby="evidence-title">
+            <div class="section-heading"><div><span class="eyebrow">02 | EVIDENCE SNAPSHOT</span>
+                <h2 id="evidence-title">Source material</h2></div><span class="evidence-chip" id="document-count">— sources</span></div>
+            <div class="evidence-row"><div class="circle-letter">S</div><div><strong>Bundled synthetic packet</strong><p>Source metadata is checked for local packet integrity; publication status and legal applicability are not determined.</p></div></div>
+            <div class="evidence-status"><span>REVIEW DISPOSITION</span><strong id="source-status">Loading…</strong></div>
+            <p class="caption">Any fictional publication number is intentionally displayed without a working official-source link.</p>
+          </section>
+          <section class="offer-card" aria-label="Proposed fixed-scope research offer">
+            <span class="eyebrow">COMMERCIAL CONCEPT | PENDING APPROVAL</span>
+            <div class="offer-row"><h2>Aviation Regulatory Intelligence Review</h2><strong>$995</strong></div>
+            <p>One defined research question, primary-source citations where available, a short executive brief, and documented follow-up checks.</p>
+          </section>
+        </div>
+        <div class="right-column">
+          <section class="panel report-panel" id="preview" aria-labelledby="report-title">
+            <div class="section-heading"><div><span class="eyebrow">03 | REVIEW THE EVIDENCE</span>
+                <h2 id="report-title">Report preview</h2></div><span class="review-badge">HUMAN REVIEW</span></div>
+            <div class="metrics" aria-live="polite">
+              <div><strong id="metric-sources">—</strong><span>Source records</span></div>
+              <div><strong id="metric-links">—</strong><span>Correction links</span></div>
+              <div><strong id="metric-reviewed">—</strong><span>Checks recorded</span></div>
+              <div><strong id="metric-open">—</strong><span>Review items open</span></div>
+            </div>
+            <div class="preview-frame-wrapper" id="preview-wrapper">
+              <div class="empty-state" id="empty-state"><div class="empty-icon" aria-hidden="true">◇</div>
+                <h3>Your report appears here.</h3><p>Complete the fictional intake and select “Generate research preview.”</p></div>
+              <iframe id="report-frame" title="Synthetic AeroCIE research report preview" sandbox="allow-popups allow-popups-to-escape-sandbox" hidden></iframe>
+            </div>
+          </section>
+          <section class="panel deliverables" id="deliverables">
+            <div><span class="eyebrow">04 | CONTROLLED EXPORT</span><h2>Internal deliverables</h2>
+              <p>Use the HTML report for browser printing or export structured JSON for a developer review.</p></div>
+            <div class="download-group">
+              <button class="outline" id="download-html" type="button" disabled>Download HTML</button>
+              <button class="outline" id="download-json" type="button" disabled>Download JSON</button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <p class="notification" id="notification" role="status" aria-live="polite"></p>
+      <footer>© StrategicRisk Partners LLC <span>|</span> AeroCIE research prototype <span>|</span> Regulatory applicability and compliance not determined</footer>
+    </main>
+  </div>
+</div>
+</body>
+</html>
