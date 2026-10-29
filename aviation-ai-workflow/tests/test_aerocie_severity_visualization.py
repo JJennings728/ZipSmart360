@@ -54,7 +54,11 @@ class SeverityVisualizationTests(unittest.TestCase):
         self.assertEqual(result,0)
 
     def test_html_escapes_untrusted_aircraft_names_in_stress_charts(self):
-        with sqlite3.connect(self.db) as c:
-            c.execute("UPDATE dim_aircraft SET model='<img src=x onerror=alert(1)>' WHERE aircraft_id='A001'")
-        html=underwriting_preview.render(self.db)
+        fixture = underwriting_pipeline.synthetic_fixture()
+        row = list(fixture["aircraft"][0])
+        row[3] = '<img src=x onerror=alert(1)>'
+        fixture["aircraft"][0] = tuple(row)
+        prepared = self.db.parent / "prepared-html.db"
+        underwriting_pipeline.create_db(prepared, fixture=fixture)
+        html = underwriting_preview.render(prepared)
         self.assertNotIn('<img src=x onerror=alert(1)>',html)

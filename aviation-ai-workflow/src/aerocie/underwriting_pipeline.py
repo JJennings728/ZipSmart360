@@ -110,6 +110,17 @@ def create_db(path: Path, fixture: dict | None = None) -> dict:
             _sql_insert(con,"fact_swim_operations",("observation_id","manufacturer","model","period_start","period_end","operations_count","source_id"),fixture["swim"])
             con.execute("INSERT INTO model_policy VALUES (?,?,?,?,?,?)",
                         ("SYNTHETIC_V1",VERSION,25,70,0,"Uncalibrated synthetic research heuristic. Advisory triage only; human underwriter decides."))
+            for dataset, rows_for_hash in (
+                ("dim_aircraft", fixture["aircraft"]),
+                ("dim_pilot", fixture["pilots"]),
+                ("dim_mro_facility", fixture["facilities"]),
+                ("source_registry", con.execute("SELECT source_id,provider,dataset_name,source_url,"
+                 "source_as_of,retrieved_at,payload_sha256,license_status,is_synthetic FROM source_registry ORDER BY rowid").fetchall()),
+                ("model_policy", [("SYNTHETIC_V1", VERSION, 25, 70, 0,
+                                    "Uncalibrated synthetic research heuristic. Advisory triage only; human underwriter decides.")]),
+            ):
+                con.execute("INSERT INTO dataset_integrity VALUES (?,?)", (
+                    dataset, _hash({"data": rows_for_hash, "kind": dataset, "version": VERSION})))
             rows=con.execute("SELECT submission_id,risk_points,triage_recommendation,insufficient_evidence FROM v_submission_triage ORDER BY submission_id").fetchall()
             con.commit()
         return {"db_path":str(path),"schema_version":VERSION,"fixture_hash":_hash(fixture),"submission_count":len(rows),"triage":[{"submission_id":r[0],"risk_points":r[1],"triage_recommendation":r[2],"insufficient_evidence":bool(r[3])} for r in rows],"release_authorized":False}
@@ -122,6 +133,11 @@ def export_tables(db_path: Path, folder: Path) -> dict:
     """Export only allowlisted SQL views and synthetic source metadata as CSV/JSON."""
     if folder.exists():
         raise FileExistsError(f"Refusing to overwrite export folder: {folder}")
+    # Build and validate the full local audit before creating any CSV outputs.
+    # A changed source snapshot cannot flow into a seemingly trustworthy Power BI dataset.
+    from .underwriting_quality import audit_database, require_pass
+    audit = audit_database(db_path)
+    require_pass(audit)
     with sqlite3.connect(f"file:{db_path.resolve()}?mode=ro",uri=True) as con:
         con.row_factory=sqlite3.Row
         for (v,) in con.execute("SELECT is_synthetic FROM source_registry"):
@@ -144,7 +160,14 @@ def export_tables(db_path: Path, folder: Path) -> dict:
                         w.writerow(values)
                         count+=1
                 results.append({"view":view,"rows":count,"sha256":hashlib.sha256(target.read_bytes()).hexdigest()})
-            (folder/"manifest.json").write_text(json.dumps({"schema":VERSION,"data_mode":"SYNTHETIC_ONLY","authority":"UNDERWRITER_REVIEW_REQUIRED","tables":results},indent=2)+"\n",encoding="utf-8")
+            with (folder / "submission_quality.csv").open("w", newline="", encoding="utf-8-sig") as f:
+                writer = csv.writer(f)
+                writer.writerow(["submission_id", "research_label", "risk_points", "quality_status", "issue_codes"])
+                for case in audit["submissions"]:
+                    writer.writerow([case["submission_id"], case["research_label"], case["risk_points"],
+                                     case["quality_status"], ";".join(case["issue_codes"])])
+            (folder / "quality_audit.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
+            (folder/"manifest.json").write_text(json.dumps({"schema":VERSION,"data_mode":"SYNTHETIC_ONLY","authority":"UNDERWRITER_REVIEW_REQUIRED","quality_gate":audit["quality_gate"],"tables":results},indent=2)+"\n",encoding="utf-8")
             return {"export_path":str(folder),"tables":results,"synthetic_only":True}
         except BaseException:
             # only remove newly created files from claimed folder
