@@ -20,6 +20,7 @@
       <a href="#evidence"><span>02</span> Evidence snapshot</a>
       <a href="#preview"><span>03</span> Research report</a>
       <a href="#deliverables"><span>04</span> Exports</a>
+      <a href="#assurance"><span>05</span> AI assurance</a>
     </nav>
     <div class="side-status">
       <span class="eyebrow">SYSTEM STATUS</span>
@@ -34,7 +35,7 @@
       <span class="session-label">SYNTHETIC DATA ONLY</span></header>
     <main>
       <section class="hero" aria-labelledby="page-title">
-        <div class="eyebrow">OPERATOR WORKBENCH <span class="pipe">|</span> PHASE 22</div>
+        <div class="eyebrow">OPERATOR WORKBENCH <span class="pipe">|</span> PHASE 23</div>
         <h1 id="page-title">Research, with the <em>evidence</em> in view.</h1>
         <p>Prepare a controlled aviation regulatory research preview from synthetic case intake and a recorded evidence packet. Inspect the source trail, preserve review status, and export your internal report.</p>
         <div class="hero-pills"><span>01 | DEFINE</span><span>02 | REVIEW</span><span>03 | PREVIEW</span><span>04 | EXPORT</span></div>
@@ -92,6 +93,22 @@
               <button class="outline" id="download-html" type="button" disabled>Download HTML</button>
               <button class="outline" id="download-json" type="button" disabled>Download JSON</button>
             </div>
+          </section>
+          <section class="panel" id="assurance" aria-labelledby="assurance-title">
+            <div class="section-heading"><div><span class="eyebrow">05 | MODEL GOVERNANCE</span>
+              <h2 id="assurance-title">AI assurance record</h2></div><span class="review-badge">SYNTHETIC TEST</span></div>
+            <p class="description">Inspect a reproducible evaluation, calibration, evidence grounding, and explicit reasons to request review. This example does not run a prediction model.</p>
+            <div class="metrics" aria-live="polite">
+              <div><strong id="assurance-rows">—</strong><span>Test cases</span></div>
+              <div><strong id="assurance-brier">—</strong><span>Brier score</span></div>
+              <div><strong id="assurance-ece">—</strong><span>Calibration error</span></div>
+              <div><strong id="assurance-open">—</strong><span>Open citation checks</span></div>
+            </div>
+            <p class="description"><strong id="assurance-gate">Loading model assurance…</strong></p>
+            <p class="caption" id="assurance-reasons">Quality gate requires independent evaluation and enough sample observations.</p>
+            <p class="caption" id="assurance-lineage">Model version and data provenance are loading…</p>
+            <p class="caption" id="assurance-explainability">Prediction explanations are loading…</p>
+            <button class="outline" id="download-assurance" type="button" disabled>Download assurance record (JSON)</button>
           </section>
         </div>
       </div>

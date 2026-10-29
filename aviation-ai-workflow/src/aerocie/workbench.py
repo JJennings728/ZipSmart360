@@ -14,13 +14,14 @@ from tempfile import TemporaryDirectory
 from typing import Callable
 from urllib.parse import urlsplit
 
-from . import customer_report, pilot_report
+from . import customer_report, pilot_report, model_assurance
 from .review_journal import _packet
 
 ROOT = Path(__file__).resolve().parents[2]
 WEB = ROOT / "web" / "aerocie-workbench"
 DEFAULT_PACKET = ROOT / "sample-data" / "phase20" / "packet.json"
 DEFAULT_INTAKE = ROOT / "sample-data" / "phase20" / "intake.json"
+DEFAULT_MODEL = ROOT / "sample-data" / "phase23" / "synthetic-model-eval.json"
 MAX_REQUEST_BYTES = 8192
 SCHEMA = "AEROCIE-018-LOCAL-WORKBENCH-v1"
 
@@ -86,6 +87,7 @@ class WorkbenchHandler(BaseHTTPRequestHandler):
     # Supplied by create_server(), which sets the packet and fixture paths.
     packet_path = DEFAULT_PACKET
     intake_path = DEFAULT_INTAKE
+    model_path = DEFAULT_MODEL
     server_version = "AeroCIE-Workbench/1"
     sys_version = ""
 
@@ -143,6 +145,15 @@ class WorkbenchHandler(BaseHTTPRequestHandler):
                 return self._json(200, _fixture(self.packet_path, self.intake_path))
             except (ValueError, KeyError, OSError, TypeError):
                 return self._json(503, {"error": "Synthetic fixture failed integrity checks"})
+        if path == "/api/model-assurance":
+            try:
+                if self.model_path.stat().st_size > 5000000:
+                    raise ValueError("Model evaluation fixture too large")
+                data = json.loads(self.model_path.read_text(encoding="utf-8-sig"),
+                                  object_pairs_hook=_unique_object)
+                return self._json(200, model_assurance.evaluate(data))
+            except (ValueError, KeyError, OSError, TypeError):
+                return self._json(503, {"error": "Synthetic model evaluation unavailable"})
         if path == "/api/health":
             return self._json(200, {"status": "ok", "schema": SCHEMA,
                                     "bind": "loopback", "data_mode": "synthetic"})
@@ -178,12 +189,13 @@ class WorkbenchHandler(BaseHTTPRequestHandler):
 
 
 def create_server(*, packet: Path = DEFAULT_PACKET, intake: Path = DEFAULT_INTAKE,
-                  port: int = 8092) -> ThreadingHTTPServer:
+                  model: Path = DEFAULT_MODEL, port: int = 8092) -> ThreadingHTTPServer:
     if type(port) is not int or not (0 <= port <= 65535):
         raise ValueError("Invalid local port")
     class Handler(WorkbenchHandler):
         packet_path = packet
         intake_path = intake
+        model_path = model
     return ThreadingHTTPServer(("127.0.0.1", port), Handler)
 
 
