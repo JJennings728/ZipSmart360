@@ -1,0 +1,57 @@
+table source_registry
+	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
+
+	column source_id
+		dataType: string
+		sourceColumn: source_id
+		summarizeBy: none
+
+	column provider
+		dataType: string
+		sourceColumn: provider
+		summarizeBy: none
+
+	column dataset_name
+		dataType: string
+		sourceColumn: dataset_name
+		summarizeBy: none
+
+	column source_url
+		dataType: string
+		sourceColumn: source_url
+		summarizeBy: none
+
+	column source_as_of
+		dataType: string
+		sourceColumn: source_as_of
+		summarizeBy: none
+
+	column retrieved_at
+		dataType: string
+		sourceColumn: retrieved_at
+		summarizeBy: none
+
+	column payload_sha256
+		dataType: string
+		sourceColumn: payload_sha256
+		summarizeBy: none
+
+	column license_status
+		dataType: string
+		sourceColumn: license_status
+		summarizeBy: none
+
+	column is_synthetic
+		dataType: int64
+		sourceColumn: is_synthetic
+		summarizeBy: none
+
+	partition source_registry = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(AeroCIEDataFolder & "source_registry.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Promoted, {{"source_id", type text},{"provider", type text},{"dataset_name", type text},{"source_url", type text},{"source_as_of", type text},{"retrieved_at", type text},{"payload_sha256", type text},{"license_status", type text},{"is_synthetic", Int64.Type}})
+			in
+			    Typed

@@ -1,0 +1,457 @@
+{
+  "schema": "AEROCIE-PILOT-EVALUATION-v1",
+  "synthetic": true,
+  "case_definition": "Synthetic adverse attritional claim observed within 12 months after inception; no causality is inferred.",
+  "cases": [
+    {
+      "case_id": "demo:submission:001",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 39.7,
+      "aerocie_minutes": 11.5
+    },
+    {
+      "case_id": "demo:submission:002",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 49.4,
+      "aerocie_minutes": 14.1
+    },
+    {
+      "case_id": "demo:submission:003",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 32.0,
+      "aerocie_minutes": 16.5
+    },
+    {
+      "case_id": "demo:submission:004",
+      "aerocie_label": "Refer",
+      "baseline_label": "Refer",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 49.6,
+      "aerocie_minutes": 13.7
+    },
+    {
+      "case_id": "demo:submission:005",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 29.9,
+      "aerocie_minutes": 12.0
+    },
+    {
+      "case_id": "demo:submission:006",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 33.8,
+      "aerocie_minutes": 13.7
+    },
+    {
+      "case_id": "demo:submission:007",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 47.2,
+      "aerocie_minutes": 11.5
+    },
+    {
+      "case_id": "demo:submission:008",
+      "aerocie_label": "Refer",
+      "baseline_label": "Refer",
+      "adverse_outcome": null,
+      "evidence_complete": false,
+      "baseline_minutes": 39.0,
+      "aerocie_minutes": 11.8
+    },
+    {
+      "case_id": "demo:submission:009",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 48.2,
+      "aerocie_minutes": 15.4
+    },
+    {
+      "case_id": "demo:submission:010",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 47.8,
+      "aerocie_minutes": 10.1
+    },
+    {
+      "case_id": "demo:submission:011",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 33.4,
+      "aerocie_minutes": 12.4
+    },
+    {
+      "case_id": "demo:submission:012",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 34.2,
+      "aerocie_minutes": 13.8
+    },
+    {
+      "case_id": "demo:submission:013",
+      "aerocie_label": "Quote",
+      "baseline_label": "Decline",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 32.4,
+      "aerocie_minutes": 14.8
+    },
+    {
+      "case_id": "demo:submission:014",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 30.7,
+      "aerocie_minutes": 10.1
+    },
+    {
+      "case_id": "demo:submission:015",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 34.8,
+      "aerocie_minutes": 11.4
+    },
+    {
+      "case_id": "demo:submission:016",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 48.3,
+      "aerocie_minutes": 12.2
+    },
+    {
+      "case_id": "demo:submission:017",
+      "aerocie_label": "Decline",
+      "baseline_label": "Quote",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 49.0,
+      "aerocie_minutes": 10.5
+    },
+    {
+      "case_id": "demo:submission:018",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 47.2,
+      "aerocie_minutes": 18.4
+    },
+    {
+      "case_id": "demo:submission:019",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": null,
+      "evidence_complete": false,
+      "baseline_minutes": 41.2,
+      "aerocie_minutes": 18.7
+    },
+    {
+      "case_id": "demo:submission:020",
+      "aerocie_label": "Refer",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 38.4,
+      "aerocie_minutes": 13.6
+    },
+    {
+      "case_id": "demo:submission:021",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 45.1,
+      "aerocie_minutes": 14.4
+    },
+    {
+      "case_id": "demo:submission:022",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 47.6,
+      "aerocie_minutes": 19.4
+    },
+    {
+      "case_id": "demo:submission:023",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 28.9,
+      "aerocie_minutes": 14.7
+    },
+    {
+      "case_id": "demo:submission:024",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 42.0,
+      "aerocie_minutes": 15.9
+    },
+    {
+      "case_id": "demo:submission:025",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 46.4,
+      "aerocie_minutes": 13.6
+    },
+    {
+      "case_id": "demo:submission:026",
+      "aerocie_label": "Quote",
+      "baseline_label": "Decline",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 35.2,
+      "aerocie_minutes": 13.8
+    },
+    {
+      "case_id": "demo:submission:027",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 42.1,
+      "aerocie_minutes": 17.1
+    },
+    {
+      "case_id": "demo:submission:028",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 31.7,
+      "aerocie_minutes": 16.0
+    },
+    {
+      "case_id": "demo:submission:029",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 36.1,
+      "aerocie_minutes": 14.9
+    },
+    {
+      "case_id": "demo:submission:030",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 30.0,
+      "aerocie_minutes": 19.9
+    },
+    {
+      "case_id": "demo:submission:031",
+      "aerocie_label": "Decline",
+      "baseline_label": "Quote",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 33.7,
+      "aerocie_minutes": 14.2
+    },
+    {
+      "case_id": "demo:submission:032",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 45.1,
+      "aerocie_minutes": 13.8
+    },
+    {
+      "case_id": "demo:submission:033",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 42.1,
+      "aerocie_minutes": 19.5
+    },
+    {
+      "case_id": "demo:submission:034",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": null,
+      "evidence_complete": false,
+      "baseline_minutes": 39.2,
+      "aerocie_minutes": 10.9
+    },
+    {
+      "case_id": "demo:submission:035",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 43.0,
+      "aerocie_minutes": 13.7
+    },
+    {
+      "case_id": "demo:submission:036",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 46.7,
+      "aerocie_minutes": 14.4
+    },
+    {
+      "case_id": "demo:submission:037",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 35.5,
+      "aerocie_minutes": 10.7
+    },
+    {
+      "case_id": "demo:submission:038",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 50.0,
+      "aerocie_minutes": 19.6
+    },
+    {
+      "case_id": "demo:submission:039",
+      "aerocie_label": "Quote",
+      "baseline_label": "Decline",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 33.2,
+      "aerocie_minutes": 17.8
+    },
+    {
+      "case_id": "demo:submission:040",
+      "aerocie_label": "Refer",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 44.4,
+      "aerocie_minutes": 15.2
+    },
+    {
+      "case_id": "demo:submission:041",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 46.8,
+      "aerocie_minutes": 17.6
+    },
+    {
+      "case_id": "demo:submission:042",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 33.3,
+      "aerocie_minutes": 12.6
+    },
+    {
+      "case_id": "demo:submission:043",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 45.0,
+      "aerocie_minutes": 9.4
+    },
+    {
+      "case_id": "demo:submission:044",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 36.3,
+      "aerocie_minutes": 12.9
+    },
+    {
+      "case_id": "demo:submission:045",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 42.7,
+      "aerocie_minutes": 9.7
+    },
+    {
+      "case_id": "demo:submission:046",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 48.0,
+      "aerocie_minutes": 15.9
+    },
+    {
+      "case_id": "demo:submission:047",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 32.0,
+      "aerocie_minutes": 9.1
+    },
+    {
+      "case_id": "demo:submission:048",
+      "aerocie_label": "Quote",
+      "baseline_label": "Refer",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 32.3,
+      "aerocie_minutes": 18.5
+    },
+    {
+      "case_id": "demo:submission:049",
+      "aerocie_label": "Quote",
+      "baseline_label": "Quote",
+      "adverse_outcome": true,
+      "evidence_complete": true,
+      "baseline_minutes": 41.7,
+      "aerocie_minutes": 10.0
+    },
+    {
+      "case_id": "demo:submission:050",
+      "aerocie_label": "Refer",
+      "baseline_label": "Quote",
+      "adverse_outcome": false,
+      "evidence_complete": true,
+      "baseline_minutes": 35.2,
+      "aerocie_minutes": 14.9
+    }
+  ]
+}

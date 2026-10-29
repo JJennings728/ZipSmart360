@@ -1,0 +1,62 @@
+table v_mro_latest
+	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
+
+	column constraint_id
+		dataType: string
+		sourceColumn: constraint_id
+		summarizeBy: none
+
+	column facility_id
+		dataType: string
+		sourceColumn: facility_id
+		summarizeBy: none
+
+	column manufacturer
+		dataType: string
+		sourceColumn: manufacturer
+		summarizeBy: none
+
+	column model
+		dataType: string
+		sourceColumn: model
+		summarizeBy: none
+
+	column as_of
+		dataType: string
+		sourceColumn: as_of
+		summarizeBy: none
+
+	column repair_wait_days
+		dataType: int64
+		sourceColumn: repair_wait_days
+		summarizeBy: none
+
+	column parts_availability_index
+		dataType: double
+		sourceColumn: parts_availability_index
+		summarizeBy: none
+
+	column parts_cost_index
+		dataType: double
+		sourceColumn: parts_cost_index
+		summarizeBy: none
+
+	column source_id
+		dataType: string
+		sourceColumn: source_id
+		summarizeBy: none
+
+	column shortage_weight
+		dataType: double
+		sourceColumn: shortage_weight
+		summarizeBy: none
+
+	partition v_mro_latest = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(AeroCIEDataFolder & "v_mro_latest.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Promoted, {{"constraint_id", type text},{"facility_id", type text},{"manufacturer", type text},{"model", type text},{"as_of", type text},{"repair_wait_days", Int64.Type},{"parts_availability_index", type number},{"parts_cost_index", type number},{"source_id", type text},{"shortage_weight", type number}})
+			in
+			    Typed

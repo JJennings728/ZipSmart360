@@ -1,0 +1,218 @@
+table v_submission_features
+	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
+
+	column submission_id
+		dataType: string
+		sourceColumn: submission_id
+		summarizeBy: none
+
+	column submitted_on
+		dataType: string
+		sourceColumn: submitted_on
+		summarizeBy: none
+
+	column operation_type
+		dataType: string
+		sourceColumn: operation_type
+		summarizeBy: none
+
+	column annual_flight_hours
+		dataType: int64
+		sourceColumn: annual_flight_hours
+		summarizeBy: none
+
+	column losses_last_five_years
+		dataType: int64
+		sourceColumn: losses_last_five_years
+		summarizeBy: none
+
+	column requested_hull_value_usd
+		dataType: int64
+		sourceColumn: requested_hull_value_usd
+		summarizeBy: none
+
+	column submission_source_id
+		dataType: string
+		sourceColumn: submission_source_id
+		summarizeBy: none
+
+	column aircraft_id
+		dataType: string
+		sourceColumn: aircraft_id
+		summarizeBy: none
+
+	column registration
+		dataType: string
+		sourceColumn: registration
+		summarizeBy: none
+
+	column manufacturer
+		dataType: string
+		sourceColumn: manufacturer
+		summarizeBy: none
+
+	column model
+		dataType: string
+		sourceColumn: model
+		summarizeBy: none
+
+	column category
+		dataType: string
+		sourceColumn: category
+		summarizeBy: none
+
+	column year_built
+		dataType: int64
+		sourceColumn: year_built
+		summarizeBy: none
+
+	column aircraft_age_years
+		dataType: int64
+		sourceColumn: aircraft_age_years
+		summarizeBy: none
+
+	column composite_material_flag
+		dataType: int64
+		sourceColumn: composite_material_flag
+		summarizeBy: none
+
+	column pilot_id
+		dataType: string
+		sourceColumn: pilot_id
+		summarizeBy: none
+
+	column certificate_level
+		dataType: string
+		sourceColumn: certificate_level
+		summarizeBy: none
+
+	column total_flight_hours
+		dataType: int64
+		sourceColumn: total_flight_hours
+		summarizeBy: none
+
+	column make_model_hours
+		dataType: int64
+		sourceColumn: make_model_hours
+		summarizeBy: none
+
+	column recurrent_training_verified
+		dataType: int64
+		sourceColumn: recurrent_training_verified
+		summarizeBy: none
+
+	column facility_count
+		dataType: int64
+		sourceColumn: facility_count
+		summarizeBy: none
+
+	column mro_severity_days
+		dataType: double
+		sourceColumn: mro_severity_days
+		summarizeBy: none
+
+	column mro_cost_pressure_index
+		dataType: double
+		sourceColumn: mro_cost_pressure_index
+		summarizeBy: none
+
+	column mean_parts_availability
+		dataType: double
+		sourceColumn: mean_parts_availability
+		summarizeBy: none
+
+	column latest_observation
+		dataType: string
+		sourceColumn: latest_observation
+		summarizeBy: none
+
+	column oldest_observation
+		dataType: string
+		sourceColumn: oldest_observation
+		summarizeBy: none
+
+	column insufficient_evidence
+		dataType: int64
+		sourceColumn: insufficient_evidence
+		summarizeBy: none
+
+	measure MRO_Severity_Index = VAR _Make = SELECTEDVALUE ( 'v_submission_features'[manufacturer] )
+		VAR _Model = SELECTEDVALUE ( 'v_submission_features'[model] )
+		RETURN
+		    IF (
+		        ISBLANK ( _Make ) || ISBLANK ( _Model ),
+		        BLANK (),
+		        CALCULATE (
+		            DIVIDE (
+		                SUMX (
+		                    'v_mro_latest',
+		                    'v_mro_latest'[repair_wait_days] *
+		                        ( 2 - 'v_mro_latest'[parts_availability_index] )
+		                ),
+		                SUMX (
+		                    'v_mro_latest',
+		                    2 - 'v_mro_latest'[parts_availability_index]
+		                )
+		            ),
+		            REMOVEFILTERS ( 'v_mro_latest' ),
+		            TREATAS (
+		                ROW ( "Make", _Make, "Model", _Model ),
+		                'v_mro_latest'[manufacturer],
+		                'v_mro_latest'[model]
+		            )
+		        )
+		    )
+
+	measure Triage_Risk_Points = VAR _Age = SELECTEDVALUE ( 'v_submission_features'[aircraft_age_years] )
+		VAR _Hours = SELECTEDVALUE ( 'v_submission_features'[total_flight_hours] )
+		VAR _TypeTime = SELECTEDVALUE ( 'v_submission_features'[make_model_hours] )
+		VAR _Losses = SELECTEDVALUE ( 'v_submission_features'[losses_last_five_years] )
+		VAR _Composite = SELECTEDVALUE ( 'v_submission_features'[composite_material_flag] )
+		VAR _Training = SELECTEDVALUE ( 'v_submission_features'[recurrent_training_verified] )
+		VAR _Utilization = SELECTEDVALUE ( 'v_submission_features'[annual_flight_hours] )
+		VAR _MRO = [MRO_Severity_Index]
+		VAR _EvidenceMissing = SELECTEDVALUE ( 'v_submission_features'[insufficient_evidence], 1 )
+		VAR _SingleSubmission = HASONEVALUE ( 'v_submission_features'[submission_id] )
+		VAR _Missing =
+		    NOT _SingleSubmission || _EvidenceMissing <> 0 ||
+		    ISBLANK ( _Age ) || ISBLANK ( _Hours ) || ISBLANK ( _TypeTime ) ||
+		    ISBLANK ( _Losses ) || ISBLANK ( _Composite ) || ISBLANK ( _Training ) ||
+		    ISBLANK ( _Utilization ) || ISBLANK ( _MRO )
+		VAR _AgePoints = SWITCH ( TRUE (), _Age > 30, 20, _Age > 15, 10, 0 )
+		VAR _HoursPoints = SWITCH ( TRUE (), _Hours < 500, 18, _Hours < 1500, 8, 0 )
+		VAR _TypePoints = SWITCH ( TRUE (), _TypeTime < 25, 18, _TypeTime < 100, 8, 0 )
+		VAR _LossPoints = SWITCH ( TRUE (), _Losses >= 2, 30, _Losses = 1, 15, 0 )
+		VAR _MROPoints = SWITCH ( TRUE (), _MRO > 60, 20, _MRO > 30, 10, 0 )
+		VAR _CompositePoints = IF ( _Composite = 1, 5, 0 )
+		VAR _TrainingPoints = IF ( _Training = 0, 10, 0 )
+		RETURN
+		    IF ( _Missing, BLANK (),
+		        MIN ( 100, _AgePoints + _HoursPoints + _TypePoints +
+		            _LossPoints + _MROPoints + _CompositePoints + _TrainingPoints )
+		    )
+
+	measure Automated_Triage_Status = VAR _RiskPoints = [Triage_Risk_Points]
+		RETURN
+		    SWITCH (
+		        TRUE (),
+		        ISBLANK ( _RiskPoints ), "Refer",
+		        _RiskPoints <= 25, "Quote",
+		        _RiskPoints >= 70, "Decline",
+		        "Refer"
+		    )
+
+	measure Submissions = COUNTROWS ( 'v_submission_triage' )
+
+	measure Refer_Count = CALCULATE ( COUNTROWS ( 'v_submission_triage' ), 'v_submission_triage'[triage_recommendation] = "Refer" )
+
+	measure Automated_Triage_Score = [Triage_Risk_Points]
+
+	partition v_submission_features = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(AeroCIEDataFolder & "v_submission_features.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Promoted, {{"submission_id", type text},{"submitted_on", type text},{"operation_type", type text},{"annual_flight_hours", Int64.Type},{"losses_last_five_years", Int64.Type},{"requested_hull_value_usd", Int64.Type},{"submission_source_id", type text},{"aircraft_id", type text},{"registration", type text},{"manufacturer", type text},{"model", type text},{"category", type text},{"year_built", Int64.Type},{"aircraft_age_years", Int64.Type},{"composite_material_flag", Int64.Type},{"pilot_id", type text},{"certificate_level", type text},{"total_flight_hours", Int64.Type},{"make_model_hours", Int64.Type},{"recurrent_training_verified", Int64.Type},{"facility_count", Int64.Type},{"mro_severity_days", type number},{"mro_cost_pressure_index", type number},{"mean_parts_availability", type number},{"latest_observation", type text},{"oldest_observation", type text},{"insufficient_evidence", Int64.Type}})
+			in
+			    Typed
