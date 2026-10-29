@@ -23,7 +23,7 @@ DEFAULT_SOURCE_DB = Path("build/aerocie/federal_register.sqlite3")
 IDENT = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{2,119}$")
 NODE_TYPES = ("ORGANIZATION", "AIRCRAFT", "COMPONENT", "PUBLICATION", "EVENT",
               "REGULATION", "TOPIC", "FACILITY", "OTHER")
-PREDICATES = ("MENTIONS", "REFERENCES", "ASSOCIATED_WITH", "RESEARCH_RELATED_TO")
+PREDICATES = ("MENTIONS", "REFERENCES", "ASSOCIATED_WITH", "RESEARCH_RELATED_TO", "CORRECTS")
 MAX_TEXT_BYTES = 2_000_000
 
 
@@ -174,6 +174,81 @@ def add_node(db: Path, *, node_id: str, kind: str, label: str,
     return {"id": node_id, "event": "created"}
 
 
+def _validate_correction_edge(conn: sqlite3.Connection, source_db: Path,
+                              from_id: str, to_id: str, doc_id: str,
+                              excerpt: str) -> None:
+    """Fail closed on unsupported CORRECTS claims; never approves applicability."""
+    match_from = re.fullmatch(r"frdoc:(\d{4}-\d{4,6})", from_id)
+    match_to = re.fullmatch(r"frdoc:(\d{4}-\d{4,6})", to_id)
+    if not match_from or not match_to:
+        raise ValueError("CORRECTS requires publication nodes frdoc:<document-number>")
+    corrected, original = match_from.group(1), match_to.group(1)
+    if corrected == original:
+        raise ValueError("A document cannot CORRECTS itself")
+
+    nodes = {r["id"]: r["kind"] for r in conn.execute(
+        "SELECT id, kind FROM kg_nodes WHERE id IN (?, ?)", (from_id, to_id))}
+    if nodes.get(from_id) != "PUBLICATION" or nodes.get(to_id) != "PUBLICATION":
+        raise ValueError("CORRECTS requires two existing PUBLICATION nodes")
+
+    correction_doc = conn.execute(
+        "SELECT id,kind,source_doc_number,content,sha256 FROM kg_documents WHERE id=?",
+        (doc_id,)).fetchone()
+    original_docs = conn.execute(
+        "SELECT id,kind,source_doc_number,content,sha256 FROM kg_documents "
+        "WHERE kind='FR_METADATA' AND source_doc_number=?", (original,)).fetchall()
+    if (correction_doc is None or correction_doc["kind"] != "FR_METADATA"
+            or correction_doc["source_doc_number"] != corrected
+            or len(original_docs) != 1):
+        raise ValueError("CORRECTS requires both pinned Federal Register metadata documents")
+    original_doc = original_docs[0]
+
+    for row, number in ((correction_doc, corrected), (original_doc, original)):
+        if digest(row["content"]) != row["sha256"]:
+            raise ValueError("CORRECTS source metadata hash mismatch")
+        try:
+            pinned = snapshot(source_db, number, fingerprint=row["sha256"])
+            latest = snapshot(source_db, number)
+        except (ValueError, OSError, sqlite3.Error, TypeError) as exc:
+            raise ValueError("CORRECTS source snapshot missing or invalid") from exc
+        if pinned["fingerprint"] != row["sha256"] or latest["fingerprint"] != row["sha256"]:
+            raise ValueError("CORRECTS local source metadata requires refresh and review")
+
+    try:
+        c = json.loads(correction_doc["content"])
+        o = json.loads(original_doc["content"])
+    except (ValueError, TypeError) as exc:
+        raise ValueError("CORRECTS source metadata is not valid JSON") from exc
+    if (c.get("source"), o.get("source")) != ("published", "published"):
+        raise ValueError("CORRECTS requires two published documents")
+    if ("correct" not in str(c.get("action") or "").lower()
+            or "correction" not in str(c.get("title") or "").lower()):
+        raise ValueError("Source is not identified as a published correction")
+    if not (str(o.get("publication_date") or "") < str(c.get("publication_date") or "")):
+        raise ValueError("CORRECTS publication chronology is invalid")
+    dockets = set(c.get("docket_ids") or []) & set(o.get("docket_ids") or [])
+    if not dockets:
+        raise ValueError("CORRECTS documents have no shared docket")
+
+    # The source itself must reference the earlier record, not just a shared docket.
+    original_date = str(o.get("publication_date") or "")
+    try:
+        date_reference = datetime.strptime(original_date, "%Y-%m-%d").strftime("%B %d, %Y")
+        date_reference = date_reference.replace(" 0", " ")
+    except ValueError as exc:
+        raise ValueError("Original publication date is invalid") from exc
+    anchors = tuple(x.lower() for x in (
+        original, str(o.get("citation") or ""), date_reference
+    ) if x)
+    source_reference = " ".join(str(c.get(k) or "") for k in
+                                ("abstract", "action", "dates_text", "correction_of"))
+    if not any(anchor in source_reference.lower() for anchor in anchors):
+        raise ValueError("CORRECTS metadata does not explicitly reference original")
+    if not any(anchor in excerpt.lower() for anchor in anchors):
+        raise ValueError("CORRECTS evidence excerpt must reference original")
+    if "correct" not in excerpt.lower():
+        raise ValueError("CORRECTS evidence excerpt lacks correction language")
+
 def add_edge(db: Path, *, from_id: str, to_id: str, predicate: str, doc_id: str,
              excerpt: str, locator: str, actor: str,
              source_db: Path = DEFAULT_SOURCE_DB) -> dict:
@@ -193,6 +268,8 @@ def add_edge(db: Path, *, from_id: str, to_id: str, predicate: str, doc_id: str,
             raise ValueError("Evidence integrity failure; refusing relation")
         if excerpt not in row["content"]:
             raise ValueError("Evidence quote must appear exactly in pinned source content")
+        if predicate == "CORRECTS":
+            _validate_correction_edge(conn, source_db, from_id, to_id, doc_id, excerpt)
         with conn:
             cur = conn.execute("""INSERT INTO kg_edges
               (from_id,to_id,predicate,document_id,document_sha256,
