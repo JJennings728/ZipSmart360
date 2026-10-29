@@ -1,0 +1,9 @@
+{
+  "monthly_submissions": 100,
+  "baseline_minutes_per_submission": 40,
+  "aerocie_minutes_per_submission": 15,
+  "loaded_hourly_analyst_cost_usd": 65,
+  "monthly_subscription_usd": 5000,
+  "monthly_source_license_cost_usd": 500,
+  "monthly_support_cost_usd": 250
+}

@@ -1,0 +1,107 @@
+table v_severity_scenarios
+	description: "Synthetic repair stress sensitivity. Cost assumptions are not expected claims or premium adequacy findings."
+
+	column submission_id
+		dataType: string
+		sourceColumn: submission_id
+		summarizeBy: none
+
+	column manufacturer
+		dataType: string
+		sourceColumn: manufacturer
+		summarizeBy: none
+
+	column model
+		dataType: string
+		sourceColumn: model
+		summarizeBy: none
+
+	column category
+		dataType: string
+		sourceColumn: category
+		summarizeBy: none
+
+	column triage_recommendation
+		dataType: string
+		sourceColumn: triage_recommendation
+		summarizeBy: none
+
+	column decision_authority
+		dataType: string
+		sourceColumn: decision_authority
+		summarizeBy: none
+
+	column insufficient_evidence
+		dataType: int64
+		sourceColumn: insufficient_evidence
+		summarizeBy: none
+
+	column submitted_on
+		dataType: string
+		sourceColumn: submitted_on
+		summarizeBy: none
+
+	column requested_hull_value_usd
+		dataType: int64
+		sourceColumn: requested_hull_value_usd
+		summarizeBy: none
+
+	column mro_severity_days
+		dataType: double
+		sourceColumn: mro_severity_days
+		summarizeBy: none
+
+	column mro_cost_pressure_index
+		dataType: double
+		sourceColumn: mro_cost_pressure_index
+		summarizeBy: none
+
+	column oldest_observation
+		dataType: string
+		sourceColumn: oldest_observation
+		summarizeBy: none
+
+	column latest_observation
+		dataType: string
+		sourceColumn: latest_observation
+		summarizeBy: none
+
+	column submission_source_id
+		dataType: string
+		sourceColumn: submission_source_id
+		summarizeBy: none
+
+	column scenario_low_usd
+		dataType: double
+		sourceColumn: scenario_low_usd
+		summarizeBy: none
+
+	column scenario_base_usd
+		dataType: double
+		sourceColumn: scenario_base_usd
+		summarizeBy: none
+
+	column scenario_high_usd
+		dataType: double
+		sourceColumn: scenario_high_usd
+		summarizeBy: none
+
+	column scenario_basis
+		dataType: string
+		sourceColumn: scenario_basis
+		summarizeBy: none
+
+	column pricing_adequacy_status
+		dataType: string
+		sourceColumn: pricing_adequacy_status
+		summarizeBy: none
+
+	partition v_severity_scenarios = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(AeroCIEDataFolder & "v_severity_scenarios.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Promoted, {{"submission_id", type text},{"manufacturer", type text},{"model", type text},{"category", type text},{"triage_recommendation", type text},{"decision_authority", type text},{"insufficient_evidence", Int64.Type},{"submitted_on", type text},{"requested_hull_value_usd", Int64.Type},{"mro_severity_days", type number},{"mro_cost_pressure_index", type number},{"oldest_observation", type text},{"latest_observation", type text},{"submission_source_id", type text},{"scenario_low_usd", type number},{"scenario_base_usd", type number},{"scenario_high_usd", type number},{"scenario_basis", type text},{"pricing_adequacy_status", type text}})
+			in
+			    Typed

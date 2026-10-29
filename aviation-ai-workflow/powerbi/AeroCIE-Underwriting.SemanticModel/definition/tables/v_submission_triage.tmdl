@@ -1,0 +1,167 @@
+table v_submission_triage
+	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
+
+	column submission_id
+		dataType: string
+		sourceColumn: submission_id
+		summarizeBy: none
+
+	column submitted_on
+		dataType: string
+		sourceColumn: submitted_on
+		summarizeBy: none
+
+	column operation_type
+		dataType: string
+		sourceColumn: operation_type
+		summarizeBy: none
+
+	column annual_flight_hours
+		dataType: int64
+		sourceColumn: annual_flight_hours
+		summarizeBy: none
+
+	column losses_last_five_years
+		dataType: int64
+		sourceColumn: losses_last_five_years
+		summarizeBy: none
+
+	column requested_hull_value_usd
+		dataType: int64
+		sourceColumn: requested_hull_value_usd
+		summarizeBy: none
+
+	column submission_source_id
+		dataType: string
+		sourceColumn: submission_source_id
+		summarizeBy: none
+
+	column aircraft_id
+		dataType: string
+		sourceColumn: aircraft_id
+		summarizeBy: none
+
+	column registration
+		dataType: string
+		sourceColumn: registration
+		summarizeBy: none
+
+	column manufacturer
+		dataType: string
+		sourceColumn: manufacturer
+		summarizeBy: none
+
+	column model
+		dataType: string
+		sourceColumn: model
+		summarizeBy: none
+
+	column category
+		dataType: string
+		sourceColumn: category
+		summarizeBy: none
+
+	column year_built
+		dataType: int64
+		sourceColumn: year_built
+		summarizeBy: none
+
+	column aircraft_age_years
+		dataType: int64
+		sourceColumn: aircraft_age_years
+		summarizeBy: none
+
+	column composite_material_flag
+		dataType: int64
+		sourceColumn: composite_material_flag
+		summarizeBy: none
+
+	column pilot_id
+		dataType: string
+		sourceColumn: pilot_id
+		summarizeBy: none
+
+	column certificate_level
+		dataType: string
+		sourceColumn: certificate_level
+		summarizeBy: none
+
+	column total_flight_hours
+		dataType: int64
+		sourceColumn: total_flight_hours
+		summarizeBy: none
+
+	column make_model_hours
+		dataType: int64
+		sourceColumn: make_model_hours
+		summarizeBy: none
+
+	column recurrent_training_verified
+		dataType: int64
+		sourceColumn: recurrent_training_verified
+		summarizeBy: none
+
+	column facility_count
+		dataType: int64
+		sourceColumn: facility_count
+		summarizeBy: none
+
+	column mro_severity_days
+		dataType: double
+		sourceColumn: mro_severity_days
+		summarizeBy: none
+
+	column mro_cost_pressure_index
+		dataType: double
+		sourceColumn: mro_cost_pressure_index
+		summarizeBy: none
+
+	column mean_parts_availability
+		dataType: double
+		sourceColumn: mean_parts_availability
+		summarizeBy: none
+
+	column latest_observation
+		dataType: string
+		sourceColumn: latest_observation
+		summarizeBy: none
+
+	column oldest_observation
+		dataType: string
+		sourceColumn: oldest_observation
+		summarizeBy: none
+
+	column insufficient_evidence
+		dataType: int64
+		sourceColumn: insufficient_evidence
+		summarizeBy: none
+
+	column risk_points
+		dataType: int64
+		sourceColumn: risk_points
+		summarizeBy: none
+
+	column triage_recommendation
+		dataType: string
+		sourceColumn: triage_recommendation
+		summarizeBy: none
+
+	column decision_authority
+		dataType: string
+		sourceColumn: decision_authority
+		summarizeBy: none
+
+	column model_scope
+		dataType: string
+		sourceColumn: model_scope
+		summarizeBy: none
+
+	partition v_submission_triage = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(AeroCIEDataFolder & "v_submission_triage.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Promoted, {{"submission_id", type text},{"submitted_on", type text},{"operation_type", type text},{"annual_flight_hours", Int64.Type},{"losses_last_five_years", Int64.Type},{"requested_hull_value_usd", Int64.Type},{"submission_source_id", type text},{"aircraft_id", type text},{"registration", type text},{"manufacturer", type text},{"model", type text},{"category", type text},{"year_built", Int64.Type},{"aircraft_age_years", Int64.Type},{"composite_material_flag", Int64.Type},{"pilot_id", type text},{"certificate_level", type text},{"total_flight_hours", Int64.Type},{"make_model_hours", Int64.Type},{"recurrent_training_verified", Int64.Type},{"facility_count", Int64.Type},{"mro_severity_days", type number},{"mro_cost_pressure_index", type number},{"mean_parts_availability", type number},{"latest_observation", type text},{"oldest_observation", type text},{"insufficient_evidence", Int64.Type},{"risk_points", Int64.Type},{"triage_recommendation", type text},{"decision_authority", type text},{"model_scope", type text}})
+			in
+			    Typed

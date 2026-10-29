@@ -1,0 +1,2 @@
+/// Change the source CSV folder in Power BI Desktop before refreshing.
+expression AeroCIEDataFolder = "C:\AeroCIE\Export\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
