@@ -51,7 +51,7 @@ class ObligationRegisterTests(unittest.TestCase):
     def test_candidate_has_source_fingerprint(self):
         self.add()
         result = reg.candidates(self.db, self.source_db)[0]
-        with sqlite3.connect(self.source_db) as conn:
+        with closing(sqlite3.connect(self.source_db)) as conn, conn:
             payload, digest = conn.execute(
                 "SELECT payload_json, fingerprint FROM document_snapshots").fetchone()
         self.assertEqual(result["source_fingerprint"], digest)
@@ -140,7 +140,7 @@ class ObligationRegisterTests(unittest.TestCase):
     def test_deleted_original_pin_is_not_just_a_changed_source(self):
         self.add()
         original = reg.candidates(self.db)[0]["source_fingerprint"]
-        with sqlite3.connect(self.source_db) as conn:
+        with closing(sqlite3.connect(self.source_db)) as conn, conn:
             ingest(conn, {**self.faa_row, "title": "New revision"}, source="published")
             conn.execute("DELETE FROM document_snapshots WHERE fingerprint=?", (original,))
         row = reg.candidates(self.db, self.source_db)[0]
@@ -151,7 +151,7 @@ class ObligationRegisterTests(unittest.TestCase):
     def test_corrupt_original_pin_is_flagged_even_with_valid_latest(self):
         self.add()
         original = reg.candidates(self.db)[0]["source_fingerprint"]
-        with sqlite3.connect(self.source_db) as conn:
+        with closing(sqlite3.connect(self.source_db)) as conn, conn:
             ingest(conn, {**self.faa_row, "title": "New revision"}, source="published")
             conn.execute("UPDATE document_snapshots SET payload_json='{}' WHERE fingerprint=?",
                          (original,))
@@ -163,7 +163,7 @@ class ObligationRegisterTests(unittest.TestCase):
     def test_changed_source_preserves_original_pin(self):
         self.add()
         original = reg.candidates(self.db)[0]["source_fingerprint"]
-        with sqlite3.connect(self.source_db) as conn:
+        with closing(sqlite3.connect(self.source_db)) as conn, conn:
             ingest(conn, {**self.faa_row, "title": "New revision"}, source="published")
         row = reg.candidates(self.db, self.source_db)[0]
         self.assertEqual(row["source_fingerprint"], original)
@@ -175,7 +175,7 @@ class ObligationRegisterTests(unittest.TestCase):
         for payload in ('[]', 'null', '42', '"text"', '{',
                         '{"document_number": [], "source": "published"}'):
             with self.subTest(payload=payload):
-                with sqlite3.connect(self.source_db) as conn:
+                with closing(sqlite3.connect(self.source_db)) as conn, conn:
                     conn.execute("INSERT INTO document_snapshots "
                                  "(source,document_number,fingerprint,fetched_at,payload_json) "
                                  "VALUES ('published',?,?,?,?)",
@@ -188,7 +188,7 @@ class ObligationRegisterTests(unittest.TestCase):
                     self.add()
 
     def test_public_inspection_only_cannot_create_candidate(self):
-        with sqlite3.connect(self.source_db) as conn:
+        with closing(sqlite3.connect(self.source_db)) as conn, conn:
             conn.execute("DELETE FROM document_snapshots")
             ingest(conn, self.faa_row, source="public_inspection")
         with self.assertRaises(ValueError):
