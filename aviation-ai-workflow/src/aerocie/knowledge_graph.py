@@ -105,6 +105,11 @@ def initialize(db: Path, source_db: Path = DEFAULT_SOURCE_DB) -> None:
             CREATE INDEX IF NOT EXISTS kg_edges_from ON kg_edges(from_id);
             CREATE INDEX IF NOT EXISTS kg_edges_to ON kg_edges(to_id);
             CREATE INDEX IF NOT EXISTS kg_edges_evidence ON kg_edges(document_id);
+            CREATE TABLE IF NOT EXISTS kg_correction_pins (
+              edge_id INTEGER PRIMARY KEY REFERENCES kg_edges(id),
+              original_document_id TEXT NOT NULL REFERENCES kg_documents(id),
+              original_document_sha256 TEXT NOT NULL
+            );
         """)
         conn.commit()
 
@@ -176,7 +181,7 @@ def add_node(db: Path, *, node_id: str, kind: str, label: str,
 
 def _validate_correction_edge(conn: sqlite3.Connection, source_db: Path,
                               from_id: str, to_id: str, doc_id: str,
-                              excerpt: str) -> None:
+                              excerpt: str) -> tuple[str, str]:
     """Fail closed on unsupported CORRECTS claims; never approves applicability."""
     match_from = re.fullmatch(r"frdoc:(\d{4}-\d{4,6})", from_id)
     match_to = re.fullmatch(r"frdoc:(\d{4}-\d{4,6})", to_id)
@@ -194,9 +199,14 @@ def _validate_correction_edge(conn: sqlite3.Connection, source_db: Path,
     correction_doc = conn.execute(
         "SELECT id,kind,source_doc_number,content,sha256 FROM kg_documents WHERE id=?",
         (doc_id,)).fetchone()
+    try:
+        latest_original = snapshot(source_db, original)
+    except (ValueError, OSError, sqlite3.Error, TypeError) as exc:
+        raise ValueError("CORRECTS original metadata snapshot unavailable") from exc
     original_docs = conn.execute(
         "SELECT id,kind,source_doc_number,content,sha256 FROM kg_documents "
-        "WHERE kind='FR_METADATA' AND source_doc_number=?", (original,)).fetchall()
+        "WHERE kind='FR_METADATA' AND source_doc_number=? AND sha256=?",
+        (original, latest_original["fingerprint"])).fetchall()
     if (correction_doc is None or correction_doc["kind"] != "FR_METADATA"
             or correction_doc["source_doc_number"] != corrected
             or len(original_docs) != 1):
@@ -248,6 +258,7 @@ def _validate_correction_edge(conn: sqlite3.Connection, source_db: Path,
         raise ValueError("CORRECTS evidence excerpt must reference original")
     if "correct" not in excerpt.lower():
         raise ValueError("CORRECTS evidence excerpt lacks correction language")
+    return original_doc["id"], original_doc["sha256"]
 
 def add_edge(db: Path, *, from_id: str, to_id: str, predicate: str, doc_id: str,
              excerpt: str, locator: str, actor: str,
@@ -268,8 +279,10 @@ def add_edge(db: Path, *, from_id: str, to_id: str, predicate: str, doc_id: str,
             raise ValueError("Evidence integrity failure; refusing relation")
         if excerpt not in row["content"]:
             raise ValueError("Evidence quote must appear exactly in pinned source content")
+        original_pin = None
         if predicate == "CORRECTS":
-            _validate_correction_edge(conn, source_db, from_id, to_id, doc_id, excerpt)
+            original_pin = _validate_correction_edge(
+                conn, source_db, from_id, to_id, doc_id, excerpt)
         with conn:
             cur = conn.execute("""INSERT INTO kg_edges
               (from_id,to_id,predicate,document_id,document_sha256,
@@ -277,6 +290,11 @@ def add_edge(db: Path, *, from_id: str, to_id: str, predicate: str, doc_id: str,
               VALUES (?,?,?,?,?,?,?,?,?)""",
               (from_id, to_id, predicate, doc_id, row["sha256"],
                excerpt, locator, actor, now()))
+            if original_pin is not None:
+                conn.execute("""INSERT INTO kg_correction_pins
+                  (edge_id, original_document_id, original_document_sha256)
+                  VALUES (?,?,?)""",
+                  (cur.lastrowid, original_pin[0], original_pin[1]))
     return {"id": cur.lastrowid, "state": "PROPOSED_RESEARCH_ONLY"}
 
 
@@ -300,6 +318,37 @@ def _evidence_status(row: dict, source_db: Path) -> str:
     return "PINNED_LOCAL_TEXT_MATCH_ONLY_NOT_LIVE_VERIFIED"
 
 
+def _original_correction_pin_status(row: dict, source_db: Path) -> str:
+    """Revalidate pinned original published metadata on every CORRECTS read.
+
+    Legacy CORRECTS edges without pinned originals need manual review;
+    local metadata integrity is not confirmation of current legal authority.
+    """
+    if not row.get("original_pin_id") or not row.get("original_pin_sha256"):
+        return "ORIGINAL_PIN_MISSING_REQUIRES_REVIEW"
+    if (row.get("original_doc_id") != row["original_pin_id"]
+            or row.get("original_doc_kind") != "FR_METADATA"
+            or row.get("original_doc_number") != row["to_id"].removeprefix("frdoc:")
+            or not isinstance(row.get("original_content"), str)
+            or digest(row["original_content"]) != row["original_pin_sha256"]
+            or row.get("original_stored_sha256") != row["original_pin_sha256"]):
+        return "PINNED_ORIGINAL_EVIDENCE_INTEGRITY_FAILURE"
+    original_number = row["original_doc_number"]
+    try:
+        pinned = snapshot(source_db, original_number, fingerprint=row["original_pin_sha256"])
+    except (ValueError, OSError, sqlite3.Error, TypeError):
+        return "PINNED_ORIGINAL_METADATA_UNAVAILABLE_OR_INVALID"
+    if pinned["fingerprint"] != row["original_pin_sha256"]:
+        return "PINNED_ORIGINAL_METADATA_UNAVAILABLE_OR_INVALID"
+    try:
+        latest = snapshot(source_db, original_number)
+    except (ValueError, OSError, sqlite3.Error, TypeError):
+        return "LATEST_ORIGINAL_METADATA_UNAVAILABLE"
+    if latest["fingerprint"] != row["original_pin_sha256"]:
+        return "NEWER_ORIGINAL_METADATA_REQUIRES_REVIEW"
+    return "LOCAL_BOTH_METADATA_PINS_MATCH_ONLY_NOT_CURRENT_AUTHORITY"
+
+
 def evidence_edges(db: Path, source_db: Path = DEFAULT_SOURCE_DB,
                    node_id: str | None = None) -> list[dict]:
     if not db.is_file():
@@ -307,16 +356,42 @@ def evidence_edges(db: Path, source_db: Path = DEFAULT_SOURCE_DB,
     clause = "WHERE e.from_id=? OR e.to_id=?" if node_id else ""
     args = (node_id, node_id) if node_id else ()
     with closing(connect(db)) as conn:
+        # Read-only exports tolerate older databases without the new pin table.
+        has_pins = conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' "
+            "AND name='kg_correction_pins'").fetchone() is not None
+        pin_fields = ("cp.original_document_id AS original_pin_id, "
+                      "cp.original_document_sha256 AS original_pin_sha256, "
+                      "od.id AS original_doc_id, od.kind AS original_doc_kind, "
+                      "od.source_doc_number AS original_doc_number, "
+                      "od.content AS original_content, "
+                      "od.sha256 AS original_stored_sha256") if has_pins else (
+                      "NULL AS original_pin_id, NULL AS original_pin_sha256, "
+                      "NULL AS original_doc_id, NULL AS original_doc_kind, "
+                      "NULL AS original_doc_number, NULL AS original_content, "
+                      "NULL AS original_stored_sha256")
+        pin_join = ("LEFT JOIN kg_correction_pins cp ON cp.edge_id=e.id "
+                    "LEFT JOIN kg_documents od ON od.id=cp.original_document_id") if has_pins else ""
         rows = [dict(r) for r in conn.execute(f"""SELECT e.*,d.title,d.kind,d.source_url,
                 d.source_doc_number,d.content,d.sha256,
-                n1.label AS from_label,n2.label AS to_label
+                n1.label AS from_label,n2.label AS to_label, {pin_fields}
                 FROM kg_edges e JOIN kg_documents d ON d.id=e.document_id
                 JOIN kg_nodes n1 ON n1.id=e.from_id
                 JOIN kg_nodes n2 ON n2.id=e.to_id
-                {clause} ORDER BY e.id""", args)]
+                {pin_join} {clause} ORDER BY e.id""", args)]
     for r in rows:
-        r["evidence_status"] = _evidence_status(r, source_db)
-        del r["content"]
+        status = _evidence_status(r, source_db)
+        if (r["predicate"] == "CORRECTS"
+                and status == "LOCAL_METADATA_PIN_MATCH_ONLY_NOT_CURRENT_AUTHORITY"):
+            status = _original_correction_pin_status(r, source_db)
+        r["evidence_status"] = status
+        if r["predicate"] == "CORRECTS":
+            r["original_document_id"] = r.get("original_pin_id")
+            r["original_document_sha256"] = r.get("original_pin_sha256")
+        for k in ("content", "original_content", "original_pin_id",
+                  "original_pin_sha256", "original_doc_id", "original_doc_kind",
+                  "original_doc_number", "original_stored_sha256"):
+            r.pop(k, None)
         r["compliance_status"] = "NOT_DETERMINED"
         r["external_release_authorized"] = False
     return rows

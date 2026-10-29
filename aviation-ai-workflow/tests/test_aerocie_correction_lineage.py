@@ -69,7 +69,7 @@ class CorrectionLineageTests(unittest.TestCase):
         self.assertEqual(exported['compliance_status'], 'NOT_DETERMINED')
         self.assertEqual(exported['edges'][0]['predicate'], 'CORRECTS')
         self.assertEqual(exported['edges'][0]['evidence_status'],
-                         'LOCAL_METADATA_PIN_MATCH_ONLY_NOT_CURRENT_AUTHORITY')
+                         'LOCAL_BOTH_METADATA_PINS_MATCH_ONLY_NOT_CURRENT_AUTHORITY')
 
     def test_reverse_direction_is_rejected(self):
         with self.assertRaises(ValueError):
@@ -101,6 +101,82 @@ class CorrectionLineageTests(unittest.TestCase):
         with self.assertRaises(sqlite3.IntegrityError):
             self.link()
 
+
+    def _update_original_snapshot(self):
+        original = kg.snapshot(self.src, '2026-19391')['record']
+        newer = {**original, 'title': original['title'] + ' | revised metadata'}
+        with closing(sqlite3.connect(self.src)) as conn:
+            with conn:
+                fr_collector.ingest(conn, newer, source='published')
+        return newer
+
+    def test_original_fingerprint_persisted_and_exported(self):
+        result = self.link()
+        with closing(sqlite3.connect(self.graph)) as conn:
+            row = conn.execute(
+                'SELECT original_document_id, original_document_sha256 '
+                'FROM kg_correction_pins WHERE edge_id=?',
+                (result['id'],)).fetchone()
+        self.assertEqual(row[0], self.old)
+        self.assertEqual(row[1], kg.snapshot(self.src, '2026-19391')['fingerprint'])
+        edge = kg.export_graph(self.graph, self.src)['edges'][0]
+        self.assertEqual(edge['original_document_id'], self.old)
+        self.assertEqual(edge['original_document_sha256'], row[1])
+
+    def test_original_change_is_flagged_after_link_creation(self):
+        self.link()
+        self._update_original_snapshot()
+        edge = kg.export_graph(self.graph, self.src)['edges'][0]
+        self.assertEqual(edge['evidence_status'], 'NEWER_ORIGINAL_METADATA_REQUIRES_REVIEW')
+
+    def test_refresh_of_original_keeps_old_evidence(self):
+        self._update_original_snapshot()
+        refreshed = kg.import_federal_register(self.graph, self.src, '2026-19391')
+        self.assertNotEqual(refreshed['id'], self.old)
+        result = self.link()
+        with closing(sqlite3.connect(self.graph)) as conn:
+            row = conn.execute('SELECT original_document_id FROM kg_correction_pins '
+                               'WHERE edge_id=?', (result['id'],)).fetchone()
+        self.assertEqual(row[0], refreshed['id'])
+        self.assertEqual(kg.export_graph(self.graph, self.src)['edges'][0]['evidence_status'],
+                         'LOCAL_BOTH_METADATA_PINS_MATCH_ONLY_NOT_CURRENT_AUTHORITY')
+
+    def test_refresh_without_import_rejected(self):
+        self._update_original_snapshot()
+        with self.assertRaises(ValueError):
+            self.link()
+
+    def test_missing_original_collector_snapshot_flags_link(self):
+        self.link()
+        with closing(sqlite3.connect(self.src)) as conn:
+            with conn:
+                conn.execute("DELETE FROM document_snapshots WHERE document_number='2026-19391'")
+        self.assertEqual(kg.export_graph(self.graph, self.src)['edges'][0]['evidence_status'],
+                         'PINNED_ORIGINAL_METADATA_UNAVAILABLE_OR_INVALID')
+
+    def test_original_graph_document_tampering_flags_link(self):
+        self.link()
+        with closing(sqlite3.connect(self.graph)) as conn:
+            with conn:
+                conn.execute('UPDATE kg_documents SET content=? WHERE id=?', ('{}', self.old))
+        self.assertEqual(kg.export_graph(self.graph, self.src)['edges'][0]['evidence_status'],
+                         'PINNED_ORIGINAL_EVIDENCE_INTEGRITY_FAILURE')
+
+    def test_legacy_link_missing_original_pin_requires_review(self):
+        self.link()
+        with closing(sqlite3.connect(self.graph)) as conn:
+            with conn:
+                conn.execute('DELETE FROM kg_correction_pins')
+        self.assertEqual(kg.export_graph(self.graph, self.src)['edges'][0]['evidence_status'],
+                         'ORIGINAL_PIN_MISSING_REQUIRES_REVIEW')
+
+    def test_non_correction_evidence_status_unchanged(self):
+        kg.add_edge(self.graph, from_id='frdoc:2026-21995',
+                    to_id='frdoc:2026-19391', predicate='MENTIONS',
+                    doc_id=self.new, excerpt=self.quote, locator='Metadata abstract',
+                    actor='SRP research', source_db=self.src)
+        self.assertEqual(kg.export_graph(self.graph, self.src)['edges'][0]['evidence_status'],
+                         'LOCAL_METADATA_PIN_MATCH_ONLY_NOT_CURRENT_AUTHORITY')
 
 if __name__ == '__main__':
     unittest.main()

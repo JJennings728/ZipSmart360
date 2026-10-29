@@ -11,7 +11,9 @@ Prototype implementation from verified source metadata, extending AeroCIE-009.
 - Source snapshot SHA-256 and most recent **local** metadata SHA-256 must match the pinned records.
 - This protects against unsupported candidate relations but **does not certify legal effect, authoritative text, live freshness, final status, or FAA applicability**.
 - All relationships remain `PROPOSED_RESEARCH_ONLY` and all exports retain `NOT_DETERMINED` and `external_release_authorized=false`.
-- The production database schema has not changed; only the predicate vocabulary and a guarded validation branch have been added.
+- The schema now adds `kg_correction_pins`, recording the original document ID and SHA-256 for every new `CORRECTS` relationship. Historical source versions are preserved.
+- Graph exports recheck both local source pins; changed, missing, or tampered originals trigger review. Legacy `CORRECTS` edges without a stored original pin require review, not silent backfill or approval.
+- Neither local metadata hashes nor this research graph establishes current FAA authority, legal effect, or applicability.
 
 ## Scope / acceptance
 
