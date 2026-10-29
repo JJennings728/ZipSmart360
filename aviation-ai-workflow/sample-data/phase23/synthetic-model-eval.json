@@ -1,0 +1,179 @@
+{
+  "schema": "AEROCIE-MODEL-EVAL-v1",
+  "synthetic": true,
+  "model": {
+    "id": "Synthetic research probability example",
+    "version": "0.0-demo",
+    "task": "Binary event calibration demonstration",
+    "target_definition": "Whether an invented event occurred in a synthetic case",
+    "dataset_digest": "d45c471095e95d1423ea9c67bcffc195c6cd74f7729079e26bbea4b7d95d792f",
+    "limitations": [
+      "Small synthetic set with designed outcomes; no real actuarial calibration",
+      "No training artifact or validated model weights"
+    ]
+  },
+  "evaluation_rows": [
+    {
+      "case_id": "demo:eval:001",
+      "probability": 0.61,
+      "observed": 1,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:002",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:003",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:004",
+      "probability": 0.61,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:005",
+      "probability": 0.15,
+      "observed": 1,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:006",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:007",
+      "probability": 0.61,
+      "observed": 0,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:008",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:009",
+      "probability": 0.15,
+      "observed": 1,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:010",
+      "probability": 0.61,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:011",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:012",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:013",
+      "probability": 0.61,
+      "observed": 1,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:014",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:015",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:016",
+      "probability": 0.61,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:017",
+      "probability": 0.15,
+      "observed": 1,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:018",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:019",
+      "probability": 0.61,
+      "observed": 0,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:020",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:021",
+      "probability": 0.15,
+      "observed": 1,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:022",
+      "probability": 0.61,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    },
+    {
+      "case_id": "demo:eval:023",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Aerospace"
+    },
+    {
+      "case_id": "demo:eval:024",
+      "probability": 0.15,
+      "observed": 0,
+      "segment": "Synthetic Airline"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "synthetic-source-1",
+      "text": "Synthetic operator observation: input record A documents maintenance turnaround and a change notice. No operational inference has been verified.",
+      "text_sha256": "9eea9f6f19dbb04840989fcbaea35f40b81ce2e9da7ccb775a7aff042714c4e9",
+      "source_url": "https://example.invalid/synthetic-source-1",
+      "human_checked": true
+    }
+  ],
+  "claims": [
+    {
+      "id": "C-001",
+      "quoted_text": "input record A documents maintenance turnaround and a change notice",
+      "evidence_ids": [
+        "synthetic-source-1"
+      ]
+    }
+  ]
+}

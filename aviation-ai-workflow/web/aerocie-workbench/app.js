@@ -3,6 +3,7 @@
   const $ = id => document.getElementById(id);
   let fixture = null;
   let result = null;
+  let assurance = null;
   const notify = (msg, isError = false) => {
     $('notification').textContent = msg;
     $('notification').classList.toggle('error', isError);
@@ -26,6 +27,32 @@
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
     return data;
+  };
+  const loadAssurance = async () => {
+    try {
+      const data = await getJSON('/api/model-assurance');
+      if (data.external_release_authorized !== false || data.schema !== 'AEROCIE-MODEL-ASSURANCE-REPORT-v1') {
+        throw new Error('Model evaluation gate failed');
+      }
+      assurance = data;
+      $('assurance-rows').textContent = data.metrics.count;
+      $('assurance-brier').textContent = data.metrics.brier.toFixed(3);
+      $('assurance-ece').textContent = data.metrics.ece.toFixed(3);
+      $('assurance-open').textContent = data.evidence_audit.unresolved;
+      $('assurance-lineage').textContent = `Model: ${data.model.id} | Version: ${data.model.version} | Dataset SHA-256: ${data.model.dataset_digest.slice(0,16)}… (declaration only)`;
+      $('assurance-explainability').textContent = data.explainability.per_prediction_rationale_available
+        ? 'Instance-level explanations declared.'
+        : 'Individual prediction explanations unavailable; inspect the model assurance JSON for the largest observed errors.';
+      $('assurance-gate').textContent = data.research_quality_gate.replaceAll('_', ' ');
+      $('assurance-reasons').textContent = data.reasons.length
+        ? data.reasons.map(s => s.replaceAll('_', ' ')).join(' | ')
+        : 'No configured check failures in this synthetic dataset.';
+      $('download-assurance').disabled = false;
+    } catch (_) {
+      $('assurance-gate').textContent = 'Evaluation unavailable';
+      $('assurance-reasons').textContent = 'Inspect the local Phase 23 test fixture and server log.';
+      $('download-assurance').disabled = true;
+    }
   };
   const loadFixture = async () => {
     try {
@@ -98,8 +125,13 @@
     if (!result) return;
     saveBlob(JSON.stringify(result.report_json, null, 2) + '\n', 'AeroCIE-Synthetic-Research-Evidence.json', 'application/json');
   });
+  $('download-assurance').addEventListener('click', () => {
+    if (!assurance) return;
+    saveBlob(JSON.stringify(assurance, null, 2) + '\n', 'AeroCIE-Model-Assurance-Synthetic.json', 'application/json');
+  });
   $('organization').addEventListener('input', resetReport);
   $('scope').addEventListener('input', resetReport);
   resetReport();
   loadFixture();
+  loadAssurance();
 })();
