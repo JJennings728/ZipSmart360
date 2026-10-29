@@ -45,7 +45,7 @@ def build_preview(packet_path: Path, journal_path: Path | None = None) -> dict:
             "effective": record.get("stated_effective_on"),
             "fingerprint": record.get("source_sha256"),
             "local_state": record.get("source_integrity_status"),
-            "url": _official_url(record.get("official_link_format_checked_only")),
+            "url": (None if record.get("source_integrity_status") == "SYNTHETIC_FIXTURE_NOT_VERIFIED" else _official_url(record.get("official_link_format_checked_only"))),
         })
     if not documents:
         raise ValueError("No publications to demonstrate")
