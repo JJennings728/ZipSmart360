@@ -9,6 +9,9 @@ import sys
 
 
 def render(db: Path) -> str:
+    from . import underwriting_quality
+    quality = underwriting_quality.audit_database(db)
+    underwriting_quality.require_pass(quality)
     # SQLite opened read-only; no writes or remote resources.
     with sqlite3.connect(f"file:{db.resolve()}?mode=ro", uri=True) as con:
         con.row_factory=sqlite3.Row
@@ -90,6 +93,21 @@ def render(db: Path) -> str:
                       '<p>Source: '+e(rec['submission_source_id'])+' | Latest MRO: '+e(rec['latest_observation'])+
                       ' | Oldest MRO: '+e(rec['oldest_observation'])+'</p></details>')
     srclines=''.join(f'<li><strong>{e(s["provider"])}</strong><span>{e(s["source_as_of"])} | {e(s["license_status"])}</span></li>' for s in sources)
+    checks=quality["summary"]
+    quality_kpis=''.join(
+        '<div class="stress-stat"><b>'+e(value)+'</b><span>'+e(name)+'</span></div>'
+        for name, value in [
+            ("Local fingerprints matched", str(checks["source_fingerprints_matched"] + checks["dimension_fingerprints_matched"]) + " / " +
+             str(checks["source_fingerprints_expected"] + checks["dimension_fingerprints_expected"])),
+            ("Inputs present | synthetic", checks["inputs_present"]),
+            ("Refer for evidence", checks["referred_for_missing_evidence"]),
+            ("Quality gate", quality["quality_gate"]),
+        ])
+    quality_rows=''.join(
+        '<div class="quality-row"><b>' + e(x["submission_id"]) + '</b><span>' +
+        e(x["quality_status"]) + '</span><span>' +
+        e(" | ".join(x["issue_codes"]) or "No input completeness issues detected") + '</span></div>'
+        for x in quality["submissions"])
     css="""
     *{box-sizing:border-box}body{margin:0;font:15px/1.55 Montserrat,Arial,sans-serif;color:#152f4c;background:#eef4f9}
     header{background:linear-gradient(115deg,#061c35,#163f6d);color:white;padding:38px max(28px,calc((100vw - 1150px)/2))}
@@ -121,6 +139,9 @@ def render(db: Path) -> str:
     .bar-core{position:absolute;left:0;top:4px;height:14px;background:#236ba8;border-radius:4px}
     .bar-value{font-size:15px;text-align:right;color:#164d7d}.scenario-range{font-size:11px;text-align:right;color:#506b84}
     .scenario-unavailable{color:#97542c;font-size:12px;grid-column:2/5}
+    .quality-row{display:grid;grid-template-columns:90px 230px 1fr;align-items:start;gap:13px;padding:12px 0;border-bottom:1px solid #e1e9f1;font-size:12px}
+    .quality-row span{overflow-wrap:anywhere}.quality-row b{color:#123e63}
+    @media(max-width:760px){.quality-row{grid-template-columns:70px minmax(0,1fr)}.quality-row span:last-child{grid-column:2}}
     .assumptions{padding:13px;background:#f4f7fb;border:1px solid #d9e4ee;font-size:12px;color:#46637c;margin-top:16px;line-height:1.65}
     .assumptions strong{color:#163b61}
     @media(max-width:760px){.stress-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.scenario-row{grid-template-columns:1fr 100px;gap:6px}.bar-area{grid-column:1/3;grid-row:2}.bar-value{grid-column:2;grid-row:1}.scenario-case{grid-column:1;grid-row:1}.scenario-range{grid-column:2;grid-row:3}.scenario-unavailable{grid-column:1/3;grid-row:2}}
@@ -137,6 +158,11 @@ def render(db: Path) -> str:
         '<h2>Which risks deserve another look before you quote?</h2>'
         '<p class="teaser">See simulated repair delay and parts cost pressure alongside underwriting review flags. '
         'Inspect evidence gaps before making a pricing decision.</p></section>'
+        '<section aria-label="Evidence quality and decision controls"><h2>Integrity checks and evidence gaps</h2>'
+        '<p class="fine">A matching local fingerprint confirms a dataset has not changed since import. '
+        'It does not authenticate an external provider or establish predictive accuracy. '
+        'All labels require underwriting review.</p>'
+        '<div class="stress-metrics">'+quality_kpis+'</div><div class="quality-list">'+quality_rows+'</div></section>'
         '<section aria-label="Repair stress scenarios"><h2>Repair cost sensitivity | synthetic stress scenarios</h2>'
         '<p class="fine">Each bar ranks an illustrative cost stress under explicit assumptions. '
         'Darker bar = base scenario; pale bar = high scenario. Amounts are not observed losses, expected claims, '

@@ -12,6 +12,11 @@ CREATE TABLE IF NOT EXISTS source_registry (
   license_status TEXT NOT NULL,
   is_synthetic INTEGER NOT NULL DEFAULT 1 CHECK(is_synthetic=1)
 );
+-- Local snapshot records catch edits to fixed synthetic dimensions and the model policy.
+CREATE TABLE IF NOT EXISTS dataset_integrity (
+  dataset_name TEXT PRIMARY KEY,
+  payload_sha256 TEXT NOT NULL CHECK(length(payload_sha256)=64)
+);
 CREATE TABLE IF NOT EXISTS dim_aircraft (
   aircraft_id TEXT PRIMARY KEY,
   registration TEXT NOT NULL UNIQUE,
@@ -116,6 +121,11 @@ SELECT s.submission_id,s.submitted_on,s.operation_type,s.annual_flight_hours,
  OR p.recurrent_training_verified IS NULL OR a.year_built IS NULL
  OR s.losses_last_five_years IS NULL OR m.mro_severity_days IS NULL
  OR s.annual_flight_hours IS NULL
+ OR s.requested_hull_value_usd IS NULL
+ OR m.mro_cost_pressure_index IS NULL
+ OR a.year_built > CAST(substr(s.submitted_on,1,4) AS INTEGER)
+ OR p.make_model_hours > p.total_flight_hours
+ OR date(s.submitted_on) IS NULL
  OR m.latest_observation < date(s.submitted_on,'-30 days')
  OR m.oldest_observation < date(s.submitted_on,'-30 days')
  OR m.latest_observation > s.submitted_on

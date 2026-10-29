@@ -113,11 +113,14 @@ class UnderwritingPipelineTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(self.db.read_bytes()).hexdigest(),before)
 
     def test_csv_injection_escaped(self):
-        with self.con() as c:
-            c.execute("UPDATE dim_aircraft SET model='=HYPERLINK(\"http://example.test\")' WHERE aircraft_id='A001'")
-            c.commit()
-        folder=self.root/'export_escaped'
-        pipeline.export_tables(self.db,folder)
+        fixture = pipeline.synthetic_fixture()
+        row = list(fixture["aircraft"][0])
+        row[3] = '=HYPERLINK("http://example.test")'
+        fixture["aircraft"][0] = tuple(row)
+        prepared = self.root / "prepared-injection.db"
+        pipeline.create_db(prepared, fixture=fixture)
+        folder = self.root / "export_escaped"
+        pipeline.export_tables(prepared, folder)
         with (folder/'v_submission_triage.csv').open(encoding='utf-8-sig',newline='') as f:
             rows=list(csv.DictReader(f))
         self.assertTrue(any(row['model'].startswith("'=") for row in rows))
@@ -135,10 +138,13 @@ class UnderwritingPipelineTests(unittest.TestCase):
         self.assertEqual(self.db.read_bytes(),before)
 
     def test_preview_rejects_injected_script(self):
-        with self.con() as c:
-            c.execute("UPDATE dim_aircraft SET model='<script>alert(1)</script>' WHERE aircraft_id='A001'")
-            c.commit()
-        html=underwriting_preview.render(self.db)
+        fixture = pipeline.synthetic_fixture()
+        row = list(fixture["aircraft"][0])
+        row[3] = "<script>alert(1)</script>"
+        fixture["aircraft"][0] = tuple(row)
+        prepared = self.root / "prepared-html.db"
+        pipeline.create_db(prepared, fixture=fixture)
+        html = underwriting_preview.render(prepared)
         self.assertNotIn('<script>alert(1)</script>',html)
         self.assertIn('&lt;script&gt;',html)
 

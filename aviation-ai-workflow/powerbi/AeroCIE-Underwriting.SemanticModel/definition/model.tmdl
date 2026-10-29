@@ -9,3 +9,4 @@ ref table v_mro_latest
 ref table v_mro_model_metrics
 ref table source_registry
 ref table v_severity_scenarios
+ref table submission_quality
