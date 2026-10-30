@@ -1,0 +1,48 @@
+name: Aviation POV checks
+
+on:
+  pull_request:
+    paths:
+      - "aviation-ai-workflow/**"
+      - ".github/workflows/aviation-pov-tests.yml"
+  push:
+    branches:
+      - "prototype/aviation-reconciliation-pov"
+    paths:
+      - "aviation-ai-workflow/**"
+      - ".github/workflows/aviation-pov-tests.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: aviation-ai-workflow
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile Python
+        run: python -m compileall -q src tests
+
+      - name: Run Python tests
+        run: pytest -q
+
+      - name: Check browser JavaScript syntax
+        run: |
+          node --check web/app.js
+          node --check web/report.js
