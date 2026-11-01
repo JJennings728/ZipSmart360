@@ -1,6 +1,6 @@
-from contextlib import closing
 """AeroCIE phase 24 regression tests: synthetic intake/MRO/triage, integrity and exports."""
 from __future__ import annotations
+from contextlib import closing
 import csv
 import hashlib
 from pathlib import Path
