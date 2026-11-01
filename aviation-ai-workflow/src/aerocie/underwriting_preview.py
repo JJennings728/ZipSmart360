@@ -1,3 +1,4 @@
+from contextlib import closing
 """Static AeroCIE underwriting research dashboard for local synthetic demonstration."""
 from __future__ import annotations
 import argparse
@@ -13,7 +14,7 @@ def render(db: Path) -> str:
     quality = underwriting_quality.audit_database(db)
     underwriting_quality.require_pass(quality)
     # SQLite opened read-only; no writes or remote resources.
-    with sqlite3.connect(f"file:{db.resolve()}?mode=ro", uri=True) as con:
+    with closing(sqlite3.connect(f"file:{db.resolve()}?mode=ro", uri=True)) as con, con:
         con.row_factory=sqlite3.Row
         data=[dict(r) for r in con.execute("SELECT * FROM v_submission_triage ORDER BY submission_id")]
         stress=[dict(r) for r in con.execute("SELECT * FROM v_severity_scenarios ORDER BY scenario_base_usd DESC, submission_id") ]
