@@ -1,5 +1,5 @@
+/// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table v_submission_features
-	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
 
 	column submission_id
 		dataType: string
