@@ -1,5 +1,5 @@
+/// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table v_mro_latest
-	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
 
 	column constraint_id
 		dataType: string
