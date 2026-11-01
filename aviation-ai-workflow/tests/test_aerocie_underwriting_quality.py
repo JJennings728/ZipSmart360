@@ -1,6 +1,6 @@
-from contextlib import closing
 """Phase 25: audit, evidence completeness and data lineage controls."""
 from __future__ import annotations
+from contextlib import closing
 
 import csv
 import hashlib
