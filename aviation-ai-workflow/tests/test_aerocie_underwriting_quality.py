@@ -1,5 +1,6 @@
 """Phase 25: audit, evidence completeness and data lineage controls."""
 from __future__ import annotations
+from contextlib import closing
 
 import csv
 import hashlib
@@ -21,7 +22,7 @@ class UnderwritingQualityTests(unittest.TestCase):
         pipeline.create_db(self.db)
 
     def _mutate(self, statement: str, params: tuple = ()):
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con, con:
             con.execute(statement, params)
             con.commit()
 
@@ -102,7 +103,7 @@ class UnderwritingQualityTests(unittest.TestCase):
         fixture["aircraft"][0] = tuple(rec)
         path = self.root / "future.db"
         pipeline.create_db(path, fixture=fixture)
-        with sqlite3.connect(path) as con:
+        with closing(sqlite3.connect(path)) as con, con:
             decision = con.execute("SELECT triage_recommendation, risk_points FROM v_submission_triage WHERE submission_id='S001'").fetchone()
         self.assertEqual(decision, ("Refer", None))
         a = quality.audit_database(path)

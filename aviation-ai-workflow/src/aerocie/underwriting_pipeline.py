@@ -4,6 +4,7 @@ No network, claims prediction, personal pilot records or automatic insurance dec
 Provides reproducible SQLite views, audit metadata and Power BI import tables.
 """
 from __future__ import annotations
+from contextlib import closing
 import argparse
 import csv
 from datetime import date, datetime, timezone
@@ -92,7 +93,7 @@ def create_db(path: Path, fixture: dict | None = None) -> dict:
     with path.open("xb"):
         pass
     try:
-        with sqlite3.connect(path) as con:
+        with closing(sqlite3.connect(path)) as con, con:
             con.execute("PRAGMA foreign_keys=ON")
             con.executescript(SCHEMA_PATH.read_text(encoding="utf-8"))
             stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -138,7 +139,7 @@ def export_tables(db_path: Path, folder: Path) -> dict:
     from .underwriting_quality import audit_database, require_pass
     audit = audit_database(db_path)
     require_pass(audit)
-    with sqlite3.connect(f"file:{db_path.resolve()}?mode=ro",uri=True) as con:
+    with closing(sqlite3.connect(f"file:{db_path.resolve()}?mode=ro",uri=True)) as con, con:
         con.row_factory=sqlite3.Row
         for (v,) in con.execute("SELECT is_synthetic FROM source_registry"):
             if v != 1:

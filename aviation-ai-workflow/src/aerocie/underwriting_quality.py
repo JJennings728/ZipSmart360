@@ -6,6 +6,7 @@ This is an integrity and quality check, never a verification of third-party
 source authority, predictive accuracy or permission to bind coverage.
 """
 from __future__ import annotations
+from contextlib import closing
 
 import argparse
 from datetime import date
@@ -205,7 +206,7 @@ def audit_database(db: Path) -> dict:
     """Reconcile all stored dataset snapshots to import fingerprints in read-only mode."""
     if not db.is_file():
         raise FileNotFoundError(db)
-    with sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True) as con:
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as con, con:
         con.row_factory = sqlite3.Row
         if con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             raise ValueError("SQLite integrity check failed")

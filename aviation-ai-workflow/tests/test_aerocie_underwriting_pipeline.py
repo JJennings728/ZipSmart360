@@ -1,5 +1,6 @@
 """AeroCIE phase 24 regression tests: synthetic intake/MRO/triage, integrity and exports."""
 from __future__ import annotations
+from contextlib import closing
 import csv
 import hashlib
 from pathlib import Path
@@ -15,7 +16,7 @@ class UnderwritingPipelineTests(unittest.TestCase):
         self.result=pipeline.create_db(self.db)
 
     def con(self):
-        return sqlite3.connect(self.db)
+        return closing(sqlite3.connect(self.db))
 
     def test_database_has_normalized_schema_and_source_ids(self):
         with self.con() as c:
