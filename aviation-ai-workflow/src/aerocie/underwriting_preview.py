@@ -1,6 +1,6 @@
-from contextlib import closing
 """Static AeroCIE underwriting research dashboard for local synthetic demonstration."""
 from __future__ import annotations
+from contextlib import closing
 import argparse
 from html import escape
 import json
