@@ -1,10 +1,10 @@
-from contextlib import closing
 """AeroCIE synthetic GA underwriting and MRO pipeline, Phase 24.
 
 No network, claims prediction, personal pilot records or automatic insurance decisions.
 Provides reproducible SQLite views, audit metadata and Power BI import tables.
 """
 from __future__ import annotations
+from contextlib import closing
 import argparse
 import csv
 from datetime import date, datetime, timezone
