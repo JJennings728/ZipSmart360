@@ -23,7 +23,7 @@ class PowerBIMeasureDefinitionTests(unittest.TestCase):
         all_names = []
         for file, expected_names in EXPECTED.items():
             contents = (TABLES / file).read_text(encoding="utf-8")
-            names = re.findall(r"^\\tmeasure '([^']+)' = ", contents, flags=re.MULTILINE)
+            names = re.findall(r"^\tmeasure '([^']+)' = ", contents, flags=re.MULTILINE)
             self.assertEqual(names, expected_names, file)
             all_names.extend(names)
         self.assertEqual(len(all_names), len(set(all_names)))
