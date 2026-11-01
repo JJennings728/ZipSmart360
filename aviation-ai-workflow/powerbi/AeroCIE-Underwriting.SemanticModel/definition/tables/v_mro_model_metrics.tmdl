@@ -1,5 +1,5 @@
+/// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table v_mro_model_metrics
-	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
 
 	column manufacturer
 		dataType: string
