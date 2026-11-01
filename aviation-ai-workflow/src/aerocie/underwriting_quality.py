@@ -1,3 +1,4 @@
+from contextlib import closing
 """AeroCIE underwriting evidence and model quality audit.
 
 Read-only checks reconcile locally imported synthetic source rows to their
@@ -205,7 +206,7 @@ def audit_database(db: Path) -> dict:
     """Reconcile all stored dataset snapshots to import fingerprints in read-only mode."""
     if not db.is_file():
         raise FileNotFoundError(db)
-    with sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True) as con:
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as con, con:
         con.row_factory = sqlite3.Row
         if con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             raise ValueError("SQLite integrity check failed")
