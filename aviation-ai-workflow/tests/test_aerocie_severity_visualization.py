@@ -1,5 +1,5 @@
-from contextlib import closing
 """Phase 24 validation of scenario sensitivity visuals and source safeguards."""
+from contextlib import closing
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import sqlite3
