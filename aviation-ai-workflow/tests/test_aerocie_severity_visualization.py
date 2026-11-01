@@ -1,3 +1,4 @@
+from contextlib import closing
 """Phase 24 validation of scenario sensitivity visuals and source safeguards."""
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -14,7 +15,7 @@ class SeverityVisualizationTests(unittest.TestCase):
         underwriting_pipeline.create_db(self.db)
 
     def test_scenarios_have_ordered_bounds_and_source_status(self):
-        with sqlite3.connect(self.db) as c:
+        with closing(sqlite3.connect(self.db)) as c, c:
             rows=c.execute("SELECT scenario_low_usd,scenario_base_usd,scenario_high_usd,scenario_basis,pricing_adequacy_status FROM v_severity_scenarios WHERE scenario_base_usd IS NOT NULL").fetchall()
         self.assertTrue(rows)
         for low,base,high,basis,adequacy in rows:
@@ -23,12 +24,12 @@ class SeverityVisualizationTests(unittest.TestCase):
             self.assertEqual(adequacy,"NOT_DETERMINED_WITHOUT_PREMIUM_AND_VALIDATED_LOSS_MODEL")
 
     def test_missing_evidence_makes_all_scenarios_null(self):
-        with sqlite3.connect(self.db) as c:
+        with closing(sqlite3.connect(self.db)) as c, c:
             rows=c.execute("SELECT submission_id,scenario_low_usd,scenario_base_usd,scenario_high_usd FROM v_severity_scenarios WHERE submission_id IN ('S006','S007') ORDER BY submission_id").fetchall()
         self.assertEqual(rows,[("S006",None,None,None),("S007",None,None,None)])
 
     def test_high_scenario_changes_monotonically_with_cost_pressure(self):
-        with sqlite3.connect(self.db) as c:
+        with closing(sqlite3.connect(self.db)) as c, c:
             old=c.execute("SELECT scenario_high_usd FROM v_severity_scenarios WHERE submission_id='S004'").fetchone()[0]
             c.execute("UPDATE fact_mro_constraints SET parts_cost_index=parts_cost_index+0.5 WHERE manufacturer='Gulfstream'")
             new=c.execute("SELECT scenario_high_usd FROM v_severity_scenarios WHERE submission_id='S004'").fetchone()[0]
@@ -48,7 +49,7 @@ class SeverityVisualizationTests(unittest.TestCase):
         self.assertIn('price',html.lower())
 
     def test_all_scenarios_block_after_source_becomes_stale(self):
-        with sqlite3.connect(self.db) as c:
+        with closing(sqlite3.connect(self.db)) as c, c:
             c.execute("UPDATE fact_mro_constraints SET as_of='2025-01-01'")
             result=c.execute("SELECT COUNT(*) FROM v_severity_scenarios WHERE scenario_base_usd IS NOT NULL").fetchone()[0]
         self.assertEqual(result,0)
