@@ -1,4 +1,3 @@
-from contextlib import closing
 """AeroCIE underwriting evidence and model quality audit.
 
 Read-only checks reconcile locally imported synthetic source rows to their
@@ -7,6 +6,7 @@ This is an integrity and quality check, never a verification of third-party
 source authority, predictive accuracy or permission to bind coverage.
 """
 from __future__ import annotations
+from contextlib import closing
 
 import argparse
 from datetime import date
