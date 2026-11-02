@@ -1,0 +1,20 @@
+{
+  "name": "StrategicRisk Partners | AeroCIE",
+  "dataColors": [
+    "#1F75B8",
+    "#102641",
+    "#09A9CE",
+    "#4C94C9",
+    "#86B4D9",
+    "#7A8EA7",
+    "#D68B54"
+  ],
+  "background": "#F3F6FB",
+  "foreground": "#162C45",
+  "tableAccent": "#1F75B8",
+  "good": "#16856D",
+  "neutral": "#C59A37",
+  "bad": "#BD4B57",
+  "maximum": "#174575",
+  "minimum": "#C7DEED"
+}
