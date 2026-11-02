@@ -11,7 +11,7 @@ This feature adds 11 explicit DAX measures to the existing PBIP semantic model. 
 ### Readiness gates
 
 1. Use the Phase 25 validator on the current branch to produce a fresh **synthetic-only** export directory. Never substitute actual pilot, customer, loss, or licensed provider data.
-2. Run `python -m src.aerocie.export_reconciliation --export-dir "<export-folder>"`. STOP unless status=PASS, release_authorized=false, 9 manifest CSV digests match, and seven case IDs reconcile.
+2. Run `python -m src.aerocie.export_reconciliation --export-dir "<export-folder>"`. STOP unless status=PASS, release_authorized=false, 10 manifest CSV digests match (including submission quality on the Phase 28 branch), and seven case IDs reconcile.
 3. Open the existing `powerbi/AeroCIE-Underwriting.pbip` project in Power BI Desktop, if that exact entrypoint exists locally. Otherwise open the .Report project using Desktop's supported PBIP workflow. Set semantic parameter `AeroCIEDataFolder` to your generated `powerbi-import` folder with a trailing backslash.
 4. Refresh every semantic-model table. Inspect any TMDL validation errors in Desktop; Python static tests do not validate DAX or the actual TMDL runtime.
 5. Add KPI cards for Synthetic Submissions, Advisory Quote, Advisory Refer, Advisory Decline, Missing Evidence, and Requested Hull Total Not Insured.
