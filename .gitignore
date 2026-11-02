@@ -1,6 +1,54 @@
+# Python, local environments and build outputs
 __pycache__/
 *.py[cod]
-build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
-.env
+venv/
+build/
+dist/
+*.egg-info/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local databases and temporary exports
 *.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.log
+*.tmp
+*.bak
+
+# Local configuration and sensitive material
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+secrets/
+private/
+internal-private/
+customer-data/
+client-data/
+local-evidence/
+local-research/
+
+# Developer/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
