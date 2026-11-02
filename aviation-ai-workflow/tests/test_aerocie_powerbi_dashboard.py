@@ -247,7 +247,7 @@ class DashboardSyntheticDataTests(unittest.TestCase):
         self.assertEqual(result['labels'], {'Quote': 2, 'Refer': 4, 'Decline': 1})
         self.assertEqual(Decimal(result['requested_hull_total_usd_NOT_INSURED_VALUE']), Decimal('34045000'))
         self.assertEqual(list(map(Decimal, result['scenario_totals_usd_NOT_CLAIM_FORECAST'])), list(map(Decimal, ['46243', '104080', '208159'])))
-        self.assertEqual(result['files_verified_by_sha256'], 9)
+        self.assertEqual(result['files_verified_by_sha256'], 10)
         self.assertFalse(result['release_authorized'])
         missing = [r for r in self.rows('v_submission_triage') if r['insufficient_evidence'] == '1']
         self.assertEqual(len(missing), 2)
