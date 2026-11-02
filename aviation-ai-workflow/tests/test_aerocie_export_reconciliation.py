@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -49,7 +51,29 @@ class ExportReconciliationTests(unittest.TestCase):
             writer = csv.DictWriter(file, fieldnames=fields)
             writer.writeheader()
             writer.writerows(rows)
+        # Recompute the manifest digest to exercise semantic consistency after the
+        # cryptographic integrity gate (a plain tamper is rejected earlier).
+        manifest_path = self.folder / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        next(entry for entry in manifest["tables"] if entry["view"] == "submission_quality")["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "Triage label disagreement"):
+            reconcile(self.folder)
+
+    def test_tampered_quality_status_or_issue_codes_fails_integrity(self):
+        path = self.folder / "submission_quality.csv"
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            fields = reader.fieldnames
+            rows = list(reader)
+        for row in rows:
+            row["quality_status"] = "INPUTS_PRESENT_SYNTHETIC"
+            row["issue_codes"] = ""
+        with path.open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(rows)
+        with self.assertRaisesRegex(ValueError, "CSV digest mismatch: submission_quality"):
             reconcile(self.folder)
 
 
