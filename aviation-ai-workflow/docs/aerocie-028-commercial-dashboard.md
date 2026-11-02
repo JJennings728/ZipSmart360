@@ -40,6 +40,10 @@ The JSON validator uses bundled Microsoft schemas, their referenced dependency g
 
 The original scaffold's nonexistent version-schema URL was corrected to Microsoft's `versionMetadata` schema and the report version set to the supported three-component format (`4.0.0`).
 
+## One-command Windows preflight
+
+From a PowerShell terminal in `aviation-ai-workflow`, install the development requirements with `python -m pip install -r requirements-dev.txt`, then run `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\prepare_windows_powerbi_demo.ps1`. The script creates new synthetic databases and CSV exports under a unique temporary directory, checks reconciliation and static PBIR schema validation, runs regression tests, and prints the exact `AeroCIEDataFolder` parameter value. It does **not** alter existing databases, validate Power BI Desktop, or release anything. To open the Desktop project at the end, append `-OpenDesktop`; actual refresh, rendering, and interaction verification remain manual.
+
 ## Open and validate on Windows
 
 1. Use a current Power BI Desktop installation supporting PBIP/PBIR and TMDL. Record the exact Desktop version in local acceptance evidence. Do not publish to Power BI Service.
