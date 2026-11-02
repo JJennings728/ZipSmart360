@@ -1,0 +1,4 @@
+database AeroCIEUnderwriting
+	compatibilityLevel: 1601
+	compatibilityMode: powerBI
+	language: 1033

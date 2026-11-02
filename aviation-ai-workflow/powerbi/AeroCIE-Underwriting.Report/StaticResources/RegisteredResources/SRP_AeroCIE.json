@@ -1,0 +1,65 @@
+{
+  "name": "SRP AeroCIE",
+  "dataColors": [
+    "#10263F",
+    "#168FA6",
+    "#667D93",
+    "#467078",
+    "#8A7383",
+    "#A8BCC9"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#10263F",
+  "tableAccent": "#168FA6",
+  "good": "#168074",
+  "neutral": "#A77924",
+  "bad": "#985666",
+  "textClasses": {
+    "title": {
+      "fontFace": "Montserrat",
+      "fontSize": 12,
+      "color": "#10263F"
+    },
+    "header": {
+      "fontFace": "Montserrat",
+      "fontSize": 11,
+      "color": "#10263F"
+    },
+    "label": {
+      "fontFace": "Montserrat",
+      "fontSize": 10,
+      "color": "#243B53"
+    },
+    "callout": {
+      "fontFace": "Montserrat",
+      "fontSize": 26,
+      "color": "#10263F"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontFamily": "Montserrat",
+            "color": {
+              "solid": {
+                "color": "#10263F"
+              }
+            }
+          }
+        ],
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

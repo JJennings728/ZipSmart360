@@ -1,0 +1,61 @@
+{
+  "packet_schema": "AEROCIE-013-UNSIGNED-RESEARCH-DRAFT-v1",
+  "research_candidate": {
+    "subject_id": "demo:facility:sample",
+    "subject_label": "Synthetic aviation facility",
+    "rationale": "Fictional fixture only; no regulatory findings or actual source retrieval."
+  },
+  "published_metadata_documents": [
+    {
+      "document_number": "2000-00000",
+      "title": "Synthetic publication placeholder | NOT AN ACTUAL SOURCE",
+      "publication_date": "2000-01-01",
+      "stated_effective_on": null,
+      "source_integrity_status": "SYNTHETIC_FIXTURE_NOT_VERIFIED",
+      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "official_link_format_checked_only": "https://www.federalregister.gov/documents/2000/01/01/2000-00000/synthetic-placeholder"
+    }
+  ],
+  "correction_candidates_research_only": [],
+  "as_of_calendar_date": "2026-10-29",
+  "human_review_checklist": [
+    {
+      "check_id": "source_text",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "faa_drs",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "correction_pins",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "later_changes",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "operative_date",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "subject_facts",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "applicability",
+      "status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "check_id": "integrity",
+      "status": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "external_release_authorized": false,
+  "human_review_complete": false,
+  "applicability_status": "NOT_DETERMINED",
+  "compliance_status": "NOT_DETERMINED",
+  "review_disposition": "HOLD_FOR_HUMAN_REVIEW",
+  "audit_sha256": "57bccea37e6e17d492145dcd1bc7aab5790fbdedc411052ceaf7bb57c4917782"
+}

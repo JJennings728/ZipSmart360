@@ -1,0 +1,8 @@
+{
+  "schema": "AEROCIE-PHASE20-SYNTHETIC-INTAKE-v1",
+  "synthetic": true,
+  "case_id": "demo:intake:001",
+  "subject_id": "demo:facility:sample",
+  "organization": "Synthetic Aviation Research Company",
+  "requested_scope": "Demonstrate source-linked research preparation and unresolved human review checks."
+}
