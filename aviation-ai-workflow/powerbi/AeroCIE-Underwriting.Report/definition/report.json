@@ -35,6 +35,11 @@
           "name": "srp-engine-safety.jpg",
           "path": "srp-engine-safety.jpg",
           "type": "Image"
+        },
+        {
+          "name": "srp-licensed-stock-engine.jpg",
+          "path": "srp-licensed-stock-engine.jpg",
+          "type": "Image"
         }
       ]
     }

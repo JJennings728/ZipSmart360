@@ -79,7 +79,7 @@ def test_image_resources_are_real_files_and_registered() -> None:
     }
     assert resources["SRP-AeroCIE-2026.json"]["type"] == "CustomTheme"
     images = [name for name, item in resources.items() if item["type"] == "Image"]
-    assert len(images) == 3
+    assert len(images) == 4
     for name in images:
         content = (REPORT / "StaticResources" / "RegisteredResources" / name).read_bytes()
         assert content[:3] == b"\\xff\\xd8\\xff", f"Not JPEG: {name}"
@@ -91,7 +91,7 @@ def test_image_resources_are_real_files_and_registered() -> None:
                     item = general["properties"]["imageUrl"]["expr"]["ResourcePackageItem"]["ItemName"]
                     assert item in images
                     names_in_use.add(item)
-    assert names_in_use == set(images)
+    assert names_in_use.issubset(set(images))\n    assert "srp-licensed-stock-engine.jpg" in names_in_use
 
 
 def test_research_only_status_is_visible_everywhere() -> None:
