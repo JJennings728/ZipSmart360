@@ -473,8 +473,14 @@ def main(argv: list[str] | None = None) -> int:
             result = export_graph(args.db, args.source_db, node_id=args.node)
         elif args.command == "render-html":
             graph = export_graph(args.db, args.source_db)
+            # Never overwrite any evidence SQLite database, including symlink/path aliases.
+            output = args.output.resolve()
+            if output in (args.db.resolve(), args.source_db.resolve()):
+                raise ValueError("HTML output cannot replace an evidence database")
             args.output.parent.mkdir(parents=True, exist_ok=True)
-            args.output.write_text(render_html(graph), encoding="utf-8")
+            # Exclusive creation prevents silent truncation of existing reports or records.
+            with args.output.open("x", encoding="utf-8") as file:
+                file.write(render_html(graph))
             result = {"path": str(args.output), "nodes": len(graph["nodes"]), "edges": len(graph["edges"])}
         else:
             graph = export_graph(args.db, args.source_db)
