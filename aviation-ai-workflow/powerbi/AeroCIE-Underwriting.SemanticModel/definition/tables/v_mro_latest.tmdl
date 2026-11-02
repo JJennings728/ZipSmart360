@@ -1,5 +1,11 @@
+/// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table v_mro_latest
-	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
+
+	measure 'Average Repair Wait Days' = AVERAGE('v_mro_latest'[repair_wait_days])
+		formatString: 0.0
+
+	measure 'Average Parts Cost Index' = AVERAGE('v_mro_latest'[parts_cost_index])
+		formatString: 0.00
 
 	column constraint_id
 		dataType: string

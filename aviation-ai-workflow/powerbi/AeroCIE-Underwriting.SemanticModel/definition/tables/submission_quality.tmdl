@@ -1,5 +1,8 @@
+/// Synthetic source integrity and input completeness. Does not certify provider authority.
 table submission_quality
-	description: "Synthetic source integrity and input completeness. Does not certify provider authority."
+
+	measure 'Evidence Referrals' = CALCULATE(COUNTROWS('submission_quality'), 'submission_quality'[quality_status] = "REFER_FOR_REVIEW")
+		formatString: 0
 
 	column submission_id
 		dataType: string

@@ -1,5 +1,17 @@
+/// Synthetic repair stress sensitivity. Cost assumptions are not expected claims or premium adequacy findings.
 table v_severity_scenarios
-	description: "Synthetic repair stress sensitivity. Cost assumptions are not expected claims or premium adequacy findings."
+
+	measure 'Scenario Low Synthetic' = SUM('v_severity_scenarios'[scenario_low_usd])
+		formatString: $#,0;($#,0);$0
+
+	measure 'Scenario Base Synthetic' = SUM('v_severity_scenarios'[scenario_base_usd])
+		formatString: $#,0;($#,0);$0
+
+	measure 'Scenario High Synthetic' = SUM('v_severity_scenarios'[scenario_high_usd])
+		formatString: $#,0;($#,0);$0
+
+	measure 'Scenario Available Count' = COUNT('v_severity_scenarios'[scenario_base_usd])
+		formatString: 0
 
 	column submission_id
 		dataType: string

@@ -1,0 +1,290 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "submission_review",
+  "position": {
+    "x": 28,
+    "y": 409,
+    "z": 42,
+    "width": 1220,
+    "height": 235,
+    "tabOrder": 42
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "submission_id"
+                }
+              },
+              "queryRef": "v_submission_triage.submission_id",
+              "nativeQueryRef": "submission_id",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "v_submission_triage.manufacturer",
+              "nativeQueryRef": "manufacturer",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "v_submission_triage.model",
+              "nativeQueryRef": "model",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "operation_type"
+                }
+              },
+              "queryRef": "v_submission_triage.operation_type",
+              "nativeQueryRef": "operation_type",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "requested_hull_value_usd"
+                }
+              },
+              "queryRef": "v_submission_triage.requested_hull_value_usd",
+              "nativeQueryRef": "requested_hull_value_usd",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "total_flight_hours"
+                }
+              },
+              "queryRef": "v_submission_triage.total_flight_hours",
+              "nativeQueryRef": "total_flight_hours",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "mro_severity_days"
+                }
+              },
+              "queryRef": "v_submission_triage.mro_severity_days",
+              "nativeQueryRef": "mro_severity_days",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "risk_points"
+                }
+              },
+              "queryRef": "v_submission_triage.risk_points",
+              "nativeQueryRef": "risk_points",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "triage_recommendation"
+                }
+              },
+              "queryRef": "v_submission_triage.triage_recommendation",
+              "nativeQueryRef": "triage_recommendation",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_submission_triage"
+                    }
+                  },
+                  "Property": "insufficient_evidence"
+                }
+              },
+              "queryRef": "v_submission_triage.insufficient_evidence",
+              "nativeQueryRef": "insufficient_evidence",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AIRCRAFT & UNDERWRITING RESEARCH DETAIL'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#102641'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Montserrat'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DDE6F0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "7D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

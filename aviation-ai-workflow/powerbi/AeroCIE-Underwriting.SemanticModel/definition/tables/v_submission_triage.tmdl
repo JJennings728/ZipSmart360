@@ -1,5 +1,23 @@
+/// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table v_submission_triage
-	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
+
+	measure 'Synthetic Submissions' = COUNTROWS('v_submission_triage')
+		formatString: 0
+
+	measure 'Advisory Quote' = CALCULATE(COUNTROWS('v_submission_triage'), 'v_submission_triage'[triage_recommendation] = "Quote")
+		formatString: 0
+
+	measure 'Advisory Refer' = CALCULATE(COUNTROWS('v_submission_triage'), 'v_submission_triage'[triage_recommendation] = "Refer")
+		formatString: 0
+
+	measure 'Advisory Decline' = CALCULATE(COUNTROWS('v_submission_triage'), 'v_submission_triage'[triage_recommendation] = "Decline")
+		formatString: 0
+
+	measure 'Missing Evidence' = CALCULATE(COUNTROWS('v_submission_triage'), 'v_submission_triage'[insufficient_evidence] = 1)
+		formatString: 0
+
+	measure 'Requested Hull Total Not Insured' = SUM('v_submission_triage'[requested_hull_value_usd])
+		formatString: $#,0;($#,0);$0
 
 	column submission_id
 		dataType: string

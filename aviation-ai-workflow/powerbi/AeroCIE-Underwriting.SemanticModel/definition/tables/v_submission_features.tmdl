@@ -1,5 +1,5 @@
+/// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table v_submission_features
-	description: "Synthetic AeroCIE research. Decision outputs need underwriter review."
 
 	column submission_id
 		dataType: string
@@ -136,71 +136,75 @@ table v_submission_features
 		sourceColumn: insufficient_evidence
 		summarizeBy: none
 
-	measure MRO_Severity_Index = VAR _Make = SELECTEDVALUE ( 'v_submission_features'[manufacturer] )
-		VAR _Model = SELECTEDVALUE ( 'v_submission_features'[model] )
-		RETURN
-		    IF (
-		        ISBLANK ( _Make ) || ISBLANK ( _Model ),
-		        BLANK (),
-		        CALCULATE (
-		            DIVIDE (
-		                SUMX (
-		                    'v_mro_latest',
-		                    'v_mro_latest'[repair_wait_days] *
-		                        ( 2 - 'v_mro_latest'[parts_availability_index] )
-		                ),
-		                SUMX (
-		                    'v_mro_latest',
-		                    2 - 'v_mro_latest'[parts_availability_index]
-		                )
-		            ),
-		            REMOVEFILTERS ( 'v_mro_latest' ),
-		            TREATAS (
-		                ROW ( "Make", _Make, "Model", _Model ),
-		                'v_mro_latest'[manufacturer],
-		                'v_mro_latest'[model]
-		            )
-		        )
-		    )
+	measure MRO_Severity_Index =
+			VAR _Make = SELECTEDVALUE ( 'v_submission_features'[manufacturer] )
+			VAR _Model = SELECTEDVALUE ( 'v_submission_features'[model] )
+			RETURN
+			    IF (
+			        ISBLANK ( _Make ) || ISBLANK ( _Model ),
+			        BLANK (),
+			        CALCULATE (
+			            DIVIDE (
+			                SUMX (
+			                    'v_mro_latest',
+			                    'v_mro_latest'[repair_wait_days] *
+			                        ( 2 - 'v_mro_latest'[parts_availability_index] )
+			                ),
+			                SUMX (
+			                    'v_mro_latest',
+			                    2 - 'v_mro_latest'[parts_availability_index]
+			                )
+			            ),
+			            REMOVEFILTERS ( 'v_mro_latest' ),
+			            TREATAS (
+			                ROW ( "Make", _Make, "Model", _Model ),
+			                'v_mro_latest'[manufacturer],
+			                'v_mro_latest'[model]
+			            )
+			        )
+			    )
+		formatString: 0.00
 
-	measure Triage_Risk_Points = VAR _Age = SELECTEDVALUE ( 'v_submission_features'[aircraft_age_years] )
-		VAR _Hours = SELECTEDVALUE ( 'v_submission_features'[total_flight_hours] )
-		VAR _TypeTime = SELECTEDVALUE ( 'v_submission_features'[make_model_hours] )
-		VAR _Losses = SELECTEDVALUE ( 'v_submission_features'[losses_last_five_years] )
-		VAR _Composite = SELECTEDVALUE ( 'v_submission_features'[composite_material_flag] )
-		VAR _Training = SELECTEDVALUE ( 'v_submission_features'[recurrent_training_verified] )
-		VAR _Utilization = SELECTEDVALUE ( 'v_submission_features'[annual_flight_hours] )
-		VAR _MRO = [MRO_Severity_Index]
-		VAR _EvidenceMissing = SELECTEDVALUE ( 'v_submission_features'[insufficient_evidence], 1 )
-		VAR _SingleSubmission = HASONEVALUE ( 'v_submission_features'[submission_id] )
-		VAR _Missing =
-		    NOT _SingleSubmission || _EvidenceMissing <> 0 ||
-		    ISBLANK ( _Age ) || ISBLANK ( _Hours ) || ISBLANK ( _TypeTime ) ||
-		    ISBLANK ( _Losses ) || ISBLANK ( _Composite ) || ISBLANK ( _Training ) ||
-		    ISBLANK ( _Utilization ) || ISBLANK ( _MRO )
-		VAR _AgePoints = SWITCH ( TRUE (), _Age > 30, 20, _Age > 15, 10, 0 )
-		VAR _HoursPoints = SWITCH ( TRUE (), _Hours < 500, 18, _Hours < 1500, 8, 0 )
-		VAR _TypePoints = SWITCH ( TRUE (), _TypeTime < 25, 18, _TypeTime < 100, 8, 0 )
-		VAR _LossPoints = SWITCH ( TRUE (), _Losses >= 2, 30, _Losses = 1, 15, 0 )
-		VAR _MROPoints = SWITCH ( TRUE (), _MRO > 60, 20, _MRO > 30, 10, 0 )
-		VAR _CompositePoints = IF ( _Composite = 1, 5, 0 )
-		VAR _TrainingPoints = IF ( _Training = 0, 10, 0 )
-		RETURN
-		    IF ( _Missing, BLANK (),
-		        MIN ( 100, _AgePoints + _HoursPoints + _TypePoints +
-		            _LossPoints + _MROPoints + _CompositePoints + _TrainingPoints )
-		    )
+	measure Triage_Risk_Points =
+			VAR _Age = SELECTEDVALUE ( 'v_submission_features'[aircraft_age_years] )
+			VAR _Hours = SELECTEDVALUE ( 'v_submission_features'[total_flight_hours] )
+			VAR _TypeTime = SELECTEDVALUE ( 'v_submission_features'[make_model_hours] )
+			VAR _Losses = SELECTEDVALUE ( 'v_submission_features'[losses_last_five_years] )
+			VAR _Composite = SELECTEDVALUE ( 'v_submission_features'[composite_material_flag] )
+			VAR _Training = SELECTEDVALUE ( 'v_submission_features'[recurrent_training_verified] )
+			VAR _Utilization = SELECTEDVALUE ( 'v_submission_features'[annual_flight_hours] )
+			VAR _MRO = [MRO_Severity_Index]
+			VAR _EvidenceMissing = SELECTEDVALUE ( 'v_submission_features'[insufficient_evidence], 1 )
+			VAR _SingleSubmission = HASONEVALUE ( 'v_submission_features'[submission_id] )
+			VAR _Missing =
+			    NOT _SingleSubmission || _EvidenceMissing <> 0 ||
+			    ISBLANK ( _Age ) || ISBLANK ( _Hours ) || ISBLANK ( _TypeTime ) ||
+			    ISBLANK ( _Losses ) || ISBLANK ( _Composite ) || ISBLANK ( _Training ) ||
+			    ISBLANK ( _Utilization ) || ISBLANK ( _MRO )
+			VAR _AgePoints = SWITCH ( TRUE (), _Age > 30, 20, _Age > 15, 10, 0 )
+			VAR _HoursPoints = SWITCH ( TRUE (), _Hours < 500, 18, _Hours < 1500, 8, 0 )
+			VAR _TypePoints = SWITCH ( TRUE (), _TypeTime < 25, 18, _TypeTime < 100, 8, 0 )
+			VAR _LossPoints = SWITCH ( TRUE (), _Losses >= 2, 30, _Losses = 1, 15, 0 )
+			VAR _MROPoints = SWITCH ( TRUE (), _MRO > 60, 20, _MRO > 30, 10, 0 )
+			VAR _CompositePoints = IF ( _Composite = 1, 5, 0 )
+			VAR _TrainingPoints = IF ( _Training = 0, 10, 0 )
+			RETURN
+			    IF ( _Missing, BLANK (),
+			        MIN ( 100, _AgePoints + _HoursPoints + _TypePoints +
+			            _LossPoints + _MROPoints + _CompositePoints + _TrainingPoints )
+			    )
+		formatString: 0
 
-	measure Automated_Triage_Status = VAR _RiskPoints = [Triage_Risk_Points]
-		RETURN
-		    SWITCH (
-		        TRUE (),
-		        ISBLANK ( _RiskPoints ), "Refer",
-		        _RiskPoints <= 25, "Quote",
-		        _RiskPoints >= 70, "Decline",
-		        "Refer"
-		    )
-
+	measure Automated_Triage_Status =
+			VAR _RiskPoints = [Triage_Risk_Points]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _RiskPoints ), "Refer",
+			        _RiskPoints <= 25, "Quote",
+			        _RiskPoints >= 70, "Decline",
+			        "Refer"
+			    )
 	measure Submissions = COUNTROWS ( 'v_submission_triage' )
 
 	measure Refer_Count = CALCULATE ( COUNTROWS ( 'v_submission_triage' ), 'v_submission_triage'[triage_recommendation] = "Refer" )
