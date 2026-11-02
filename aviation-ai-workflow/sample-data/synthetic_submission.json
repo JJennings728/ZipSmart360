@@ -4,7 +4,9 @@
     "industry": "Commercial general aviation / Part 135 charter",
     "submission_type": "Commercial GA underwriting review",
     "policy_period": "2027-01-01/2028-01-01",
-    "distribution_channel": "Broker-mediated open market"
+    "distribution_channel": "Broker-mediated open market",
+    "legal_name": "PrairieJet Charter Group LLC (Synthetic)",
+    "faa_certificate_number": "PJ9A123X"
   },
   "submission": {
     "application_received": true,
@@ -111,7 +113,233 @@
       "sms": "Documented synthetic safety-management program",
       "recurrent_training": "Annual simulator-based recurrent training represented for named pilots except Pilot 27 documentation",
       "maintenance": "Manufacturer-recommended and approved inspection programs represented"
-    }
+    },
+    "aircraft_schedule": [
+      {
+        "aircraft_id": "AC-001",
+        "registration": "N650PJ",
+        "serial_number": "SYN-G650-001",
+        "aircraft": "Gulfstream G650ER",
+        "hull_value_usd": 55000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-002",
+        "registration": "N651PJ",
+        "serial_number": "SYN-G650-002",
+        "aircraft": "Gulfstream G650ER",
+        "hull_value_usd": 55000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-003",
+        "registration": "N550PJ",
+        "serial_number": "SYN-G550-003",
+        "aircraft": "Gulfstream G550",
+        "hull_value_usd": 28000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-004",
+        "registration": "N551PJ",
+        "serial_number": "SYN-G550-004",
+        "aircraft": "Gulfstream G550",
+        "hull_value_usd": 28000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-005",
+        "registration": "N552PJ",
+        "serial_number": "SYN-G550-005",
+        "aircraft": "Gulfstream G550",
+        "hull_value_usd": 28000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-006",
+        "registration": "N350PJ",
+        "serial_number": "SYN-CL350-006",
+        "aircraft": "Bombardier Challenger 350",
+        "hull_value_usd": 18000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-007",
+        "registration": "N351PJ",
+        "serial_number": "SYN-CL350-007",
+        "aircraft": "Bombardier Challenger 350",
+        "hull_value_usd": 18000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-008",
+        "registration": "N352PJ",
+        "serial_number": "SYN-CL350-008",
+        "aircraft": "Bombardier Challenger 350",
+        "hull_value_usd": 18000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-009",
+        "registration": "N353PJ",
+        "serial_number": "SYN-CL350-009",
+        "aircraft": "Bombardier Challenger 350",
+        "hull_value_usd": 18000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-010",
+        "registration": "N760PJ",
+        "serial_number": "SYN-LAT-010",
+        "aircraft": "Cessna Citation Latitude",
+        "hull_value_usd": 16000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-011",
+        "registration": "N761PJ",
+        "serial_number": "SYN-LAT-011",
+        "aircraft": "Cessna Citation Latitude",
+        "hull_value_usd": 16000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-012",
+        "registration": "N762PJ",
+        "serial_number": "SYN-LAT-012",
+        "aircraft": "Cessna Citation Latitude",
+        "hull_value_usd": 16000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-013",
+        "registration": "N763PJ",
+        "serial_number": "SYN-LAT-013",
+        "aircraft": "Cessna Citation Latitude",
+        "hull_value_usd": 16000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-014",
+        "registration": "N764PJ",
+        "serial_number": "SYN-LAT-014",
+        "aircraft": "Cessna Citation Latitude",
+        "hull_value_usd": 16000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-015",
+        "registration": "N350KA",
+        "serial_number": "SYN-KA350-015",
+        "aircraft": "Beechcraft King Air 350i",
+        "hull_value_usd": 7000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-016",
+        "registration": "N351KA",
+        "serial_number": "SYN-KA350-016",
+        "aircraft": "Beechcraft King Air 350i",
+        "hull_value_usd": 7000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-017",
+        "registration": "N352KA",
+        "serial_number": "SYN-KA350-017",
+        "aircraft": "Beechcraft King Air 350i",
+        "hull_value_usd": 7000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-018",
+        "registration": "N353KA",
+        "serial_number": "SYN-KA350-018",
+        "aircraft": "Beechcraft King Air 350i",
+        "hull_value_usd": 7000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-019",
+        "registration": "N354KA",
+        "serial_number": "SYN-KA350-019",
+        "aircraft": "Beechcraft King Air 350i",
+        "hull_value_usd": 7000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-020",
+        "registration": "N355KA",
+        "serial_number": "SYN-KA350-020",
+        "aircraft": "Beechcraft King Air 350i",
+        "hull_value_usd": 7000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-021",
+        "registration": "N403PJ",
+        "serial_number": "SYN-CJ4-021",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-022",
+        "registration": "N404PJ",
+        "serial_number": "SYN-CJ4-022",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-023",
+        "registration": "N405PJ",
+        "serial_number": "SYN-CJ4-023",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-024",
+        "registration": "N406PJ",
+        "serial_number": "SYN-CJ4-024",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-025",
+        "registration": "N407PJ",
+        "serial_number": "SYN-CJ4-025",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-026",
+        "registration": "N408PJ",
+        "serial_number": "SYN-CJ4-026",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-027",
+        "registration": "N409PJ",
+        "serial_number": "SYN-CJ4-027",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      },
+      {
+        "aircraft_id": "AC-028",
+        "registration": "N812PJ",
+        "serial_number": "SYN-CJ4-028",
+        "aircraft": "Cessna Citation CJ3+/CJ4",
+        "hull_value_usd": 6000000,
+        "status": "active"
+      }
+    ]
   },
   "loss_history": [
     {
@@ -119,21 +347,27 @@
       "type": "hull physical damage",
       "cause": "bird strike",
       "incurred_usd": 1200000,
-      "status": "closed"
+      "status": "closed",
+      "event_date": "2022-05-18",
+      "registration": "N550PJ"
     },
     {
       "year": 2024,
       "type": "liability",
       "cause": "passenger ground injury",
       "incurred_usd": 425000,
-      "status": "closed"
+      "status": "closed",
+      "event_date": "2024-08-02",
+      "registration": "N760PJ"
     },
     {
       "year": 2025,
       "type": "hull physical damage",
       "cause": "runway excursion",
       "incurred_usd": 4800000,
-      "status": "closed"
+      "status": "closed",
+      "event_date": "2025-11-14",
+      "registration": "N350PJ"
     }
   ],
   "delegated_authority": {
@@ -143,22 +377,26 @@
       {
         "rule": "Maximum single-aircraft hull value",
         "threshold": "USD 50,000,000",
-        "submission_value": "USD 55,000,000"
+        "submission_value": "USD 55,000,000",
+        "comparison": "exceeded"
       },
       {
         "rule": "Maximum requested liability limit",
         "threshold": "USD 300,000,000",
-        "submission_value": "USD 500,000,000"
+        "submission_value": "USD 500,000,000",
+        "comparison": "exceeded"
       },
       {
         "rule": "Maximum Caribbean flight share",
         "threshold": "10%",
-        "submission_value": "14%"
+        "submission_value": "14%",
+        "comparison": "exceeded"
       },
       {
         "rule": "Maximum year-over-year utilization increase without referral",
         "threshold": "25%",
-        "submission_value": "29.2%"
+        "submission_value": "29.2%",
+        "comparison": "exceeded"
       }
     ]
   },

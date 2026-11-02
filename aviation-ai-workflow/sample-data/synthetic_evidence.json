@@ -1,0 +1,296 @@
+{
+  "case_id": "SRP-DEMO-001",
+  "sources": [
+    {
+      "source_id": "AUTH-001",
+      "type": "operator_authority",
+      "name": "Synthetic Part 298 / operating-authority record",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "INS-001",
+      "type": "insurance_certificate",
+      "name": "Synthetic OST Form 6410 evidence",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "FAA-001",
+      "type": "aircraft_registry",
+      "name": "Synthetic FAA-style registry snapshot",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "EVT-001",
+      "type": "aviation_event_history",
+      "name": "Synthetic aviation event history",
+      "version": "2026-10-05"
+    },
+    {
+      "source_id": "FILE-001",
+      "type": "filing_evidence",
+      "name": "Synthetic aircraft schedule change record",
+      "version": "2026-10-05"
+    }
+  ],
+  "operator_authority": {
+    "legal_name": "PrairieJet Charter Group LLC (Synthetic)",
+    "faa_certificate_number": "PJ9A123X",
+    "authority_type": "Part 135 / Part 91",
+    "part_298_status": "registered",
+    "source_id": "AUTH-001"
+  },
+  "insurance_certificate": {
+    "legal_name": "PrairieJet Charter Group LLC (Synthetic)",
+    "faa_certificate_number": "PJ9A123X",
+    "form": "OST 6410 (Synthetic)",
+    "section": "A",
+    "status": "active",
+    "coverage": {
+      "combined_single_limit_usd": 300000000
+    },
+    "aircraft_scope": {
+      "type": "SPECIFIC_AIRCRAFT",
+      "registrations": [
+        "N650PJ",
+        "N651PJ",
+        "N550PJ",
+        "N551PJ",
+        "N552PJ",
+        "N350PJ",
+        "N351PJ",
+        "N352PJ",
+        "N353PJ",
+        "N760PJ",
+        "N761PJ",
+        "N762PJ",
+        "N763PJ",
+        "N764PJ",
+        "N350KA",
+        "N351KA",
+        "N352KA",
+        "N353KA",
+        "N354KA",
+        "N355KA",
+        "N403PJ",
+        "N404PJ",
+        "N405PJ",
+        "N406PJ",
+        "N407PJ",
+        "N408PJ",
+        "N409PJ"
+      ]
+    },
+    "source_id": "INS-001"
+  },
+  "faa_registry": {
+    "as_of": "2026-10-05",
+    "source_id": "FAA-001",
+    "records": [
+      {
+        "registration": "N650PJ",
+        "serial_number": "SYN-G650-001",
+        "make_model": "Gulfstream G650ER",
+        "status": "active"
+      },
+      {
+        "registration": "N651PJ",
+        "serial_number": "SYN-G650-002",
+        "make_model": "Gulfstream G650ER",
+        "status": "active"
+      },
+      {
+        "registration": "N550PJ",
+        "serial_number": "SYN-G550-003",
+        "make_model": "Gulfstream G550",
+        "status": "active"
+      },
+      {
+        "registration": "N551PJ",
+        "serial_number": "SYN-G550-004",
+        "make_model": "Gulfstream G550",
+        "status": "active"
+      },
+      {
+        "registration": "N552PJ",
+        "serial_number": "SYN-G550-005",
+        "make_model": "Gulfstream G550",
+        "status": "active"
+      },
+      {
+        "registration": "N350PJ",
+        "serial_number": "SYN-CL350-006",
+        "make_model": "Bombardier Challenger 350",
+        "status": "active"
+      },
+      {
+        "registration": "N351PJ",
+        "serial_number": "SYN-CL350-007",
+        "make_model": "Bombardier Challenger 350",
+        "status": "active"
+      },
+      {
+        "registration": "N352PJ",
+        "serial_number": "SYN-CL350-008",
+        "make_model": "Bombardier Challenger 350",
+        "status": "active"
+      },
+      {
+        "registration": "N353PJ",
+        "serial_number": "SYN-CL350-009",
+        "make_model": "Bombardier Challenger 350",
+        "status": "active"
+      },
+      {
+        "registration": "N760PJ",
+        "serial_number": "SYN-LAT-010",
+        "make_model": "Cessna Citation Latitude",
+        "status": "active"
+      },
+      {
+        "registration": "N761PJ",
+        "serial_number": "SYN-LAT-011",
+        "make_model": "Cessna Citation Latitude",
+        "status": "active"
+      },
+      {
+        "registration": "N762PJ",
+        "serial_number": "SYN-LAT-012",
+        "make_model": "Cessna Citation Latitude",
+        "status": "active"
+      },
+      {
+        "registration": "N763PJ",
+        "serial_number": "SYN-LAT-013",
+        "make_model": "Cessna Citation Latitude",
+        "status": "active"
+      },
+      {
+        "registration": "N764PJ",
+        "serial_number": "SYN-LAT-014",
+        "make_model": "Cessna Citation Latitude",
+        "status": "active"
+      },
+      {
+        "registration": "N350KA",
+        "serial_number": "SYN-KA350-015",
+        "make_model": "Beechcraft King Air 350i",
+        "status": "active"
+      },
+      {
+        "registration": "N351KA",
+        "serial_number": "SYN-KA350-016",
+        "make_model": "Beechcraft King Air 350i",
+        "status": "active"
+      },
+      {
+        "registration": "N352KA",
+        "serial_number": "SYN-KA350-017",
+        "make_model": "Beechcraft King Air 350i",
+        "status": "active"
+      },
+      {
+        "registration": "N353KA",
+        "serial_number": "SYN-KA350-018",
+        "make_model": "Beechcraft King Air 350i",
+        "status": "active"
+      },
+      {
+        "registration": "N354KA",
+        "serial_number": "SYN-KA350-019",
+        "make_model": "Beechcraft King Air 350i",
+        "status": "active"
+      },
+      {
+        "registration": "N355KA",
+        "serial_number": "SYN-KA350-020",
+        "make_model": "Beechcraft King Air 350i",
+        "status": "active"
+      },
+      {
+        "registration": "N403PJ",
+        "serial_number": "SYN-CJ4-021",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N404PJ",
+        "serial_number": "SYN-CJ4-022",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N405PJ",
+        "serial_number": "SYN-CJ4-023",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N406PJ",
+        "serial_number": "SYN-CJ4-024",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N407PJ",
+        "serial_number": "SYN-CJ4-025",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N408PJ",
+        "serial_number": "SYN-CJ4-026",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N409PJ",
+        "serial_number": "SYN-CJ4-027",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      },
+      {
+        "registration": "N812PJ",
+        "serial_number": "SYN-CJ4-999",
+        "make_model": "Cessna Citation CJ3+/CJ4",
+        "status": "active"
+      }
+    ]
+  },
+  "aviation_events": [
+    {
+      "event_id": "SYN-EVT-2026-001",
+      "source_id": "EVT-001",
+      "event_date": "2026-02-14",
+      "registration": "N812PJ",
+      "make_model": "Cessna Citation CJ3+/CJ4",
+      "event_type": "ground incident",
+      "aircraft_damage": "minor",
+      "far_part": "135",
+      "note": "Synthetic external event deliberately absent from submitted loss history for reconciliation testing."
+    }
+  ],
+  "filing_events": [
+    {
+      "filing_event_id": "SYN-FILE-001",
+      "source_id": "FILE-001",
+      "event_type": "aircraft_schedule_change",
+      "registration": "N812PJ",
+      "effective_at": "2026-09-01",
+      "notice_sent_at": "2026-09-25",
+      "agency_received_at": null,
+      "note": "Synthetic record intentionally omits agency receipt evidence."
+    }
+  ],
+  "ground_truth": {
+    "expected_exception_rule_ids": [
+      "R-020",
+      "R-030",
+      "R-031",
+      "R-041",
+      "R-054",
+      "R-060",
+      "R-070"
+    ],
+    "note": "Known synthetic exception set used only to evaluate prototype detection."
+  }
+}

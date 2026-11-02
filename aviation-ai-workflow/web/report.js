@@ -56,8 +56,59 @@
     `).join("");
   };
 
+  const reconciliationSourcesHtml = (sources) => {
+    const values = Array.isArray(sources) ? sources : [];
+    if (!values.length) return '<p class="empty">No supporting evidence package supplied.</p>';
+    return '<div class="evidence-grid">' + values.map((item) => `
+      <div class="evidence-card">
+        <span>${escapeHtml(item?.source_id || "SOURCE")}</span>
+        <strong>${escapeHtml(item?.name || item?.type || "Evidence source")}</strong>
+        <small>${escapeHtml(normalizeStatus(item?.type || "evidence"))}</small>
+      </div>`
+    ).join("") + '</div>';
+  };
+
+  const reconciliationChecksHtml = (checks) => {
+    const values = Array.isArray(checks) ? checks : [];
+    if (!values.length) return '<p class="empty">No deterministic reconciliation checks were run.</p>';
+    return '<table class="recon-table"><thead><tr><th>Rule</th><th>Check</th><th>Result</th><th>Summary</th></tr></thead><tbody>' +
+      values.map((item) => `<tr>
+        <td>${escapeHtml(item?.rule_id || "—")}</td>
+        <td>${escapeHtml(item?.label || "Review")}</td>
+        <td><span class="status">${escapeHtml(normalizeStatus(item?.status))}</span></td>
+        <td>${escapeHtml(item?.summary || "")}</td>
+      </tr>`).join("") + '</tbody></table>';
+  };
+
+  const reconciliationExceptionsHtml = (exceptions) => {
+    const values = Array.isArray(exceptions) ? exceptions : [];
+    if (!values.length) return '<p class="empty">No evidence-backed exceptions generated.</p>';
+    return '<div class="exception-stack">' + values.map((item) => {
+      const evidence = Array.isArray(item?.evidence) ? item.evidence : [];
+      const evidenceHtml = evidence.length
+        ? '<ul>' + evidence.map((entry) => `<li><strong>${escapeHtml(entry?.source_id || "SOURCE")}</strong> — ${escapeHtml(entry?.location || "record")}: ${escapeHtml(typeof entry?.value === "object" ? JSON.stringify(entry.value) : entry?.value ?? "Not supplied")}</li>`).join("") + '</ul>'
+        : '<p class="empty">No evidence references supplied.</p>';
+      return `<article class="exception">
+        <div class="exception-head">
+          <div><span>${escapeHtml(item?.exception_id || "EX")}</span><h3>${escapeHtml(item?.title || "Review exception")}</h3></div>
+          <strong>${escapeHtml(normalizeStatus(item?.result_status))}</strong>
+        </div>
+        <p>${escapeHtml(item?.summary || "")}</p>
+        ${evidenceHtml}
+        <p class="disposition"><strong>Human disposition:</strong> ${escapeHtml(normalizeStatus(item?.status || "OPEN"))}</p>
+      </article>`;
+    }).join("") + '</div>';
+  };
+
+  const auditHtml = (events) => {
+    const values = Array.isArray(events) ? events : [];
+    if (!values.length) return '<p class="empty">No audit events recorded.</p>';
+    return '<ol class="audit">' + values.map((item) => `<li><strong>${escapeHtml(item?.actor || "system")}</strong> — ${escapeHtml(item?.event || "")}</li>`).join("") + '</ol>';
+  };
+
   const buildReportHtml = ({ payload, submission, sourceName, preview = false }) => {
     const review = payload?.review || {};
+    const reconciliation = payload?.reconciliation || null;
     const readiness = review.submission_readiness || {};
     const exposure = review.exposure_summary || {};
     const hull = review.hull_asset_analysis || {};
@@ -260,6 +311,73 @@
       color: #425563;
       font-size: 13px;
     }
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .evidence-card {
+      border: 1px solid var(--line);
+      background: #fafcfd;
+      padding: 10px;
+      display: grid;
+      gap: 3px;
+    }
+    .evidence-card span {
+      color: var(--accent);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+    .evidence-card strong { font-size: 11px; line-height: 1.35; }
+    .evidence-card small { color: var(--muted); }
+    .recon-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+    .recon-table th, .recon-table td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .recon-table th {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: 8px;
+    }
+    .exception-stack { display: grid; gap: 10px; }
+    .exception {
+      border: 1px solid var(--line);
+      border-left: 3px solid #b98a2f;
+      padding: 12px;
+      background: #fffdfa;
+      break-inside: avoid;
+    }
+    .exception-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .exception-head span {
+      color: var(--accent);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+    .exception-head h3 { margin-top: 3px; }
+    .exception ul { font-size: 10px; color: var(--muted); }
+    .disposition {
+      margin-top: 9px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      font-size: 10px;
+    }
+    .audit { font-size: 10px; color: #425563; }
+    .audit strong { color: var(--accent); text-transform: uppercase; font-size: 9px; }
     .empty { color: var(--muted); font-style: italic; }
     .next-action {
       background: #f4f9fb;
@@ -340,6 +458,42 @@
       <div class="notice">
         <strong>Decision-support only.</strong> This report does not quote, bind, price, deploy capacity, make coverage or claims determinations, or replace qualified underwriting, reinsurance, legal, sanctions, regulatory, engineering, actuarial, or catastrophe-model review.
       </div>
+
+      ${reconciliation ? `
+      <section>
+        <div class="section-label">00A · Evidence package</div>
+        <h2>Evidence reconciliation</h2>
+        <p>${escapeHtml(reconciliation.disclaimer || "")}</p>
+        <div class="metric-grid">
+          <div class="metric"><span>Sources</span><strong>${escapeHtml(formatNumber(reconciliation.summary?.source_count))}</strong></div>
+          <div class="metric"><span>Checks</span><strong>${escapeHtml(formatNumber(reconciliation.summary?.check_count))}</strong></div>
+          <div class="metric"><span>Verified</span><strong>${escapeHtml(formatNumber(reconciliation.summary?.verified_count))}</strong></div>
+          <div class="metric"><span>Exceptions</span><strong>${escapeHtml(formatNumber(reconciliation.summary?.exception_count))}</strong></div>
+          <div class="metric"><span>Aircraft reconciled</span><strong>${escapeHtml(String(reconciliation.summary?.aircraft_reconciled_to_certificate ?? "—") + "/" + String(reconciliation.summary?.aircraft_total ?? "—"))}</strong></div>
+          <div class="metric"><span>Ground-truth detection</span><strong>${escapeHtml(formatPercent(reconciliation.evaluation?.detection_rate_percent))}</strong></div>
+        </div>
+        <h3 style="margin-top:18px">Evidence sources</h3>
+        ${reconciliationSourcesHtml(reconciliation.sources)}
+      </section>
+
+      <section>
+        <div class="section-label">00B · Deterministic checks</div>
+        <h2>Reconciliation checks</h2>
+        ${reconciliationChecksHtml(reconciliation.checks)}
+      </section>
+
+      <section>
+        <div class="section-label">00C · Exception register</div>
+        <h2>Evidence-backed exceptions</h2>
+        ${reconciliationExceptionsHtml(reconciliation.exceptions)}
+      </section>
+
+      <section>
+        <div class="section-label">00D · Audit trail</div>
+        <h2>Reviewer and system activity</h2>
+        ${auditHtml(reconciliation.audit_events)}
+      </section>
+      ` : ""}
 
       <section>
         <div class="section-label">01 · Submission readiness</div>
