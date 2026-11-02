@@ -1,0 +1,49 @@
+{
+  "organization": "SRP Synthetic Aviation Insurance Research Demo — NOT A REAL CLIENT",
+  "sources": [
+    {
+      "id": "IID-AI-24-04",
+      "title": "Iowa Insurance Division Bulletin 24-04 — The Use of Artificial Intelligence Systems in Insurance",
+      "url": "https://iid.iowa.gov/media/5108/download?inline=",
+      "jurisdiction": "Iowa — insurers holding certificates of authority to write insurance in Iowa",
+      "accessed_utc": "2026-10-18T00:00:00Z",
+      "reviewer_verified": false
+    },
+    {
+      "id": "FAA-DRS",
+      "title": "FAA Dynamic Regulatory System (index; not a specific binding rule)",
+      "url": "https://drs.faa.gov/",
+      "jurisdiction": "United States aviation — guidance and regulatory repository",
+      "accessed_utc": "2026-10-18T00:00:00Z",
+      "reviewer_verified": false
+    }
+  ],
+  "evidence": [
+    {
+      "id": "SYN-E1",
+      "description": "Synthetic AI governance procedure draft; not verified evidence"
+    }
+  ],
+  "controls": [
+    {
+      "id": "AI-GOV-001",
+      "question": "Has an authorized reviewer mapped the relevant AI-governance documentation expectations?",
+      "source_ids": [
+        "IID-AI-24-04"
+      ],
+      "evidence_ids": [
+        "SYN-E1"
+      ],
+      "applicability": "not_assessed"
+    },
+    {
+      "id": "FAA-REG-001",
+      "question": "Are applicable, current FAA regulatory instruments identified for this operation?",
+      "source_ids": [
+        "FAA-DRS"
+      ],
+      "evidence_ids": [],
+      "applicability": "not_assessed"
+    }
+  ]
+}
