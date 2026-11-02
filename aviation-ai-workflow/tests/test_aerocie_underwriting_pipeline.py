@@ -105,7 +105,8 @@ class UnderwritingPipelineTests(unittest.TestCase):
     def test_exports_csv_manifest_and_no_overwrite(self):
         folder=self.root/'exports';before=hashlib.sha256(self.db.read_bytes()).hexdigest()
         res=pipeline.export_tables(self.db,folder)
-        self.assertEqual(len(res['tables']),len(pipeline.EXPORT_VIEWS))
+        self.assertEqual(len(res['tables']), len(pipeline.EXPORT_VIEWS) + 1)
+        self.assertIn('submission_quality', {item['view'] for item in res['tables']})
         with (folder/'v_submission_triage.csv').open(encoding='utf-8-sig',newline='') as f:
             rows=list(csv.DictReader(f))
         self.assertEqual(len(rows),7)
