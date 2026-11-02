@@ -131,6 +131,27 @@ class KnowledgeGraphTests(unittest.TestCase):
         with self.assertRaises(ValueError):kg.initialize(self.source_db,self.source_db)
         with self.assertRaises(ValueError):kg.initialize(self.source_db,self.db)
 
+    def test_render_html_rejects_database_aliases_and_existing_output(self):
+        self.add()
+        db_before = self.db.read_bytes()
+        source_before = self.source_db.read_bytes() if self.source_db.exists() else None
+        for path in (self.db, self.source_db):
+            result = kg.main(["--db", str(self.db), "--source-db", str(self.source_db),
+                              "render-html", "--output", str(path)])
+            self.assertEqual(result, 1)
+        self.assertEqual(db_before, self.db.read_bytes())
+        if source_before is not None:
+            self.assertEqual(source_before, self.source_db.read_bytes())
+        output = Path(self.tmp.name) / "graph.html"
+        output.write_text("DO NOT OVERWRITE", encoding="utf-8")
+        self.assertEqual(kg.main(["--db", str(self.db), "--source-db", str(self.source_db),
+                                  "render-html", "--output", str(output)]), 1)
+        self.assertEqual(output.read_text(encoding="utf-8"), "DO NOT OVERWRITE")
+        output.unlink()
+        self.assertEqual(kg.main(["--db", str(self.db), "--source-db", str(self.source_db),
+                                  "render-html", "--output", str(output)]), 0)
+        self.assertTrue(output.read_text(encoding="utf-8").startswith("<!doctype html>"))
+
     def _fr(self):
         self.doc_num='2026-21290'
         self.row={'document_number':self.doc_num, 'title':'SYNTHETIC | Example title',
