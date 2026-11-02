@@ -64,7 +64,7 @@ def test_model_bound_visuals_reference_declared_fields() -> None:
                     if kind == "Measure":
                         assert ("measure '" + prop + "'") in text or ("measure " + prop + " =") in text, (entity, prop)
                     else:
-                        assert ("column " + prop + "\\n") in text, (entity, prop)
+                        assert ("column " + prop + "\n") in text, (entity, prop)
                     bound += 1
     assert bound >= 55
 
@@ -82,7 +82,7 @@ def test_image_resources_are_real_files_and_registered() -> None:
     assert len(images) == 3
     for name in images:
         content = (REPORT / "StaticResources" / "RegisteredResources" / name).read_bytes()
-        assert content[:3] == b"\\xff\\xd8\\xff", f"Not JPEG: {name}"
+        assert content[:3] == b"\xff\xd8\xff", f"Not JPEG: {name}"
     names_in_use = set()
     for page in EXPECTED_PAGES:
         for visual in _visuals(page):
