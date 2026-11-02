@@ -37,7 +37,7 @@ class ExportReconciliationTests(unittest.TestCase):
 
     def test_missing_quality_file_fails(self):
         (self.folder / "submission_quality.csv").unlink()
-        with self.assertRaisesRegex(ValueError, "Missing export"):
+        with self.assertRaisesRegex(ValueError, "Missing manifest file: submission_quality"):
             reconcile(self.folder)
 
     def test_quality_label_mismatch_fails(self):
