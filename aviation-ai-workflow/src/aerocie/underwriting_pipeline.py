@@ -167,6 +167,8 @@ def export_tables(db_path: Path, folder: Path) -> dict:
                 for case in audit["submissions"]:
                     writer.writerow([case["submission_id"], case["research_label"], case["risk_points"],
                                      case["quality_status"], ";".join(case["issue_codes"])])
+            results.append({"view": "submission_quality", "rows": len(audit["submissions"]),
+                            "sha256": hashlib.sha256((folder / "submission_quality.csv").read_bytes()).hexdigest()})
             (folder / "quality_audit.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
             (folder/"manifest.json").write_text(json.dumps({"schema":VERSION,"data_mode":"SYNTHETIC_ONLY","authority":"UNDERWRITER_REVIEW_REQUIRED","quality_gate":audit["quality_gate"],"tables":results},indent=2)+"\n",encoding="utf-8")
             return {"export_path":str(folder),"tables":results,"synthetic_only":True}
