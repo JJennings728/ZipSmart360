@@ -1,0 +1,306 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "MROSeverity",
+  "displayName": "MRO & Severity Intelligence",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F5F8'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_category_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "delay_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "scenario_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_aircraft_filter",
+      "target": "mro_submission_detail",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_category_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "delay_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "scenario_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_filter",
+      "target": "mro_submission_detail",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "delay_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "scenario_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_category_filter",
+      "target": "mro_submission_detail",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_category_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "scenario_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "delay_comparison",
+      "target": "mro_submission_detail",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_category_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "delay_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "scenario_aircraft",
+      "target": "mro_submission_detail",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_category_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "mro_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "delay_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "mro_submission_detail",
+      "target": "scenario_aircraft",
+      "type": "DataFilter"
+    }
+  ]
+}

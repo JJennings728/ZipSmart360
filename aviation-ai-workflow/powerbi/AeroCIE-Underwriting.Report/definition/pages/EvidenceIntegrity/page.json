@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "EvidenceIntegrity",
+  "displayName": "Evidence Quality & Source Integrity",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F5F8'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "quality_submission_filter",
+      "target": "quality_status_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_submission_filter",
+      "target": "evidence_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_submission_filter",
+      "target": "evidence_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_submission_filter",
+      "target": "evidence_cases",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_status_filter",
+      "target": "quality_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_status_filter",
+      "target": "evidence_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_status_filter",
+      "target": "evidence_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "quality_status_filter",
+      "target": "evidence_cases",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_cases",
+      "target": "quality_submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_cases",
+      "target": "quality_status_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_cases",
+      "target": "evidence_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_cases",
+      "target": "evidence_kpi_1",
+      "type": "DataFilter"
+    }
+  ]
+}

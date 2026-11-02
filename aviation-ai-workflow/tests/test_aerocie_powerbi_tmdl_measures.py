@@ -34,7 +34,7 @@ class PowerBIMultilineDAXTests(unittest.TestCase):
                 following = idx + 1
                 while following < len(lines):
                     next_line = lines[following]
-                    if next_line.startswith("\tmeasure ") or next_line.startswith("\tpartition "):
+                    if re.match(r"^\t(?:measure|column|partition|hierarchy) ", next_line):
                         break
                     if next_line.strip() and not next_line.startswith("\t\t"):
                         self.fail(f"{path.name}:{following + 1} unexpected measure indentation")

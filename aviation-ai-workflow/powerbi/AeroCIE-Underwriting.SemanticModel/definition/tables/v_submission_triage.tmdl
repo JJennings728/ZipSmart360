@@ -19,6 +19,38 @@ table v_submission_triage
 	measure 'Requested Hull Total Not Insured' = SUM('v_submission_triage'[requested_hull_value_usd])
 		formatString: $#,0;($#,0);$0
 
+	measure 'Selected Advisory Quote' = COALESCE(CALCULATE(COUNTROWS('v_submission_triage'), KEEPFILTERS('v_submission_triage'[triage_recommendation] = "Quote")), 0)
+		formatString: 0
+
+	measure 'Selected Advisory Refer' = COALESCE(CALCULATE(COUNTROWS('v_submission_triage'), KEEPFILTERS('v_submission_triage'[triage_recommendation] = "Refer")), 0)
+		formatString: 0
+
+	measure 'Selected Advisory Decline' = COALESCE(CALCULATE(COUNTROWS('v_submission_triage'), KEEPFILTERS('v_submission_triage'[triage_recommendation] = "Decline")), 0)
+		formatString: 0
+
+	measure 'Evidence Complete Count' = CALCULATE(COUNTROWS('v_submission_triage'), 'v_submission_triage'[insufficient_evidence] = 0)
+		formatString: 0
+
+	measure 'Evidence Complete Percent' = DIVIDE([Evidence Complete Count], [Synthetic Submissions])
+		formatString: 0.0%
+
+	measure 'Average Repair Delay Days' = AVERAGE('v_submission_triage'[mro_severity_days])
+		formatString: 0.0
+
+	measure 'Maximum Repair Delay Days' = MAX('v_submission_triage'[mro_severity_days])
+		formatString: 0.0
+
+	measure 'Executive Narrative' =
+			VAR _Submissions = COALESCE([Synthetic Submissions], 0)
+			VAR _Refer = [Selected Advisory Refer]
+			VAR _Missing = COALESCE([Missing Evidence], 0)
+			RETURN
+			    FORMAT(_Submissions, "0") & " synthetic submissions in the current selection; " &
+			    FORMAT(_Refer, "0") & " carry an advisory Refer label, including " &
+			    FORMAT(_Missing, "0") & " with missing evidence. Requested hull of " &
+			    FORMAT([Requested Hull Total Not Insured], "$#,0") &
+			    " is requested exposure, not insured value. Scenarios are uncalibrated repair-cost sensitivities; human underwriter review is required."
+
 	column submission_id
 		dataType: string
 		sourceColumn: submission_id
@@ -46,6 +78,7 @@ table v_submission_triage
 
 	column requested_hull_value_usd
 		dataType: int64
+		formatString: $#,0;($#,0);$0
 		sourceColumn: requested_hull_value_usd
 		summarizeBy: none
 

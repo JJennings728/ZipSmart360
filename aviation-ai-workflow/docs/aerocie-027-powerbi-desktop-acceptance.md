@@ -2,6 +2,8 @@
 
 **Status: Draft. Windows Python regression tests and CSV reconciliation passed for Phase 26. Power BI Desktop rendering and DAX execution have NOT been verified.**
 
+Phase 28 adds the populated four-page report. See [Phase 28 implementation and Windows validation](aerocie-028-commercial-dashboard.md). The scaffold status below records Phase 27 history; it is not the current report content.
+
 ## Scope
 
 This feature adds 11 explicit DAX measures to the existing PBIP semantic model. The underlying report page remains a scaffold. The files do not create a signed, distributable PBIX or a hosted dashboard.

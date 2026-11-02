@@ -164,3 +164,6 @@ A real customer engagement should begin with the customer's workflow, business p
 **Reference implementation / synthetic-data demonstration.**
 
 The project demonstrates workflow architecture, API integration, local validation, testing, governance, and human-review controls. It should not be described as a customer implementation unless and until it has actually been delivered for a customer.
+## AeroCIE Phase 28 Power BI demonstration
+
+The editable four-page PBIR report is at `powerbi/AeroCIE-Underwriting.pbip`. See [Phase 28 report and Windows acceptance instructions](docs/aerocie-028-commercial-dashboard.md) for offline JSON validation, synthetic export reconciliation and required Desktop checks. Cloud validation does not establish Windows rendering or DAX execution.

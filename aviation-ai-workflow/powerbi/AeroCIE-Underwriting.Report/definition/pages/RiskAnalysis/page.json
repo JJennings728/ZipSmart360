@@ -1,0 +1,246 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "RiskAnalysis",
+  "displayName": "Underwriting Risk Analysis",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F5F8'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "aircraft_filter",
+      "target": "operation_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "aircraft_filter",
+      "target": "label_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "aircraft_filter",
+      "target": "evidence_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "aircraft_filter",
+      "target": "submission_register",
+      "type": "DataFilter"
+    },
+    {
+      "source": "aircraft_filter",
+      "target": "risk_factors",
+      "type": "DataFilter"
+    },
+    {
+      "source": "aircraft_filter",
+      "target": "evidence_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "operation_filter",
+      "target": "aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "operation_filter",
+      "target": "label_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "operation_filter",
+      "target": "evidence_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "operation_filter",
+      "target": "submission_register",
+      "type": "DataFilter"
+    },
+    {
+      "source": "operation_filter",
+      "target": "risk_factors",
+      "type": "DataFilter"
+    },
+    {
+      "source": "operation_filter",
+      "target": "evidence_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "label_filter",
+      "target": "aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "label_filter",
+      "target": "operation_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "label_filter",
+      "target": "evidence_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "label_filter",
+      "target": "submission_register",
+      "type": "DataFilter"
+    },
+    {
+      "source": "label_filter",
+      "target": "risk_factors",
+      "type": "DataFilter"
+    },
+    {
+      "source": "label_filter",
+      "target": "evidence_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_filter",
+      "target": "aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_filter",
+      "target": "operation_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_filter",
+      "target": "label_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_filter",
+      "target": "submission_register",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_filter",
+      "target": "risk_factors",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_filter",
+      "target": "evidence_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_register",
+      "target": "aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_register",
+      "target": "operation_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_register",
+      "target": "label_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_register",
+      "target": "evidence_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_register",
+      "target": "risk_factors",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_register",
+      "target": "evidence_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "risk_factors",
+      "target": "aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "risk_factors",
+      "target": "operation_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "risk_factors",
+      "target": "label_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "risk_factors",
+      "target": "evidence_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "risk_factors",
+      "target": "submission_register",
+      "type": "DataFilter"
+    },
+    {
+      "source": "risk_factors",
+      "target": "evidence_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_distribution",
+      "target": "aircraft_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_distribution",
+      "target": "operation_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_distribution",
+      "target": "label_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_distribution",
+      "target": "evidence_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_distribution",
+      "target": "submission_register",
+      "type": "DataFilter"
+    },
+    {
+      "source": "evidence_distribution",
+      "target": "risk_factors",
+      "type": "DataFilter"
+    }
+  ]
+}

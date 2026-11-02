@@ -1,0 +1,20 @@
+relationship AeroCIE_Triage_Features
+	fromCardinality: one
+	fromColumn: v_submission_features.submission_id
+	toCardinality: one
+	toColumn: v_submission_triage.submission_id
+	crossFilteringBehavior: bothDirections
+
+relationship AeroCIE_Triage_Severity
+	fromCardinality: one
+	fromColumn: v_severity_scenarios.submission_id
+	toCardinality: one
+	toColumn: v_submission_triage.submission_id
+	crossFilteringBehavior: bothDirections
+
+relationship AeroCIE_Triage_Quality
+	fromCardinality: one
+	fromColumn: submission_quality.submission_id
+	toCardinality: one
+	toColumn: v_submission_triage.submission_id
+	crossFilteringBehavior: bothDirections

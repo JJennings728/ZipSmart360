@@ -1,8 +1,411 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "Overview",
-  "displayName": "Underwriting Research",
+  "displayName": "Executive Overview",
   "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1280
+  "height": 900,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F5F8'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "submission_filter",
+      "target": "advisory_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "kpi_submissions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "kpi_quote",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "kpi_refer",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "kpi_decline",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "kpi_missing",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "kpi_hull",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "advisory_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "hull_by_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "severity_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "scenario_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "scenario_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "scenario_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "coverage",
+      "type": "DataFilter"
+    },
+    {
+      "source": "submission_filter",
+      "target": "executive_narrative",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "kpi_submissions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "kpi_quote",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "kpi_refer",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "kpi_decline",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "kpi_missing",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "kpi_hull",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "advisory_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "hull_by_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "severity_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "scenario_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "scenario_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "scenario_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "coverage",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_filter",
+      "target": "executive_narrative",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "advisory_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "kpi_submissions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "kpi_quote",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "kpi_refer",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "kpi_decline",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "kpi_missing",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "kpi_hull",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "hull_by_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "severity_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "scenario_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "scenario_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "scenario_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "coverage",
+      "type": "DataFilter"
+    },
+    {
+      "source": "advisory_distribution",
+      "target": "executive_narrative",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "advisory_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "kpi_submissions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "kpi_quote",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "kpi_refer",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "kpi_decline",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "kpi_missing",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "kpi_hull",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "advisory_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "severity_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "scenario_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "scenario_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "scenario_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "coverage",
+      "type": "DataFilter"
+    },
+    {
+      "source": "hull_by_aircraft",
+      "target": "executive_narrative",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "submission_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "advisory_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "kpi_submissions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "kpi_quote",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "kpi_refer",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "kpi_decline",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "kpi_missing",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "kpi_hull",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "advisory_distribution",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "hull_by_aircraft",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "scenario_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "scenario_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "scenario_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "coverage",
+      "type": "DataFilter"
+    },
+    {
+      "source": "severity_comparison",
+      "target": "executive_narrative",
+      "type": "DataFilter"
+    }
+  ]
 }

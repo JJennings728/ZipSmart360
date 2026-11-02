@@ -1,6 +1,20 @@
 /// Synthetic AeroCIE research. Decision outputs need underwriter review.
 table source_registry
 
+	measure 'Source Count' = COUNTROWS('source_registry')
+		formatString: 0
+
+	measure 'Synthetic Source Count' = CALCULATE(COUNTROWS('source_registry'), 'source_registry'[is_synthetic] = 1, 'source_registry'[license_status] = "SYNTHETIC_ONLY")
+		formatString: 0
+
+	measure 'Source Mode Check' =
+			VAR _Sources = [Source Count]
+			VAR _Synthetic = [Synthetic Source Count]
+			RETURN
+			    IF(_Sources > 0 && _Sources = _Synthetic,
+			        "SYNTHETIC_ONLY | INTERNAL_DEMO_ONLY | source flags consistent; offline reconciliation still required",
+			        "STOP: missing or non-synthetic source flags; do not release")
+
 	column source_id
 		dataType: string
 		sourceColumn: source_id

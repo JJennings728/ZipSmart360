@@ -10,6 +10,9 @@ EXPECTED = {
     "v_submission_triage.tmdl": [
         "Synthetic Submissions", "Advisory Quote", "Advisory Refer",
         "Advisory Decline", "Missing Evidence", "Requested Hull Total Not Insured",
+        "Selected Advisory Quote", "Selected Advisory Refer", "Selected Advisory Decline",
+        "Evidence Complete Count", "Evidence Complete Percent",
+        "Average Repair Delay Days", "Maximum Repair Delay Days", "Executive Narrative",
     ],
     "v_severity_scenarios.tmdl": [
         "Scenario Low Synthetic", "Scenario Base Synthetic",
@@ -23,7 +26,7 @@ class PowerBIMeasureDefinitionTests(unittest.TestCase):
         all_names = []
         for file, expected_names in EXPECTED.items():
             contents = (TABLES / file).read_text(encoding="utf-8")
-            names = re.findall(r"^\tmeasure '([^']+)' = ", contents, flags=re.MULTILINE)
+            names = re.findall(r"^\tmeasure '([^']+)' =", contents, flags=re.MULTILINE)
             self.assertEqual(names, expected_names, file)
             all_names.extend(names)
         self.assertEqual(len(all_names), len(set(all_names)))
@@ -36,11 +39,17 @@ class PowerBIMeasureDefinitionTests(unittest.TestCase):
         self.assertNotIn("Predicted Claims", text)
         self.assertNotIn("Premium Adequacy", text)
 
-    def test_each_measure_has_explicit_format(self):
+    def test_each_numeric_measure_has_explicit_format(self):
         for file in EXPECTED:
             contents = (TABLES / file).read_text(encoding="utf-8")
-            self.assertEqual(contents.count("\n\tmeasure '"),
-                             contents.count("\n\t\tformatString: "))
+            blocks = re.findall(r"^\tmeasure '([^']+)' =(.*?)(?=^\t(?:measure|column|partition) |\Z)",
+                                contents, flags=re.MULTILINE | re.DOTALL)
+            self.assertEqual(len(blocks), len(EXPECTED[file]))
+            for name, definition in blocks:
+                if name == "Executive Narrative":
+                    self.assertIn("FORMAT(", definition)
+                else:
+                    self.assertRegex(definition, r"(?m)^\t\tformatString: .+")
 
 if __name__ == "__main__":
     unittest.main()

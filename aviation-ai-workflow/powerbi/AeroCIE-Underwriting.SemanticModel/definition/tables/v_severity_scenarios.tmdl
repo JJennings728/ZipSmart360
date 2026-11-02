@@ -55,6 +55,7 @@ table v_severity_scenarios
 
 	column requested_hull_value_usd
 		dataType: int64
+		formatString: $#,0;($#,0);$0
 		sourceColumn: requested_hull_value_usd
 		summarizeBy: none
 
@@ -85,16 +86,19 @@ table v_severity_scenarios
 
 	column scenario_low_usd
 		dataType: double
+		formatString: $#,0;($#,0);$0
 		sourceColumn: scenario_low_usd
 		summarizeBy: none
 
 	column scenario_base_usd
 		dataType: double
+		formatString: $#,0;($#,0);$0
 		sourceColumn: scenario_base_usd
 		summarizeBy: none
 
 	column scenario_high_usd
 		dataType: double
+		formatString: $#,0;($#,0);$0
 		sourceColumn: scenario_high_usd
 		summarizeBy: none
 
