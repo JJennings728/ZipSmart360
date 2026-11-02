@@ -1,0 +1,245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "mro_data",
+  "position": {
+    "x": 28,
+    "y": 530,
+    "z": 50,
+    "width": 1220,
+    "height": 110,
+    "tabOrder": 50
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "v_mro_latest.manufacturer",
+              "nativeQueryRef": "manufacturer",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "v_mro_latest.model",
+              "nativeQueryRef": "model",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "facility_id"
+                }
+              },
+              "queryRef": "v_mro_latest.facility_id",
+              "nativeQueryRef": "facility_id",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "repair_wait_days"
+                }
+              },
+              "queryRef": "v_mro_latest.repair_wait_days",
+              "nativeQueryRef": "repair_wait_days",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "parts_availability_index"
+                }
+              },
+              "queryRef": "v_mro_latest.parts_availability_index",
+              "nativeQueryRef": "parts_availability_index",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "parts_cost_index"
+                }
+              },
+              "queryRef": "v_mro_latest.parts_cost_index",
+              "nativeQueryRef": "parts_cost_index",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "v_mro_latest"
+                    }
+                  },
+                  "Property": "as_of"
+                }
+              },
+              "queryRef": "v_mro_latest.as_of",
+              "nativeQueryRef": "as_of",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MRO OBSERVATIONS | SOURCE DATES'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#102641'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Montserrat'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DDE6F0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "7D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
