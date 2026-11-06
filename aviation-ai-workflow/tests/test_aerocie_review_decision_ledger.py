@@ -1,5 +1,6 @@
 """AeroCIE-032 | offline synthetic research decision journal tests."""
 from __future__ import annotations
+from contextlib import closing
 
 from copy import deepcopy
 import json
@@ -67,7 +68,7 @@ class DecisionLedgerTests(unittest.TestCase):
     def test_database_update_delete_triggers_block(self):
         self._initialize()
         self._record()
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con, con:
             with self.assertRaises(sqlite3.IntegrityError):
                 con.execute("DELETE FROM review_events WHERE seq=1")
             with self.assertRaises(sqlite3.IntegrityError):
@@ -77,7 +78,7 @@ class DecisionLedgerTests(unittest.TestCase):
     def test_corrupt_hmac_detected_even_if_trigger_removed(self):
         self._initialize()
         self._record()
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con, con:
             con.execute("DROP TRIGGER block_event_update")
             con.execute("UPDATE review_events SET hmac_sha256=? WHERE seq=1", ("f" * 64,))
         with self.assertRaisesRegex(ValueError, "HMAC"):
@@ -87,7 +88,7 @@ class DecisionLedgerTests(unittest.TestCase):
         self._initialize()
         self._record()
         last = self._record(component_id="C003")
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con, con:
             con.execute("DROP TRIGGER block_event_delete")
             con.execute("DELETE FROM review_events WHERE seq=2")
         self.assertEqual(verify(self.db, TEST_KEY)["event_count"], 1)
@@ -140,7 +141,7 @@ class DecisionLedgerTests(unittest.TestCase):
     def test_event_body_tamper_rejected_with_trigger_removed(self):
         self._initialize()
         self._record()
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con, con:
             row = json.loads(con.execute(
                 "SELECT event_json FROM review_events WHERE seq=1").fetchone()[0])
             row["decision"] = "RESEARCH_ACKNOWLEDGED"
