@@ -1,5 +1,6 @@
 """AeroCIE-033 | synthetic-only controlled internal export tests."""
 from __future__ import annotations
+from contextlib import closing
 
 from copy import deepcopy
 import hashlib
@@ -112,7 +113,7 @@ class ExportGateTests(unittest.TestCase):
 
     def test_truncated_journal_fails_against_retained_anchor(self):
         head = self._ready()
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con, con:
             con.execute("DROP TRIGGER block_event_delete")
             con.execute("DELETE FROM review_events WHERE seq=2")
         with self.assertRaisesRegex(ValueError, "External head anchor"):
