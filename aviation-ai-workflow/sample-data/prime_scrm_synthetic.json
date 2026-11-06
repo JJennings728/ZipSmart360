@@ -1,0 +1,69 @@
+{
+  "schema": "SRP-PRIME-SCRM-v1",
+  "data_classification": "PUBLIC_SYNTHETIC_ONLY",
+  "external_release_authorized": false,
+  "program": "Illustrative Aircraft Sustainment Program (Fictional)",
+  "evidence": [
+    {
+      "evidence_id": "E001",
+      "text": "Synthetic supplier interview: forged bracket baseline 45 days; scenario 75 days.",
+      "sha256": "3f9fbd3f3868c40417f082a1a645a35b9677c01981cf8440ef46cec18c1deaef",
+      "synthetic": true
+    },
+    {
+      "evidence_id": "E002",
+      "text": "Synthetic component planning estimate: actuator baseline 30 days; scenario 30 days.",
+      "sha256": "2408dfb9746c76baff704aed83ef8a0c5e21d2b03d069b488ece4dbd875e47d0",
+      "synthetic": true
+    },
+    {
+      "evidence_id": "E003",
+      "text": "Synthetic sourcing hypothetical: avionics connector baseline 20 days; scenario 60 days.",
+      "sha256": "106a2f951788637e76562809b89183f8190991bd17adff06383438aea5123343",
+      "synthetic": true
+    }
+  ],
+  "suppliers": [
+    {
+      "supplier_id": "S001",
+      "name": "Fictional Forging Co."
+    },
+    {
+      "supplier_id": "S002",
+      "name": "Fictional Actuation LLC"
+    },
+    {
+      "supplier_id": "S003",
+      "name": "Fictional Connectors Ltd."
+    }
+  ],
+  "components": [
+    {
+      "component_id": "C001",
+      "supplier_id": "S001",
+      "evidence_id": "E001",
+      "baseline_lead_days": 45,
+      "scenario_lead_days": 75,
+      "critical_path_assumed": true,
+      "single_source_assumed": true
+    },
+    {
+      "component_id": "C002",
+      "supplier_id": "S002",
+      "evidence_id": "E002",
+      "baseline_lead_days": 30,
+      "scenario_lead_days": 30,
+      "critical_path_assumed": false,
+      "single_source_assumed": false
+    },
+    {
+      "component_id": "C003",
+      "supplier_id": "S003",
+      "evidence_id": "E003",
+      "baseline_lead_days": 20,
+      "scenario_lead_days": 60,
+      "critical_path_assumed": false,
+      "single_source_assumed": true
+    }
+  ]
+}
