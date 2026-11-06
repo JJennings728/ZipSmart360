@@ -137,8 +137,10 @@ def create_internal_export(db: Path, output: Path, *, key: bytes,
     manifest["manifest_sha256"] = digest(manifest)
     reports["manifest.json"] = _bytes(manifest)
     output.parent.mkdir(parents=True, exist_ok=True)
+    created = False
     try:
         with output.open("xb") as target:
+            created = True
             with zipfile.ZipFile(target, "w") as archive:
                 for name, data in sorted(reports.items()):
                     item = zipfile.ZipInfo(filename=name, date_time=(1980, 1, 1, 0, 0, 0))
@@ -146,7 +148,7 @@ def create_internal_export(db: Path, output: Path, *, key: bytes,
                     item.external_attr = 0o600 << 16
                     archive.writestr(item, data)
     except BaseException:
-        if output.is_file():
+        if created and output.is_file():
             output.unlink()
         raise
     return {
