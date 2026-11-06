@@ -133,6 +133,16 @@
 @media(max-width:430px){.srp-demos .sd-tabs{flex-direction:column}.srp-demos .sd-tab{width:100%}.srp-demos .sd-stats{grid-template-columns:1fr 1fr}.srp-demos .sd-stat{padding:13px}.srp-demos .sd-controls{grid-template-columns:1fr}.srp-demos .sd-panel{padding:14px}.srp-demos .sd-overline{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.srp-demos *{transition:none!important}}
 
+
+
+/* SentinelGate sample | scoped to the new dashboard only; no site-wide branding changes. */
+.srp-demos .sd-cyber-boundary{margin-top:22px;padding:15px 16px;border-left:3px solid var(--cyan,#36e6ff);background:#0a2634}
+.srp-demos .sd-cyber-boundary strong{display:block;color:#e7f7ff;font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.srp-demos .sd-cyber-boundary p{margin:7px 0 0;font-size:11px;line-height:1.7;color:#b8cedc}
+.srp-demos .sd-pill[data-cyber-status=Match]{color:#aaf3dc;border-color:#368d7a}
+.srp-demos .sd-pill[data-cyber-status=Missing],.srp-demos .sd-pill[data-cyber-status=Changed]{color:#ffc5bc;border-color:#b56f69}
+.srp-demos .sd-pill[data-cyber-status=Stale],.srp-demos .sd-pill[data-cyber-status=Unbaselined]{color:#ffe2a3;border-color:#a68a4a}
+
 </style>
 </head>
 <body>
@@ -270,6 +280,7 @@
       <button class="sd-tab" role="tab" id="sd-tab-engine" aria-controls="sd-engine" aria-selected="false" tabindex="-1" data-sd="engine" type="button">02 | ENGINE &amp; MRO</button>
       <button class="sd-tab" role="tab" id="sd-tab-fuel" aria-controls="sd-fuel" aria-selected="false" tabindex="-1" data-sd="fuel" type="button">03 | FUEL &amp; CASH</button>
       <button class="sd-tab" role="tab" id="sd-tab-scrm" aria-controls="sd-scrm" aria-selected="false" tabindex="-1" data-sd="scrm" type="button">04 | SUPPLIER RISK</button>
+      <button class="sd-tab" role="tab" id="sd-tab-cyber" aria-controls="sd-cyber" aria-selected="false" tabindex="-1" data-sd="cyber" type="button">05 | CYBERSECURITY</button>
     </div>
     <div class="sd-panel" role="tabpanel" id="sd-underwriting" aria-labelledby="sd-tab-underwriting" tabindex="0">
       <div class="sd-panelhead">
@@ -379,6 +390,57 @@
         </div>
       </div>
       <div class="sd-cta-row"><p class="sd-source">Example produced from the AeroCIE synthetic SCRM fixture and reviewer-queue approach. No live supplier data is used.</p><a class="sd-cta" href="mailto:info@sriskpartners.com?subject=Supplier%20Risk%20Dashboard%20Sample%20Inquiry">Scope a supplier-risk pilot ↗</a></div>
+    </div>
+        <div class="sd-panel" role="tabpanel" id="sd-cyber" aria-labelledby="sd-tab-cyber" tabindex="0" hidden>
+      <div class="sd-panelhead">
+        <div><h3>Cybersecurity &amp; control evidence intelligence</h3><p><strong>SentinelGate | Research-stage demonstration.</strong> Examine fictional security-control evidence, configuration changes and remediation questions. See which records are missing, stale, unbaselined or changed before a human assessor reviews them.</p></div>
+        <span class="sd-provenance">Synthetic | No compliance determination</span>
+      </div>
+      <div class="sd-stats">
+        <div class="sd-stat"><span>Illustrative evidence records</span><strong id="sd-cyber-total">6</strong><small>Fictional records only</small></div>
+        <div class="sd-stat"><span>Local fingerprint matches</span><strong id="sd-cyber-matches">2</strong><small>Not control assessment results</small></div>
+        <div class="sd-stat"><span>Research follow-ups</span><strong id="sd-cyber-review">4</strong><small>Require human inspection</small></div>
+        <div class="sd-stat"><span>CMMC certification status</span><strong>Not assessed</strong><small>No authorized certification claim</small></div>
+      </div>
+      <div class="sd-subgrid">
+        <div>
+          <div class="sd-actions" role="group" aria-label="Filter cybersecurity evidence findings">
+            <button class="sd-filter" type="button" data-cyber-filter="All" aria-pressed="true">All evidence</button>
+            <button class="sd-filter" type="button" data-cyber-filter="Review" aria-pressed="false">Requires review</button>
+            <button class="sd-filter" type="button" data-cyber-filter="Match" aria-pressed="false">Fingerprint matches</button>
+          </div>
+          <div class="sd-tablewrap">
+            <table class="sd-table">
+              <thead><tr><th scope="col">Evidence</th><th scope="col">Research topic</th><th scope="col">Local signal</th></tr></thead>
+              <tbody id="sd-cyber-rows">
+                <tr><td data-mono>SG-001</td><td>Access authorization review</td><td>Fingerprint match</td></tr>
+                <tr><td data-mono>SG-002</td><td>Authentication evidence</td><td>Missing record</td></tr>
+                <tr><td data-mono>SG-003</td><td>Endpoint encryption sample</td><td>Stale evidence</td></tr>
+                <tr><td data-mono>SG-004</td><td>Firewall configuration</td><td>Changed baseline</td></tr>
+                <tr><td data-mono>SG-005</td><td>Audit-log retention</td><td>Fingerprint match</td></tr>
+                <tr><td data-mono>SG-006</td><td>Incident-response exercise</td><td>Unbaselined</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sd-box">
+          <h4>Evidence state | What needs attention?</h4>
+          <div class="sd-barlist">
+            <div class="sd-baritem"><div class="sd-barmeta"><span>Fingerprint match</span><strong>2 records</strong></div><div class="sd-track"><div class="sd-fill" data-tone="teal" style="width:33.33%"></div></div></div>
+            <div class="sd-baritem"><div class="sd-barmeta"><span>Missing or stale evidence</span><strong>2 records</strong></div><div class="sd-track"><div class="sd-fill" data-tone="muted" style="width:33.33%"></div></div></div>
+            <div class="sd-baritem"><div class="sd-barmeta"><span>Changed or no baseline</span><strong>2 records</strong></div><div class="sd-track"><div class="sd-fill" style="width:33.33%"></div></div></div>
+          </div>
+          <p class="sd-sidefoot" id="sd-cyber-detail" aria-live="polite">Select a filter to inspect fictional evidence exceptions. All statuses describe local records, not the implementation or effectiveness of any security control.</p>
+          <div class="sd-cyber-boundary">
+            <strong>Assessment boundary</strong>
+            <p>NIST SP 800-171 control families inform research topics; CMMC applicability depends on the contract and information handled. No FCI, CUI, classified records or real client security configurations appear in this demonstration.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sd-cta-row">
+        <p class="sd-source">SentinelGate is an internal prototype, not a production SIEM, independent third-party audit, CMMC assessment or certified Zero Trust platform. Evidence integrity does not mean a control is MET.</p>
+        <a class="sd-cta" href="mailto:info@sriskpartners.com?subject=SentinelGate%20Security%20Evidence%20Dashboard%20Inquiry">Discuss cybersecurity evidence review ↗</a>
+      </div>
     </div>
     <p class="sd-note" style="margin-top:18px">All dashboards are publicly viewable <strong>illustrations of intended analytical workflows</strong>. They are not a customer portal, Power BI Service, live flight-data feed, validated actuarial model or guarantee of present commercial capability. Formal deliverables and data permissions must be agreed for each engagement.</p>
   </div>
@@ -577,6 +639,59 @@
   };
   fields.forEach(id=>find(id).addEventListener('input',updateFuel));
   updateFuel();
+})();
+
+
+
+/* SentinelGate synthetic control-evidence demonstration; no actual security scanner or customer data. */
+(() => {
+  'use strict';
+  const root = document.querySelector('#sd-cyber');
+  if (!root) return;
+  const rows = [
+    {id:'SG-001',topic:'Access authorization review',status:'Match',detail:'Local test fingerprint matches the fictional baseline; implementation remains unassessed.'},
+    {id:'SG-002',topic:'Authentication evidence',status:'Missing',detail:'No hypothetical MFA evidence record supplied; identify authoritative source and review.'},
+    {id:'SG-003',topic:'Endpoint encryption sample',status:'Stale',detail:'Fictional evidence exceeds the test freshness window; request new evidence.'},
+    {id:'SG-004',topic:'Firewall configuration',status:'Changed',detail:'Fictional configuration hash differs from baseline; investigate and approve disposition.'},
+    {id:'SG-005',topic:'Audit-log retention',status:'Match',detail:'Local test fingerprint matches the synthetic baseline; retention policy not assessed.'},
+    {id:'SG-006',topic:'Incident-response exercise',status:'Unbaselined',detail:'Fictional record exists without an approved reference baseline; establish provenance.'}
+  ];
+  const targets = [...root.querySelectorAll('[data-cyber-filter]')];
+  const body = root.querySelector('#sd-cyber-rows');
+  const summary = root.querySelector('#sd-cyber-detail');
+  const stateCounts = rows.reduce((counts,row)=>{counts[row.status]=(counts[row.status]||0)+1;return counts},{});
+  const needsReview = rows.filter(row=>row.status!=='Match');
+  const total = root.querySelector('#sd-cyber-total');
+  const matches = root.querySelector('#sd-cyber-matches');
+  const review = root.querySelector('#sd-cyber-review');
+  total.textContent=String(rows.length);
+  matches.textContent=String(stateCounts.Match || 0);
+  review.textContent=String(needsReview.length);
+  function render(filter) {
+    targets.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cyberFilter===filter)));
+    const selected=rows.filter(row=>filter==='All'||(filter==='Review'?row.status!=='Match':row.status==='Match'));
+    body.replaceChildren();
+    for (const row of selected) {
+      const tr=document.createElement('tr');
+      const id=document.createElement('td');id.setAttribute('data-mono','');id.textContent=row.id;
+      const topic=document.createElement('td');topic.textContent=row.topic;
+      const state=document.createElement('td');
+      const pill=document.createElement('span');pill.className='sd-pill';pill.dataset.cyberStatus=row.status;
+      pill.textContent=row.status==='Match'?'Fingerprint match':row.status;
+      state.appendChild(pill);
+      tr.append(id,topic,state);
+      body.appendChild(tr);
+    }
+    if(filter==='Review'){
+      summary.textContent='Four fictional evidence exceptions need human review: missing, stale, changed and unbaselined. None is a certified compliance failure.';
+    }else if(filter==='Match'){
+      summary.textContent='Two fictional records match local hash baselines. A matching file is not proof the related security requirement is implemented or effective.';
+    }else{
+      summary.textContent='Showing six fictional evidence records: two local fingerprint matches and four unresolved review questions. No NIST or CMMC compliance score is calculated.';
+    }
+  }
+  targets.forEach(button=>button.addEventListener('click',()=>render(button.dataset.cyberFilter)));
+  render('All');
 })();
 
 </script>
