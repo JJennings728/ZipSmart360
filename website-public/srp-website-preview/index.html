@@ -276,6 +276,7 @@
       <div>
         <p class="sd-strip"><span class="sd-dot" aria-hidden="true"></span> INTERACTIVE DEMONSTRATIONS | SYNTHETIC DATA</p>
         <p class="sd-topcopy">Explore the kinds of dashboards and decision-support reports we can scope for aviation, insurance, operations and enterprise risk teams. Each example uses fictional inputs; no customer or proprietary data is displayed.</p>
+        <a class="sd-cta" href="#cybersecurity-dashboard" data-sd-cyber-jump aria-label="Open SentinelGate cybersecurity sample dashboard" style="margin-top:16px">VIEW CYBERSECURITY DASHBOARD ↗</a>
       </div>
     </div>
     <div class="sd-tabs" role="tablist" aria-label="Example analytics dashboards">
@@ -536,6 +537,20 @@
       event.preventDefault();selectTab(tabs[next],true);
     });
   });
+  const openCyberDashboard = () => {
+    const cyberTab = find('sd-tab-cyber');
+    if (!cyberTab) return;
+    selectTab(cyberTab, false);
+    scope.scrollIntoView({behavior:'auto',block:'start'});
+  };
+  const directCyberHash = () => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash === '#cybersecurity-dashboard' || hash === '#sd-cyber') openCyberDashboard();
+  };
+  const cyberJump = scope.querySelector('[data-sd-cyber-jump]');
+  if (cyberJump) cyberJump.addEventListener('click',openCyberDashboard);
+  window.addEventListener('hashchange',directCyberHash);
+  directCyberHash();
   const cases=[
     {id:'S001',name:'Cessna 172S',label:'Quote',hull:220000,gap:false},
     {id:'S002',name:'Beechcraft King Air 350',label:'Refer',hull:2800000,gap:false},
