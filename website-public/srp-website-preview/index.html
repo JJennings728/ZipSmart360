@@ -541,7 +541,8 @@
     const cyberTab = find('sd-tab-cyber');
     if (!cyberTab) return;
     selectTab(cyberTab, false);
-    scope.scrollIntoView({behavior:'auto',block:'start'});
+    const cyberPanel = find('sd-cyber');
+    if (cyberPanel) cyberPanel.scrollIntoView({behavior:'auto',block:'start'});
   };
   const directCyberHash = () => {
     const hash = window.location.hash.toLowerCase();
