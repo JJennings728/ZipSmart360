@@ -133,6 +133,23 @@
 @media(max-width:430px){.srp-demos .sd-tabs{flex-direction:column}.srp-demos .sd-tab{width:100%}.srp-demos .sd-stats{grid-template-columns:1fr 1fr}.srp-demos .sd-stat{padding:13px}.srp-demos .sd-controls{grid-template-columns:1fr}.srp-demos .sd-panel{padding:14px}.srp-demos .sd-overline{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.srp-demos *{transition:none!important}}
 
+
+
+/* SentinelGate sample | scoped to the new dashboard only; no site-wide branding changes. */
+.srp-demos #sd-cyber .sd-cyber-kicker{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan,#36e6ff);margin:0 0 15px}
+.srp-demos #sd-cyber .sd-panelhead h3{font-size:clamp(26px,3.6vw,48px);line-height:1.06;letter-spacing:-.035em;max-width:25ch}
+.srp-demos #sd-cyber .sd-panelhead h3 em{font-style:normal;color:var(--cyan,#36e6ff)}
+
+.srp-demos .sd-cyber-boundary{margin-top:22px;padding:15px 16px;border-left:3px solid var(--cyan,#36e6ff);background:#0a2634}
+.srp-demos .sd-cyber-boundary strong{display:block;color:#e7f7ff;font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.srp-demos .sd-cyber-boundary p{margin:7px 0 0;font-size:11px;line-height:1.7;color:#b8cedc}
+.srp-demos .sd-pill[data-cyber-status=Match]{color:#aaf3dc;border-color:#368d7a}
+.srp-demos .sd-pill[data-cyber-status=Missing],.srp-demos .sd-pill[data-cyber-status=Changed]{color:#ffc5bc;border-color:#b56f69}
+.srp-demos .sd-pill[data-cyber-status=Stale],.srp-demos .sd-pill[data-cyber-status=Unbaselined]{color:#ffe2a3;border-color:#a68a4a}
+
+.srp-demos #sd-cyber .sd-subgrid > div{min-width:0}
+.srp-demos #sd-cyber .sd-tablewrap{max-width:100%;width:100%;overflow-x:auto}
+
 </style>
 </head>
 <body>
@@ -263,6 +280,7 @@
       <div>
         <p class="sd-strip"><span class="sd-dot" aria-hidden="true"></span> INTERACTIVE DEMONSTRATIONS | SYNTHETIC DATA</p>
         <p class="sd-topcopy">Explore the kinds of dashboards and decision-support reports we can scope for aviation, insurance, operations and enterprise risk teams. Each example uses fictional inputs; no customer or proprietary data is displayed.</p>
+        <a class="sd-cta" href="#cybersecurity-dashboard" data-sd-cyber-jump aria-label="Open SentinelGate cybersecurity sample dashboard" style="margin-top:16px">VIEW CYBERSECURITY DASHBOARD ↗</a>
       </div>
     </div>
     <div class="sd-tabs" role="tablist" aria-label="Example analytics dashboards">
@@ -270,6 +288,7 @@
       <button class="sd-tab" role="tab" id="sd-tab-engine" aria-controls="sd-engine" aria-selected="false" tabindex="-1" data-sd="engine" type="button">02 | ENGINE &amp; MRO</button>
       <button class="sd-tab" role="tab" id="sd-tab-fuel" aria-controls="sd-fuel" aria-selected="false" tabindex="-1" data-sd="fuel" type="button">03 | FUEL &amp; CASH</button>
       <button class="sd-tab" role="tab" id="sd-tab-scrm" aria-controls="sd-scrm" aria-selected="false" tabindex="-1" data-sd="scrm" type="button">04 | SUPPLIER RISK</button>
+      <button class="sd-tab" role="tab" id="sd-tab-cyber" aria-controls="sd-cyber" aria-selected="false" tabindex="-1" data-sd="cyber" type="button">05 | CYBERSECURITY</button>
     </div>
     <div class="sd-panel" role="tabpanel" id="sd-underwriting" aria-labelledby="sd-tab-underwriting" tabindex="0">
       <div class="sd-panelhead">
@@ -380,6 +399,57 @@
       </div>
       <div class="sd-cta-row"><p class="sd-source">Example produced from the AeroCIE synthetic SCRM fixture and reviewer-queue approach. No live supplier data is used.</p><a class="sd-cta" href="mailto:info@sriskpartners.com?subject=Supplier%20Risk%20Dashboard%20Sample%20Inquiry">Scope a supplier-risk pilot ↗</a></div>
     </div>
+        <div class="sd-panel" role="tabpanel" id="sd-cyber" aria-labelledby="sd-tab-cyber" tabindex="0" hidden>
+      <div class="sd-panelhead">
+        <div><div class="sd-cyber-kicker">SENTINELGATE | CYBER EXPOSURE INTELLIGENCE</div><h3>OUTPACE CONTROL DRIFT.<br><em>EXPOSE THE BLIND SPOTS.</em></h3><p>Turn fragmented control evidence into a clearer picture of configuration drift, missing assurance records, and priorities for action. Explore how security leaders could investigate these signals across complex, mission-critical environments.</p></div>
+        <span class="sd-provenance">SIMULATED ENVIRONMENT | CONTROL ASSURANCE SCENARIOS</span>
+      </div>
+      <div class="sd-stats">
+        <div class="sd-stat"><span>Control signals modeled</span><strong id="sd-cyber-total">6</strong><small>Scenario-based evidence records</small></div>
+        <div class="sd-stat"><span>Baseline-aligned evidence</span><strong id="sd-cyber-matches">2</strong><small>Local integrity matches</small></div>
+        <div class="sd-stat"><span>Priority evidence exceptions</span><strong id="sd-cyber-review">4</strong><small>Investigate before attestation</small></div>
+        <div class="sd-stat"><span>Assurance decision</span><strong>Pending</strong><small>Human-led control validation</small></div>
+      </div>
+      <div class="sd-subgrid">
+        <div>
+          <div class="sd-actions" role="group" aria-label="Filter cybersecurity evidence findings">
+            <button class="sd-filter" type="button" data-cyber-filter="All" aria-pressed="true">All control signals</button>
+            <button class="sd-filter" type="button" data-cyber-filter="Review" aria-pressed="false">Priority exceptions</button>
+            <button class="sd-filter" type="button" data-cyber-filter="Match" aria-pressed="false">Baseline-aligned</button>
+          </div>
+          <div class="sd-tablewrap">
+            <table class="sd-table">
+              <thead><tr><th scope="col">Evidence</th><th scope="col">Control domain</th><th scope="col">Evidence signal</th></tr></thead>
+              <tbody id="sd-cyber-rows">
+                <tr><td data-mono>SG-001</td><td>Access authorization review</td><td>Fingerprint match</td></tr>
+                <tr><td data-mono>SG-002</td><td>Authentication evidence</td><td>Missing record</td></tr>
+                <tr><td data-mono>SG-003</td><td>Endpoint encryption sample</td><td>Stale evidence</td></tr>
+                <tr><td data-mono>SG-004</td><td>Firewall configuration</td><td>Changed baseline</td></tr>
+                <tr><td data-mono>SG-005</td><td>Audit-log retention</td><td>Fingerprint match</td></tr>
+                <tr><td data-mono>SG-006</td><td>Incident-response exercise</td><td>Unbaselined</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sd-box">
+          Control visibility | Where evidence diverges</h4>
+          <div class="sd-barlist">
+            <div class="sd-baritem"><div class="sd-barmeta"><span>Baseline-aligned signals</span><strong>2 records</strong></div><div class="sd-track"><div class="sd-fill" data-tone="teal" style="width:33.33%"></div></div></div>
+            <div class="sd-baritem"><div class="sd-barmeta"><span>Missing or outdated evidence</span><strong>2 records</strong></div><div class="sd-track"><div class="sd-fill" data-tone="muted" style="width:33.33%"></div></div></div>
+            <div class="sd-baritem"><div class="sd-barmeta"><span>Drift or provenance gaps</span><strong>2 records</strong></div><div class="sd-track"><div class="sd-fill" style="width:33.33%"></div></div></div>
+          </div>
+          <p class="sd-sidefoot" id="sd-cyber-detail" aria-live="polite">Explore modeled control evidence signals and pinpoint records requiring investigation. Signal status alone does not establish security effectiveness.</p>
+          <div class="sd-cyber-boundary">
+            <strong>Simulation scope | Mission assurance</strong>
+            <p>Illustrative scenarios draw on common enterprise control-evidence themes, including access management, configuration baselines and audit trails. Contract-specific NIST and CMMC obligations require separate scoping and independent review.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sd-cta-row">
+        <p class="sd-source">SIMULATION ONLY | Six invented evidence records; no connected security systems, continuous monitoring, verified attack paths, zero-day detection or CMMC certification. File integrity is not proof of an effective security control. No FCI, CUI or customer configurations are used.</p>
+        <a class="sd-cta" href="mailto:info@sriskpartners.com?subject=Strategic%20Cyber%20Risk%20Assessment%20Inquiry">REQUEST A STRATEGIC CYBER ASSESSMENT ↗</a>
+      </div>
+    </div>
     <p class="sd-note" style="margin-top:18px">All dashboards are publicly viewable <strong>illustrations of intended analytical workflows</strong>. They are not a customer portal, Power BI Service, live flight-data feed, validated actuarial model or guarantee of present commercial capability. Formal deliverables and data permissions must be agreed for each engagement.</p>
   </div>
 </section>
@@ -471,6 +541,21 @@
       event.preventDefault();selectTab(tabs[next],true);
     });
   });
+  const openCyberDashboard = () => {
+    const cyberTab = find('sd-tab-cyber');
+    if (!cyberTab) return;
+    selectTab(cyberTab, false);
+    const cyberPanel = find('sd-cyber');
+    if (cyberPanel) cyberPanel.scrollIntoView({behavior:'auto',block:'start'});
+  };
+  const directCyberHash = () => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash === '#cybersecurity-dashboard' || hash === '#sd-cyber') openCyberDashboard();
+  };
+  const cyberJump = scope.querySelector('[data-sd-cyber-jump]');
+  if (cyberJump) cyberJump.addEventListener('click',openCyberDashboard);
+  window.addEventListener('hashchange',directCyberHash);
+  directCyberHash();
   const cases=[
     {id:'S001',name:'Cessna 172S',label:'Quote',hull:220000,gap:false},
     {id:'S002',name:'Beechcraft King Air 350',label:'Refer',hull:2800000,gap:false},
@@ -577,6 +662,59 @@
   };
   fields.forEach(id=>find(id).addEventListener('input',updateFuel));
   updateFuel();
+})();
+
+
+
+/* SentinelGate synthetic control-evidence demonstration; no actual security scanner or customer data. */
+(() => {
+  'use strict';
+  const root = document.querySelector('#sd-cyber');
+  if (!root) return;
+  const rows = [
+    {id:'SG-001',topic:'Access authorization review',status:'Match',detail:'Local test fingerprint matches the fictional baseline; implementation remains unassessed.'},
+    {id:'SG-002',topic:'Authentication evidence',status:'Missing',detail:'No hypothetical MFA evidence record supplied; identify authoritative source and review.'},
+    {id:'SG-003',topic:'Endpoint encryption sample',status:'Stale',detail:'Fictional evidence exceeds the test freshness window; request new evidence.'},
+    {id:'SG-004',topic:'Firewall configuration',status:'Changed',detail:'Fictional configuration hash differs from baseline; investigate and approve disposition.'},
+    {id:'SG-005',topic:'Audit-log retention',status:'Match',detail:'Local test fingerprint matches the synthetic baseline; retention policy not assessed.'},
+    {id:'SG-006',topic:'Incident-response exercise',status:'Unbaselined',detail:'Fictional record exists without an approved reference baseline; establish provenance.'}
+  ];
+  const targets = [...root.querySelectorAll('[data-cyber-filter]')];
+  const body = root.querySelector('#sd-cyber-rows');
+  const summary = root.querySelector('#sd-cyber-detail');
+  const stateCounts = rows.reduce((counts,row)=>{counts[row.status]=(counts[row.status]||0)+1;return counts},{});
+  const needsReview = rows.filter(row=>row.status!=='Match');
+  const total = root.querySelector('#sd-cyber-total');
+  const matches = root.querySelector('#sd-cyber-matches');
+  const review = root.querySelector('#sd-cyber-review');
+  total.textContent=String(rows.length);
+  matches.textContent=String(stateCounts.Match || 0);
+  review.textContent=String(needsReview.length);
+  function render(filter) {
+    targets.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cyberFilter===filter)));
+    const selected=rows.filter(row=>filter==='All'||(filter==='Review'?row.status!=='Match':row.status==='Match'));
+    body.replaceChildren();
+    for (const row of selected) {
+      const tr=document.createElement('tr');
+      const id=document.createElement('td');id.setAttribute('data-mono','');id.textContent=row.id;
+      const topic=document.createElement('td');topic.textContent=row.topic;
+      const state=document.createElement('td');
+      const pill=document.createElement('span');pill.className='sd-pill';pill.dataset.cyberStatus=row.status;
+      pill.textContent=row.status==='Match'?'Baseline-aligned':row.status;
+      state.appendChild(pill);
+      tr.append(id,topic,state);
+      body.appendChild(tr);
+    }
+    if(filter==='Review'){
+      summary.textContent='Four simulated priority evidence exceptions: missing, stale, changed and unbaselined records. Investigate these signals before relying on the related controls.';
+    }else if(filter==='Match'){
+      summary.textContent='Two simulated records align with their local evidence baselines. A matching fingerprint alone cannot establish control effectiveness.';
+    }else{
+      summary.textContent='Six simulated enterprise control signals: two baseline-aligned records and four priority evidence exceptions. No real attack paths or compliance score are represented.';
+    }
+  }
+  targets.forEach(button=>button.addEventListener('click',()=>render(button.dataset.cyberFilter)));
+  render('All');
 })();
 
 </script>
